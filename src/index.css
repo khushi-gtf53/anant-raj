@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.swiper-container {
+  overflow-x: hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #1e40af;
+  width: 30px;
+  height: 30px;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px;
+}
+
+.font-lato {
+  font-family: "Lato", sans-serif;
+}
+
+@font-face {
+  font-family: "SangBleuSans";
+  src: url("./fonts/sangbleu-sans-regular.ttf") format("truetype");
+}
+.font-sangbleu {
+  font-family: "SangBleuSans", sans-serif;
+}
+
+.text-primaryred {
+  color: #b3162f;
+}
+
+.text-primaryblue {
+  color: #263a7f;
+}
+
+.bg-primaryblue {
+  background-color: #263a7f;
+}
