@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="flex absolute top-0 w-full text-white justify-between items-center px-[100px] py-3">
+    <header className="flex absolute z-[100] top-0 w-full text-white justify-between items-center px-[20px] lg:px-[100px] py-3">
       <img
         src="./assets/white-anant.png"
         alt="Anant Raj Limited Logo"
