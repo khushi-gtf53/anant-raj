@@ -27,7 +27,7 @@ body {
 
 @font-face {
   font-family: "SangBleuSans";
-  src: url("./fonts/sangbleu-sans-regular.ttf") format("truetype");
+  src: url("./assets/fonts/sangbleu-sans-regular.ttf") format("truetype");
 }
 .font-sangbleu {
   font-family: "SangBleuSans", sans-serif;
