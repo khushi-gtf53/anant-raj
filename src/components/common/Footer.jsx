@@ -43,7 +43,7 @@ const Footer = () => {
       <div
         className={`${
           isExploreVisible ? "hidden" : "flex"
-        }  justify-between text-[14px] tracking-[1px] px-[100px] py-3 fixed bottom-0  w-full z-[99] text-black bg-white`}
+        }  justify-between  text-[14px] tracking-[1px] px-[100px] py-3 fixed bottom-0  w-full z-[99] text-black bg-white`}
       >
         <a href="#" className="hover:text-gray-600">
           RESIDENTIAL
