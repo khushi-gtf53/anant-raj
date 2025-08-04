@@ -31,7 +31,7 @@ const LuxuryProperties = () => {
   return (
     <section className="bg-[#FBF6F6] relative pb-[70px]">
       <div className="px-[80px] py-[70px]">
-        <div className="flex justify-between w-full max-w-6xl items-center mb-[35px]">
+        <div className="flex justify-between w-full  items-center mb-[35px]">
           <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] leading-[40px] text-[20px]">
             LUXURY PROPERTIES
           </h2>
@@ -79,7 +79,7 @@ const LuxuryProperties = () => {
           </div>
         </div>
 
-        <div className="relative w-full max-w-6xl">
+        <div className="relative w-full ">
           <Swiper
             modules={[Navigation]}
             spaceBetween={0}
@@ -120,7 +120,7 @@ const LuxuryProperties = () => {
           <button className="font-[600] w-[350px] text-[14px] text-primaryblue text-center  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
-          <div className="flex justify-end w-full max-w-6xl mt-2">
+          <div className="flex justify-end w-full  mt-2">
             <button className="w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
               <svg
                 className="w-4 h-4"
