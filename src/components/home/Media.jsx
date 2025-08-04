@@ -50,7 +50,7 @@ const Media = () => {
   };
 
   return (
-    <section className="bg-white pt-16 px-6 md:px-16 ">
+    <section className="bg-white pt-16 px-[100px] ">
       <h2 className="font-sangbleu text-primaryred mb-20 uppercase tracking-widest text-[20px] leading-[40px] font-medium">
         Press & Media: Stay Informed & Inspired
       </h2>
@@ -88,7 +88,7 @@ const Media = () => {
 
       {/* Bottom controls */}
       <div className="flex justify-between items-center">
-        <button className="text-primaryblue font-semibold text-sm border-t border-b border-primaryblue px-6 py-2 hover:bg-primaryblue hover:text-white transition">
+        <button className="text-primaryblue font-semibold text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
           EXPLORE MORE NEWS
         </button>
 

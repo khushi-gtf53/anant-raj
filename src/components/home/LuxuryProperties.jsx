@@ -30,7 +30,7 @@ const LuxuryProperties = () => {
 
   return (
     <section className="bg-[#FBF6F6] relative pb-[70px]">
-      <div className="px-[80px] py-[70px]">
+      <div className="px-[100px] py-[100px]">
         <div className="flex justify-between w-full  items-center mb-[35px]">
           <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] leading-[40px] text-[20px]">
             LUXURY PROPERTIES
@@ -95,9 +95,9 @@ const LuxuryProperties = () => {
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 <div className="relative">
-                  <p className="tracking-[1.2px] flex flex-col absolute left-[30px] text-white top-[30px]">
-                    <span className="text-[32px] font-[500]">Joy Square </span>
-                    <span className="text-[30px] font-[500] mb-[8px] mt-[4px]">
+                  <p className="tracking-[1.2px] flex flex-col absolute left-[80px] text-white top-[40px]">
+                    <span className="text-[32px] font-[600]">Joy Square </span>
+                    <span className="text-[30px] font-[600] mb-[8px] mt-[4px]">
                       (JV with AIPL)
                     </span>
 

@@ -1,6 +1,6 @@
 const Aboutus = () => {
   return (
-    <section className="px-[80px] bg-white py-[70px]">
+    <section className="px-[100px] bg-white py-[100px]">
       <div className="flex justify-between flex-wrap font-sangbleu">
         <div className="flex basis-[70%] flex-col">
           <h2 className="text-primaryred mb-[40px] uppercase tracking-[2px] leading-[40px] font-[200] text-[20px]">
@@ -9,10 +9,10 @@ const Aboutus = () => {
           </h2>
 
           <div className="flex flex-wrap">
-            <span className="basis-[20%] leading-[185px] text-[163px] text-primaryblue">
+            <span className="basis-[20%] leading-[150px] text-[190px] text-primaryblue font-lato">
               A
             </span>
-            <p className="basis-[75%] text-[15px] leading-[32px] tracking-[1.5px] font-lato">
+            <p className="basis-[65%] ml-[10px] text-justify text-[15px] leading-[32px] tracking-[1.5px] font-lato">
               nant Raj Limited has been a leader in India's real estate
               landscape since 1969, delivering landmark developments across
               residential, commercial, and IT infrastructure sectors. With a
@@ -30,7 +30,7 @@ const Aboutus = () => {
           <span className="text-end w-full block mt-[5px] tracking-[1.5px] text-[20px] font-[100]">
             Founded in
           </span>
-          <button className="border-primaryblue mt-[80px] font-[200] text-[12px] tracking-[1.5px] border-solid border-[1px] text-primaryblue px-8 py-2">
+          <button className="border-primaryblue mt-[80px] font-[200] text-[12px] tracking-[1.5px] border-solid border-[1px] text-primaryblue px-8 py-[14px]">
             EXPLORE MORE
           </button>
         </p>

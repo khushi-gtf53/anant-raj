@@ -27,7 +27,7 @@ const Blogs = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="px-[80px] pt-[70px]  bg-white">
+    <section className="px-[100px] pt-[70px]  bg-white">
       <h2 className="font-sangbleu text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[60px] uppercase tracking-widest text-[20px] leading-[40px] font-medium">
         Discover Insights. Ignite Imagination.
       </h2>
@@ -55,7 +55,7 @@ const Blogs = () => {
                     {slide.title}
                   </p>
                   <div>
-                    <button className="text-primaryblue font-semibold text-sm border-t border-b border-primaryblue px-6 py-2 hover:bg-primaryblue hover:text-white transition">
+                    <button className="text-primaryblue font-semibold text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
                       EXPLORE BLOGS & NEWS
                     </button>
                   </div>

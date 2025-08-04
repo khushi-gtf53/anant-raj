@@ -9,9 +9,9 @@ const Hero = () => {
         className="absolute object-cover w-full h-full z-[-1]"
       ></video>
 
-      <h1 className="text-7xl tracking-[10px] px-[80px] text-center font-sangbleu mb-[85px] font-[400]">
+      {/* <h1 className="text-7xl tracking-[10px] px-[100px] text-center font-sangbleu mb-[85px] font-[400]">
         ANANT RAJ LIMITED
-      </h1>
+      </h1> */}
     </div>
   );
 };

@@ -61,11 +61,11 @@ const DevelopmentExperience = () => {
     <section className="bg-white" ref={sectionRef}>
       <img
         src="./assets/residential.png"
-        className="h-full w-full"
+        className="h-[350px] w-full"
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">
-        <div className="px-[80px] flex flex-wrap justify-between space-y-[40px] py-[60px]">
+        <div className="px-[100px] flex flex-wrap justify-between space-y-[70px] py-[60px]">
           <p className="flex flex-wrap items-center basis-[50%]">
             <span className="font-sangbleu text-primaryblue text-[50px]">
               {counters.experience}+
@@ -93,7 +93,7 @@ const DevelopmentExperience = () => {
               <span className="block">Projects Developed</span>
             </span>
           </p>
-          <p className="flex flex-wrap mt-[-10px] justify-end items-center basis-[50%]">
+          <p className="flex flex-wrap mt-[-40px] justify-end items-center basis-[50%]">
             <span className="font-sangbleu text-primaryblue text-[50px]">
               {counters.dataCenters}+
             </span>

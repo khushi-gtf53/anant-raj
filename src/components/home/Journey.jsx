@@ -61,7 +61,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="px-[80px] py-[70px]  bg-white">
+    <section className="px-[100px] py-[100px]  bg-white">
       {/* <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
         <span>Empowering Dreams, Our Journey to </span>
         <span className="block"> Success Early 90’s - The Beginning</span>

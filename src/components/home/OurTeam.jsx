@@ -49,7 +49,7 @@ const OurTeam = () => {
   };
 
   return (
-    <section className="px-[80px] py-[70px] bg-white">
+    <section className="px-[100px] py-[100px] bg-white">
       <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[18px]">
         Meet our founder, whose visionary leadership drives creativity, growth,
         and excellence
@@ -71,17 +71,17 @@ const OurTeam = () => {
           >
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
-                <div className="flex justify-between flex-wrap">
+                <div className="flex justify-between flex-wrap items-center">
                   <div className="basis-[40%]">
                     <img
-                      className="h-[300px] object-cover"
+                      className="h-[380px] object-cover"
                       src="./assets/anant-raj.png"
                       alt="anant-raj"
                     />
                   </div>
                   <div className="basis-[60%]">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-primaryblue uppercase pb-[20px] tracking-[1px] font-[600]">
+                      <h3 className="text-primaryblue uppercase pb-[30px] tracking-[1px] font-[600]">
                         {slide.title}
                       </h3>
                       <div>
@@ -101,7 +101,7 @@ const OurTeam = () => {
                         </button>
                       </div>
                     </div>
-                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[20px] text-[14px] font-lato tracking-[1px]">
+                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[30px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
                     <ul className="flex justify-between items-center my-[25px] tracking-[1px]">

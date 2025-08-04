@@ -44,17 +44,14 @@ const Achievements = () => {
   };
 
   return (
-    <section className="bg-[#FBF6F6] px-[80px]  py-14">
+    <section className="bg-[#FBF6F6] px-[100px]  py-14">
       <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[20px] leading-[40px] font-medium">
         Award-Winning Milestones in Real Estate.
       </h2>
 
-      <div className="flex flex-col md:flex-row gap-10 items-center ">
+      <div className="flex justify-between flex-wrap  items-center ">
         {/* Image Carousel */}
-        <div
-          className="w-full md:w-1/2 flex justify-center 
-        "
-        >
+        <div className="basis-[55%] overflow-x-hidden">
           <Swiper
             modules={[Navigation]}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -67,7 +64,7 @@ const Achievements = () => {
                 <img
                   src={achievement.image}
                   alt={achievement.title}
-                  className="w-[500px] h-[350px] object-cover"
+                  className="w-full h-[350px] object-cover"
                 />
               </SwiperSlide>
             ))}
@@ -75,7 +72,7 @@ const Achievements = () => {
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2 font-lato">
+        <div className="basis-[38%] font-lato">
           <h3 className="text-lg  font-semibold text-gray-800 mb-6">
             {activeAchievement.title}
           </h3>
@@ -109,7 +106,7 @@ const Achievements = () => {
             </button>
           </div>
 
-          <button className="inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-2 px-6 tracking-wide transition hover:bg-primaryblue hover:text-white">
+          <button className="inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
             EXPLORE MORE Awards
           </button>
         </div>
