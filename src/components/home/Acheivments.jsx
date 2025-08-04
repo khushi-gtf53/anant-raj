@@ -44,15 +44,17 @@ const Achievements = () => {
   };
 
   return (
-    <section className="bg-[#FBF6F6] px-6 md:px-16 py-14">
+    <section className="bg-[#FBF6F6] px-[80px]  py-14">
       <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[20px] leading-[40px] font-medium">
-        Award-Winning Milestones in Real <br className="hidden md:block" />
-        <span className="block">Estate.</span>
+        Award-Winning Milestones in Real Estate.
       </h2>
 
-      <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
+      <div className="flex flex-col md:flex-row gap-10 items-center ">
         {/* Image Carousel */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <div
+          className="w-full md:w-1/2 flex justify-center 
+        "
+        >
           <Swiper
             modules={[Navigation]}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -65,7 +67,7 @@ const Achievements = () => {
                 <img
                   src={achievement.image}
                   alt={achievement.title}
-                  className="w-[500px] h-[280px] object-cover"
+                  className="w-[500px] h-[350px] object-cover"
                 />
               </SwiperSlide>
             ))}
@@ -74,7 +76,7 @@ const Achievements = () => {
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 font-lato">
-          <h3 className="text-xl md:text-2xl  font-semibold text-gray-800 mb-6">
+          <h3 className="text-lg  font-semibold text-gray-800 mb-6">
             {activeAchievement.title}
           </h3>
           <p className="text-base leading-relaxed  mb-8">

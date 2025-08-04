@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 
 const OurTeam = () => {
   const [activeRole, setActiveRole] = useState("Our Founder");
+  const [swiperInstance, setSwiperInstance] = useState(null);
 
   const slides = [
     {
@@ -39,13 +40,19 @@ const OurTeam = () => {
     setActiveRole(slides[currentIndex].role);
   };
 
+  const handleRoleClick = (role) => {
+    const slideIndex = slides.findIndex((slide) => slide.role === role);
+    if (slideIndex !== -1 && swiperInstance) {
+      swiperInstance.slideToLoop(slideIndex);
+      setActiveRole(role);
+    }
+  };
+
   return (
-    <section className="px-[65px] py-[70px] bg-white">
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
-        <span>
-          Meet our founder, whose visionary leadership drives creativity,
-        </span>
-        <span className="block"> growth, and excellence.</span>
+    <section className="px-[80px] py-[70px] bg-white">
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[18px]">
+        Meet our founder, whose visionary leadership drives creativity, growth,
+        and excellence
       </h2>
 
       <div className="container mx-auto px-4">
@@ -60,6 +67,7 @@ const OurTeam = () => {
             }}
             loop={true}
             onSlideChange={handleSlideChange}
+            onSwiper={setSwiperInstance}
           >
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
@@ -73,7 +81,7 @@ const OurTeam = () => {
                   </div>
                   <div className="basis-[60%]">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-primaryblue uppercase pb-[15px] tracking-[1px] font-[600]">
+                      <h3 className="text-primaryblue uppercase pb-[20px] tracking-[1px] font-[600]">
                         {slide.title}
                       </h3>
                       <div>
@@ -93,43 +101,47 @@ const OurTeam = () => {
                         </button>
                       </div>
                     </div>
-                    <p className="border-y-[1px] leading-[33px] mb-[25px] border-solid border-black py-[20px] text-[14px] font-lato tracking-[1px]">
+                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[20px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
                     <ul className="flex justify-between items-center my-[25px] tracking-[1px]">
                       <li
-                        className={
+                        className={`cursor-pointer ${
                           activeRole === "Our Founder"
                             ? "text-primaryblue font-[600]"
                             : ""
-                        }
+                        }`}
+                        onClick={() => handleRoleClick("Our Founder")}
                       >
                         <span>Our Founder</span>
                       </li>
                       <li
-                        className={
+                        className={`cursor-pointer ${
                           activeRole === "Managing Director"
                             ? "text-primaryblue font-[600]"
                             : ""
-                        }
+                        }`}
+                        onClick={() => handleRoleClick("Managing Director")}
                       >
                         <span>Managing Director</span>
                       </li>
                       <li
-                        className={
+                        className={`cursor-pointer ${
                           activeRole === "Director & CEO"
                             ? "text-primaryblue font-[600]"
                             : ""
-                        }
+                        }`}
+                        onClick={() => handleRoleClick("Director & CEO")}
                       >
                         <span>Director & CEO</span>
                       </li>
                       <li
-                        className={
+                        className={`cursor-pointer ${
                           activeRole === "Director & COO"
                             ? "text-primaryblue font-[600]"
                             : ""
-                        }
+                        }`}
+                        onClick={() => handleRoleClick("Director & COO")}
                       >
                         <span>Director & COO</span>
                       </li>

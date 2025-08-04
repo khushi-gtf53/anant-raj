@@ -27,8 +27,8 @@ const Blogs = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="px-[65px] py-[70px] bg-white">
-      <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[20px] leading-[40px] font-medium">
+    <section className="px-[80px] pt-[70px]  bg-white">
+      <h2 className="font-sangbleu text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[60px] uppercase tracking-widest text-[20px] leading-[40px] font-medium">
         Discover Insights. Ignite Imagination.
       </h2>
 

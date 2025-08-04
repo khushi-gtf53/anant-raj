@@ -50,9 +50,9 @@ const Media = () => {
   };
 
   return (
-    <section className="bg-white py-16 px-6 md:px-16 ">
+    <section className="bg-white pt-16 px-6 md:px-16 ">
       <h2 className="font-sangbleu text-primaryred mb-20 uppercase tracking-widest text-[20px] leading-[40px] font-medium">
-        Press & Media: Stay Informed &<span className="block">Inspired</span>
+        Press & Media: Stay Informed & Inspired
       </h2>
 
       <Swiper
@@ -72,7 +72,7 @@ const Media = () => {
       >
         {mediaArticles.map((article) => (
           <SwiperSlide key={article.id}>
-            <div className="flex flex-col items-center text-center ">
+            <div className="flex flex-col ">
               <img
                 src={article.logo}
                 alt={article.source}

@@ -8,10 +8,12 @@ import Footer from "../components/common/Footer";
 import Media from "../components/home/Media";
 import Achievements from "../components/home/Acheivments";
 import Blogs from "../components/home/Blogs";
+import Header from "../components/common/Header";
 
 const Home = () => {
   return (
     <>
+      <Header />
       <Hero />
       <Aboutus />
       <LuxuryProperties />

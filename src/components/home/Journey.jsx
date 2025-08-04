@@ -61,10 +61,13 @@ const Timeline = () => {
   };
 
   return (
-    <section className="px-[65px] py-[70px] mb-[100px] bg-white">
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
+    <section className="px-[80px] py-[70px]  bg-white">
+      {/* <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
         <span>Empowering Dreams, Our Journey to </span>
         <span className="block"> Success Early 90’s - The Beginning</span>
+      </h2> */}
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
+        Empowering Dreams: Our Journey to Success
       </h2>
       <div className="flex justify-between items-center text-[40px] tracking-[1px] pt-[20px] mb-6 text-primaryblue font-sangbleu border-t-[1px] border-t-solid border-solid border-black text-2xl font-[500]">
         {slides.map((slide) => (
@@ -92,7 +95,7 @@ const Timeline = () => {
           {slides.map((slide) => (
             <SwiperSlide key={slide.year}>
               <div className="flex items-center flex-wrap space-x-6">
-                <div className="basis-[40%]">
+                <div className="basis-[55%]">
                   <img
                     src={slide.image}
                     alt={`Timeline ${slide.year}`}

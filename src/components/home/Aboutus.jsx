@@ -1,6 +1,6 @@
 const Aboutus = () => {
   return (
-    <section className="px-[65px] bg-white py-[70px]">
+    <section className="px-[80px] bg-white py-[70px]">
       <div className="flex justify-between flex-wrap font-sangbleu">
         <div className="flex basis-[70%] flex-col">
           <h2 className="text-primaryred mb-[40px] uppercase tracking-[2px] leading-[40px] font-[200] text-[20px]">
