@@ -170,7 +170,7 @@ const Footer = () => {
         )}
       </div>
 
-      <div className="bg-[#FBF6F6] px-[20px] lg:px-[100px] pt-6 pb-6 lg:pb-12">
+      <div className="bg-[#FBF6F6] px-[20px] lg:px-[100px] pt-6 pb-6 lg:pb-6">
         {/* Main Content Section */}
         <div>
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-[35px] lg:space-y-0">
@@ -260,13 +260,18 @@ const Footer = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="flex bg-white flex-col px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
+        <p className="flex-shrink-0 tracking-[1px]">
+          CRAFTED BY GTF TECHNOLOGIES
+        </p>
 
-        <div className="flex flex-col text-[14px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center mt-[20px]  py-[10px]">
-          <p className="flex-shrink-0">CRAFTED BY GTF TECHNOLOGIES</p>
-
-          <div className="flex ">
-            <p>Privacy Policy | Disclaimer</p>
-          </div>
+        <div className="flex ">
+          <p>
+            <span>Privacy Policy </span>
+            <span className="mx-[4px]"> |</span>
+            <span>Disclaimer</span>
+          </p>
         </div>
       </div>
     </footer>

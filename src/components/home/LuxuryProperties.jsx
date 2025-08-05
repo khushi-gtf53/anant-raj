@@ -37,7 +37,7 @@ const LuxuryProperties = () => {
           </h2>
           <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
             <p
-              className={`hover:text-gray-600 basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "RESIDENTIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -45,9 +45,12 @@ const LuxuryProperties = () => {
               onClick={() => handleCategoryClick("RESIDENTIAL")}
             >
               RESIDENTIAL
+              {activeCategory === "RESIDENTIAL" && (
+                <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[50%] bg-primaryblue w-[1px]"></span>
+              )}{" "}
             </p>
             <p
-              className={`hover:text-gray-600 basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "COMMERCIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -55,9 +58,12 @@ const LuxuryProperties = () => {
               onClick={() => handleCategoryClick("COMMERCIAL")}
             >
               COMMERCIAL
+              {activeCategory === "COMMERCIAL" && (
+                <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[50%] bg-primaryblue w-[1px]"></span>
+              )}
             </p>
             <p
-              className={`hover:text-gray-600 basis-[50%] lg:text-left text-center lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-left text-center lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "HOSPITALITY"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -65,9 +71,12 @@ const LuxuryProperties = () => {
               onClick={() => handleCategoryClick("HOSPITALITY")}
             >
               HOSPITALITY
+              {activeCategory === "HOSPITALITY" && (
+                <span className="h-[80px] hidden lg:block absolute bottom-[-80px] left-[50%] bg-primaryblue w-[1.5px]"></span>
+              )}
             </p>
             <p
-              className={`hover:text-gray-600  lg:basis-[60%] basis-[50%] lg:text-left text-center  cursor-pointer ${
+              className={`hover:text-gray-600 relative lg:basis-[60%] basis-[50%] lg:text-end text-center  cursor-pointer ${
                 activeCategory === "DATA CENTERS"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -75,6 +84,9 @@ const LuxuryProperties = () => {
               onClick={() => handleCategoryClick("DATA CENTERS")}
             >
               DATA CENTERS
+              {activeCategory === "DATA CENTERS" && (
+                <span className="h-[80px] hidden lg:block absolute bottom-[-80px] left-[50%] bg-primaryblue w-[1.5px]"></span>
+              )}{" "}
             </p>
           </div>
         </div>
