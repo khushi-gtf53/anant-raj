@@ -37,7 +37,7 @@ const LuxuryProperties = () => {
           </h2>
           <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
             <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "RESIDENTIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -50,7 +50,7 @@ const LuxuryProperties = () => {
               )}{" "}
             </p>
             <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "COMMERCIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -63,7 +63,7 @@ const LuxuryProperties = () => {
               )}
             </p>
             <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-left text-center lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "HOSPITALITY"
                   ? "text-primaryblue font-bold"
                   : ""
