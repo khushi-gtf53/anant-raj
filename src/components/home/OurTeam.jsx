@@ -49,13 +49,13 @@ const OurTeam = () => {
   };
 
   return (
-    <section className="px-[100px] py-[100px] bg-white">
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[18px]">
+    <section className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[35px] lg:leading-[40px] text-[16px] lg:text-[18px">
         Meet our founder, whose visionary leadership drives creativity, growth,
         and excellence
       </h2>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto lg:px-4">
         <div className="swiper-container-team overflow-x-hidden">
           <Swiper
             modules={[Navigation]}
@@ -72,16 +72,16 @@ const OurTeam = () => {
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 <div className="flex justify-between flex-wrap items-center">
-                  <div className="basis-[40%]">
+                  <div className="basis-full lg:basis-[40%]">
                     <img
-                      className="h-[380px] object-cover"
+                      className="h-[250px] lg:h-[380px] object-cover"
                       src="./assets/anant-raj.png"
                       alt="anant-raj"
                     />
                   </div>
-                  <div className="basis-[60%]">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-primaryblue uppercase pb-[30px] tracking-[1px] font-[600]">
+                  <div className="basis-full lg:basis-[60%]">
+                    <div className="flex justify-between items-center lg:pb-0 py-[25px]">
+                      <h3 className="text-primaryblue uppercase lg:text-[16px] text-[14px] lg:pb-[30px] tracking-[1px] font-[600]">
                         {slide.title}
                       </h3>
                       <div>
@@ -89,26 +89,26 @@ const OurTeam = () => {
                           <img
                             src="./assets/right-arrow.png"
                             alt="right"
-                            className="h-[20px] object-cover"
+                            className="h-[17px] lg:h-[20px] object-cover"
                           />
                         </button>
                         <button className="swiper-next-team cursor-pointer">
                           <img
                             src="./assets/right-arrow.png"
                             alt="left"
-                            className="h-[20px] object-cover"
+                            className="h-[17px] lg:h-[20px] object-cover"
                           />
                         </button>
                       </div>
                     </div>
-                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[30px] text-[14px] font-lato tracking-[1px]">
+                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[30px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
-                    <ul className="flex justify-between items-center my-[25px] tracking-[1px]">
+                    <ul className="flex lg:flex-nowrap flex-wrap justify-between items-center my-[25px] tracking-[1px]">
                       <li
-                        className={`cursor-pointer ${
+                        className={`cursor-pointer lg:text-left lg:mb-0 mb-[10px] text-center basis-[50%] ${
                           activeRole === "Our Founder"
-                            ? "text-primaryblue font-[600]"
+                            ? "text-primaryblue font-[600] "
                             : ""
                         }`}
                         onClick={() => handleRoleClick("Our Founder")}
@@ -116,7 +116,7 @@ const OurTeam = () => {
                         <span>Our Founder</span>
                       </li>
                       <li
-                        className={`cursor-pointer ${
+                        className={`cursor-pointer  lg:text-left lg:mb-0 mb-[10px] text-center basis-[50%] ${
                           activeRole === "Managing Director"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -126,7 +126,7 @@ const OurTeam = () => {
                         <span>Managing Director</span>
                       </li>
                       <li
-                        className={`cursor-pointer ${
+                        className={`cursor-pointer lg:text-left  text-center basis-[50%] ${
                           activeRole === "Director & CEO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -136,7 +136,7 @@ const OurTeam = () => {
                         <span>Director & CEO</span>
                       </li>
                       <li
-                        className={`cursor-pointer ${
+                        className={`cursor-pointer lg:text-left text-center basis-[50%] ${
                           activeRole === "Director & COO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -146,7 +146,7 @@ const OurTeam = () => {
                         <span>Director & COO</span>
                       </li>
                     </ul>
-                    <button className="font-[600] text-[14px] text-primaryblue text-center mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+                    <button className="font-[600] text-[14px] lg:w-auto w-[60%] lg:mx-0 my-0 mx-auto text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
                       EXPLORE OUR TEAM
                     </button>
                   </div>

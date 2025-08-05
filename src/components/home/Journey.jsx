@@ -34,6 +34,11 @@ const Timeline = () => {
       image: "./assets/timeline-1.png",
       text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
     },
+    {
+      year: 2001,
+      image: "./assets/timeline-1.png",
+      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+    },
   ];
 
   const handleSlideChange = (swiper) => {
@@ -61,15 +66,88 @@ const Timeline = () => {
   };
 
   return (
-    <section className="px-[100px] py-[100px]  bg-white">
+    <section className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]  bg-white">
       {/* <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
         <span>Empowering Dreams, Our Journey to </span>
         <span className="block"> Success Early 90’s - The Beginning</span>
       </h2> */}
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]">
         Empowering Dreams: Our Journey to Success
       </h2>
-      <div className="flex justify-between items-center text-[40px] tracking-[1px] pt-[20px] mb-6 text-primaryblue font-sangbleu border-t-[1px] border-t-solid border-solid border-black text-2xl font-[500]">
+      <div className="flex flex-nowrap overflow-x-auto items-center text-[35px] lg:text-[40px] tracking-[1px] pt-5 mb-6 text-primaryblue font-sangbleu border-t border-black text-2xl font-medium whitespace-nowrap scrollbar-hide">
+        {slides.map((slide) => (
+          <span
+            key={slide.year}
+            className={`cursor-pointer min-w-[50%] md:min-w-[22%]  ${
+              activeYear === slide.year ? "text-primaryblue" : "text-gray-400"
+            }`}
+            onClick={() => handleYearClick(slide.year)}
+          >
+            {slide.year}
+          </span>
+        ))}
+      </div>
+
+      <div className="relative mt-10">
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation={false}
+          loop={true}
+          onSlideChange={handleSlideChange}
+          ref={swiperRef}
+        >
+          {slides.map((slide) => (
+            <SwiperSlide key={slide.year}>
+              <div className="flex flex-col md:flex-row items-start md:items-center flex-wrap gap-6">
+                {/* Image Section */}
+                <div className="w-full md:w-[55%]">
+                  <img
+                    src={slide.image}
+                    alt={`Timeline ${slide.year}`}
+                    className="object-cover w-full h-[200px] md:h-[300px]"
+                  />
+                </div>
+
+                {/* Text Section */}
+                <div className="w-full md:w-[30%] md:ml-[60px] font-lato">
+                  <h3 className="text-xl md:text-2xl font-normal text-primaryblue mt-4 md:mt-0">
+                    {slide.year}
+                  </h3>
+                  <p className="my-4 tracking-[1px] leading-[26px] text-sm md:text-base">
+                    {slide.text}
+                  </p>
+                  <div className="flex items-center gap-2 mt-4">
+                    <button
+                      className="swiper-prev-journey cursor-pointer rotate-180"
+                      onClick={handlePrevClick}
+                    >
+                      <img
+                        alt="Previous"
+                        className="h-[20px] object-cover"
+                        src="./assets/right-arrow.png"
+                      />
+                    </button>
+                    <button
+                      className="swiper-next-journey cursor-pointer"
+                      onClick={handleNextClick}
+                    >
+                      <img
+                        alt="Next"
+                        className="h-[20px] object-cover"
+                        src="./assets/right-arrow.png"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* <div className="flex justify-between overflow-x-scroll items-center text-[40px] tracking-[1px] pt-[20px] mb-6 text-primaryblue font-sangbleu border-t-[1px] border-t-solid border-solid border-black text-2xl font-[500]">
         {slides.map((slide) => (
           <span
             key={slide.year}
@@ -136,7 +214,7 @@ const Timeline = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </div> */}
     </section>
   );
 };

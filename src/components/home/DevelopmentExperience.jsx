@@ -61,43 +61,43 @@ const DevelopmentExperience = () => {
     <section className="bg-white" ref={sectionRef}>
       <img
         src="./assets/residential.png"
-        className="h-[350px] w-full"
+        className="h-[275px] object-cover lg:h-[350px] w-full"
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">
-        <div className="px-[100px] flex flex-wrap justify-between space-y-[70px] py-[60px]">
-          <p className="flex flex-wrap items-center basis-[50%]">
-            <span className="font-sangbleu text-primaryblue text-[50px]">
+        <div className="px-[20px] lg:px-[100px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[70px] py-[40px] lg:py-[60px]">
+          <p className="flex flex-wrap items-center basis-[100%] lg:basis-[50%]">
+            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.experience}+
             </span>
-            <span className="font-lato text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato  text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
               of Real Estate
               <span className="block">Development Experience</span>
             </span>
           </p>
-          <p className="flex flex-wrap justify-end items-center basis-[50%]">
-            <span className="font-sangbleu text-primaryblue text-[50px]">
+          <p className="flex flex-wrap lg:justify-end items-center basis-[100%] lg:basis-[50%]">
+            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.units.toLocaleString() + "K"}+
             </span>
-            <span className="font-lato text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
               units Developed/
               <span className="block">Developing</span>
             </span>
           </p>
-          <p className="flex flex-wrap items-center basis-[46%]">
-            <span className="font-sangbleu text-primaryblue text-[50px]">
+          <p className="flex flex-wrap items-center basis-[100%]  lg:basis-[46%]">
+            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.projects}+
             </span>
-            <span className="font-lato text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
               MSF Real Estate
               <span className="block">Projects Developed</span>
             </span>
           </p>
-          <p className="flex flex-wrap mt-[-40px] justify-end items-center basis-[50%]">
-            <span className="font-sangbleu text-primaryblue text-[50px]">
+          <p className="flex flex-wrap lg:mt-[-40px] lg:justify-end items-center basis-[100%] lg:basis-[50%]">
+            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.dataCenters}+
             </span>
-            <span className="font-lato text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
               MW Data Centers
               <span className="block">Developed/</span>
               <span className="block">Upcoming</span>

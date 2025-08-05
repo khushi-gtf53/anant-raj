@@ -27,8 +27,8 @@ const Blogs = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="px-[100px] pt-[70px]  bg-white">
-      <h2 className="font-sangbleu text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[60px] uppercase tracking-widest text-[20px] leading-[40px] font-medium">
+    <section className="px-[20px] lg:px-[100px] pt-[70px]  bg-white">
+      <h2 className="font-sangbleu text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[60px] uppercase tracking-widest leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px] font-medium">
         Discover Insights. Ignite Imagination.
       </h2>
 
@@ -48,13 +48,13 @@ const Blogs = () => {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-[360px] object-cover rounded-sm"
+                  className="w-full h-[240px] lg:h-[360px] object-cover rounded-sm"
                 />
-                <div className="flex mt-[25px] justify-between items-center">
+                <div className="flex lg:flex-row flex-col mt-[25px] justify-between items-center">
                   <p className=" text-[16px] font-semibold tracking-[1px] ">
                     {slide.title}
                   </p>
-                  <div>
+                  <div className="lg:mt-0 mt-[40px]">
                     <button className="text-primaryblue font-semibold text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
                       EXPLORE BLOGS & NEWS
                     </button>
@@ -67,7 +67,7 @@ const Blogs = () => {
 
         {/* Navigation Arrows */}
         <button
-          class="absolute top-1/2 left-[-20px] transform -translate-y-[165%] z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom swiper-button-disabled"
+          class="absolute top-1/2 left-[-20px] transform lg:-translate-y-[165%] translate-y-[-240%] z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom swiper-button-disabled"
           disabled=""
         >
           <svg
@@ -87,7 +87,7 @@ const Blogs = () => {
         </button>
 
         <button
-          class="absolute top-1/2 rotate-[180deg] right-[-20px] transform -translate-y-[165%] z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom swiper-button-disabled"
+          class="absolute top-1/2 rotate-[180deg] right-[-20px] transform lg:-translate-y-[165%] translate-y-[-240%]  z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom swiper-button-disabled"
           disabled=""
         >
           <svg

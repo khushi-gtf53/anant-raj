@@ -44,14 +44,14 @@ const Achievements = () => {
   };
 
   return (
-    <section className="bg-[#FBF6F6] px-[100px]  py-14">
-      <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[20px] leading-[40px] font-medium">
+    <section className="bg-[#FBF6F6] px-[20px] lg:px-[100px]  py-14">
+      <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium">
         Award-Winning Milestones in Real Estate.
       </h2>
 
       <div className="flex justify-between flex-wrap  items-center ">
         {/* Image Carousel */}
-        <div className="basis-[55%] overflow-x-hidden">
+        <div className="basis-[100%] lg:basis-[55%] overflow-x-hidden">
           <Swiper
             modules={[Navigation]}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -64,7 +64,7 @@ const Achievements = () => {
                 <img
                   src={achievement.image}
                   alt={achievement.title}
-                  className="w-full h-[350px] object-cover"
+                  className="w-full h-[250px] lg:mb-0 mb-[30px] lg:h-[350px] object-cover"
                 />
               </SwiperSlide>
             ))}
@@ -72,7 +72,7 @@ const Achievements = () => {
         </div>
 
         {/* Text Content */}
-        <div className="basis-[38%] font-lato">
+        <div className="basis-[100%] lg:basis-[38%] font-lato">
           <h3 className="text-lg  font-semibold text-gray-800 mb-6">
             {activeAchievement.title}
           </h3>
@@ -106,7 +106,7 @@ const Achievements = () => {
             </button>
           </div>
 
-          <button className="inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
+          <button className="flex my-0 mx-auto lg:mx-0 lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
             EXPLORE MORE Awards
           </button>
         </div>

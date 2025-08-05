@@ -30,14 +30,14 @@ const LuxuryProperties = () => {
 
   return (
     <section className="bg-[#FBF6F6] relative pb-[70px]">
-      <div className="px-[100px] py-[100px]">
-        <div className="flex justify-between w-full  items-center mb-[35px]">
-          <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] leading-[40px] text-[20px]">
+      <div className="px-[20px]  lg:px-[100px] py-[40px] lg:py-[100px]">
+        <div className="flex flex-col lg:flex-nowrap flex-wrap lg:flex-row justify-between w-full items-start lg:items-center mb-[35px]">
+          <h2 className="text-primaryred text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[40px] text-[16px] lg:text-[20px]">
             LUXURY PROPERTIES
           </h2>
-          <div className="flex text-gray-800 font-lato tracking-[1px] text-[14px]">
+          <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
             <p
-              className={`hover:text-gray-600 mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "RESIDENTIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -47,7 +47,7 @@ const LuxuryProperties = () => {
               RESIDENTIAL
             </p>
             <p
-              className={`hover:text-gray-600 mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 basis-[50%] lg:text-left text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "COMMERCIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -57,7 +57,7 @@ const LuxuryProperties = () => {
               COMMERCIAL
             </p>
             <p
-              className={`hover:text-gray-600 mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 basis-[50%] lg:text-left text-center lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "HOSPITALITY"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -67,7 +67,7 @@ const LuxuryProperties = () => {
               HOSPITALITY
             </p>
             <p
-              className={`hover:text-gray-600 cursor-pointer ${
+              className={`hover:text-gray-600  lg:basis-[60%] basis-[50%] lg:text-left text-center  cursor-pointer ${
                 activeCategory === "DATA CENTERS"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -95,20 +95,22 @@ const LuxuryProperties = () => {
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 <div className="relative">
-                  <p className="tracking-[1.2px] flex flex-col absolute left-[80px] text-white top-[40px]">
-                    <span className="text-[32px] font-[600]">Joy Square </span>
-                    <span className="text-[30px] font-[600] mb-[8px] mt-[4px]">
+                  <p className="tracking-[1.2px] flex flex-col absolute left-[30px] lg:left-[80px] text-white top-[30px] lg:top-[40px]">
+                    <span className="text-[22px] lg:text-[32px] font-[600]">
+                      Joy Square{" "}
+                    </span>
+                    <span className="text-[20px] lg:text-[30px] font-[600] mb-[8px] mt-[4px]">
                       (JV with AIPL)
                     </span>
 
-                    <span className="text-[15px] tracking-[1.5px]">
+                    <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
                       MAGARPATTA ROAD
                     </span>
                   </p>
                   <img
                     src={slide.src}
                     alt={`${slide.category} Project`}
-                    className="w-full h-auto"
+                    className="w-full h-[290px] object-cover lg:h-auto"
                   />
                 </div>
               </SwiperSlide>
@@ -116,11 +118,11 @@ const LuxuryProperties = () => {
           </Swiper>
         </div>
 
-        <div className="flex justify-center w-full mt-[2.5rem]">
-          <button className="font-[600] w-[350px] text-[14px] text-primaryblue text-center  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+        <div className="flex justify-center lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[2.5rem]">
+          <button className="font-[600] mx-auto my-0 w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
-          <div className="flex justify-end w-full  mt-2">
+          <div className="flex justify-center lg:justify-end w-full lg:mb-0 mb-[25px] lg:mt-2">
             <button className="w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
               <svg
                 className="w-4 h-4"

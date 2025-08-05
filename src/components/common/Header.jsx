@@ -4,19 +4,31 @@ const Header = () => {
       <img
         src="./assets/white-anant.png"
         alt="Anant Raj Limited Logo"
-        className="h-[75px]"
+        className="h-[55px] lg:h-[75px]"
       />
       <nav className="flex space-x-6">
-        <a href="#" className="hover:text-gray-300 tracking-[1.2px] font-[400]">
+        <a
+          href="#"
+          className="hover:text-gray-300 lg:block hidden tracking-[1.2px] font-[400]"
+        >
           About Us
         </a>
-        <a href="#" className="hover:text-gray-300 tracking-[1.2px] font-[400]">
+        <a
+          href="#"
+          className="hover:text-gray-300  lg:block hidden tracking-[1.2px] font-[400]"
+        >
           Careers
         </a>
-        <a href="#" className="hover:text-gray-300 tracking-[1.2px] font-[400]">
+        <a
+          href="#"
+          className="hover:text-gray-300  lg:block hidden tracking-[1.2px] font-[400]"
+        >
           Investors
         </a>
-        <a href="#" className="hover:text-gray-300 tracking-[1.2px] font-[400]">
+        <a
+          href="#"
+          className="hover:text-gray-300  lg:block hidden tracking-[1.2px] font-[400]"
+        >
           CSR
         </a>
         <button className="relative w-6 h-6 hover:text-gray-300">

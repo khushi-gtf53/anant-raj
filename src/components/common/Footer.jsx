@@ -40,7 +40,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div
+      {/* <div
         className={`${
           isExploreVisible ? "hidden" : "flex"
         }  justify-between  text-[14px] tracking-[1px] px-[100px] py-3 fixed bottom-0  w-full z-[99] text-black bg-white`}
@@ -57,13 +57,13 @@ const Footer = () => {
         <a href="#" className="hover:text-gray-600">
           DATA CENTERS
         </a>
-      </div>
+      </div> */}
 
-      <div ref={exploreLinkRef} className="px-[100px] py-[70px]">
+      <div ref={exploreLinkRef} className="px-[20px] lg:px-[100px] py-[70px]">
         <div className="flex flex-wrap justify-between items-center">
-          <div className="basis-[80%] border-b-[1px] border-solid border-black"></div>
+          <div className="basis-[40%] lg:basis-[80%] border-b-[1px] border-solid border-black"></div>
           <button
-            className="uppercase cursor-pointer basis-[20%] justify-end tracking-[1px] text-[14px] flex items-center"
+            className="uppercase cursor-pointer basis-[60%] lg:basis-[20%] justify-end tracking-[1px] text-[13px] lg:text-[14px] flex items-center"
             onClick={handleClickOnExplore}
           >
             Explore More Links
@@ -170,21 +170,21 @@ const Footer = () => {
         )}
       </div>
 
-      <div className="bg-[#FBF6F6] px-[100px] pt-6 pb-12">
+      <div className="bg-[#FBF6F6] px-[20px] lg:px-[100px] pt-6 pb-6 lg:pb-12">
         {/* Main Content Section */}
         <div>
-          <div className="flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0">
+          <div className="flex flex-col lg:flex-row items-center justify-between space-y-[35px] lg:space-y-0">
             {/* Left Section - Logo */}
             <div className="flex-shrink-0">
               <img
                 src="./assets/footer-logo-1.png"
-                className="h-[100px] object-contain"
+                className="h-[60px] lg:h-[100px] object-contain"
                 alt="logo"
               />
             </div>
 
             {/* Center Section - Quote */}
-            <div className="flex-1 text-center px-8">
+            <div className="flex-1 text-center lg:px-8">
               <blockquote>
                 <p className="text-[16px]  font-[400] tracking-wide leading-relaxed">
                   " WE PLEDGE TO UPHOLD AND CONTINUE
@@ -200,7 +200,7 @@ const Footer = () => {
               <img
                 src="./assets/img-1.png"
                 alt="Portrait"
-                className="w-full h-[157px] object-contain filter grayscale"
+                className="w-full h-[130px] lg:h-[157px] object-contain filter grayscale"
               />
             </div>
           </div>
@@ -261,11 +261,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col text-[14px] lg:flex-row justify-between items-center mt-[20px]  py-[10px]">
-          {/* Left - Phone Number */}
+        <div className="flex flex-col text-[14px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center mt-[20px]  py-[10px]">
           <p className="flex-shrink-0">CRAFTED BY GTF TECHNOLOGIES</p>
 
-          {/* Right - Social Media Icons */}
           <div className="flex ">
             <p>Privacy Policy | Disclaimer</p>
           </div>
