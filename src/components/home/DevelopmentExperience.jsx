@@ -65,8 +65,8 @@ const DevelopmentExperience = () => {
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">
-        <div className="px-[20px] lg:px-[100px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[70px] py-[40px] lg:py-[60px]">
-          <p className="flex flex-wrap items-center basis-[100%] lg:basis-[50%]">
+        <div className="px-[20px] lg:px-[100px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[0px] py-[40px] lg:py-[60px]">
+          <p className="flex flex-wrap items-center lg:mb-[70px] basis-[100%] lg:basis-[50%]">
             <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.experience}+
             </span>
@@ -75,7 +75,7 @@ const DevelopmentExperience = () => {
               <span className="block">Development Experience</span>
             </span>
           </p>
-          <p className="flex flex-wrap lg:justify-end items-center basis-[100%] lg:basis-[50%]">
+          <p className="flex flex-wrap lg:justify-end lg:mb-[70px] items-center basis-[100%] lg:basis-[50%]">
             <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.units.toLocaleString() + "K"}+
             </span>
@@ -93,7 +93,7 @@ const DevelopmentExperience = () => {
               <span className="block">Projects Developed</span>
             </span>
           </p>
-          <p className="flex flex-wrap lg:mt-[-40px] lg:justify-end items-center basis-[100%] lg:basis-[50%]">
+          <p className="flex flex-wrap lg:justify-end items-center basis-[100%] lg:basis-[50%]">
             <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.dataCenters}+
             </span>

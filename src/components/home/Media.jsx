@@ -57,7 +57,7 @@ const Media = () => {
 
       <Swiper
         modules={[Navigation]}
-        spaceBetween={30}
+        spaceBetween={100}
         slidesPerView={1}
         breakpoints={{
           768: {

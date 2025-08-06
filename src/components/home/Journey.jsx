@@ -106,7 +106,7 @@ const Timeline = () => {
                   <img
                     src={slide.image}
                     alt={`Timeline ${slide.year}`}
-                    className="object-cover w-full h-[200px] md:h-[300px]"
+                    className="object-cover w-full h-[200px] md:h-[350px]"
                   />
                 </div>
 

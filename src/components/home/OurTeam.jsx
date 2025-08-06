@@ -79,9 +79,9 @@ const OurTeam = () => {
                       alt="anant-raj"
                     />
                   </div>
-                  <div className="basis-full lg:basis-[60%]">
-                    <div className="flex justify-between items-center lg:pb-0 py-[25px]">
-                      <h3 className="text-primaryblue uppercase lg:text-[16px] text-[14px] lg:pb-[30px] tracking-[1px] font-[600]">
+                  <div className="basis-full lg:basis-[50%]">
+                    <div className="flex justify-between items-center lg:pb-[30px] py-[25px]">
+                      <h3 className="text-primaryblue uppercase lg:text-[16px] text-[14px]  tracking-[1px] font-[600]">
                         {slide.title}
                       </h3>
                       <div>
@@ -104,9 +104,9 @@ const OurTeam = () => {
                     <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[30px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
-                    <ul className="flex lg:flex-nowrap flex-wrap justify-between items-center my-[25px] tracking-[1px]">
+                    <ul className="flex  flex-wrap justify-between items-center lg:mb-[35px] lg:mt-[30px] my-[25px] tracking-[1px]">
                       <li
-                        className={`cursor-pointer lg:text-left lg:mb-0 mb-[10px] text-center basis-[50%] ${
+                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] text-center lg:basis-[22%] basis-[50%] ${
                           activeRole === "Our Founder"
                             ? "text-primaryblue font-[600] "
                             : ""
@@ -116,7 +116,7 @@ const OurTeam = () => {
                         <span>Our Founder</span>
                       </li>
                       <li
-                        className={`cursor-pointer  lg:text-left lg:mb-0 mb-[10px] text-center basis-[50%] ${
+                        className={`cursor-pointer  lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] text-center lg:basis-[25%] basis-[50%] ${
                           activeRole === "Managing Director"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -126,7 +126,7 @@ const OurTeam = () => {
                         <span>Managing Director</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-left  text-center basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px]  text-center lg:basis-[25%] basis-[50%] ${
                           activeRole === "Director & CEO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -136,7 +136,7 @@ const OurTeam = () => {
                         <span>Director & CEO</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-left text-center basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px] text-center lg:basis-[25%] basis-[50%] ${
                           activeRole === "Director & COO"
                             ? "text-primaryblue font-[600]"
                             : ""
