@@ -40,7 +40,10 @@ const Aboutus = () => {
           <span className="lg:text-end w-full block mt-[5px] text-left tracking-[1.5px] text-[20px] font-[100]">
             Founded in
           </span>
-          <button className="border-primaryblue mt-[40px] font-[200] text-[12px] tracking-[1.5px] border-solid border-[1px] text-primaryblue px-8 py-[14px]">
+          <button className="block lg:hidden font-[600]  w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem]  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+            EXPLORE ALL PROJECTS
+          </button>
+          <button className="lg:block hidden border-primaryblue mt-[40px] font-[200] text-[12px] tracking-[1.5px] border-solid border-[1px] text-primaryblue px-8 py-[14px]">
             EXPLORE MORE
           </button>
         </p>

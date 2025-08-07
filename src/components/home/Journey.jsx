@@ -141,7 +141,8 @@ const Journey = () => {
                     <p className="my-4 tracking-[1px] leading-[26px] text-sm md:text-base">
                       {slide.text}
                     </p>
-                    <div className="flex items-center gap-2 mt-4">
+
+                    <div className=" flex  items-center gap-2 mt-4">
                       <button
                         className="swiper-prev-journey cursor-pointer rotate-180"
                         onClick={handlePrevClick}

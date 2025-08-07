@@ -80,28 +80,25 @@ const Achievements = () => {
             {activeAchievement.text}
           </p>
 
-          {/* Navigation Arrows */}
-          <div className="flex items-center  mb-8">
+          <div className=" flex  items-center gap-2 mb-8">
             <button
-              aria-label="Previous Achievement"
+              className="swiper-prev-journey cursor-pointer rotate-180"
               onClick={handlePrevClick}
-              className="p-2 rounded-full hover:bg-gray-200 transition"
             >
               <img
-                src="./assets/right-arrow.png"
                 alt="Previous"
-                className="h-5 w-5 rotate-180"
+                className="h-[20px] object-cover"
+                src={"./assets/right-arrow.png"}
               />
             </button>
             <button
-              aria-label="Next Achievement"
+              className="swiper-next-journey cursor-pointer"
               onClick={handleNextClick}
-              className="p-2 rounded-full hover:bg-gray-200 transition"
             >
               <img
-                src="./assets/right-arrow.png"
                 alt="Next"
-                className="h-5 w-5"
+                className="h-[20px] object-cover"
+                src={"./assets/right-arrow.png"}
               />
             </button>
           </div>

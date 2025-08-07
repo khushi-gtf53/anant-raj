@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -48,9 +48,16 @@ const OurTeam = () => {
     }
   };
 
+  // Ensure navigation buttons are updated after Swiper initialization
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.navigation?.update();
+    }
+  }, [swiperInstance]);
+
   return (
     <section className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[35px] lg:leading-[40px] text-[16px] lg:text-[18px">
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[35px] lg:leading-[40px] text-[16px] lg:text-[18px]">
         Meet our founder, whose visionary leadership drives creativity, growth,
         and excellence
       </h2>
@@ -81,34 +88,37 @@ const OurTeam = () => {
                   </div>
                   <div className="basis-full lg:basis-[50%]">
                     <div className="flex justify-between items-center lg:pb-[30px] py-[25px]">
-                      <h3 className="text-primaryblue uppercase lg:text-[16px] text-[14px]  tracking-[1px] font-[600]">
+                      <h3 className="text-primaryblue uppercase lg:text-[16px] text-[14px] tracking-[1px] font-[600]">
                         {slide.title}
                       </h3>
                       <div>
-                        <button className="swiper-prev-team cursor-pointer rotate-[180deg] mr-[10px]">
-                          <img
-                            src="./assets/right-arrow.png"
-                            alt="right"
-                            className="h-[17px] lg:h-[20px] object-cover"
-                          />
-                        </button>
-                        <button className="swiper-next-team cursor-pointer">
-                          <img
-                            src="./assets/right-arrow.png"
-                            alt="left"
-                            className="h-[17px] lg:h-[20px] object-cover"
-                          />
-                        </button>
+                        {/* Desktop Navigation Buttons */}
+                        <div className="flex">
+                          <button className="swiper-prev-team cursor-pointer rotate-[180deg] mr-[10px]">
+                            <img
+                              src="./assets/right-arrow.png"
+                              alt="right"
+                              className="h-[17px] lg:h-[20px] object-cover"
+                            />
+                          </button>
+                          <button className="swiper-next-team cursor-pointer">
+                            <img
+                              src="./assets/right-arrow.png"
+                              alt="left"
+                              className="h-[17px] lg:h-[20px] object-cover"
+                            />
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[30px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
-                    <ul className="flex  flex-wrap justify-between items-center lg:mb-[35px] lg:mt-[] my-[25px] tracking-[1px]">
+                    <ul className="flex flex-wrap justify-between items-center lg:mb-[35px] lg:mt-[] my-[25px] tracking-[1px]">
                       <li
-                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px]  lg:basis-[22%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-[22%] basis-[50%] ${
                           activeRole === "Our Founder"
-                            ? "text-primaryblue font-[600] "
+                            ? "text-primaryblue font-[600]"
                             : ""
                         }`}
                         onClick={() => handleRoleClick("Our Founder")}
@@ -116,7 +126,7 @@ const OurTeam = () => {
                         <span>Our Founder</span>
                       </li>
                       <li
-                        className={`cursor-pointer  lg:text-left lg:text-[13px] lg:mb-0 mb-[10px]  lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-[25%] basis-[50%] ${
                           activeRole === "Managing Director"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -126,7 +136,7 @@ const OurTeam = () => {
                         <span>Managing Director</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-end lg:text-[13px]   lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px] lg:basis-[25%] basis-[50%] ${
                           activeRole === "Director & CEO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -136,7 +146,7 @@ const OurTeam = () => {
                         <span>Director & CEO</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-end lg:text-[13px]  lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px] lg:basis-[25%] basis-[50%] ${
                           activeRole === "Director & COO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -146,7 +156,7 @@ const OurTeam = () => {
                         <span>Director & COO</span>
                       </li>
                     </ul>
-                    <button className="font-[600] text-[14px] lg:w-auto w-[60%]  text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+                    <button className="font-[600] text-[14px] lg:w-auto w-[60%] text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
                       EXPLORE OUR TEAM
                     </button>
                   </div>
