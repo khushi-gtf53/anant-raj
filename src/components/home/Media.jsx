@@ -68,17 +68,17 @@ const Media = () => {
           },
         }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        className="mb-[25px] lg:mb-20"
+        className="mb-[15px] lg:mb-20"
       >
         {mediaArticles.map((article) => (
           <SwiperSlide key={article.id}>
-            <div className="flex flex-col lg:items-start items-center ">
+            <div className="flex flex-col items-start  ">
               <img
                 src={article.logo}
                 alt={article.source}
                 className="h-[70px] w-[250px] lg:w-[200px] object-contain"
               />
-              <p className="text-sm mt-[35px] lg:text-left text-center tracking-[1px] leading-[26px] max-w-xs">
+              <p className="text-sm mt-[35px] text-left tracking-[1px] leading-[26px] max-w-xs">
                 {article.text}
               </p>
             </div>
@@ -87,8 +87,8 @@ const Media = () => {
       </Swiper>
 
       {/* Bottom controls */}
-      <div className="flex lg:flex-row flex-col-reverse justify-between items-center">
-        <button className="text-primaryblue font-semibold lg:mt-0 mt-[15px] text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
+      <div className="flex lg:flex-row flex-col-reverse justify-between lg:items-center">
+        <button className="text-primaryblue font-semibold lg:mt-0 mt-[25px] lg:w-auto w-[80%] text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
           EXPLORE MORE NEWS
         </button>
 

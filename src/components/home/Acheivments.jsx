@@ -106,7 +106,7 @@ const Achievements = () => {
             </button>
           </div>
 
-          <button className="flex my-0 mx-auto lg:mx-0 lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
+          <button className="flex  lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
             EXPLORE MORE Awards
           </button>
         </div>

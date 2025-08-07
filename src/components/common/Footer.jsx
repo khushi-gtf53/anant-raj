@@ -78,15 +78,15 @@ const Footer = () => {
         </div>
 
         <div className="mt-[40px]">
-          <ul className="flex flex-col lg:flex-row justify-between items-start lg:items-start space-y-6 lg:space-y-0">
+          <ul className="flex lg:flex-nowrap flex-wrap flex-row justify-between items-start lg:items-start space-y-6 lg:space-y-0">
             {/* Copyright Section */}
-            <li className="flex flex-col space-y-1 text-sm ">
+            <li className="lg:flex lg:basis-auto basis-[50%] flex-col hidden space-y-1 text-sm ">
               <span>Copyright © 2025</span>
               <span className="mt-[6px]">Anant Raj Limited</span>
             </li>
 
             {/* Residential & Commercial */}
-            <li className="flex flex-col space-y-2 text-sm ">
+            <li className="flex flex-col lg:basis-auto basis-[50%] space-y-2 text-sm ">
               <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
                 <span className="mr-2">></span>
                 Residential
@@ -98,7 +98,7 @@ const Footer = () => {
             </li>
 
             {/* Data Centers & Hospitality */}
-            <li className="flex flex-col space-y-2 text-sm ">
+            <li className="flex flex-col lg:basis-auto basis-[50%] space-y-2 text-sm ">
               <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
                 <span className="mr-2">></span>
                 Data Centers
@@ -110,7 +110,19 @@ const Footer = () => {
             </li>
 
             {/* About Us & Investors */}
-            <li className="flex flex-col space-y-2 text-sm ">
+            <li className="flex flex-col lg:basis-auto basis-[50%] space-y-2 text-sm ">
+              <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
+                <span className="mr-2">></span>
+                About Us
+              </span>
+              <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                <span className="mr-2">></span>
+                Investors
+              </span>
+            </li>
+
+            {/* About Us & Investors */}
+            <li className="flex lg:hidden flex-col lg:basis-auto basis-[50%] space-y-2 text-sm ">
               <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
                 <span className="mr-2">></span>
                 About Us
@@ -123,15 +135,15 @@ const Footer = () => {
           </ul>
         </div>
         {isExploreOpen && (
-          <div className="mt-[20px]">
-            <ul className="flex flex-col lg:flex-row justify-between items-start lg:items-start space-y-6 lg:space-y-0">
+          <div className="lg:mt-[20px]">
+            <ul className="flex-wrap lg:flex-nowrap flex flex-row justify-between items-start lg:items-start space-y-6 lg:space-y-0">
               {/* Copyright Section */}
-              <li className="flex flex-col space-y-1 text-sm ">
+              <li className="lg:flex lg:basis-auto hidden basis-[50%] flex-col space-y-1 text-sm ">
                 <span>Copyright © 2025</span>
                 <span className="mt-[6px]">Anant Raj Limited</span>
               </li>
               {/* Residential & Commercial */}
-              <li className="flex flex-col space-y-2 text-sm ">
+              <li className="flex flex-col lg:basis-auto basis-[50%] space-y-2 text-sm ">
                 <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
                   <span className="mr-2">></span>
                   Residential
@@ -143,7 +155,7 @@ const Footer = () => {
               </li>
 
               {/* Data Centers & Hospitality */}
-              <li className="flex flex-col space-y-2 text-sm ">
+              <li className="flex flex-col lg:basis-auto basis-[50%] space-y-2 text-sm ">
                 <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
                   <span className="mr-2">></span>
                   Data Centers
@@ -262,6 +274,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex bg-white flex-col px-[20px] lg:px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
+        <p className="lg:hidden flex-shrink-0 tracking-[1px]">
+          Copyright © 2025 Anant Raj Ltd
+        </p>
         <p className="flex-shrink-0 tracking-[1px]">
           CRAFTED BY GTF TECHNOLOGIES
         </p>

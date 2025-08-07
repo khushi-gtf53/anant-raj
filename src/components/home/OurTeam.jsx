@@ -104,9 +104,9 @@ const OurTeam = () => {
                     <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[30px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
-                    <ul className="flex  flex-wrap justify-between items-center lg:mb-[35px] lg:mt-[30px] my-[25px] tracking-[1px]">
+                    <ul className="flex  flex-wrap justify-between items-center lg:mb-[35px] lg:mt-[] my-[25px] tracking-[1px]">
                       <li
-                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] text-center lg:basis-[22%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px]  lg:basis-[22%] basis-[50%] ${
                           activeRole === "Our Founder"
                             ? "text-primaryblue font-[600] "
                             : ""
@@ -116,7 +116,7 @@ const OurTeam = () => {
                         <span>Our Founder</span>
                       </li>
                       <li
-                        className={`cursor-pointer  lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] text-center lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer  lg:text-left lg:text-[13px] lg:mb-0 mb-[10px]  lg:basis-[25%] basis-[50%] ${
                           activeRole === "Managing Director"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -126,7 +126,7 @@ const OurTeam = () => {
                         <span>Managing Director</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-end lg:text-[13px]  text-center lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px]   lg:basis-[25%] basis-[50%] ${
                           activeRole === "Director & CEO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -136,7 +136,7 @@ const OurTeam = () => {
                         <span>Director & CEO</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-end lg:text-[13px] text-center lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px]  lg:basis-[25%] basis-[50%] ${
                           activeRole === "Director & COO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -146,7 +146,7 @@ const OurTeam = () => {
                         <span>Director & COO</span>
                       </li>
                     </ul>
-                    <button className="font-[600] text-[14px] lg:w-auto w-[60%] lg:mx-0 my-0 mx-auto text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+                    <button className="font-[600] text-[14px] lg:w-auto w-[60%]  text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
                       EXPLORE OUR TEAM
                     </button>
                   </div>

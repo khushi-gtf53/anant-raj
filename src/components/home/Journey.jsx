@@ -1,222 +1,177 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const Timeline = () => {
-  const [activeYear, setActiveYear] = useState(1969);
+const Journey = () => {
+  const [activeYear, setActiveYear] = useState("1992");
   const swiperRef = useRef(null);
+  const yearRefs = useRef({}); // Store refs for each year
+  const yearContainerRef = useRef(null); // Ref for the year navigation container
 
   const slides = [
     {
-      year: 1969,
-      image: "./assets/timeline-1.png", // Replace with actual image URL
-      text: "Anant Raj Was Founded In New Delhi. Establishing A Legacy Of Quality And Ethical Business Practices.",
+      year: "1992",
+      image: "./assets/timeline-1.png",
+      text: "Founded Anant Raj Limited, laying the foundation for real estate excellence.",
     },
     {
-      year: 1979,
+      year: "2000",
       image: "./assets/timeline-1.png",
-      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+      text: "Expanded into commercial real estate with innovative projects.",
     },
     {
-      year: 1989,
+      year: "2010",
       image: "./assets/timeline-1.png",
-      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+      text: "Ventured into hospitality, delivering world-class experiences.",
     },
     {
-      year: 1999,
+      year: "2020",
       image: "./assets/timeline-1.png",
-      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+      text: "Pioneered data center development, embracing future technologies.",
     },
     {
-      year: 2000,
+      year: "2030",
       image: "./assets/timeline-1.png",
-      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+      text: "Pioneered data center development, embracing future technologies.",
     },
     {
-      year: 2001,
+      year: "2040",
       image: "./assets/timeline-1.png",
-      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2050",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
     },
   ];
 
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.realIndex;
     setActiveYear(slides[currentIndex].year);
+    // Scroll the year into view when the slide changes
+    const yearElement = yearRefs.current[slides[currentIndex].year];
+    if (yearElement && yearContainerRef.current) {
+      yearElement.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
   };
 
   const handleYearClick = (year) => {
-    const index = slides.findIndex((slide) => slide.year === year);
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideToLoop(index, 500); // Smooth transition
+    const slideIndex = slides.findIndex((slide) => slide.year === year);
+    if (slideIndex !== -1 && swiperRef.current) {
+      swiperRef.current.swiper.slideToLoop(slideIndex);
+      setActiveYear(year);
+      // Scroll the clicked year into view
+      const yearElement = yearRefs.current[year];
+      if (yearElement && yearContainerRef.current) {
+        yearElement.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }
     }
   };
 
   const handlePrevClick = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev(500); // Smooth transition to previous slide
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
     }
   };
 
   const handleNextClick = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext(500); // Smooth transition to next slide
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
     }
   };
 
   return (
-    <section className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]  bg-white">
-      {/* <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[40px] text-[20px]">
-        <span>Empowering Dreams, Our Journey to </span>
-        <span className="block"> Success Early 90’s - The Beginning</span>
-      </h2> */}
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]">
-        Empowering Dreams: Our Journey to Success
-      </h2>
-      <div className="flex flex-nowrap overflow-x-auto items-center text-[35px] lg:text-[40px] tracking-[1px] pt-5 mb-6 text-primaryblue font-sangbleu border-t border-black text-2xl font-medium whitespace-nowrap scrollbar-hide">
-        {slides.map((slide) => (
-          <span
-            key={slide.year}
-            className={`cursor-pointer min-w-[50%] md:min-w-[22%]  ${
-              activeYear === slide.year ? "text-primaryblue" : "text-gray-400"
-            }`}
-            onClick={() => handleYearClick(slide.year)}
-          >
-            {slide.year}
-          </span>
-        ))}
-      </div>
-
-      <div className="relative mt-10">
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation={false}
-          loop={true}
-          onSlideChange={handleSlideChange}
-          ref={swiperRef}
+    <section className="relative px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
+      <div className="relative z-[3] max-w-6xl mx-auto">
+        <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]">
+          Empowering Dreams: Our Journey to Success
+        </h2>
+        <div
+          className="flex flex-nowrap overflow-x-auto items-center text-[35px] lg:text-[40px] tracking-[1px] pt-5 mb-6 text-primaryblue font-sangbleu border-t border-black text-2xl font-medium whitespace-nowrap scrollbar-hide"
+          ref={yearContainerRef}
         >
           {slides.map((slide) => (
-            <SwiperSlide key={slide.year}>
-              <div className="flex flex-col md:flex-row items-start md:items-center flex-wrap gap-6">
-                {/* Image Section */}
-                <div className="w-full md:w-[55%]">
-                  <img
-                    src={slide.image}
-                    alt={`Timeline ${slide.year}`}
-                    className="object-cover w-full h-[200px] md:h-[350px]"
-                  />
-                </div>
-
-                {/* Text Section */}
-                <div className="w-full md:w-[30%] md:ml-[60px] font-lato">
-                  <h3 className="text-xl md:text-2xl font-normal text-primaryblue mt-4 md:mt-0">
-                    {slide.year}
-                  </h3>
-                  <p className="my-4 tracking-[1px] leading-[26px] text-sm md:text-base">
-                    {slide.text}
-                  </p>
-                  <div className="flex items-center gap-2 mt-4">
-                    <button
-                      className="swiper-prev-journey cursor-pointer rotate-180"
-                      onClick={handlePrevClick}
-                    >
-                      <img
-                        alt="Previous"
-                        className="h-[20px] object-cover"
-                        src="./assets/right-arrow.png"
-                      />
-                    </button>
-                    <button
-                      className="swiper-next-journey cursor-pointer"
-                      onClick={handleNextClick}
-                    >
-                      <img
-                        alt="Next"
-                        className="h-[20px] object-cover"
-                        src="./assets/right-arrow.png"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+            <span
+              key={slide.year}
+              className={`cursor-pointer min-w-[50%] md:min-w-[25%] ${
+                activeYear === slide.year ? "text-primaryblue" : "text-gray-400"
+              }`}
+              onClick={() => handleYearClick(slide.year)}
+              ref={(el) => (yearRefs.current[slide.year] = el)}
+            >
+              {slide.year}
+            </span>
           ))}
-        </Swiper>
-      </div>
-
-      {/* <div className="flex justify-between overflow-x-scroll items-center text-[40px] tracking-[1px] pt-[20px] mb-6 text-primaryblue font-sangbleu border-t-[1px] border-t-solid border-solid border-black text-2xl font-[500]">
-        {slides.map((slide) => (
-          <span
-            key={slide.year}
-            className={`cursor-pointer ${
-              activeYear === slide.year ? "text-primaryblue" : "text-gray-400"
-            }`}
-            onClick={() => handleYearClick(slide.year)}
+        </div>
+        <div className="relative mt-10">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={false}
+            loop={true}
+            onSlideChange={handleSlideChange}
+            ref={swiperRef}
           >
-            {slide.year}
-          </span>
-        ))}
-      </div>
-      <div className="relative mt-[40px]">
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation={false} // Disable default navigation to use custom buttons
-          loop={true}
-          onSlideChange={handleSlideChange}
-          ref={swiperRef}
-        >
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.year}>
-              <div className="flex items-center flex-wrap space-x-6">
-                <div className="basis-[55%]">
-                  <img
-                    src={slide.image}
-                    alt={`Timeline ${slide.year}`}
-                    className="object-cover w-full h-[300px]" // Adjusted for consistent height
-                  />
-                </div>
-                <div className="basis-[30%] font-lato ml-[60px]">
-                  <h3 className="text-2xl font-[400] text-primaryblue">
-                    {slide.year}
-                  </h3>
-                  <p className="my-[20px] text-[15px] font-lato">
-                    {slide.text}
-                  </p>
-                  <div className="mt-[20px]">
-                    <button
-                      className="swiper-prev-journey cursor-pointer rotate-[180deg] mr-[10px]"
-                      onClick={handlePrevClick}
-                    >
-                      <img
-                        alt="right"
-                        className="h-[20px] object-cover"
-                        src="./assets/right-arrow.png"
-                      />
-                    </button>
-                    <button
-                      className="swiper-next-journey cursor-pointer"
-                      onClick={handleNextClick}
-                    >
-                      <img
-                        alt="left"
-                        className="h-[20px] object-cover"
-                        src="./assets/right-arrow.png"
-                      />
-                    </button>
+            {slides.map((slide) => (
+              <SwiperSlide key={slide.year}>
+                <div className="flex flex-col md:flex-row items-start md:items-center flex-wrap gap-6">
+                  <div className="w-full md:w-[55%]">
+                    <img
+                      src={slide.image}
+                      alt={`Timeline ${slide.year}`}
+                      className="object-cover w-full h-[200px] md:h-[350px]"
+                    />
+                  </div>
+                  <div className="w-full md:w-[30%] md:ml-[60px] font-lato">
+                    <h3 className="text-xl md:text-2xl font-normal text-primaryblue mt-4 md:mt-0">
+                      {slide.year}
+                    </h3>
+                    <p className="my-4 tracking-[1px] leading-[26px] text-sm md:text-base">
+                      {slide.text}
+                    </p>
+                    <div className="flex items-center gap-2 mt-4">
+                      <button
+                        className="swiper-prev-journey cursor-pointer rotate-180"
+                        onClick={handlePrevClick}
+                      >
+                        <img
+                          alt="Previous"
+                          className="h-[20px] object-cover"
+                          src={"./assets/right-arrow.png"}
+                        />
+                      </button>
+                      <button
+                        className="swiper-next-journey cursor-pointer"
+                        onClick={handleNextClick}
+                      >
+                        <img
+                          alt="Next"
+                          className="h-[20px] object-cover"
+                          src={"./assets/right-arrow.png"}
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div> */}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
     </section>
   );
 };
 
-export default Timeline;
+export default Journey;

@@ -50,12 +50,55 @@ const Blogs = () => {
                   alt={slide.title}
                   className="w-full h-[240px] lg:h-[360px] object-cover rounded-sm"
                 />
-                <div className="flex lg:flex-row flex-col mt-[25px] justify-between items-center">
+                <div className="flex mt-[1.5rem]">
+                  {/* Navigation Arrows */}
+                  <button
+                    className="lg:hidden flex z-10  w-6 h-6 bg-primaryblue cursor-pointer text-white rounded-full  items-center justify-center swiper-prev-custom swiper-button-disabled"
+                    disabled=""
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      ></path>
+                    </svg>
+                  </button>
+
+                  <button
+                    className="lg:hidden rotate-[180deg] flex z-10  ml-[10px] w-6 h-6 bg-primaryblue cursor-pointer text-white rounded-full  items-center justify-center swiper-prev-custom swiper-button-disabled"
+                    disabled=""
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div className="flex lg:flex-row flex-col mt-[25px] justify-between lg:items-center">
                   <p className=" text-[16px] font-semibold tracking-[1px] ">
                     {slide.title}
                   </p>
+
                   <div className="lg:mt-0 mt-[40px]">
-                    <button className="text-primaryblue font-semibold text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
+                    <button className="text-primaryblue font-semibold w-[90%] lg:w-auto text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
                       EXPLORE BLOGS & NEWS
                     </button>
                   </div>
@@ -67,7 +110,7 @@ const Blogs = () => {
 
         {/* Navigation Arrows */}
         <button
-          class="absolute top-1/2 left-[-20px] transform lg:-translate-y-[165%] translate-y-[-240%] z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom swiper-button-disabled"
+          class="lg:absolute hidden top-1/2 left-[-20px] transform lg:-translate-y-[165%] translate-y-[-240%] z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full lg:flex items-center justify-center swiper-prev-custom swiper-button-disabled"
           disabled=""
         >
           <svg
@@ -87,7 +130,7 @@ const Blogs = () => {
         </button>
 
         <button
-          class="absolute top-1/2 rotate-[180deg] right-[-20px] transform lg:-translate-y-[165%] translate-y-[-240%]  z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom swiper-button-disabled"
+          class="lg:absolute top-1/2 rotate-[180deg] right-[-20px] transform lg:-translate-y-[165%] translate-y-[-240%]  z-10  w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full hidden lg:flex items-center justify-center swiper-prev-custom swiper-button-disabled"
           disabled=""
         >
           <svg

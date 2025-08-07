@@ -37,7 +37,7 @@ const LuxuryProperties = () => {
           </h2>
           <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
             <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "RESIDENTIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -50,7 +50,7 @@ const LuxuryProperties = () => {
               )}{" "}
             </p>
             <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center mb-[17px] lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left mb-[17px] lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "COMMERCIAL"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -63,7 +63,7 @@ const LuxuryProperties = () => {
               )}
             </p>
             <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center lg:mr-[2rem] cursor-pointer ${
+              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left lg:mr-[2rem] cursor-pointer ${
                 activeCategory === "HOSPITALITY"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -76,7 +76,7 @@ const LuxuryProperties = () => {
               )}
             </p>
             <p
-              className={`hover:text-gray-600 relative lg:basis-[60%] basis-[50%] lg:text-end text-center  cursor-pointer ${
+              className={`hover:text-gray-600 relative lg:basis-[60%] basis-[50%] lg:text-end text-left  cursor-pointer ${
                 activeCategory === "DATA CENTERS"
                   ? "text-primaryblue font-bold"
                   : ""
@@ -107,22 +107,22 @@ const LuxuryProperties = () => {
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 <div className="relative">
-                  <p className="tracking-[1.2px] flex flex-col absolute left-[30px] lg:left-[80px] text-white top-[30px] lg:top-[40px]">
-                    <span className="text-[22px] lg:text-[32px] font-[600]">
+                  <p className="tracking-[1.2px] flex flex-col absolute left-[14px] lg:left-[80px] text-white top-[20px] lg:top-[40px]">
+                    <span className="text-[18px] lg:text-[32px] font-[600]">
                       Joy Square{" "}
                     </span>
-                    <span className="text-[20px] lg:text-[30px] font-[600] mb-[8px] mt-[4px]">
+                    <span className="text-[16px] lg:text-[30px] font-[600] mb-[6px] mt-[4px]">
                       (JV with AIPL)
                     </span>
 
-                    <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
+                    <span className="text-[12px] lg:text-[15px] tracking-[1.5px]">
                       MAGARPATTA ROAD
                     </span>
                   </p>
                   <img
                     src={slide.src}
                     alt={`${slide.category} Project`}
-                    className="w-full h-[290px] object-cover lg:h-auto"
+                    className="w-full h-[350px] object-cover lg:h-auto"
                   />
                 </div>
               </SwiperSlide>
@@ -130,12 +130,12 @@ const LuxuryProperties = () => {
           </Swiper>
         </div>
 
-        <div className="flex justify-center lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[2.5rem]">
-          <button className="font-[600] mx-auto my-0 w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[1.5rem] lg:mt-[2.5rem]">
+          <button className="font-[600]  w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem]  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
-          <div className="flex justify-center lg:justify-end w-full lg:mb-0 mb-[25px] lg:mt-2">
-            <button className="w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
+          <div className="flex justify-start lg:justify-end w-full mb-0  lg:mt-2">
+            <button className="w-6 lg:w-8 h-6 lg:h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -151,7 +151,7 @@ const LuxuryProperties = () => {
                 ></path>
               </svg>
             </button>
-            <button className="w-8 ml-[2rem] h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-next-custom">
+            <button className="w-6 lg:w-8 ml-[1rem] h-6 lg:h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-next-custom">
               <svg
                 className="w-4 h-4"
                 fill="none"
