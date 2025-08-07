@@ -59,7 +59,7 @@ const Blogs = () => {
                   className="w-full h-[240px] lg:h-[360px] object-cover rounded-sm"
                 />
 
-                <div className="flex mt-[16px]">
+                <div className="lg:hidden flex mt-[16px]">
                   {/* Keep internal buttons for layout but disable functionality */}
                   <button
                     aria-label="Previous"
@@ -101,7 +101,7 @@ const Blogs = () => {
         {/* Navigation Arrows */}
         <button className="absolute top-1/2 left-[-20px] transform lg:-translate-y-[165%] -translate-y-[240%] z-10 w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full hidden lg:flex items-center justify-center swiper-prev-custom">
           <svg
-            className="lg:w-4 h-4 w-3 h-3"
+            className="lg:w-4 lg:h-4 w-3 h-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -118,7 +118,7 @@ const Blogs = () => {
 
         <button className="absolute top-1/2 right-[-20px] transform lg:-translate-y-[165%] -translate-y-[240%] z-10 w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full hidden lg:flex items-center justify-center swiper-next-custom">
           <svg
-            className="lg:w-4 h-4 w-3 h-3"
+            className="lg:w-4 lg:h-4 w-3 h-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
