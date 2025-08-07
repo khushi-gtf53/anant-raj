@@ -261,7 +261,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex bg-white flex-col px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
+      <div className="flex bg-white flex-col px-[20px] lg:px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
         <p className="flex-shrink-0 tracking-[1px]">
           CRAFTED BY GTF TECHNOLOGIES
         </p>
