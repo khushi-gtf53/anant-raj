@@ -67,7 +67,7 @@ const DevelopmentExperience = () => {
       <div className="bg-[#FBF6F6] relative">
         <div className="px-[20px] lg:px-[100px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[0px] py-[40px] lg:py-[60px]">
           <p className="flex flex-wrap items-center lg:mb-[70px] basis-[100%] lg:basis-[50%]">
-            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
+            <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.experience}+
             </span>
             <span className="font-lato  text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
@@ -76,7 +76,7 @@ const DevelopmentExperience = () => {
             </span>
           </p>
           <p className="flex flex-wrap lg:justify-end lg:mb-[70px] items-center basis-[100%] lg:basis-[50%]">
-            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
+            <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.units.toLocaleString() + "K"}+
             </span>
             <span className="font-lato text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
@@ -85,7 +85,7 @@ const DevelopmentExperience = () => {
             </span>
           </p>
           <p className="flex flex-wrap items-center basis-[100%]  lg:basis-[46%]">
-            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
+            <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.projects}+
             </span>
             <span className="font-lato text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
@@ -94,7 +94,7 @@ const DevelopmentExperience = () => {
             </span>
           </p>
           <p className="flex flex-wrap lg:justify-end items-center basis-[100%] lg:basis-[50%]">
-            <span className="font-sangbleu basis-[40%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
+            <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.dataCenters}+
             </span>
             <span className="font-lato text-[12px] lg:text-[14px] ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
