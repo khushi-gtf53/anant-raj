@@ -261,7 +261,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex bg-white flex-col px-[20px] lg:px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
-        <p className="lg:hidden  text-[12px] tracking-[1px]">
+        <p className="lg:hidden  text-[16px] tracking-[1px]">
           Copyright © 2025 Anant Raj Ltd
         </p>
         <p className="tracking-[1px] text-[12px]">
