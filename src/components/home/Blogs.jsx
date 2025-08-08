@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -25,6 +25,43 @@ const blogSlides = [
 
 const Blogs = () => {
   const swiperRef = useRef(null);
+  const firstImageRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isInViewport, setIsInViewport] = useState(false);
+
+  // Intersection Observer to detect if first image is in viewport
+  useEffect(() => {
+    const img = firstImageRef.current;
+    if (!img) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting);
+      },
+      { threshold: 0.1 } // 10% visible triggers intersection
+    );
+
+    observer.observe(img);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Trigger animation only if first slide active AND image in viewport
+  useEffect(() => {
+    const el = firstImageRef.current;
+    if (!el) return;
+
+    if (activeIndex === 0 && isInViewport) {
+      el.classList.remove("animate-zoom-fade");
+      // Trigger reflow to restart animation
+      void el.offsetWidth;
+      el.classList.add("animate-zoom-fade");
+    } else {
+      el.classList.remove("animate-zoom-fade");
+    }
+  }, [activeIndex, isInViewport]);
 
   // Ensure navigation buttons are updated after Swiper initialization
   useEffect(() => {
@@ -43,24 +80,26 @@ const Blogs = () => {
         <Swiper
           modules={[Navigation]}
           slidesPerView={1}
-          loop={true} // Added loop for better navigation experience
+          loop={true}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           navigation={{
             nextEl: ".swiper-next-custom",
             prevEl: ".swiper-prev-custom",
           }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
-          {blogSlides.map((slide) => (
+          {blogSlides.map((slide, index) => (
             <SwiperSlide key={slide.id}>
               <div>
                 <img
+                  ref={index === 0 ? firstImageRef : null}
                   src={slide.image}
                   alt={slide.title}
                   className="w-full h-[240px] lg:h-[360px] object-cover rounded-sm"
                 />
 
                 <div className="lg:hidden flex mt-[16px]">
-                  {/* Keep internal buttons for layout but disable functionality */}
+                  {/* Internal buttons for layout but disabled */}
                   <button
                     aria-label="Previous"
                     className="p-2 swiper-prev-custom hover:bg-gray-200 rounded-full transition opacity-50 cursor-default"
@@ -133,6 +172,24 @@ const Blogs = () => {
           </svg>
         </button>
       </div>
+
+      {/* Animation CSS */}
+      <style jsx>{`
+        .animate-zoom-fade {
+          animation: zoomFadeIn 1.5s ease forwards;
+        }
+
+        @keyframes zoomFadeIn {
+          0% {
+            opacity: 0;
+            transform: scale(1.2);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `}</style>
     </section>
   );
 };

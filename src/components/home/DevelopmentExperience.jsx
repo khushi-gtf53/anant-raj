@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const DevelopmentExperience = () => {
   const [counters, setCounters] = useState({
@@ -8,6 +9,7 @@ const DevelopmentExperience = () => {
     dataCenters: 0,
   });
   const sectionRef = useRef(null);
+  const imageRef = useRef(null);
 
   const targetValues = {
     experience: 50,
@@ -40,6 +42,16 @@ const DevelopmentExperience = () => {
           animateCounter("units", targetValues.units, 2000);
           animateCounter("projects", targetValues.projects, 2000);
           animateCounter("dataCenters", targetValues.dataCenters, 2000);
+
+          // Animate image using GSAP
+          if (imageRef.current) {
+            gsap.fromTo(
+              imageRef.current,
+              { scale: 1.2, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 1.5, ease: "power3.out" }
+            );
+          }
+
           observer.disconnect();
         }
       },
@@ -60,8 +72,9 @@ const DevelopmentExperience = () => {
   return (
     <section className="bg-white" ref={sectionRef}>
       <img
+        ref={imageRef}
         src="./assets/residential.png"
-        className="h-[275px] object-cover lg:h-[350px] w-full"
+        className="h-[275px] object-cover lg:h-[350px] w-full opacity-0"
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">

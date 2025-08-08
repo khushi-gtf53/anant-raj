@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -30,6 +30,8 @@ const Achievements = () => {
     achievementsData[0]
   );
   const swiperRef = useRef(null);
+  const firstImageRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handlePrevClick = () => {
     swiperRef.current?.slidePrev();
@@ -43,13 +45,35 @@ const Achievements = () => {
     setActiveAchievement(achievementsData[swiper.realIndex]);
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null, // viewport
+        threshold: 0.5, // 50% of image visible triggers animation
+      }
+    );
+
+    if (firstImageRef.current) {
+      observer.observe(firstImageRef.current);
+    }
+
+    return () => {
+      if (firstImageRef.current) {
+        observer.unobserve(firstImageRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="bg-[#FBF6F6] px-[20px] lg:px-[100px] lg:py-[90px]  py-14">
+    <section className="bg-[#FBF6F6] px-[20px] lg:px-[100px] lg:py-[90px] py-14">
       <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium">
         Award-Winning Milestones in Real Estate.
       </h2>
 
-      <div className="flex justify-between flex-wrap  items-center ">
+      <div className="flex justify-between flex-wrap items-center">
         {/* Image Carousel */}
         <div className="basis-[100%] lg:basis-[55%] overflow-x-hidden">
           <Swiper
@@ -59,12 +83,15 @@ const Achievements = () => {
             slidesPerView={1}
             onSlideChange={handleSlideChange}
           >
-            {achievementsData.map((achievement) => (
+            {achievementsData.map((achievement, index) => (
               <SwiperSlide key={achievement.id}>
                 <img
+                  ref={index === 0 ? firstImageRef : null}
                   src={achievement.image}
                   alt={achievement.title}
-                  className="w-full h-[250px] lg:mb-0 mb-[30px] lg:h-[350px] object-cover"
+                  className={`w-full h-[250px] lg:mb-0 mb-[30px] lg:h-[350px] object-cover ${
+                    index === 0 && isVisible ? "animate-zoom-fade" : ""
+                  }`}
                 />
               </SwiperSlide>
             ))}
@@ -73,14 +100,14 @@ const Achievements = () => {
 
         {/* Text Content */}
         <div className="basis-[100%] lg:basis-[38%] font-lato">
-          <h3 className="text-lg  font-semibold text-gray-800 mb-6">
+          <h3 className="text-lg font-semibold text-gray-800 mb-6">
             {activeAchievement.title}
           </h3>
-          <p className="text-base leading-relaxed  mb-8">
+          <p className="text-base leading-relaxed mb-8">
             {activeAchievement.text}
           </p>
 
-          <div className=" flex  items-center gap-2 mb-8">
+          <div className="flex items-center gap-2 mb-8">
             <button
               className="swiper-prev-journey cursor-pointer rotate-180"
               onClick={handlePrevClick}
@@ -103,11 +130,29 @@ const Achievements = () => {
             </button>
           </div>
 
-          <button className="flex  lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
+          <button className="flex lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
             EXPLORE MORE Awards
           </button>
         </div>
       </div>
+
+      {/* Animation CSS */}
+      <style jsx>{`
+        .animate-zoom-fade {
+          animation: zoomFadeIn 1.5s ease forwards;
+        }
+
+        @keyframes zoomFadeIn {
+          0% {
+            opacity: 0;
+            transform: scale(1.2);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `}</style>
     </section>
   );
 };

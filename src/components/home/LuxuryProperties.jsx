@@ -1,12 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LuxuryProperties = () => {
   const [activeCategory, setActiveCategory] = useState("RESIDENTIAL");
   const [swiperInstance, setSwiperInstance] = useState(null);
+
+  // Ref for the first slide image only
+  const firstImageRef = useRef(null);
+
+  useEffect(() => {
+    if (firstImageRef.current) {
+      gsap.fromTo(
+        firstImageRef.current,
+        { scale: 1.8, opacity: 0.5 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: firstImageRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+  }, []);
 
   const slides = [
     { id: 1, src: "./assets/luxury-1.png", category: "RESIDENTIAL" },
@@ -18,6 +45,7 @@ const LuxuryProperties = () => {
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.realIndex;
     setActiveCategory(slides[currentIndex].category);
+    // No animation for other slides
   };
 
   const handleCategoryClick = (category) => {
@@ -28,7 +56,6 @@ const LuxuryProperties = () => {
     }
   };
 
-  // Ensure navigation buttons are updated after Swiper initialization
   useEffect(() => {
     if (swiperInstance) {
       swiperInstance.navigation?.update();
@@ -43,58 +70,24 @@ const LuxuryProperties = () => {
             LUXURY PROPERTIES
           </h2>
           <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
-            <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left mb-[17px] lg:mr-[2rem] cursor-pointer ${
-                activeCategory === "RESIDENTIAL"
-                  ? "text-primaryblue font-bold"
-                  : ""
-              }`}
-              onClick={() => handleCategoryClick("RESIDENTIAL")}
-            >
-              RESIDENTIAL
-              {activeCategory === "RESIDENTIAL" && (
-                <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[50%] bg-primaryblue w-[1px]"></span>
-              )}
-            </p>
-            <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left mb-[17px] lg:mr-[2rem] cursor-pointer ${
-                activeCategory === "COMMERCIAL"
-                  ? "text-primaryblue font-bold"
-                  : ""
-              }`}
-              onClick={() => handleCategoryClick("COMMERCIAL")}
-            >
-              COMMERCIAL
-              {activeCategory === "COMMERCIAL" && (
-                <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[50%] bg-primaryblue w-[1px]"></span>
-              )}
-            </p>
-            <p
-              className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left lg:mr-[2rem] cursor-pointer ${
-                activeCategory === "HOSPITALITY"
-                  ? "text-primaryblue font-bold"
-                  : ""
-              }`}
-              onClick={() => handleCategoryClick("HOSPITALITY")}
-            >
-              HOSPITALITY
-              {activeCategory === "HOSPITALITY" && (
-                <span className="h-[80px] hidden lg:block absolute bottom-[-80px] left-[50%] bg-primaryblue w-[1.5px]"></span>
-              )}
-            </p>
-            <p
-              className={`hover:text-gray-600 relative lg:basis-[60%] basis-[50%] lg:text-end text-left cursor-pointer ${
-                activeCategory === "DATA CENTERS"
-                  ? "text-primaryblue font-bold"
-                  : ""
-              }`}
-              onClick={() => handleCategoryClick("DATA CENTERS")}
-            >
-              DATA CENTERS
-              {activeCategory === "DATA CENTERS" && (
-                <span className="h-[80px] hidden lg:block absolute bottom-[-80px] left-[50%] bg-primaryblue w-[1.5px]"></span>
-              )}
-            </p>
+            {["RESIDENTIAL", "COMMERCIAL", "HOSPITALITY", "DATA CENTERS"].map(
+              (category) => (
+                <p
+                  key={category}
+                  className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left mb-[17px] lg:mr-[0rem] cursor-pointer ${
+                    activeCategory === category
+                      ? "text-primaryblue font-bold"
+                      : ""
+                  }`}
+                  onClick={() => handleCategoryClick(category)}
+                >
+                  {category}
+                  {activeCategory === category && (
+                    <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[50%] bg-primaryblue w-[1px]"></span>
+                  )}
+                </p>
+              )
+            )}
           </div>
         </div>
 
@@ -111,7 +104,7 @@ const LuxuryProperties = () => {
             onSlideChange={handleSlideChange}
             onSwiper={setSwiperInstance}
           >
-            {slides.map((slide) => (
+            {slides.map((slide, idx) => (
               <SwiperSlide key={slide.id}>
                 <div className="relative">
                   <p className="tracking-[1.2px] flex flex-col absolute left-[14px] lg:left-[80px] text-white top-[20px] lg:top-[40px]">
@@ -126,6 +119,8 @@ const LuxuryProperties = () => {
                     </span>
                   </p>
                   <img
+                    // Attach ref only to the first image
+                    ref={idx === 0 ? firstImageRef : null}
                     src={slide.src}
                     alt={`${slide.category} Project`}
                     className="w-full h-[350px] object-cover lg:h-auto"
