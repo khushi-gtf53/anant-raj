@@ -37,9 +37,9 @@ const LuxuryProperties = () => {
 
   const slides = [
     { id: 1, src: "./assets/luxury-1.png", category: "RESIDENTIAL" },
-    { id: 2, src: "./assets/luxury-1.png", category: "COMMERCIAL" },
-    { id: 3, src: "./assets/luxury-1.png", category: "HOSPITALITY" },
-    { id: 4, src: "./assets/luxury-1.png", category: "DATA CENTERS" },
+    { id: 2, src: "./assets/commercial.jpg", category: "COMMERCIAL" },
+    { id: 3, src: "./assets/hospitality.jpg", category: "HOSPITALITY" },
+    { id: 4, src: "./assets/data-centre.jpg", category: "DATA CENTERS" },
   ];
 
   const handleSlideChange = (swiper) => {
@@ -107,7 +107,7 @@ const LuxuryProperties = () => {
             {slides.map((slide, idx) => (
               <SwiperSlide key={slide.id}>
                 <div className="relative">
-                  <p className="tracking-[1.2px] flex flex-col absolute left-[14px] lg:left-[80px] text-white top-[20px] lg:top-[40px]">
+                  {/* <p className="tracking-[1.2px] flex flex-col absolute left-[14px] lg:left-[80px] text-white top-[20px] lg:top-[40px]">
                     <span className="text-[18px] lg:text-[32px] font-[600]">
                       Joy Square
                     </span>
@@ -117,7 +117,7 @@ const LuxuryProperties = () => {
                     <span className="text-[12px] lg:text-[15px] tracking-[1.5px]">
                       MAGARPATTA ROAD
                     </span>
-                  </p>
+                  </p> */}
                   <img
                     // Attach ref only to the first image
                     ref={idx === 0 ? firstImageRef : null}

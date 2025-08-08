@@ -9,22 +9,91 @@ const Journey = () => {
   const swiperRef = useRef(null);
   const yearRefs = useRef({}); // Store refs for each year
   const yearContainerRef = useRef(null); // Ref for the year navigation container
-
   const slides = [
     {
-      year: "1992",
+      year: "1969",
       image: "./assets/timeline-1.png",
       text: "Founded Anant Raj Limited, laying the foundation for real estate excellence.",
     },
     {
-      year: "2000",
+      year: "1985",
       image: "./assets/timeline-1.png",
       text: "Expanded into commercial real estate with innovative projects.",
     },
     {
-      year: "2010",
+      year: "1989",
       image: "./assets/timeline-1.png",
       text: "Ventured into hospitality, delivering world-class experiences.",
+    },
+    {
+      year: "1993",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "1995",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "1997",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2005",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2006",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2007",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2010",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2011",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2012",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2013",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2014",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2016",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2017",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
+    },
+    {
+      year: "2019",
+      image: "./assets/timeline-1.png",
+      text: "Pioneered data center development, embracing future technologies.",
     },
     {
       year: "2020",
@@ -32,17 +101,17 @@ const Journey = () => {
       text: "Pioneered data center development, embracing future technologies.",
     },
     {
-      year: "2030",
+      year: "2022",
       image: "./assets/timeline-1.png",
       text: "Pioneered data center development, embracing future technologies.",
     },
     {
-      year: "2040",
+      year: "2024",
       image: "./assets/timeline-1.png",
       text: "Pioneered data center development, embracing future technologies.",
     },
     {
-      year: "2050",
+      year: "2025",
       image: "./assets/timeline-1.png",
       text: "Pioneered data center development, embracing future technologies.",
     },

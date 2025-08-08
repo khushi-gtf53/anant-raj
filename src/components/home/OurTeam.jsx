@@ -12,24 +12,28 @@ const OurTeam = () => {
     {
       id: 1,
       title: "Shri Ashok Sarin - our founder",
+      image: "./assets/anant-raj.png",
       text: "Shri Ashok Sarin was the visionary founder and Chairman of Anant Raj Limited, with over five decades of unparalleled expertise in real estate.",
       role: "Our Founder",
     },
     {
       id: 2,
-      title: "Managing Director",
+      title: "Amit Sarin",
+      image: "./assets/managing-director.webp",
       text: "The Managing Director oversees strategic operations and growth initiatives at Anant Raj Limited...",
       role: "Managing Director",
     },
     {
       id: 3,
-      title: "Director & CEO",
+      title: "Aman Sarin",
+      image: "./assets/ceo.webp",
       text: "The Director & CEO leads the company's vision and executive decisions at Anant Raj Limited...",
       role: "Director & CEO",
     },
     {
       id: 4,
-      title: "Director & COO",
+      image: "./assets/coo.webp",
+      title: "Ashim Sarin",
       text: "The Director & COO manages operational excellence and coordination at Anant Raj Limited...",
       role: "Director & COO",
     },
@@ -87,7 +91,7 @@ const OurTeam = () => {
                   <div className="basis-full lg:basis-[40%]">
                     <img
                       className="h-[250px] lg:h-[380px] object-cover"
-                      src="./assets/anant-raj.png"
+                      src={slide.image}
                       alt="anant-raj"
                     />
                   </div>
