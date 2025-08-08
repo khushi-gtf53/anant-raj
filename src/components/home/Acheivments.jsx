@@ -70,7 +70,7 @@ const Achievements = () => {
   return (
     <section className="bg-[#FBF6F6] px-[20px] lg:px-[100px] lg:py-[90px] py-14">
       <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium">
-        Award-Winning Milestones in Real Estate.
+        Award-Winning Milestones in Real Estate
       </h2>
 
       <div className="flex justify-between flex-wrap items-center">
