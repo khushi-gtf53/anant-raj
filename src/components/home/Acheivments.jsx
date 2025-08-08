@@ -3,6 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const achievementsData = [
   {
@@ -31,7 +35,6 @@ const Achievements = () => {
   );
   const swiperRef = useRef(null);
   const firstImageRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   const handlePrevClick = () => {
     swiperRef.current?.slidePrev();
@@ -46,25 +49,29 @@ const Achievements = () => {
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        root: null, // viewport
-        threshold: 0.5, // 50% of image visible triggers animation
-      }
-    );
-
     if (firstImageRef.current) {
-      observer.observe(firstImageRef.current);
+      gsap.fromTo(
+        firstImageRef.current,
+        { scale: 1.8, opacity: 0.5 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: firstImageRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
     }
+  }, []);
 
-    return () => {
-      if (firstImageRef.current) {
-        observer.unobserve(firstImageRef.current);
-      }
-    };
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.navigation?.update();
+    }
   }, []);
 
   return (
@@ -81,6 +88,11 @@ const Achievements = () => {
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             spaceBetween={20}
             slidesPerView={1}
+            loop={true}
+            navigation={{
+              prevEl: ".swiper-prev-journey",
+              nextEl: ".swiper-next-journey",
+            }}
             onSlideChange={handleSlideChange}
           >
             {achievementsData.map((achievement, index) => (
@@ -89,9 +101,7 @@ const Achievements = () => {
                   ref={index === 0 ? firstImageRef : null}
                   src={achievement.image}
                   alt={achievement.title}
-                  className={`w-full h-[250px] lg:mb-0 mb-[30px] lg:h-[350px] object-cover ${
-                    index === 0 && isVisible ? "animate-zoom-fade" : ""
-                  }`}
+                  className="w-full h-[250px] lg:mb-0 mb-[30px] lg:h-[350px] object-cover"
                 />
               </SwiperSlide>
             ))}
@@ -115,7 +125,7 @@ const Achievements = () => {
               <img
                 alt="Previous"
                 className="h-[20px] object-cover"
-                src={"./assets/right-arrow.png"}
+                src="./assets/right-arrow.png"
               />
             </button>
             <button
@@ -125,7 +135,7 @@ const Achievements = () => {
               <img
                 alt="Next"
                 className="h-[20px] object-cover"
-                src={"./assets/right-arrow.png"}
+                src="./assets/right-arrow.png"
               />
             </button>
           </div>
@@ -135,24 +145,6 @@ const Achievements = () => {
           </button>
         </div>
       </div>
-
-      {/* Animation CSS */}
-      <style jsx>{`
-        .animate-zoom-fade {
-          animation: zoomFadeIn 1.5s ease forwards;
-        }
-
-        @keyframes zoomFadeIn {
-          0% {
-            opacity: 0;
-            transform: scale(1.2);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-      `}</style>
     </section>
   );
 };
