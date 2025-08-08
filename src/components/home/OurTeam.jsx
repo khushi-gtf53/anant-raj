@@ -19,20 +19,20 @@ const OurTeam = () => {
     {
       id: 2,
       title: "Amit Sarin",
-      image: "./assets/managing-director.webp",
+      image: "./assets/managing-director.jpg",
       text: "The Managing Director oversees strategic operations and growth initiatives at Anant Raj Limited...",
       role: "Managing Director",
     },
     {
       id: 3,
       title: "Aman Sarin",
-      image: "./assets/ceo.webp",
+      image: "./assets/ceo.jpg",
       text: "The Director & CEO leads the company's vision and executive decisions at Anant Raj Limited...",
       role: "Director & CEO",
     },
     {
       id: 4,
-      image: "./assets/coo.webp",
+      image: "./assets/coo.jpg",
       title: "Ashim Sarin",
       text: "The Director & COO manages operational excellence and coordination at Anant Raj Limited...",
       role: "Director & COO",
