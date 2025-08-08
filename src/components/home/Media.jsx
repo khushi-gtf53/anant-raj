@@ -9,31 +9,31 @@ const mediaArticles = [
     id: 1,
     logo: "./assets/media1.png",
     source: "CNBC TV18",
-    text: "Anant Raj Shares Are Up 180% So Far In 2024; Motilal Oswal Sees Further Upside",
+    text: "Anant Raj shares are up 180% so far in 2024; Motilal Oswal sees further upside",
   },
   {
     id: 2,
     logo: "./assets/media2.png",
     source: "TechCircle",
-    text: "Anant Raj Shares Are Up 180% So Far In 2024; Motilal Oswal Sees Further Upside",
+    text: "Anant Raj Cloud ropes in Orange Business for Cloud and Data Center Expansion",
   },
   {
     id: 3,
     logo: "./assets/media3.png",
     source: "Business Standard",
-    text: "Anant Raj Shares Are Up 180% So Far In 2024; Motilal Oswal Sees Further Upside",
+    text: "Anant Raj climbs 5%; hits new high on allotment of warrants to promoters",
   },
   {
     id: 3,
-    logo: "./assets/media3.png",
+    logo: "./assets/angelone.png",
     source: "Business Standard",
-    text: "Anant Raj Shares Are Up 180% So Far In 2024; Motilal Oswal Sees Further Upside",
+    text: "Anant Raj Hits New High, Rises 5% After Allotment of Warrants to Promoter",
   },
   {
     id: 3,
-    logo: "./assets/media3.png",
+    logo: "./assets/et.webp",
     source: "Business Standard",
-    text: "Anant Raj Shares Are Up 180% So Far In 2024; Motilal Oswal Sees Further Upside",
+    text: "Anant Raj Ltd targets Rs 1,200 crore revenue from data center and cloud services business by FY27",
   },
   // Add more articles as needed
 ];

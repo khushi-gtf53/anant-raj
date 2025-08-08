@@ -94,7 +94,12 @@ const Journey = () => {
   return (
     <section className="relative px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
       <div className="relative z-[3] mx-auto">
-        <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]">
+        <h2
+          data-gsap="fade-up"
+          data-gsap-duration="1"
+          data-gsap-delay="0.5"
+          className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]"
+        >
           Empowering Dreams: Our Journey to Success
         </h2>
         <div

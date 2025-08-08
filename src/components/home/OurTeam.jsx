@@ -56,7 +56,12 @@ const OurTeam = () => {
   }, [swiperInstance]);
 
   return (
-    <section className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
+    <section
+      data-gsap="fade-up"
+      data-gsap-duration="1"
+      data-gsap-delay="0.5"
+      className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white"
+    >
       <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[35px] lg:leading-[40px] text-[16px] lg:text-[18px]">
         Meet our founder, whose visionary leadership drives creativity, growth,
         and excellence

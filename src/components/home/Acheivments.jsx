@@ -76,7 +76,12 @@ const Achievements = () => {
 
   return (
     <section className="bg-[#FBF6F6] px-[20px] lg:px-[100px] lg:py-[90px] py-14">
-      <h2 className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium">
+      <h2
+        data-gsap="fade-up"
+        data-gsap-duration="1"
+        data-gsap-delay="0.5"
+        className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium"
+      >
         Award-Winning Milestones in Real Estate
       </h2>
 
@@ -110,10 +115,20 @@ const Achievements = () => {
 
         {/* Text Content */}
         <div className="basis-[100%] lg:basis-[38%] font-lato">
-          <h3 className="text-lg font-semibold text-gray-800 mb-6">
+          <h3
+            data-gsap="fade-up"
+            data-gsap-duration="1"
+            data-gsap-delay="0.5"
+            className="text-lg font-semibold text-gray-800 mb-6"
+          >
             {activeAchievement.title}
           </h3>
-          <p className="text-base leading-relaxed mb-8">
+          <p
+            data-gsap="fade-up"
+            data-gsap-duration="1"
+            data-gsap-delay="0.5"
+            className="text-base leading-relaxed mb-8"
+          >
             {activeAchievement.text}
           </p>
 

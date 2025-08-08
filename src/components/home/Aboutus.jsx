@@ -1,6 +1,11 @@
 const Aboutus = () => {
   return (
-    <section className="px-[20px] lg:px-[100px] bg-white py-[40px] lg:py-[100px]">
+    <section
+      data-gsap="fade-up"
+      data-gsap-duration="1"
+      data-gsap-delay="0.3"
+      className="px-[20px] lg:px-[100px] bg-white py-[40px] lg:py-[100px]"
+    >
       <div className="flex justify-between flex-wrap font-sangbleu">
         <div className="flex basis-[100%] lg:basis-[70%] flex-col">
           <h2 className="text-primaryred mb-[40px] uppercase tracking-[2px] leading-[32px] lg:leading-[40px] font-[200] text-[15px] lg:text-[20px]">

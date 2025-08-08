@@ -25,50 +25,36 @@ const blogSlides = [
 
 const Blogs = () => {
   const swiperRef = useRef(null);
-  const firstImageRef = useRef(null);
+  const firstSlideRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isInViewport, setIsInViewport] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  // Intersection Observer to detect if first image is in viewport
+  // Observe first slide container visibility
   useEffect(() => {
-    const img = firstImageRef.current;
-    if (!img) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInViewport(entry.isIntersecting);
       },
-      { threshold: 0.1 } // 10% visible triggers intersection
+      { threshold: 0.3 }
     );
 
-    observer.observe(img);
+    const target = firstSlideRef.current;
+    if (target) observer.observe(target);
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
-  // Trigger animation only if first slide active AND image in viewport
+  // Run animation ONCE when first slide is in viewport and active
   useEffect(() => {
-    const el = firstImageRef.current;
-    if (!el) return;
+    const img = firstSlideRef.current?.querySelector("img");
+    if (!img) return;
 
-    if (activeIndex === 0 && isInViewport) {
-      el.classList.remove("animate-zoom-fade");
-      // Trigger reflow to restart animation
-      void el.offsetWidth;
-      el.classList.add("animate-zoom-fade");
-    } else {
-      el.classList.remove("animate-zoom-fade");
+    if (activeIndex === 0 && isInViewport && !hasAnimated) {
+      img.classList.add("animate-zoom-fade");
+      setHasAnimated(true); // Prevent re-running
     }
-  }, [activeIndex, isInViewport]);
-
-  // Ensure navigation buttons are updated after Swiper initialization
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.navigation?.update();
-    }
-  }, []);
+  }, [activeIndex, isInViewport, hasAnimated]);
 
   return (
     <section className="px-[20px] lg:px-[100px] lg:pt-[80px] lg:pb-[40px] pt-[70px] bg-white">
@@ -90,16 +76,14 @@ const Blogs = () => {
         >
           {blogSlides.map((slide, index) => (
             <SwiperSlide key={slide.id}>
-              <div>
+              <div ref={index === 0 ? firstSlideRef : null}>
                 <img
-                  ref={index === 0 ? firstImageRef : null}
                   src={slide.image}
                   alt={slide.title}
                   className="w-full h-[240px] lg:h-[360px] object-cover rounded-sm"
                 />
 
                 <div className="lg:hidden flex mt-[16px]">
-                  {/* Internal buttons for layout but disabled */}
                   <button
                     aria-label="Previous"
                     className="p-2 swiper-prev-custom hover:bg-gray-200 rounded-full transition opacity-50 cursor-default"
@@ -121,6 +105,7 @@ const Blogs = () => {
                     />
                   </button>
                 </div>
+
                 <div className="flex lg:flex-row flex-col mt-[15px] lg:mt-[25px] justify-between lg:items-center">
                   <p className="text-[16px] font-semibold tracking-[1px]">
                     {slide.title}
@@ -144,7 +129,6 @@ const Blogs = () => {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               strokeLinecap="round"
@@ -161,7 +145,6 @@ const Blogs = () => {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               strokeLinecap="round"
