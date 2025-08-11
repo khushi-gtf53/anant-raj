@@ -22,6 +22,7 @@ const Aboutus = () => {
                 nant Raj Limited has been a leader in India's real estate
                 landscape since 1969, delivering landmark
               </span>
+              <span> </span>
               <span className="hidden lg:inline">
                 developments across residential, commercial, and IT
                 infrastructure sectors. With a commitment to innovation, luxury,
