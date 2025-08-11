@@ -79,7 +79,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 ">
-          <div className="text-[13px] flex justify-between  lg:text-[16px]">
+          <div className="text-[13px]  hidden lg:flex justify-between  lg:text-[16px]">
             <div>
               {" "}
               <div className="flex  flex-col space-y-2">
@@ -198,6 +198,101 @@ const Footer = () => {
                   <NavLink>
                     <span className="mr-2">&gt;</span>
                     NRI Investors
+                  </NavLink>
+                </div>
+              )}
+            </div>
+          </div>
+          {/* mobile links */}
+          <div className="text-[13px]  lg:hidden flex justify-between  lg:text-[16px]">
+            <div>
+              <div className="flex  flex-col space-y-2">
+                <NavLink>
+                  <span className="mr-2">&gt;</span>
+                  Blogs
+                </NavLink>
+                <NavLink>
+                  <span className="mr-2">&gt;</span>
+                  Contact us
+                </NavLink>
+              </div>
+
+              {isExploreOpen && (
+                <div className="flex  mt-[20px] flex-col space-y-2">
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Career
+                  </NavLink>
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Property Investment
+                  </NavLink>
+                </div>
+              )}
+            </div>
+            <div>
+              <div className="flex  flex-col space-y-2">
+                <NavLink>
+                  <span className="mr-2">&gt;</span>
+                  Residential
+                </NavLink>
+                <NavLink>
+                  <span className="mr-2">&gt;</span>
+                  Commercial
+                </NavLink>
+              </div>
+              {isExploreOpen && (
+                <div>
+                  {" "}
+                  {isExploreOpen && (
+                    <div className="flex  mt-[20px] flex-col space-y-2">
+                      <NavLink>
+                        <span className="mr-2">&gt;</span>
+                        EMI Calculator
+                      </NavLink>
+                      <NavLink>
+                        <span className="mr-2">&gt;</span>
+                        CSR
+                      </NavLink>
+                    </div>
+                  )}
+                  {isExploreOpen && (
+                    <div className="flex  mt-[20px] flex-col space-y-2">
+                      <NavLink>
+                        <span className="mr-2">&gt;</span>
+                        Gallery
+                      </NavLink>
+                      <NavLink>
+                        <span className="mr-2">&gt;</span>
+                        Testimonials
+                      </NavLink>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div>
+              {" "}
+              <div className="flex  flex-col space-y-2">
+                <NavLink>
+                  <span className="mr-2">&gt;</span>
+                  Data Centers
+                </NavLink>
+                <NavLink>
+                  <span className="mr-2">&gt;</span>
+                  Hospitality
+                </NavLink>
+              </div>
+              {isExploreOpen && (
+                <div className="flex mt-[20px] flex-col space-y-2">
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Home Loans
+                  </NavLink>
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Tax Benefits
                   </NavLink>
                 </div>
               )}
