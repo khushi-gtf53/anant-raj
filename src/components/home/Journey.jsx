@@ -7,8 +7,11 @@ import "swiper/css/navigation";
 const Journey = () => {
   const [activeYear, setActiveYear] = useState("1992");
   const swiperRef = useRef(null);
-  const yearRefs = useRef({}); // Store refs for each year
-  const yearContainerRef = useRef(null); // Ref for the year navigation container
+  const yearRefs = useRef({});
+  const yearContainerRef = useRef(null);
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
   const slides = [
     {
       year: "1969",
@@ -117,10 +120,24 @@ const Journey = () => {
     },
   ];
 
+  useEffect(() => {
+    if (
+      swiperRef.current &&
+      swiperRef.current.params &&
+      prevRef.current &&
+      nextRef.current
+    ) {
+      swiperRef.current.params.navigation.prevEl = prevRef.current;
+      swiperRef.current.params.navigation.nextEl = nextRef.current;
+
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+    }
+  }, []);
+
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.realIndex;
     setActiveYear(slides[currentIndex].year);
-    // Scroll the year into view when the slide changes
     const yearElement = yearRefs.current[slides[currentIndex].year];
     if (yearElement && yearContainerRef.current) {
       yearElement.scrollIntoView({
@@ -134,9 +151,8 @@ const Journey = () => {
   const handleYearClick = (year) => {
     const slideIndex = slides.findIndex((slide) => slide.year === year);
     if (slideIndex !== -1 && swiperRef.current) {
-      swiperRef.current.swiper.slideToLoop(slideIndex);
+      swiperRef.current.slideToLoop(slideIndex);
       setActiveYear(year);
-      // Scroll the clicked year into view
       const yearElement = yearRefs.current[year];
       if (yearElement && yearContainerRef.current) {
         yearElement.scrollIntoView({
@@ -148,15 +164,16 @@ const Journey = () => {
     }
   };
 
-  const handlePrevClick = () => {
+  // Add handleNextClick and handlePrevClick functions
+  const handleNextClick = () => {
     if (swiperRef.current) {
-      swiperRef.current.swiper.slidePrev();
+      swiperRef.current.slideNext();
     }
   };
 
-  const handleNextClick = () => {
+  const handlePrevClick = () => {
     if (swiperRef.current) {
-      swiperRef.current.swiper.slideNext();
+      swiperRef.current.slidePrev();
     }
   };
 
@@ -171,6 +188,8 @@ const Journey = () => {
         >
           Empowering Dreams: Our Journey to Success
         </h2>
+
+        {/* Year Navigation */}
         <div
           className="flex flex-nowrap overflow-x-auto items-center text-[35px] lg:text-[40px] tracking-[1px] pt-5 mb-6 text-primaryblue font-sangbleu border-t border-black text-2xl font-medium whitespace-nowrap scrollbar-hide"
           ref={yearContainerRef}
@@ -188,15 +207,22 @@ const Journey = () => {
             </span>
           ))}
         </div>
+
+        {/* Swiper */}
         <div className="relative mt-10">
           <Swiper
             modules={[Navigation]}
             spaceBetween={30}
             slidesPerView={1}
-            navigation={false}
             loop={true}
+            navigation={{
+              prevEl: ".swiper-prev-timeline",
+              nextEl: ".swiper-next-timeline",
+            }}
             onSlideChange={handleSlideChange}
-            ref={swiperRef}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
           >
             {slides.map((slide) => (
               <SwiperSlide key={slide.year}>
@@ -215,26 +241,27 @@ const Journey = () => {
                     <p className="my-4 tracking-[1px] leading-[26px] text-sm md:text-base">
                       {slide.text}
                     </p>
-
-                    <div className=" flex  items-center gap-2 mt-4">
+                    <div className="flex items-center gap-2 mt-4">
                       <button
-                        className="swiper-prev-journey cursor-pointer rotate-180"
                         onClick={handlePrevClick}
+                        className="cursor-pointer swiper-prev-timeline rotate-180"
+                        ref={prevRef}
                       >
                         <img
                           alt="Previous"
                           className="h-[20px] object-cover"
-                          src={"./assets/right-arrow.png"}
+                          src="./assets/right-arrow.png"
                         />
                       </button>
                       <button
-                        className="swiper-next-journey cursor-pointer"
                         onClick={handleNextClick}
+                        className="cursor-pointer swiper-next-timeline"
+                        ref={nextRef}
                       >
                         <img
                           alt="Next"
                           className="h-[20px] object-cover"
-                          src={"./assets/right-arrow.png"}
+                          src="./assets/right-arrow.png"
                         />
                       </button>
                     </div>

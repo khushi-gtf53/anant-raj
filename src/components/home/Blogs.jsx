@@ -7,19 +7,24 @@ import "swiper/css/navigation";
 const blogSlides = [
   {
     id: 1,
-    image: "./assets/blog-1.png",
+    image: "./assets/1blog.jpg",
     title:
-      "The Role of Smart Cities in Shaping the Future of Urban Development",
+      "Why Investing in Gurgaon’s Luxury Flats is a Game Changer for Real Estate Investors",
+    para: "If you're looking to diversify your portfolio or secure a high-value asset in India’s fastest-growing urban market, now is the time to explore Anant Raj’s premium offerings in Gurgaon. Explore our current and upcoming residential projects in Gurgaon here or get in touch with our team to find the perfect investment opportunity for you.",
   },
   {
     id: 2,
-    image: "./assets/blog-1.png",
-    title: "Green Buildings: Paving the Way to a Sustainable Tomorrow",
+    image: "./assets/2blog.jpg",
+    title:
+      "Discover the Epitome of Luxury Living at The Estate Residences by Anant Raj Limited, Gurugram",
+    para: "Experience the pinnacle of luxury living at The Estate Residences by Anant Raj Limited. Your dream home awaits in the heart of Gurugram. ",
   },
   {
     id: 3,
-    image: "./assets/blog-1.png",
-    title: "Top Real Estate Trends to Watch in 2025",
+    image: "./assets/3blog.webp",
+    title:
+      "Anant Raj Manesar: Pioneering Innovation at the Heart of IT Development",
+    para: "Anant Raj Manesar is more than just an IT Park—it’s a blueprint for the future of enterprise infrastructure in India. Whether you're a growing tech firm, a data-led enterprise, or a cloud service provider looking for robust infrastructure near NCR, this is a location and a developer you should be paying attention to.",
   },
 ];
 

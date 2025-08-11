@@ -36,10 +36,10 @@ const LuxuryProperties = () => {
   }, []);
 
   const slides = [
-    { id: 1, src: "./assets/luxury-1.png", category: "RESIDENTIAL" },
-    { id: 2, src: "./assets/commercial.jpg", category: "COMMERCIAL" },
-    { id: 3, src: "./assets/hospitality.jpg", category: "HOSPITALITY" },
-    { id: 4, src: "./assets/data-centre.jpg", category: "DATA CENTERS" },
+    { id: 1, src: "./assets/luxury/villa.jpg", category: "RESIDENTIAL" },
+    { id: 2, src: "./assets/luxury/commercial.jpg", category: "COMMERCIAL" },
+    { id: 3, src: "./assets/luxury/hospitality.jpg", category: "HOSPITALITY" },
+    { id: 4, src: "./assets/luxury/cloud.jpg", category: "DATA CENTERS" },
   ];
 
   const handleSlideChange = (swiper) => {
@@ -123,7 +123,7 @@ const LuxuryProperties = () => {
                     ref={idx === 0 ? firstImageRef : null}
                     src={slide.src}
                     alt={`${slide.category} Project`}
-                    className="w-full h-[350px] object-cover lg:h-auto"
+                    className="w-full h-[350px] object-cover lg:h-[400px]"
                   />
                 </div>
               </SwiperSlide>
@@ -131,7 +131,7 @@ const LuxuryProperties = () => {
           </Swiper>
         </div>
 
-        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[1.5rem] lg:mt-[2.5rem]">
+        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[2.5rem] ">
           <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>

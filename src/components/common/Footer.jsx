@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
@@ -78,95 +79,126 @@ const Footer = () => {
         </div>
 
         <div className="mt-[40px]">
-          <ul className="flex lg:flex-nowrap flex-wrap flex-row justify-between items-start lg:items-start space-y-6 lg:space-y-0">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 justify-items-start">
             {/* Copyright Section */}
-            <li className="lg:flex lg:basis-auto basis-[50%] flex-col hidden space-y-1 text-sm ">
+            <div className="hidden lg:flex flex-col space-y-1 text-[13px] lg:text-[16x]">
               <span>Copyright © 2025</span>
-              <span className="mt-[6px]">Anant Raj Limited</span>
-            </li>
+              <span>Anant Raj Limited</span>
+            </div>
 
             {/* Residential & Commercial */}
-            <li className="flex flex-col lg:basis-auto basis-[27%] text-[13px] space-y-2 text-sm ">
-              <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
-                <span className="mr-2">></span>
+            <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+              <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                <span className="mr-2">&gt;</span>
                 Residential
               </span>
               <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
-                <span className="mr-2">></span>
+                <span className="mr-2">&gt;</span>
                 Commercial
               </span>
-            </li>
+            </div>
 
             {/* Data Centers & Hospitality */}
-            <li className="flex flex-col lg:basis-auto basis-[27%] text-[13px] space-y-2 text-sm ">
-              <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
-                <span className="mr-2">></span>
+            <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+              <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                <span className="mr-2">&gt;</span>
                 Data Centers
               </span>
               <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
-                <span className="mr-2">></span>
+                <span className="mr-2">&gt;</span>
                 Hospitality
               </span>
-            </li>
+            </div>
 
             {/* About Us & Investors */}
-            <li className="flex flex-col lg:basis-auto basis-[27%] text-[13px] space-y-2 text-sm ">
-              <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
-                <span className="mr-2">></span>
+            <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+              <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                <span className="mr-2">&gt;</span>
                 About Us
               </span>
               <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
-                <span className="mr-2">></span>
+                <span className="mr-2">&gt;</span>
                 Investors
               </span>
-            </li>
-          </ul>
-        </div>
-        {isExploreOpen && (
-          <div className="lg:mt-[20px]">
-            <ul className="flex-wrap lg:flex-nowrap flex flex-row justify-between items-start lg:items-start space-y-6 lg:space-y-0">
-              {/* Residential & Commercial */}
-              <li className="lg:flex lg:basis-auto basis-[50%] flex-col hidden space-y-1 text-sm ">
-                <span>Copyright © 2025</span>
-                <span className="mt-[6px]">Anant Raj Limited</span>
-              </li>
-              {/* Residential & Commercial */}
-              <li className="flex flex-col lg:basis-auto basis-[27%] text-[12px] space-y-2 text-sm ">
-                <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
-                  <span className="mr-2">></span>
-                  Residential
-                </span>
-                <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
-                  <span className="mr-2">></span>
-                  Commercial
-                </span>
-              </li>
-              {/* Residential & Commercial */}
-              <li className="flex flex-col lg:basis-auto basis-[27%] text-[12px] space-y-2 text-sm ">
-                <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
-                  <span className="mr-2">></span>
-                  Residential
-                </span>
-                <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
-                  <span className="mr-2">></span>
-                  Commercial
-                </span>
-              </li>
+            </div>
 
-              {/* Data Centers & Hospitality */}
-              <li className="flex flex-col lg:basis-auto basis-[27%] text-[12px] space-y-2 text-sm ">
-                <span className="hover:text-gray-800 mb-[10px] transition-colors duration-200 cursor-pointer flex items-center">
-                  <span className="mr-2">></span>
-                  Data Centers
-                </span>
-                <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
-                  <span className="mr-2">></span>
-                  Hospitality
-                </span>
-              </li>
-            </ul>
+            {isExploreOpen && (
+              <>
+                {/* Career & EMI Calculator */}
+                <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Career
+                  </span>
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    EMI Calculator
+                  </span>
+                </div>
+
+                {/* Blogs & Contact us */}
+                <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Blogs
+                  </span>
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Contact us
+                  </span>
+                </div>
+
+                {/* Gallery & Testimonials */}
+                <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Gallery
+                  </span>
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Testimonials
+                  </span>
+                </div>
+
+                {/* Home Loans & Tax Benefits */}
+                <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Home Loans
+                  </span>
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    Tax Benefits
+                  </span>
+                </div>
+
+                {/* NRI Corner & NRI Investors */}
+                <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    NRI Corner
+                  </span>
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    NRI Investors
+                  </span>
+                </div>
+
+                {/* CSR & FAQ */}
+                <div className="flex flex-col space-y-2 text-[13px] lg:text-[16x]">
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    CSR
+                  </span>
+                  <span className="hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center">
+                    <span className="mr-2">&gt;</span>
+                    FAQ
+                  </span>
+                </div>
+              </>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
       <div className="bg-[#FBF6F6] px-[20px] lg:px-[100px] pt-6 pb-6 lg:pb-6">
@@ -224,39 +256,52 @@ const Footer = () => {
           {/* Right - Social Media Icons */}
           <div className="flex space-x-6">
             {/* Facebook */}
-            <img
-              src="./assets/facebook.png"
-              className="object-contain h-[24px]"
-              alt="facebook"
-            />
+            <NavLink to="https://www.facebook.com/AnantRajLimited2020">
+              {" "}
+              <img
+                src="./assets/facebook.png"
+                className="object-contain h-[24px]"
+                alt="facebook"
+              />
+            </NavLink>
 
             {/* Instagram */}
-            <img
-              src="./assets/instagram.png"
-              className="object-contain h-[24px]"
-              alt="ig"
-            />
+            <NavLink to="https://www.instagram.com/anantrajlimited/?hl=en">
+              <img
+                src="./assets/instagram.png"
+                className="object-contain h-[24px]"
+                alt="ig"
+              />
+            </NavLink>
 
-            {/* Twitter/X */}
-            <img
-              src="./assets/x.png"
-              className="object-contain h-[24px]"
-              alt="ig"
-            />
+            <NavLink to="https://x.com/anantrajlimited">
+              {/* Twitter/X */}
+              <img
+                src="./assets/x.png"
+                className="object-contain h-[24px]"
+                alt="ig"
+              />{" "}
+            </NavLink>
 
             {/* LinkedIn */}
-            <img
-              src="./assets/linkedin.png"
-              className="object-contain h-[24px]"
-              alt="linkedin"
-            />
+            <NavLink to="https://www.linkedin.com/company/anantrajltd/?originalSubdomain=in">
+              {" "}
+              <img
+                src="./assets/linkedin.png"
+                className="object-contain h-[24px]"
+                alt="linkedin"
+              />{" "}
+            </NavLink>
 
-            {/* YouTube */}
-            <img
-              src="./assets/youtube.png"
-              className="object-contain h-[24px]"
-              alt="linkedin"
-            />
+            <NavLink to="https://www.youtube.com/@ARLGurugram">
+              {" "}
+              {/* YouTube */}
+              <img
+                src="./assets/youtube.png"
+                className="object-contain h-[24px]"
+                alt="linkedin"
+              />
+            </NavLink>
           </div>
         </div>
       </div>
