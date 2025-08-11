@@ -53,6 +53,18 @@ const LuxuryProperties = () => {
       category: "RESIDENTIAL",
     },
     {
+      id: 1,
+      mbImage: "./assets/luxury/villa-mb.jpg",
+      src: "./assets/luxury/villa.jpg",
+      category: "RESIDENTIAL",
+    },
+    {
+      id: 2,
+      mbImage: "./assets/luxury/commercial-mb.jpg",
+      src: "./assets/luxury/commercial.jpg",
+      category: "COMMERCIAL",
+    },
+    {
       id: 2,
       mbImage: "./assets/luxury/commercial-mb.jpg",
       src: "./assets/luxury/commercial.jpg",
@@ -63,6 +75,18 @@ const LuxuryProperties = () => {
       mbImage: "./assets/luxury/hospitality-mb.jpg",
       src: "./assets/luxury/hospitality.jpg",
       category: "HOSPITALITY",
+    },
+    {
+      id: 3,
+      mbImage: "./assets/luxury/hospitality-mb.jpg",
+      src: "./assets/luxury/hospitality.jpg",
+      category: "HOSPITALITY",
+    },
+    {
+      id: 4,
+      mbImage: "./assets/luxury/cloud-mb.jpg",
+      src: "./assets/luxury/cloud.jpg",
+      category: "DATA CENTERS",
     },
     {
       id: 4,
