@@ -121,7 +121,7 @@ const LuxuryProperties = () => {
         </div>
 
         <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[2.5rem] ">
-          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px]  px-[21px] lg:px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
           <div className="lg:flex hidden justify-start lg:justify-end w-full mb-0 lg:mt-2">

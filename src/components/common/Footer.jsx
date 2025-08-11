@@ -204,7 +204,7 @@ const Footer = () => {
             </div>
           </div>
           {/* mobile links */}
-          <div className="text-[13px]  lg:hidden flex justify-between  lg:text-[16px]">
+          <div className="text-[12px]  lg:hidden flex justify-between  lg:text-[16px]">
             <div>
               <div className="flex  flex-col space-y-2">
                 <NavLink>

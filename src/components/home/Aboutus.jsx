@@ -3,7 +3,7 @@ const Aboutus = () => {
     <section
       data-gsap="fade-up"
       data-gsap-duration="1"
-      data-gsap-delay="0.3"
+      data-gsap-delay="0.5"
       className="px-[20px] lg:px-[100px] bg-white py-[40px] lg:py-[100px]"
     >
       <div className="flex justify-between flex-wrap font-sangbleu">
@@ -38,11 +38,11 @@ const Aboutus = () => {
           </div>
         </div>
 
-        <p className="basis-[100%] lg:mt-0 mt-[40px] lg:basis-[25%]  lg:text-end">
-          <span className="block leading-[60px] lg:leading-[100px] text-[65px] lg:text-[95px] text-left lg:text-end w-full text-primaryblue">
+        <p className="basis-[100%] lg:mt-0 mt-[0px] lg:basis-[25%]  lg:text-end">
+          <span className="hidden lg:block leading-[60px] lg:leading-[100px] text-[65px] lg:text-[95px] text-left lg:text-end w-full text-primaryblue">
             1969
           </span>
-          <span className="lg:text-end w-full block mt-[5px] text-left tracking-[1.5px] text-[20px] font-[100]">
+          <span className="lg:text-end w-full hidden lg:block mt-[5px] text-left tracking-[1.5px] text-[20px] font-[100]">
             Founded in
           </span>
           <button className="block lg:hidden font-[600]  w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem]  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">

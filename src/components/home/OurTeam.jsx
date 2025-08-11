@@ -165,7 +165,7 @@ const OurTeam = () => {
                         <span>Director & COO</span>
                       </li>
                     </ul>
-                    <button className="font-[600] text-[14px] lg:w-auto w-[60%] text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+                    <button className="font-[600] text-[14px] lg:w-auto w-[60%] text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[19px] lg:px-[25px] tracking-[1px] border-primaryblue border-y-solid">
                       EXPLORE OUR TEAM
                     </button>
                   </div>
