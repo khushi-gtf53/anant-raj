@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const LuxuryProperties = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
   const [activeCategory, setActiveCategory] = useState("RESIDENTIAL");
   const [swiperInstance, setSwiperInstance] = useState(null);
 
@@ -35,11 +36,40 @@ const LuxuryProperties = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 767);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const slides = [
-    { id: 1, src: "./assets/luxury/villa.jpg", category: "RESIDENTIAL" },
-    { id: 2, src: "./assets/luxury/commercial.jpg", category: "COMMERCIAL" },
-    { id: 3, src: "./assets/luxury/hospitality.jpg", category: "HOSPITALITY" },
-    { id: 4, src: "./assets/luxury/cloud.jpg", category: "DATA CENTERS" },
+    {
+      id: 1,
+      mbImage: "./assets/luxury/villa-mb.jpg",
+      src: "./assets/luxury/villa.jpg",
+      category: "RESIDENTIAL",
+    },
+    {
+      id: 2,
+      mbImage: "./assets/luxury/commercial-mb.jpg",
+      src: "./assets/luxury/commercial.jpg",
+      category: "COMMERCIAL",
+    },
+    {
+      id: 3,
+      mbImage: "./assets/luxury/hospitality-mb.jpg",
+      src: "./assets/luxury/hospitality.jpg",
+      category: "HOSPITALITY",
+    },
+    {
+      id: 4,
+      mbImage: "./assets/luxury/cloud-mb.jpg",
+      src: "./assets/luxury/cloud.jpg",
+      category: "DATA CENTERS",
+    },
   ];
 
   const handleSlideChange = (swiper) => {
@@ -110,7 +140,7 @@ const LuxuryProperties = () => {
                   <img
                     // Attach ref only to the first image
                     ref={idx === 0 ? firstImageRef : null}
-                    src={slide.src}
+                    src={!isMobile ? slide.src : slide.mbImage}
                     alt={`${slide.category} Project`}
                     className="w-full h-[350px] object-cover xl:h-[500px] lg:h-[400px]"
                   />
@@ -120,7 +150,7 @@ const LuxuryProperties = () => {
           </Swiper>
         </div>
 
-        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[2.5rem] ">
+        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[1.5rem] lg:mt-[2.5rem] ">
           <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px]  px-[21px] lg:px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>

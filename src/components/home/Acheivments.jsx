@@ -17,13 +17,13 @@ const achievementsData = [
   },
   {
     id: 2,
-    image: "./assets/award-1.png",
+    image: "./assets/award-2.jpg",
     title: "Real Estate Excellence Award 2023",
     text: "Recognized for outstanding contributions to sustainable real estate development in 2023.",
   },
   {
     id: 3,
-    image: "./assets/award-1.png",
+    image: "./assets/award-3.jpg",
     title: "Best Commercial Project Award 2022",
     text: "Honored for the innovative design of our commercial properties in 2022.",
   },
