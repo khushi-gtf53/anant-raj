@@ -225,7 +225,19 @@ const Footer = () => {
                   </NavLink>
                   <NavLink>
                     <span className="mr-2">&gt;</span>
-                    Property Investment
+                    CSR
+                  </NavLink>
+                </div>
+              )}
+              {isExploreOpen && (
+                <div className="flex  mt-[20px] flex-col space-y-2">
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Gallery
+                  </NavLink>
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Testimonials
                   </NavLink>
                 </div>
               )}
@@ -241,35 +253,34 @@ const Footer = () => {
                   Commercial
                 </NavLink>
               </div>
-              {isExploreOpen && (
-                <div>
-                  {" "}
-                  {isExploreOpen && (
-                    <div className="flex  mt-[20px] flex-col space-y-2">
-                      <NavLink>
-                        <span className="mr-2">&gt;</span>
-                        EMI Calculator
-                      </NavLink>
-                      <NavLink>
-                        <span className="mr-2">&gt;</span>
-                        CSR
-                      </NavLink>
-                    </div>
-                  )}
-                  {isExploreOpen && (
-                    <div className="flex  mt-[20px] flex-col space-y-2">
-                      <NavLink>
-                        <span className="mr-2">&gt;</span>
-                        Gallery
-                      </NavLink>
-                      <NavLink>
-                        <span className="mr-2">&gt;</span>
-                        Testimonials
-                      </NavLink>
-                    </div>
-                  )}
-                </div>
-              )}
+
+              <div>
+                {" "}
+                {isExploreOpen && (
+                  <div className="flex  mt-[20px] flex-col space-y-2">
+                    <NavLink>
+                      <span className="mr-2">&gt;</span>
+                      EMI Calculator
+                    </NavLink>
+                    <NavLink>
+                      <span className="mr-2">&gt;</span>
+                      Property Investment
+                    </NavLink>
+                  </div>
+                )}
+                {isExploreOpen && (
+                  <div className="flex  mt-[20px] flex-col space-y-2">
+                    <NavLink>
+                      <span className="mr-2">&gt;</span>
+                      NRI Investors
+                    </NavLink>
+                    <NavLink>
+                      <span className="mr-2">&gt;</span>
+                      NRI Corner
+                    </NavLink>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div>
@@ -293,6 +304,18 @@ const Footer = () => {
                   <NavLink>
                     <span className="mr-2">&gt;</span>
                     Tax Benefits
+                  </NavLink>
+                </div>
+              )}
+              {isExploreOpen && (
+                <div className="flex mt-[20px] flex-col space-y-2">
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    Investors
+                  </NavLink>
+                  <NavLink>
+                    <span className="mr-2">&gt;</span>
+                    About us
                   </NavLink>
                 </div>
               )}
