@@ -72,7 +72,7 @@ const Media = () => {
       >
         {mediaArticles.map((article) => (
           <SwiperSlide key={article.id}>
-            <div className="flex flex-col items-start  ">
+            <div className="flex flex-col items-start">
               <img
                 src={article.logo}
                 alt={article.source}
