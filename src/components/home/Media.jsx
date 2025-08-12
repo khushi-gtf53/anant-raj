@@ -76,7 +76,7 @@ const Media = () => {
               <img
                 src={article.logo}
                 alt={article.source}
-                className="h-[70px] w-[250px] lg:w-[200px] object-contain"
+                className="h-[70px] w-[100%] lg:w-[200px] object-contain"
               />
               <p className="text-sm mt-[35px] text-left tracking-[1px] leading-[26px] max-w-xs">
                 {article.text}

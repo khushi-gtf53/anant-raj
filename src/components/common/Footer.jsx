@@ -370,9 +370,16 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
           {/* Left - Phone Number */}
           <div className="flex-shrink-0">
-            <span className=" font-medium text-sm tracking-wide">
-              <span>+91-11-43034400 </span>
-              <span className="inline-block ml-[18px]">+91 89298 00666</span>
+            <span className="font-medium text-sm tracking-wide">
+              <a href="tel:+911143034400" className="hover:underline">
+                +91-11-43034400
+              </a>
+              <a
+                href="tel:+918929800666"
+                className="inline-block ml-[18px] hover:underline"
+              >
+                +91 89298 00666
+              </a>
             </span>
           </div>
 

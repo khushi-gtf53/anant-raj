@@ -78,7 +78,7 @@ const DevelopmentExperience = () => {
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">
-        <div className="px-[20px] lg:px-[100px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[0px] py-[40px] lg:py-[60px]">
+        <div className="px-[20px] lg:px-[210px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[0px] py-[40px] lg:py-[60px]">
           <p className="flex flex-wrap items-center lg:mb-[70px] basis-[100%] lg:basis-[50%]">
             <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.experience}+

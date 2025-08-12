@@ -10,56 +10,43 @@ const blogSlides = [
     image: "./assets/1blog.jpg",
     title:
       "Why Investing in Gurgaon’s Luxury Flats is a Game Changer for Real Estate Investors",
-    para: "If you're looking to diversify your portfolio or secure a high-value asset in India’s fastest-growing urban market, now is the time to explore Anant Raj’s premium offerings in Gurgaon. Explore our current and upcoming residential projects in Gurgaon here or get in touch with our team to find the perfect investment opportunity for you.",
+    para: "If you're looking to diversify your portfolio or secure a high-value asset in India’s fastest-growing urban market, now is the time to explore Anant Raj’s premium offerings in Gurgaon.",
   },
   {
     id: 2,
     image: "./assets/2blog.jpg",
     title:
       "Discover the Epitome of Luxury Living at The Estate Residences by Anant Raj Limited, Gurugram",
-    para: "Experience the pinnacle of luxury living at The Estate Residences by Anant Raj Limited. Your dream home awaits in the heart of Gurugram. ",
+    para: "Experience the pinnacle of luxury living at The Estate Residences by Anant Raj Limited. Your dream home awaits in the heart of Gurugram.",
   },
   {
     id: 3,
     image: "./assets/3blog.webp",
     title:
       "Anant Raj Manesar: Pioneering Innovation at the Heart of IT Development",
-    para: "Anant Raj Manesar is more than just an IT Park—it’s a blueprint for the future of enterprise infrastructure in India. Whether you're a growing tech firm, a data-led enterprise, or a cloud service provider looking for robust infrastructure near NCR, this is a location and a developer you should be paying attention to.",
+    para: "Anant Raj Manesar is more than just an IT Park—it’s a blueprint for the future of enterprise infrastructure in India.",
   },
 ];
 
 const Blogs = () => {
   const swiperRef = useRef(null);
-  const firstSlideRef = useRef(null);
+  const slideRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isInViewport, setIsInViewport] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
 
-  // Observe first slide container visibility
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInViewport(entry.isIntersecting);
-      },
-      { threshold: 0.3 }
-    );
-
-    const target = firstSlideRef.current;
-    if (target) observer.observe(target);
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Run animation ONCE when first slide is in viewport and active
-  useEffect(() => {
-    const img = firstSlideRef.current?.querySelector("img");
-    if (!img) return;
-
-    if (activeIndex === 0 && isInViewport && !hasAnimated) {
+  // Function to trigger animation
+  const triggerImageAnimation = (index) => {
+    const img = slideRefs.current[index]?.querySelector("img");
+    if (img) {
+      img.classList.remove("animate-zoom-fade"); // reset
+      void img.offsetWidth; // trigger reflow to restart animation
       img.classList.add("animate-zoom-fade");
-      setHasAnimated(true); // Prevent re-running
     }
-  }, [activeIndex, isInViewport, hasAnimated]);
+  };
+
+  // Run animation every time the slide changes
+  useEffect(() => {
+    triggerImageAnimation(activeIndex);
+  }, [activeIndex]);
 
   return (
     <section className="px-[20px] lg:px-[100px] lg:pt-[80px] lg:pb-[40px] pt-[70px] bg-white">
@@ -77,11 +64,13 @@ const Blogs = () => {
             nextEl: ".swiper-next-custom",
             prevEl: ".swiper-prev-custom",
           }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          onSlideChange={(swiper) => {
+            setActiveIndex(swiper.realIndex);
+          }}
         >
           {blogSlides.map((slide, index) => (
             <SwiperSlide key={slide.id}>
-              <div ref={index === 0 ? firstSlideRef : null}>
+              <div ref={(el) => (slideRefs.current[index] = el)}>
                 <img
                   src={slide.image}
                   alt={slide.title}

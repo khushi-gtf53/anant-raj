@@ -90,7 +90,7 @@ const OurTeam = () => {
                 <div className="flex justify-between flex-wrap items-center">
                   <div className="basis-full lg:basis-[40%]">
                     <img
-                      className="h-[250px] lg:h-[380px] object-cover"
+                      className="h-[250px] lg:h-[380px] w-full object-cover"
                       src={slide.image}
                       alt="anant-raj"
                     />
@@ -123,9 +123,9 @@ const OurTeam = () => {
                     <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[30px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
-                    <ul className="flex flex-wrap justify-between items-center lg:mb-[35px] lg:mt-[] my-[25px] tracking-[1px]">
+                    <ul className="flex flex-wrap justify-between items-center lg:mb-[35px]  my-[25px] tracking-[1px]">
                       <li
-                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-[22%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-auto basis-[50%] ${
                           activeRole === "Our Founder"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -135,7 +135,7 @@ const OurTeam = () => {
                         <span>Our Founder</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-auto basis-[50%] ${
                           activeRole === "Managing Director"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -145,7 +145,7 @@ const OurTeam = () => {
                         <span>Managing Director</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-end lg:text-[13px] lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px] lg:basis-auto basis-[50%] ${
                           activeRole === "Director & CEO"
                             ? "text-primaryblue font-[600]"
                             : ""
@@ -155,7 +155,7 @@ const OurTeam = () => {
                         <span>Director & CEO</span>
                       </li>
                       <li
-                        className={`cursor-pointer lg:text-end lg:text-[13px] lg:basis-[25%] basis-[50%] ${
+                        className={`cursor-pointer lg:text-end lg:text-[13px] lg:basis-auto basis-[50%] ${
                           activeRole === "Director & COO"
                             ? "text-primaryblue font-[600]"
                             : ""

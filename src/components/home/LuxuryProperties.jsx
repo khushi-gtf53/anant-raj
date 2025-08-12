@@ -48,48 +48,79 @@ const LuxuryProperties = () => {
   const slides = [
     {
       id: 1,
-      mbImage: "./assets/luxury/villa-mb.jpg",
-      src: "./assets/luxury/villa.jpg",
-      category: "RESIDENTIAL",
-    },
-    {
-      id: 1,
-      mbImage: "./assets/luxury/villa-mb.jpg",
-      src: "./assets/luxury/villa.jpg",
+      mbImage: "./assets/luxury/residential/1-mb.jpg",
+      src: "./assets/luxury/residential/1.jpg",
       category: "RESIDENTIAL",
     },
     {
       id: 2,
-      mbImage: "./assets/luxury/commercial-mb.jpg",
-      src: "./assets/luxury/commercial.jpg",
-      category: "COMMERCIAL",
-    },
-    {
-      id: 2,
-      mbImage: "./assets/luxury/commercial-mb.jpg",
-      src: "./assets/luxury/commercial.jpg",
-      category: "COMMERCIAL",
+      mbImage: "./assets/luxury/residential/2.jpg",
+      src: "./assets/luxury/residential/2.jpg",
+      category: "RESIDENTIAL",
     },
     {
       id: 3,
-      mbImage: "./assets/luxury/hospitality-mb.jpg",
-      src: "./assets/luxury/hospitality.jpg",
-      category: "HOSPITALITY",
-    },
-    {
-      id: 3,
-      mbImage: "./assets/luxury/hospitality-mb.jpg",
-      src: "./assets/luxury/hospitality.jpg",
-      category: "HOSPITALITY",
+      mbImage: "./assets/luxury/residential/3.jpg",
+      src: "./assets/luxury/residential/3.jpg",
+      category: "RESIDENTIAL",
     },
     {
       id: 4,
+      mbImage: "./assets/luxury/residential/4.jpg",
+      src: "./assets/luxury/residential/4.jpg",
+      category: "RESIDENTIAL",
+    },
+    {
+      id: 5,
+      mbImage: "./assets/luxury/residential/5.jpg",
+      src: "./assets/luxury/residential/5.jpg",
+      category: "RESIDENTIAL",
+    },
+    {
+      id: 6,
+      mbImage: "./assets/luxury/residential/6.jpg",
+      src: "./assets/luxury/residential/6.jpg",
+      category: "RESIDENTIAL",
+    },
+    {
+      id: 7,
+      mbImage: "./assets/luxury/residential/7.jpg",
+      src: "./assets/luxury/residential/7.jpg",
+      category: "RESIDENTIAL",
+    },
+
+    {
+      id: 8,
+      mbImage: "./assets/luxury/commercial/1-mb.jpg",
+      src: "./assets/luxury/commercial/1.jpg",
+      category: "COMMERCIAL",
+    },
+    {
+      id: 9,
+      mbImage: "./assets/luxury/commercial/2.jpg",
+      src: "./assets/luxury/commercial/2.jpg",
+      category: "COMMERCIAL",
+    },
+    {
+      id: 10,
+      mbImage: "./assets/luxury/hospitality/1-mb.jpg",
+      src: "./assets/luxury/hospitality/1.jpg",
+      category: "HOSPITALITY",
+    },
+    {
+      id: 11,
+      mbImage: "./assets/luxury/hospitality/2.jpg",
+      src: "./assets/luxury/hospitality/2.jpg",
+      category: "HOSPITALITY",
+    },
+    {
+      id: 12,
       mbImage: "./assets/luxury/cloud-mb.jpg",
       src: "./assets/luxury/cloud.jpg",
       category: "DATA CENTERS",
     },
     {
-      id: 4,
+      id: 13,
       mbImage: "./assets/luxury/cloud-mb.jpg",
       src: "./assets/luxury/cloud.jpg",
       category: "DATA CENTERS",
@@ -159,7 +190,7 @@ const LuxuryProperties = () => {
             onSwiper={setSwiperInstance}
           >
             {slides.map((slide, idx) => (
-              <SwiperSlide key={slide.id}>
+              <SwiperSlide key={idx}>
                 <div className="relative">
                   <img
                     // Attach ref only to the first image
