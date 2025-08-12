@@ -50,12 +50,16 @@ const LuxuryProperties = () => {
       id: 1,
       mbImage: "./assets/luxury/residential/1-mb.jpg",
       src: "./assets/luxury/residential/1.jpg",
+      name: "Anant Raj Estate",
+      location: "Sector 63A, Gurugram",
       category: "RESIDENTIAL",
     },
     {
       id: 2,
       mbImage: "./assets/luxury/residential/2.jpg",
       src: "./assets/luxury/residential/2.jpg",
+      name: "Estate Villa",
+      location: "Sector 63A, Gurugram",
       category: "RESIDENTIAL",
     },
     {
@@ -63,17 +67,23 @@ const LuxuryProperties = () => {
       mbImage: "./assets/luxury/residential/3.jpg",
       src: "./assets/luxury/residential/3.jpg",
       category: "RESIDENTIAL",
+      name: "Anant Raj Estate",
+      location: "Sector 63A, Gurugram",
     },
     {
       id: 4,
       mbImage: "./assets/luxury/residential/4.jpg",
       src: "./assets/luxury/residential/4.jpg",
+      name: "Estate Villa",
+      location: "Sector 63A, Gurugram",
       category: "RESIDENTIAL",
     },
     {
       id: 5,
       mbImage: "./assets/luxury/residential/5.jpg",
       src: "./assets/luxury/residential/5.jpg",
+      name: "Birla Navya Amoda 2",
+      location: "Sector 63A, Gurugram",
       category: "RESIDENTIAL",
     },
     {
@@ -81,12 +91,16 @@ const LuxuryProperties = () => {
       mbImage: "./assets/luxury/residential/6.jpg",
       src: "./assets/luxury/residential/6.jpg",
       category: "RESIDENTIAL",
+      name: "Estate Villa",
+      location: "Sector 63A, Gurugram",
     },
     {
       id: 7,
       mbImage: "./assets/luxury/residential/7.jpg",
       src: "./assets/luxury/residential/7.jpg",
       category: "RESIDENTIAL",
+      name: "Estate Floors",
+      location: "Sector 63A, Gurugram",
     },
 
     {
@@ -94,36 +108,65 @@ const LuxuryProperties = () => {
       mbImage: "./assets/luxury/commercial/1-mb.jpg",
       src: "./assets/luxury/commercial/1.jpg",
       category: "COMMERCIAL",
+      name: "Joy Square (JV with AIPL)",
+      location: "Sector 63A, Gurugram",
     },
     {
       id: 9,
       mbImage: "./assets/luxury/commercial/2.jpg",
       src: "./assets/luxury/commercial/2.jpg",
       category: "COMMERCIAL",
+      name: "Tech Park",
+      location: "Panchkula",
     },
     {
       id: 10,
-      mbImage: "./assets/luxury/hospitality/1-mb.jpg",
-      src: "./assets/luxury/hospitality/1.jpg",
-      category: "HOSPITALITY",
+      mbImage: "./assets/luxury/commercial/3.jpg",
+      src: "./assets/luxury/commercial/3.jpg",
+      category: "COMMERCIAL",
+      name: "Karol Bagh Mall",
+      location: "Karol Bagh, Delhi",
+    },
+    {
+      id: 10,
+      mbImage: "./assets/luxury/commercial/4.jpg",
+      src: "./assets/luxury/commercial/4.jpg",
+      category: "COMMERCIAL",
+      name: "Anant Raj Trade Centre",
+      location: "GT Road, Sonipat",
     },
     {
       id: 11,
-      mbImage: "./assets/luxury/hospitality/2.jpg",
-      src: "./assets/luxury/hospitality/2.jpg",
+      mbImage: "./assets/luxury/commercial/5.jpg",
+      src: "./assets/luxury/commercial/5.jpg",
+      category: "COMMERCIAL",
+      name: "Anant Raj Tower",
+      location: "Sector 44, Gurugram",
+    },
+    {
+      id: 11,
+      mbImage: "./assets/luxury/hospitality/1.jpg",
+      src: "./assets/luxury/hospitality/1.jpg",
       category: "HOSPITALITY",
+      name: "Stellar Resorts",
+      location: "New Delhi near Qutab Minar",
     },
     {
       id: 12,
-      mbImage: "./assets/luxury/cloud-mb.jpg",
-      src: "./assets/luxury/cloud.jpg",
-      category: "DATA CENTERS",
+      mbImage: "./assets/luxury/hospitality/2.jpg",
+      src: "./assets/luxury/hospitality/2.jpg",
+      category: "HOSPITALITY",
+      name: "Bel La Monde",
+      location: "Chattarpur, Delhi",
     },
+
     {
       id: 13,
-      mbImage: "./assets/luxury/cloud-mb.jpg",
-      src: "./assets/luxury/cloud.jpg",
+      mbImage: "./assets/luxury/cloud-1.jpg",
+      src: "./assets/luxury/cloud-1.jpg",
       category: "DATA CENTERS",
+      name: "Anant Raj Cloud",
+      location: "Sector 44, Gurugram",
     },
   ];
 
@@ -192,6 +235,18 @@ const LuxuryProperties = () => {
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
                 <div className="relative">
+                  <p className="tracking-[1.2px] flex flex-col absolute z-[99] left-[30px] lg:left-[80px] text-white top-[30px] lg:top-[40px]">
+                    <span className="text-[22px] lg:text-[32px] font-[600]">
+                      {slide.name}
+                    </span>
+                    {/* <span className="text-[20px] lg:text-[30px] font-[600] mb-[8px] mt-[4px]">
+                      (JV with AIPL)
+                    </span> */}
+
+                    <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
+                      {slide.location}
+                    </span>
+                  </p>
                   <img
                     // Attach ref only to the first image
                     ref={idx === 0 ? firstImageRef : null}

@@ -18,11 +18,15 @@ const Aboutus = () => {
               A
             </span>
             <p className="basis-[80%] lg:basis-[65%] lg:ml-[10px] text-justify text-[15px] leading-[28px] lg:mt-0 mt-[-10px] lg:leading-[32px] tracking-[1.5px] font-lato">
-              <span>
+              <span className="lg:inline hidden ">
                 nant Raj Limited has been a leader in India's real estate
                 landscape since 1969, delivering landmark
               </span>
-              <span> </span>
+              <span className="inline lg:hidden">
+                {" "}
+                nant Raj Limited has been a leader in India's real estate
+                landscape since 1969, delivering landmark across
+              </span>
               <span className="hidden lg:inline">
                 developments across residential, commercial, and IT
                 infrastructure sectors. With a commitment to innovation, luxury,
@@ -31,10 +35,10 @@ const Aboutus = () => {
               </span>
             </p>
             <p className="lg:hidden inline-block text-justify text-[15px] leading-[28px]  lg:leading-[32px] tracking-[1.5px] font-lato">
-              across residential, commercial, and IT infrastructure sectors.
-              With a commitment to innovation, luxury, and sustainability, we
-              craft future-ready spaces that elevate lifestyles and redefine
-              urban living.
+              residential commercial, and IT infrastructure sectors. With a
+              commitment to innovation, luxury, and sustainability, we craft
+              future-ready spaces that elevate lifestyles and redefine urban
+              living.
             </p>
           </div>
         </div>
