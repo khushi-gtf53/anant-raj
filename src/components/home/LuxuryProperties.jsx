@@ -162,8 +162,8 @@ const LuxuryProperties = () => {
 
     {
       id: 13,
-      mbImage: "./assets/luxury/cloud-1.jpg",
-      src: "./assets/luxury/cloud-1.jpg",
+      mbImage: "./assets/luxury/cloud.jpg",
+      src: "./assets/luxury/cloud.jpg",
       category: "DATA CENTERS",
       name: "Anant Raj Cloud",
       location: "Sector 44, Gurugram",
