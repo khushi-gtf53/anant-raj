@@ -25,7 +25,7 @@ const Aboutus = () => {
               <span className="inline lg:hidden">
                 {" "}
                 nant Raj Limited has been a leader in India's real estate
-                landscape since 1969, delivering landmark across residential
+                landscape since 1969, delivering landmark across
               </span>
               <span className="hidden lg:inline">
                 developments across residential, commercial, and IT
@@ -35,9 +35,10 @@ const Aboutus = () => {
               </span>
             </p>
             <p className="lg:hidden inline-block text-justify text-[15px] leading-[28px]  lg:leading-[32px] tracking-[1.5px] font-lato">
-              commercial, and IT infrastructure sectors. With a commitment to
-              innovation, luxury, and sustainability, we craft future-ready
-              spaces that elevate lifestyles and redefine urban living.
+              residential commercial, and IT infrastructure sectors. With a
+              commitment to innovation, luxury, and sustainability, we craft
+              future-ready spaces that elevate lifestyles and redefine urban
+              living.
             </p>
           </div>
         </div>

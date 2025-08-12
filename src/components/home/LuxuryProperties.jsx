@@ -48,7 +48,7 @@ const LuxuryProperties = () => {
   const slides = [
     {
       id: 1,
-      mbImage: "./assets/luxury/residential/1-mb.jpg",
+      mbImage: "./assets/luxury/residential/1.jpg",
       src: "./assets/luxury/residential/1.jpg",
       name: "Anant Raj Estate",
       location: "Sector 63A, Gurugram",
@@ -105,7 +105,7 @@ const LuxuryProperties = () => {
 
     {
       id: 8,
-      mbImage: "./assets/luxury/commercial/1-mb.jpg",
+      mbImage: "./assets/luxury/commercial/1.jpg",
       src: "./assets/luxury/commercial/1.jpg",
       category: "COMMERCIAL",
       name: "Joy Square (JV with AIPL)",
