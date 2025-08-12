@@ -34,7 +34,7 @@ const Achievements = () => {
     achievementsData[0]
   );
   const swiperRef = useRef(null);
-  const firstImageRef = useRef(null);
+  const imageRefs = useRef([]); // Array to store refs for all images
 
   const handlePrevClick = () => {
     swiperRef.current?.slidePrev();
@@ -46,12 +46,27 @@ const Achievements = () => {
 
   const handleSlideChange = (swiper) => {
     setActiveAchievement(achievementsData[swiper.realIndex]);
+    // Animate the active slide's image
+    const activeImage = imageRefs.current[swiper.realIndex];
+    if (activeImage) {
+      gsap.fromTo(
+        activeImage,
+        { scale: 1.8, opacity: 0.5 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.7,
+          ease: "power3.out",
+        }
+      );
+    }
   };
 
   useEffect(() => {
-    if (firstImageRef.current) {
+    // Initial animation for the first image on mount
+    if (imageRefs.current[0]) {
       gsap.fromTo(
-        firstImageRef.current,
+        imageRefs.current[0],
         { scale: 1.8, opacity: 0.5 },
         {
           scale: 1,
@@ -59,16 +74,15 @@ const Achievements = () => {
           duration: 1.7,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: firstImageRef.current,
+            trigger: imageRefs.current[0],
             start: "top 80%",
             toggleActions: "play none none none",
           },
         }
       );
     }
-  }, []);
 
-  useEffect(() => {
+    // Update Swiper navigation
     if (swiperRef.current) {
       swiperRef.current.navigation?.update();
     }
@@ -103,7 +117,7 @@ const Achievements = () => {
             {achievementsData.map((achievement, index) => (
               <SwiperSlide key={achievement.id}>
                 <img
-                  ref={index === 0 ? firstImageRef : null}
+                  ref={(el) => (imageRefs.current[index] = el)} // Assign ref to each image
                   src={achievement.image}
                   alt={achievement.title}
                   className="w-full h-[250px] lg:mb-0 mb-[30px] lg:h-[350px] object-cover"
