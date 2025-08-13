@@ -54,7 +54,7 @@ const Header = () => {
             : "/assets/footer-logo-1.png"
         }
         alt="Anant Raj Limited Logo"
-        className={`h-[55px] ${isAtTop ? "lg:h-[75px]" : ""}`}
+        className={`h-[70px] ${isAtTop ? "lg:h-[75px]" : ""}`}
         onError={(e) => {
           console.error("Failed to load logo image");
           e.target.src = "/assets/fallback-logo.png";
