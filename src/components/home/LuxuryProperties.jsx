@@ -4,176 +4,189 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+const slides = [
+  {
+    id: 1,
+    mbImage: "./assets/luxury/residential/1.jpg",
+    src: "./assets/luxury/residential/1.jpg",
+    name: "Anant Raj Estate",
+    location: "Sector 63A, Gurugram",
+    category: "RESIDENTIAL",
+  },
+  {
+    id: 2,
+    mbImage: "./assets/luxury/residential/2.jpg",
+    src: "./assets/luxury/residential/2.jpg",
+    name: "Estate Villa",
+    location: "Sector 63A, Gurugram",
+    category: "RESIDENTIAL",
+  },
+  {
+    id: 3,
+    mbImage: "./assets/luxury/residential/3.jpg",
+    src: "./assets/luxury/residential/3.jpg",
+    category: "RESIDENTIAL",
+    name: "Anant Raj Estate",
+    location: "Sector 63A, Gurugram",
+  },
+  {
+    id: 4,
+    mbImage: "./assets/luxury/residential/4.jpg",
+    src: "./assets/luxury/residential/4.jpg",
+    name: "Estate Villa",
+    location: "Sector 63A, Gurugram",
+    category: "RESIDENTIAL",
+  },
+  {
+    id: 5,
+    mbImage: "./assets/luxury/residential/5.jpg",
+    src: "./assets/luxury/residential/5.jpg",
+    name: "Birla Navya Amoda 2",
+    location: "Sector 63A, Gurugram",
+    category: "RESIDENTIAL",
+  },
+  {
+    id: 6,
+    mbImage: "./assets/luxury/residential/6.jpg",
+    src: "./assets/luxury/residential/6.jpg",
+    category: "RESIDENTIAL",
+    name: "Estate Villa",
+    location: "Sector 63A, Gurugram",
+  },
+  {
+    id: 7,
+    mbImage: "./assets/luxury/residential/7.jpg",
+    src: "./assets/luxury/residential/7.jpg",
+    category: "RESIDENTIAL",
+    name: "Estate Floors",
+    location: "Sector 63A, Gurugram",
+  },
+  {
+    id: 8,
+    mbImage: "./assets/luxury/commercial/1.jpg",
+    src: "./assets/luxury/commercial/1.jpg",
+    category: "COMMERCIAL",
+    name: "Joy Square (JV with AIPL)",
+    location: "Sector 63A, Gurugram",
+  },
+  {
+    id: 9,
+    mbImage: "./assets/luxury/commercial/2.jpg",
+    src: "./assets/luxury/commercial/2.jpg",
+    category: "COMMERCIAL",
+    name: "Tech Park",
+    location: "Panchkula",
+  },
+  {
+    id: 10,
+    mbImage: "./assets/luxury/commercial/3.jpg",
+    src: "./assets/luxury/commercial/3.jpg",
+    category: "COMMERCIAL",
+    name: "Karol Bagh Mall",
+    location: "Karol Bagh, Delhi",
+  },
+  {
+    id: 11,
+    mbImage: "./assets/luxury/commercial/4.jpg",
+    src: "./assets/luxury/commercial/4.jpg",
+    category: "COMMERCIAL",
+    name: "Anant Raj Trade Centre",
+    location: "GT Road, Sonipat",
+  },
+  {
+    id: 12,
+    mbImage: "./assets/luxury/commercial/5.jpg",
+    src: "./assets/luxury/commercial/5.jpg",
+    category: "COMMERCIAL",
+    name: "Anant Raj Tower",
+    location: "Sector 44, Gurugram",
+  },
+  {
+    id: 13,
+    mbImage: "./assets/luxury/hospitality/1.jpg",
+    src: "./assets/luxury/hospitality/1.jpg",
+    category: "HOSPITALITY",
+    name: "Stellar Resorts",
+    location: "New Delhi near Qutab Minar",
+  },
+  {
+    id: 14,
+    mbImage: "./assets/luxury/hospitality/2.jpg",
+    src: "./assets/luxury/hospitality/2.jpg",
+    category: "HOSPITALITY",
+    name: "Bel La Monde",
+    location: "Chattarpur, Delhi",
+  },
+  {
+    id: 15,
+    mbImage: "./assets/luxury/cloud.jpg",
+    src: "./assets/luxury/cloud.jpg",
+    category: "DATA CENTERS",
+    name: "Anant Raj Cloud",
+    location: "Sector 44, Gurugram",
+  },
+];
 
 const LuxuryProperties = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
   const [activeCategory, setActiveCategory] = useState("RESIDENTIAL");
   const [swiperInstance, setSwiperInstance] = useState(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const imageRefs = useRef([]);
 
-  // Ref for the first slide image only
-  const firstImageRef = useRef(null);
-
+  // Preload images
   useEffect(() => {
-    if (firstImageRef.current) {
+    let loaded = 0;
+    slides.forEach((slide) => {
+      const img = new Image();
+      img.src = isMobile ? slide.mbImage : slide.src;
+      img.onload = () => {
+        loaded++;
+        if (loaded === slides.length) {
+          setImagesLoaded(true);
+        }
+      };
+    });
+  }, [isMobile]);
+
+  // Animate the current slide's image
+  const animateImage = (index) => {
+    const imgEl = imageRefs.current[index];
+    if (imgEl) {
       gsap.fromTo(
-        firstImageRef.current,
+        imgEl,
         { scale: 1.8, opacity: 0.5 },
         {
           scale: 1,
           opacity: 1,
-          duration: 1.7,
+          duration: 1.6,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: firstImageRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
         }
       );
     }
-  }, []);
+  };
+
+  // On initial load, animate the first image
+  useEffect(() => {
+    if (imagesLoaded) {
+      animateImage(0);
+    }
+  }, [imagesLoaded]);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 767);
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 767);
-    };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const slides = [
-    {
-      id: 1,
-      mbImage: "./assets/luxury/residential/1.jpg",
-      src: "./assets/luxury/residential/1.jpg",
-      name: "Anant Raj Estate",
-      location: "Sector 63A, Gurugram",
-      category: "RESIDENTIAL",
-    },
-    {
-      id: 2,
-      mbImage: "./assets/luxury/residential/2.jpg",
-      src: "./assets/luxury/residential/2.jpg",
-      name: "Estate Villa",
-      location: "Sector 63A, Gurugram",
-      category: "RESIDENTIAL",
-    },
-    {
-      id: 3,
-      mbImage: "./assets/luxury/residential/3.jpg",
-      src: "./assets/luxury/residential/3.jpg",
-      category: "RESIDENTIAL",
-      name: "Anant Raj Estate",
-      location: "Sector 63A, Gurugram",
-    },
-    {
-      id: 4,
-      mbImage: "./assets/luxury/residential/4.jpg",
-      src: "./assets/luxury/residential/4.jpg",
-      name: "Estate Villa",
-      location: "Sector 63A, Gurugram",
-      category: "RESIDENTIAL",
-    },
-    {
-      id: 5,
-      mbImage: "./assets/luxury/residential/5.jpg",
-      src: "./assets/luxury/residential/5.jpg",
-      name: "Birla Navya Amoda 2",
-      location: "Sector 63A, Gurugram",
-      category: "RESIDENTIAL",
-    },
-    {
-      id: 6,
-      mbImage: "./assets/luxury/residential/6.jpg",
-      src: "./assets/luxury/residential/6.jpg",
-      category: "RESIDENTIAL",
-      name: "Estate Villa",
-      location: "Sector 63A, Gurugram",
-    },
-    {
-      id: 7,
-      mbImage: "./assets/luxury/residential/7.jpg",
-      src: "./assets/luxury/residential/7.jpg",
-      category: "RESIDENTIAL",
-      name: "Estate Floors",
-      location: "Sector 63A, Gurugram",
-    },
-
-    {
-      id: 8,
-      mbImage: "./assets/luxury/commercial/1.jpg",
-      src: "./assets/luxury/commercial/1.jpg",
-      category: "COMMERCIAL",
-      name: "Joy Square (JV with AIPL)",
-      location: "Sector 63A, Gurugram",
-    },
-    {
-      id: 9,
-      mbImage: "./assets/luxury/commercial/2.jpg",
-      src: "./assets/luxury/commercial/2.jpg",
-      category: "COMMERCIAL",
-      name: "Tech Park",
-      location: "Panchkula",
-    },
-    {
-      id: 10,
-      mbImage: "./assets/luxury/commercial/3.jpg",
-      src: "./assets/luxury/commercial/3.jpg",
-      category: "COMMERCIAL",
-      name: "Karol Bagh Mall",
-      location: "Karol Bagh, Delhi",
-    },
-    {
-      id: 10,
-      mbImage: "./assets/luxury/commercial/4.jpg",
-      src: "./assets/luxury/commercial/4.jpg",
-      category: "COMMERCIAL",
-      name: "Anant Raj Trade Centre",
-      location: "GT Road, Sonipat",
-    },
-    {
-      id: 11,
-      mbImage: "./assets/luxury/commercial/5.jpg",
-      src: "./assets/luxury/commercial/5.jpg",
-      category: "COMMERCIAL",
-      name: "Anant Raj Tower",
-      location: "Sector 44, Gurugram",
-    },
-    {
-      id: 11,
-      mbImage: "./assets/luxury/hospitality/1.jpg",
-      src: "./assets/luxury/hospitality/1.jpg",
-      category: "HOSPITALITY",
-      name: "Stellar Resorts",
-      location: "New Delhi near Qutab Minar",
-    },
-    {
-      id: 12,
-      mbImage: "./assets/luxury/hospitality/2.jpg",
-      src: "./assets/luxury/hospitality/2.jpg",
-      category: "HOSPITALITY",
-      name: "Bel La Monde",
-      location: "Chattarpur, Delhi",
-    },
-
-    {
-      id: 13,
-      mbImage: "./assets/luxury/cloud.jpg",
-      src: "./assets/luxury/cloud.jpg",
-      category: "DATA CENTERS",
-      name: "Anant Raj Cloud",
-      location: "Sector 44, Gurugram",
-    },
-  ];
-
   const handleSlideChange = (swiper) => {
-    const currentIndex = swiper.realIndex;
-    setActiveCategory(slides[currentIndex].category);
-    // No animation for other slides
+    const realIndex = swiper.realIndex;
+    setActiveCategory(slides[realIndex].category);
+    animateImage(realIndex);
   };
 
   const handleCategoryClick = (category) => {
@@ -181,6 +194,7 @@ const LuxuryProperties = () => {
     if (slideIndex !== -1 && swiperInstance) {
       swiperInstance.slideToLoop(slideIndex);
       setActiveCategory(category);
+      animateImage(slideIndex);
     }
   };
 
@@ -190,9 +204,18 @@ const LuxuryProperties = () => {
     }
   }, [swiperInstance]);
 
+  if (!imagesLoaded) {
+    return (
+      <div className="h-[500px] flex items-center justify-center bg-[#FBF6F6]">
+        <p className="text-primaryblue font-bold text-lg">Loading images...</p>
+      </div>
+    );
+  }
+
   return (
     <section className="bg-[#FBF6F6] relative pb-[70px]">
       <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
+        {/* Header */}
         <div className="flex flex-col lg:flex-nowrap flex-wrap lg:flex-row justify-between w-full items-start lg:items-center mb-[35px]">
           <h2 className="text-primaryred text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[40px] text-[16px] lg:text-[20px]">
             LUXURY PROPERTIES
@@ -211,7 +234,7 @@ const LuxuryProperties = () => {
                 >
                   {category}
                   {activeCategory === category && (
-                    <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[50%] bg-primaryblue w-[1px]"></span>
+                    <span className="h-[80px] hidden lg:block absolute bottom-[-98px] left-[62%] bg-primaryblue w-[1px]"></span>
                   )}
                 </p>
               )
@@ -219,6 +242,7 @@ const LuxuryProperties = () => {
           </div>
         </div>
 
+        {/* Swiper */}
         <div className="relative w-full">
           <Swiper
             modules={[Navigation]}
@@ -235,21 +259,16 @@ const LuxuryProperties = () => {
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
                 <div className="relative">
-                  <p className="tracking-[1.2px] flex flex-col absolute z-[99] left-[30px] lg:left-[80px] text-white top-[30px] lg:top-[40px]">
+                  <p className="tracking-[1.2px] flex flex-col absolute z-[99] left-[30px] lg:left-[80px] text-white top-[30px] lg:bottom-[40px]">
                     <span className="text-[22px] lg:text-[32px] font-[600]">
                       {slide.name}
                     </span>
-                    {/* <span className="text-[20px] lg:text-[30px] font-[600] mb-[8px] mt-[4px]">
-                      (JV with AIPL)
-                    </span> */}
-
                     <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
                       {slide.location}
                     </span>
                   </p>
                   <img
-                    // Attach ref only to the first image
-                    ref={idx === 0 ? firstImageRef : null}
+                    ref={(el) => (imageRefs.current[idx] = el)}
                     src={!isMobile ? slide.src : slide.mbImage}
                     alt={`${slide.category} Project`}
                     className="w-full h-[350px] object-cover xl:h-[500px] lg:h-[400px]"
@@ -260,18 +279,20 @@ const LuxuryProperties = () => {
           </Swiper>
         </div>
 
+        {/* Navigation Buttons */}
         <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[1.5rem] lg:mt-[2.5rem] ">
-          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px]  px-[21px] lg:px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
+
+          {/* Desktop Arrows */}
           <div className="lg:flex hidden justify-start lg:justify-end w-full mb-0 lg:mt-2">
-            <button className="w-5 lg:w-8 h-5 lg:h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
+            <button className="w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
               <svg
-                className="lg:w-4 lg:h-4 w-3 h-3"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
@@ -281,13 +302,12 @@ const LuxuryProperties = () => {
                 />
               </svg>
             </button>
-            <button className="w-5 lg:w-8 ml-[1rem] h-5 lg:h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-next-custom">
+            <button className="w-8 h-8 ml-4 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-next-custom">
               <svg
-                className="lg:w-4 lg:h-4 w-3 h-3"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
@@ -299,8 +319,8 @@ const LuxuryProperties = () => {
             </button>
           </div>
 
-          {/* mobile navigation */}
-          <div className="lg:hidden flex">
+          {/* Mobile Arrows */}
+          <div className="lg:hidden flex mt-4 gap-4">
             <button
               aria-label="Previous"
               className="p-2 hover:bg-gray-200 swiper-prev-custom rounded-full transition"
