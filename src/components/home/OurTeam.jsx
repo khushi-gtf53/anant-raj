@@ -120,7 +120,7 @@ const OurTeam = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[30px] text-[14px] font-lato tracking-[1px]">
+                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[40px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
                     <ul className="flex flex-wrap justify-between items-center lg:mb-[35px]  my-[25px] tracking-[1px]">
