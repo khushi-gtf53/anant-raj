@@ -327,13 +327,20 @@ const Footer = () => {
       <div className="bg-[#FBF6F6] px-[20px] lg:px-[100px] pt-6 pb-6 lg:pb-6">
         {/* Main Content Section */}
         <div>
-          <div className="flex flex-col lg:flex-row items-center justify-between space-y-[35px] lg:space-y-0">
+          <div className="flex  flex-col lg:flex-row items-center justify-between space-y-[35px] lg:space-y-0">
             {/* Left Section - Logo */}
             <div className="flex-shrink-0">
               <img
                 src="./assets/footer-logo-1.png"
                 className="h-[60px] lg:h-[100px] object-contain"
                 alt="logo"
+              />
+            </div>
+            <div className="lg:hidden flex-shrink-0">
+              <img
+                src="./assets/img-1.png"
+                alt="Portrait"
+                className="w-full h-[130px] lg:h-[157px] object-contain filter grayscale"
               />
             </div>
 
@@ -350,7 +357,7 @@ const Footer = () => {
             </div>
 
             {/* Right Section - Portrait */}
-            <div className="flex-shrink-0">
+            <div className="hidden  lg:block flex-shrink-0">
               <img
                 src="./assets/img-1.png"
                 alt="Portrait"

@@ -78,21 +78,21 @@ const DevelopmentExperience = () => {
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">
-        <div className="lg:px-[210px] flex flex-wrap justify-between space-y-[40px] lg:space-y-[0px] py-[40px] lg:py-[60px]">
-          <p className="lg:px-0 px-[20px] flex-col lg:flex-row flex flex-wrap items-center justify-center lg:mb-[70px] basis-[100%] lg:basis-[50%]">
+        <div className="lg:px-[210px] flex flex-wrap items-start justify-between space-y-[40px] lg:space-y-[0px] py-[40px] lg:py-[60px]">
+          <p className="lg:px-0 px-[20px] flex-col lg:flex-row flex flex-wrap items-center justify-center lg:mb-[70px] basis-[50%]">
             <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.experience}+
             </span>
-            <span className="font-lato  text-center lg:text-left text-[12px] lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato  text-center lg:text-left text-[12px] lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[24px] lg:leading-[28px] uppercase">
               of Real Estate
               <span className="block">Development Experience</span>
             </span>
           </p>
-          <p className="lg:px-0 px-[20px] flex-col lg:flex-row  flex flex-wrap lg:justify-end justify-center lg:mb-[70px] items-center basis-[100%] lg:basis-[50%]">
+          <p className="lg:px-0 px-[20px] flex-col lg:flex-row  flex flex-wrap lg:justify-end justify-center lg:mb-[70px] items-center basis-[50%]">
             <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.units.toLocaleString() + "K"}+
             </span>
-            <span className="font-lato text-center lg:text-left text-[12px] lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato text-center lg:text-left text-[12px] lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[24px] lg:leading-[28px] uppercase">
               units Developed/
               <span className="block">Developing</span>
             </span>
@@ -103,20 +103,20 @@ const DevelopmentExperience = () => {
             className="h-[275px] lg:hidden block basis-full object-cover lg:h-[350px] w-full "
             alt="residential"
           />
-          <p className="lg:px-0 px-[20px] flex-col lg:flex-row flex flex-wrap items-center justify-center basis-[100%]  lg:basis-[46%]">
+          <p className="lg:px-0 px-[20px] flex-col lg:flex-row flex flex-wrap items-center justify-center basis-[46%]">
             <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.projects}+
             </span>
-            <span className="font-lato text-[12px] text-center lg:text-left  lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato text-[12px] text-center lg:text-left  lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[24px] lg:leading-[28px] uppercase">
               MSF Real Estate
               <span className="block">Projects Developed</span>
             </span>
           </p>
-          <p className="lg:px-0 px-[20px] flex-col lg:flex-row flex flex-wrap lg:justify-end justify-center items-center basis-[100%] lg:basis-[50%]">
+          <p className="lg:px-0 px-[20px] flex-col lg:flex-row flex flex-wrap lg:justify-end justify-center items-center basis-[50%]">
             <span className="font-sangbleu basis-[30%] lg:basis-auto text-primaryblue text-[40px] lg:text-[50px]">
               {counters.dataCenters}+
             </span>
-            <span className="font-lato text-center lg:text-left text-[12px] lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[28px] uppercase">
+            <span className="font-lato text-center lg:text-left text-[12px] lg:text-[14px] lg:ml-[40px] font-[400] tracking-[1px] leading-[24px] lg:leading-[28px] uppercase">
               MW Data Centers
               <span className="block">Developed/</span>
               <span className="block">Upcoming</span>
