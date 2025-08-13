@@ -79,7 +79,7 @@ const Blogs = () => {
       ref={sectionRef} // 👈 Added
       className="px-[20px] lg:px-[100px] lg:pt-[80px] lg:pb-[40px] pt-[70px] bg-white"
     >
-      <h2 className="font-sangbleu lg:text-left text-center text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[90px] uppercase tracking-widest leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px] font-medium">
+      <h2 className="font-sangbleu lg:text-left text-center text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[90px] uppercase tracking-widest leading-[29px] lg:leading-[40px] text-[13px] lg:text-[20px] font-medium">
         Discover Insights. Ignite Imagination
       </h2>
 

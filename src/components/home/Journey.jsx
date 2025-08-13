@@ -207,7 +207,7 @@ const Journey = () => {
           data-gsap="fade-up"
           data-gsap-duration="1"
           data-gsap-delay="0.5"
-          className="text-primaryred lg:text-left text-center font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]"
+          className="text-primaryred lg:text-left text-center font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[13px] lg:text-[20px]"
         >
           Empowering Dreams: Our Journey to Success
         </h2>
