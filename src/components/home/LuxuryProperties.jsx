@@ -156,7 +156,7 @@ const LuxuryProperties = () => {
     if (imgEl) {
       gsap.fromTo(
         imgEl,
-        { scale: 1.8, opacity: 0.5 },
+        { scale: 1.3, opacity: 0.5 },
         {
           scale: 1,
           opacity: 1,
@@ -259,7 +259,7 @@ const LuxuryProperties = () => {
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>
                 <div className="relative">
-                  <p className="tracking-[1.2px] flex flex-col absolute z-[99] left-[30px] lg:left-[80px] text-white top-[30px] lg:bottom-[40px]">
+                  <p className="tracking-[1.2px] hidden lg:flex flex-col absolute z-[99] left-[30px] lg:left-[80px] text-white top-[30px] lg:bottom-[40px]">
                     <span className="text-[22px] lg:text-[32px] font-[600]">
                       {slide.name}
                     </span>
@@ -273,6 +273,39 @@ const LuxuryProperties = () => {
                     alt={`${slide.category} Project`}
                     className="w-full h-[350px] object-cover xl:h-[500px] lg:h-[400px]"
                   />
+                  <div className="flex flex-col lg:hidden justify-between mt-4 gap-4">
+                    <p className="tracking-[1.2px] lg:hidden flex flex-col  z-[99]  text-primary top-[30px] ">
+                      <span className="text-[22px] lg:text-[32px] font-[600]">
+                        {slide.name}
+                      </span>
+                      <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
+                        {slide.location}
+                      </span>
+                    </p>{" "}
+                    {/* mobile navigation btn */}
+                    <div className="z-[99] mb-[20px]">
+                      <button
+                        aria-label="Previous"
+                        className="p-2 hover:bg-gray-200 swiper-prev-custom rounded-full transition"
+                      >
+                        <img
+                          src="./assets/right-arrow.png"
+                          alt="Previous"
+                          className="h-5 w-5 rotate-180"
+                        />
+                      </button>
+                      <button
+                        aria-label="Next"
+                        className="p-2 hover:bg-gray-200 swiper-next-custom rounded-full transition"
+                      >
+                        <img
+                          src="./assets/right-arrow.png"
+                          alt="Next"
+                          className="h-5 w-5"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
@@ -280,8 +313,8 @@ const LuxuryProperties = () => {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full mt-[1.5rem] lg:mt-[2.5rem] ">
-          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem] font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+        <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full  lg:mt-[2.5rem] ">
+          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
 
@@ -316,30 +349,6 @@ const LuxuryProperties = () => {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </button>
-          </div>
-
-          {/* Mobile Arrows */}
-          <div className="lg:hidden flex mt-4 gap-4">
-            <button
-              aria-label="Previous"
-              className="p-2 hover:bg-gray-200 swiper-prev-custom rounded-full transition"
-            >
-              <img
-                src="./assets/right-arrow.png"
-                alt="Previous"
-                className="h-5 w-5 rotate-180"
-              />
-            </button>
-            <button
-              aria-label="Next"
-              className="p-2 hover:bg-gray-200 swiper-next-custom rounded-full transition"
-            >
-              <img
-                src="./assets/right-arrow.png"
-                alt="Next"
-                className="h-5 w-5"
-              />
             </button>
           </div>
         </div>
