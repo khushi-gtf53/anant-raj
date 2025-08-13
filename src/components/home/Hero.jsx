@@ -31,7 +31,11 @@ const Hero = () => {
     <div className="h-[100vh] hero text-white flex flex-col justify-center relative">
       <video
         ref={videoRef}
-        src={isMobile ? "./assets/mb-bg.mp4" : "./assets/bg.mp4"}
+        src={
+          isMobile
+            ? "https://img.websitedesigningcompany.co.in/public/anant-raj/vd02.mp4"
+            : "https://img.websitedesigningcompany.co.in/public/anant-raj/vdo.mp4"
+        }
         loop
         autoPlay
         className="absolute object-cover w-full h-[100vh]"
