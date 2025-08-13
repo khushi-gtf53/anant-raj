@@ -36,8 +36,11 @@ const Hero = () => {
             ? "https://img.websitedesigningcompany.co.in/public/anant-raj/vd02.mp4"
             : "https://img.websitedesigningcompany.co.in/public/anant-raj/vdo.mp4"
         }
-        loop
+        playsInline
+        webkit-playsInline
+        muted
         autoPlay
+        loop
         className="absolute object-cover w-full h-[100vh]"
       ></video>
       <button

@@ -51,7 +51,7 @@ const Media = () => {
 
   return (
     <section className="bg-white pt-16 px-[20px] lg:px-[100px] ">
-      <h2 className="font-sangbleu text-primaryred mb-[35px] lg:mb-20 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium">
+      <h2 className="font-sangbleu text-center lg:text-center text-primaryred mb-[35px] lg:mb-20 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium">
         Press & Media: Stay Informed & Inspired
       </h2>
 
@@ -72,13 +72,13 @@ const Media = () => {
       >
         {mediaArticles.map((article) => (
           <SwiperSlide key={article.id}>
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-center lg:items-start">
               <img
                 src={article.logo}
                 alt={article.source}
                 className="h-[70px] w-[100%] lg:w-[200px] object-contain"
               />
-              <p className="text-sm mt-[35px] text-left tracking-[1px] leading-[26px] max-w-xs">
+              <p className="text-sm mt-[35px] text-center lg:text-left tracking-[1px] leading-[26px] max-w-xs">
                 {article.text}
               </p>
             </div>
@@ -88,11 +88,11 @@ const Media = () => {
 
       {/* Bottom controls */}
       <div className="flex lg:flex-row flex-col-reverse justify-between lg:items-center">
-        <button className="text-primaryblue font-semibold lg:mt-0 mt-[25px] lg:w-auto w-[80%] text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
+        <button className="text-primaryblue mx-auto lg:mx-0 font-semibold lg:mt-0 mt-[25px] lg:w-auto w-[80%] text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
           EXPLORE MORE NEWS
         </button>
 
-        <div className="flex">
+        <div className="flex lg:justify-start justify-center">
           <button
             aria-label="Previous"
             onClick={handlePrev}

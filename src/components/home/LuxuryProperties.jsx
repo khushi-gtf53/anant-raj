@@ -234,7 +234,7 @@ const LuxuryProperties = () => {
       <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
         {/* Header */}
         <div className="flex flex-col lg:flex-nowrap flex-wrap lg:flex-row justify-between w-full items-start lg:items-center mb-[35px]">
-          <h2 className="text-primaryred text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[40px] text-[16px] lg:text-[20px]">
+          <h2 className="text-primaryred w-full text-center lg:text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[40px] text-[16px] lg:text-[20px]">
             LUXURY PROPERTIES
           </h2>
           <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
@@ -242,7 +242,7 @@ const LuxuryProperties = () => {
               (category) => (
                 <p
                   key={category}
-                  className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-left mb-[17px] lg:mr-[0rem] cursor-pointer ${
+                  className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center mb-[17px] lg:mr-[0rem] cursor-pointer ${
                     activeCategory === category
                       ? "text-primaryblue font-bold"
                       : ""
@@ -290,7 +290,7 @@ const LuxuryProperties = () => {
                     alt={`${slide.category} Project`}
                     className="w-full h-[350px] object-cover xl:h-[500px] lg:h-[400px]"
                   />
-                  <div className="flex flex-col lg:hidden justify-between mt-4 gap-4">
+                  <div className="flex flex-col lg:items-start items-center lg:hidden justify-between mt-4 gap-4">
                     <p className="tracking-[1.2px] lg:hidden flex flex-col  z-[99]  text-primary top-[30px] ">
                       <span className="text-[22px] lg:text-[32px] font-[600]">
                         {slide.name}
@@ -330,41 +330,25 @@ const LuxuryProperties = () => {
 
         {/* Navigation Buttons */}
         <div className="flex justify-start lg:flex-nowrap flex-wrap lg:flex-row flex-col-reverse w-full  lg:mt-[2.5rem] ">
-          <button className="font-[600] w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+          <button className="font-[600] mx-auto w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE ALL PROJECTS
           </button>
 
           {/* Desktop Arrows */}
           <div className="lg:flex hidden justify-start lg:justify-end w-full mb-0 lg:mt-2">
-            <button className="w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
+            <button className="w-8 h-8  cursor-pointer text-white rounded-full flex items-center justify-center swiper-prev-custom">
+              <img
+                src="./assets/right-arrow.png"
+                alt="Previous"
+                className="h-5 w-5 rotate-180"
+              />
             </button>
-            <button className="w-8 h-8 ml-4 bg-primaryblue cursor-pointer text-white rounded-full flex items-center justify-center swiper-next-custom">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+            <button className="w-8 h-8 ml-0  cursor-pointer text-white rounded-full flex items-center justify-center swiper-next-custom">
+              <img
+                src="./assets/right-arrow.png"
+                alt="Next"
+                className="h-5 w-5"
+              />
             </button>
           </div>
         </div>

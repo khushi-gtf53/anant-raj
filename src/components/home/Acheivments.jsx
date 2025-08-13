@@ -94,7 +94,7 @@ const Achievements = () => {
         data-gsap="fade-up"
         data-gsap-duration="1"
         data-gsap-delay="0.5"
-        className="font-sangbleu text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium"
+        className="font-sangbleu lg:text-left text-center text-primaryred mb-10 uppercase tracking-widest text-[16px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium"
       >
         Award-Winning Milestones in Real Estate
       </h2>
@@ -128,7 +128,7 @@ const Achievements = () => {
         </div>
 
         {/* Text Content */}
-        <div className="basis-[100%] lg:basis-[38%] font-lato">
+        <div className="basis-[100%] lg:text-left text-center lg:basis-[38%] font-lato">
           <h3
             data-gsap="fade-up"
             data-gsap-duration="1"
@@ -146,7 +146,7 @@ const Achievements = () => {
             {activeAchievement.text}
           </p>
 
-          <div className="flex items-center gap-2 mb-8">
+          <div className="flex lg:justify-start justify-center items-center gap-2 mb-8">
             <button
               className="swiper-prev-journey cursor-pointer rotate-180"
               onClick={handlePrevClick}
@@ -169,7 +169,7 @@ const Achievements = () => {
             </button>
           </div>
 
-          <button className="flex lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
+          <button className="flex mx-auto lg:mx-0 lg:inline-block uppercase font-semibold text-sm text-primaryblue border-y border-primaryblue py-[10px] px-6 tracking-[2px] transition hover:bg-primaryblue hover:text-white">
             EXPLORE MORE Awards
           </button>
         </div>

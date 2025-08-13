@@ -66,7 +66,7 @@ const OurTeam = () => {
       data-gsap-delay="0.5"
       className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white"
     >
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[35px] lg:leading-[40px] text-[16px] lg:text-[18px]">
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[35px] lg:leading-[40px] text-[16px] lg:text-[18px]">
         Meet our founder, whose visionary leadership drives creativity, growth,
         and excellence
       </h2>
@@ -90,7 +90,7 @@ const OurTeam = () => {
                 <div className="flex justify-between flex-wrap items-center">
                   <div className="basis-full lg:basis-[40%]">
                     <img
-                      className="h-[300px] lg:h-[380px] w-full object-cover"
+                      className="h-[300px] lg:h-[380px] w-full object-contain lg:object-cover"
                       src={slide.image}
                       alt="anant-raj"
                     />
@@ -165,7 +165,7 @@ const OurTeam = () => {
                         <span>Director & COO</span>
                       </li>
                     </ul>
-                    <button className="font-[600] text-[14px] lg:w-auto w-[60%] text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[19px] lg:px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+                    <button className="font-[600] text-[14px] lg:mx-0 mx-auto lg:w-auto w-[60%] text-primaryblue text-center mt-[40px] flex justify-center lg:mt-[35px] font-lato border-y-[1px] py-[9px] px-[19px] lg:px-[25px] tracking-[1px] border-primaryblue border-y-solid">
                       EXPLORE OUR TEAM
                     </button>
                   </div>

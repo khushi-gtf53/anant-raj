@@ -207,7 +207,7 @@ const Journey = () => {
           data-gsap="fade-up"
           data-gsap-duration="1"
           data-gsap-delay="0.5"
-          className="text-primaryred font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]"
+          className="text-primaryred lg:text-left text-center font-sangbleu mb-[40px] uppercase tracking-[2px] leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px]"
         >
           Empowering Dreams: Our Journey to Success
         </h2>
@@ -258,14 +258,14 @@ const Journey = () => {
                       className="object-cover w-full h-[200px] md:h-[350px]"
                     />
                   </div>
-                  <div className="w-full md:w-[30%] md:ml-[60px] font-lato">
+                  <div className="w-full lg:text-left text-center md:w-[30%] md:ml-[60px] font-lato">
                     <h3 className="text-xl md:text-2xl font-normal text-primaryblue mt-4 md:mt-0">
                       {slide.year}
                     </h3>
                     <p className="my-4 tracking-[1px] leading-[26px] text-sm md:text-base">
                       {slide.text}
                     </p>
-                    <div className="flex items-center gap-2 mt-4">
+                    <div className="flex lg:justify-start justify-center items-center gap-2 mt-4">
                       <button
                         onClick={handlePrevClick}
                         className="cursor-pointer swiper-prev-timeline rotate-180"

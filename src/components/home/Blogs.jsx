@@ -79,7 +79,7 @@ const Blogs = () => {
       ref={sectionRef} // 👈 Added
       className="px-[20px] lg:px-[100px] lg:pt-[80px] lg:pb-[40px] pt-[70px] bg-white"
     >
-      <h2 className="font-sangbleu text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[90px] uppercase tracking-widest leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px] font-medium">
+      <h2 className="font-sangbleu lg:text-left text-center text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[90px] uppercase tracking-widest leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px] font-medium">
         Discover Insights. Ignite Imagination
       </h2>
 
@@ -105,38 +105,38 @@ const Blogs = () => {
                   alt={slide.title}
                   className="w-full h-[240px] lg:h-[450px] object-cover rounded-sm"
                 />
+                <div className="lg:flex-row flex-col flex items-start justify-between">
+                  <div className="flex lg:flex-col flex-col mt-[15px] lg:mt-[25px] justify-between ">
+                    <p className="text-[16px] lg:text-left text-center font-semibold tracking-[1px]">
+                      {slide.title}
+                    </p>
 
-                <div className="lg:hidden flex mt-[16px]">
-                  <button
-                    aria-label="Previous"
-                    className="p-2 swiper-prev-custom hover:bg-gray-200 rounded-full transition opacity-50 cursor-default"
-                  >
-                    <img
-                      src="./assets/right-arrow.png"
-                      alt="Previous"
-                      className="h-5 w-5 rotate-180"
-                    />
-                  </button>
-                  <button
-                    aria-label="Next"
-                    className="p-2 swiper-next-custom hover:bg-gray-200 rounded-full transition opacity-50 cursor-default"
-                  >
-                    <img
-                      src="./assets/right-arrow.png"
-                      alt="Next"
-                      className="h-5 w-5"
-                    />
-                  </button>
-                </div>
-
-                <div className="flex lg:flex-row flex-col mt-[15px] lg:mt-[25px] justify-between lg:items-center">
-                  <p className="text-[16px] font-semibold tracking-[1px]">
-                    {slide.title}
-                  </p>
-
-                  <div className="lg:mt-0 mt-[40px]">
-                    <button className="text-primaryblue font-semibold w-[90%] lg:w-auto text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
-                      EXPLORE BLOGS & NEWS
+                    <div className="lg:mx-0 mx-auto mt-[40px]">
+                      <button className="text-primaryblue font-semibold w-[100%] lg:w-auto text-sm border-t border-b border-primaryblue px-6 tracking-[2px] py-[10px] hover:bg-primaryblue hover:text-white transition">
+                        EXPLORE BLOGS & NEWS
+                      </button>
+                    </div>
+                  </div>
+                  <div className="lg:mx-0 mx-auto flex mt-[16px]">
+                    <button
+                      aria-label="Previous"
+                      className="p-2 swiper-prev-custom hover:bg-gray-200 rounded-full transition opacity-50 cursor-default"
+                    >
+                      <img
+                        src="./assets/right-arrow.png"
+                        alt="Previous"
+                        className="h-5 w-5 rotate-180"
+                      />
+                    </button>
+                    <button
+                      aria-label="Next"
+                      className="p-2 swiper-next-custom hover:bg-gray-200 rounded-full transition opacity-50 cursor-default"
+                    >
+                      <img
+                        src="./assets/right-arrow.png"
+                        alt="Next"
+                        className="h-5 w-5"
+                      />
                     </button>
                   </div>
                 </div>
@@ -146,37 +146,17 @@ const Blogs = () => {
         </Swiper>
 
         {/* Navigation Arrows */}
-        <button className="absolute top-1/2 left-[-20px] transform lg:-translate-y-[165%] -translate-y-[240%] z-10 w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full hidden lg:flex items-center justify-center swiper-prev-custom">
-          <svg
-            className="lg:w-4 lg:h-4 w-3 h-3"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+        {/* <button className="absolute top-1/2 left-[-20px] transform lg:-translate-y-[165%] -translate-y-[240%] z-10 w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full hidden lg:flex items-center justify-center swiper-prev-custom">
+          <img
+            src="./assets/right-arrow.png"
+            alt="Previous"
+            className="h-5 w-5 rotate-180"
+          />
         </button>
 
         <button className="absolute top-1/2 right-[-20px] transform lg:-translate-y-[165%] -translate-y-[240%] z-10 w-8 h-8 bg-primaryblue cursor-pointer text-white rounded-full hidden lg:flex items-center justify-center swiper-next-custom">
-          <svg
-            className="lg:w-4 lg:h-4 w-3 h-3"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
+          <img src="./assets/right-arrow.png" alt="Next" className="h-5 w-5" />
+        </button> */}
       </div>
 
       {/* Animation CSS */}

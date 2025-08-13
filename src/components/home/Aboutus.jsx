@@ -8,7 +8,7 @@ const Aboutus = () => {
     >
       <div className="flex justify-between flex-wrap font-sangbleu">
         <div className="flex basis-[100%] lg:basis-[70%] flex-col">
-          <h2 className="text-primaryred mb-[40px] uppercase tracking-[2px] leading-[32px] lg:leading-[40px] font-[200] text-[15px] lg:text-[20px]">
+          <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[32px] lg:leading-[40px] font-[200] text-[15px] lg:text-[20px]">
             <span>We develop quality infrastructure</span>
             <span className="block">and real estate projects</span>
           </h2>
@@ -25,7 +25,7 @@ const Aboutus = () => {
               <span className="inline lg:hidden">
                 {" "}
                 nant Raj Limited has been a leader in India's real estate
-                landscape since 1969, delivering landmark across
+                landscape since 1969, delivering landmark
               </span>
               <span className="hidden lg:inline">
                 developments across residential, commercial, and IT
@@ -35,8 +35,8 @@ const Aboutus = () => {
               </span>
             </p>
             <p className="lg:hidden inline-block text-justify text-[15px] leading-[28px]  lg:leading-[32px] tracking-[1.5px] font-lato">
-              residential commercial, and IT infrastructure sectors. With a
-              commitment to innovation, luxury, and sustainability, we craft
+              across residential commercial, and IT infrastructure sectors. With
+              a commitment to innovation, luxury, and sustainability, we craft
               future-ready spaces that elevate lifestyles and redefine urban
               living.
             </p>
@@ -50,7 +50,7 @@ const Aboutus = () => {
           <span className="lg:text-end w-full hidden lg:block mt-[5px] text-left tracking-[1.5px] text-[20px] font-[100]">
             Founded in
           </span>
-          <button className="block lg:hidden font-[600]  w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem]  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
+          <button className="block mx-[auto] lg:hidden font-[600]  w-[70%] lg:w-[350px] text-[14px] text-primaryblue text-center lg:mt-0 mt-[2.5rem]  font-lato border-y-[1px] py-[9px] px-[25px] tracking-[1px] border-primaryblue border-y-solid">
             EXPLORE MORE
           </button>
           <button className="lg:block hidden border-primaryblue mt-[100px] font-[200] text-[12px] tracking-[1.5px] ml-auto border-solid border-[1px] text-primaryblue px-8 py-[14px]">
