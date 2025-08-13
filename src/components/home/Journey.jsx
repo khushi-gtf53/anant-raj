@@ -11,6 +11,7 @@ const Journey = () => {
   const yearContainerRef = useRef(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const hasMounted = useRef(false); // Fix to prevent scroll on load
 
   const slides = [
     {
@@ -133,18 +134,26 @@ const Journey = () => {
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
     }
+
+    // Mark component as mounted
+    hasMounted.current = true;
   }, []);
 
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.realIndex;
-    setActiveYear(slides[currentIndex].year);
-    const yearElement = yearRefs.current[slides[currentIndex].year];
-    if (yearElement && yearContainerRef.current) {
-      yearElement.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
+    const newYear = slides[currentIndex].year;
+    setActiveYear(newYear);
+
+    // Avoid auto-scroll on initial render
+    if (hasMounted.current) {
+      const yearElement = yearRefs.current[newYear];
+      if (yearElement && yearContainerRef.current) {
+        yearElement.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }
     }
   };
 
@@ -164,7 +173,6 @@ const Journey = () => {
     }
   };
 
-  // Add handleNextClick and handlePrevClick functions
   const handleNextClick = () => {
     if (swiperRef.current) {
       swiperRef.current.slideNext();
