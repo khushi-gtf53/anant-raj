@@ -8,7 +8,7 @@ const Aboutus = () => {
     >
       <div className="flex justify-between flex-wrap font-sangbleu">
         <div className="flex basis-[100%] lg:basis-[70%] flex-col">
-          <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[32px] lg:leading-[40px] font-[200] text-[13px] lg:text-[20px]">
+          <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] font-[200] text-[12.5px] lg:text-[20px]">
             <span>We develop quality infrastructure</span>
             <span className="block">and real estate projects</span>
           </h2>
