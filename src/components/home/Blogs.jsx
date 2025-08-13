@@ -7,18 +7,19 @@ import "swiper/css/navigation";
 const blogSlides = [
   {
     id: 1,
-    image: "./assets/1blog.jpg",
-    title:
-      "Why Investing in Gurgaon’s Luxury Flats is a Game Changer for Real Estate Investors",
-    para: "If you're looking to diversify your portfolio or secure a high-value asset in India’s fastest-growing urban market, now is the time to explore Anant Raj’s premium offerings in Gurgaon.",
-  },
-  {
-    id: 2,
     image: "./assets/2blog.jpg",
     title:
       "Discover the Epitome of Luxury Living at The Estate Residences by Anant Raj Limited, Gurugram",
     para: "Experience the pinnacle of luxury living at The Estate Residences by Anant Raj Limited. Your dream home awaits in the heart of Gurugram.",
   },
+  {
+    id: 2,
+    image: "./assets/1blog.jpg",
+    title:
+      "Why Investing in Gurgaon’s Luxury Flats is a Game Changer for Real Estate Investors",
+    para: "If you're looking to diversify your portfolio or secure a high-value asset in India’s fastest-growing urban market, now is the time to explore Anant Raj’s premium offerings in Gurgaon.",
+  },
+
   {
     id: 3,
     image: "./assets/3blog.webp",
@@ -74,7 +75,7 @@ const Blogs = () => {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-[240px] lg:h-[360px] object-cover rounded-sm"
+                  className="w-full h-[240px] lg:h-[450px] object-cover rounded-sm"
                 />
 
                 <div className="lg:hidden flex mt-[16px]">
