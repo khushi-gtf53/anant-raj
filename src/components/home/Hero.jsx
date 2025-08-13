@@ -28,13 +28,13 @@ const Hero = () => {
   };
 
   return (
-    <div className="h-screen hero text-white flex flex-col justify-center relative">
+    <div className="h-[100vh] hero text-white flex flex-col justify-center relative">
       <video
         ref={videoRef}
         src={isMobile ? "./assets/mb-bg.mp4" : "./assets/bg.mp4"}
         loop
         autoPlay
-        className="absolute object-cover w-full h-full"
+        className="absolute object-cover w-full h-[100vh]"
       ></video>
       <button
         onClick={toggleMute}

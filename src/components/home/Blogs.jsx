@@ -32,25 +32,53 @@ const blogSlides = [
 const Blogs = () => {
   const swiperRef = useRef(null);
   const slideRefs = useRef([]);
+  const sectionRef = useRef(null); // 👈 Added
   const [activeIndex, setActiveIndex] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false); // 👈 Added
 
-  // Function to trigger animation
   const triggerImageAnimation = (index) => {
     const img = slideRefs.current[index]?.querySelector("img");
     if (img) {
       img.classList.remove("animate-zoom-fade"); // reset
-      void img.offsetWidth; // trigger reflow to restart animation
+      void img.offsetWidth; // trigger reflow
       img.classList.add("animate-zoom-fade");
     }
   };
 
-  // Run animation every time the slide changes
+  // 👇 Animate only once when section comes into view
   useEffect(() => {
-    triggerImageAnimation(activeIndex);
-  }, [activeIndex]);
+    if (hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          triggerImageAnimation(0); // animate first slide
+          setHasAnimated(true);
+          observer.disconnect(); // only once
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  // Regular animation on slide change
+  useEffect(() => {
+    if (hasAnimated) {
+      triggerImageAnimation(activeIndex);
+    }
+  }, [activeIndex, hasAnimated]);
 
   return (
-    <section className="px-[20px] lg:px-[100px] lg:pt-[80px] lg:pb-[40px] pt-[70px] bg-white">
+    <section
+      ref={sectionRef} // 👈 Added
+      className="px-[20px] lg:px-[100px] lg:pt-[80px] lg:pb-[40px] pt-[70px] bg-white"
+    >
       <h2 className="font-sangbleu text-primaryred mb-10 border-t-[1px] border-black border-solid pt-[90px] uppercase tracking-widest leading-[29px] lg:leading-[40px] text-[16px] lg:text-[20px] font-medium">
         Discover Insights. Ignite Imagination
       </h2>

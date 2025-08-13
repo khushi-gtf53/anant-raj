@@ -134,6 +134,7 @@ const LuxuryProperties = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const imageRefs = useRef([]);
+  const sectionRef = useRef(null); // 👈 Add ref for IntersectionObserver
 
   // Preload images
   useEffect(() => {
@@ -150,7 +151,6 @@ const LuxuryProperties = () => {
     });
   }, [isMobile]);
 
-  // Animate the current slide's image
   const animateImage = (index) => {
     const imgEl = imageRefs.current[index];
     if (imgEl) {
@@ -167,11 +167,28 @@ const LuxuryProperties = () => {
     }
   };
 
-  // On initial load, animate the first image
+  // 🔥 Trigger animation only when section comes into view
   useEffect(() => {
-    if (imagesLoaded) {
-      animateImage(0);
-    }
+    let hasAnimated = false;
+
+    if (!imagesLoaded || !sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          animateImage(0);
+          hasAnimated = true;
+          observer.disconnect(); // run once
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
   }, [imagesLoaded]);
 
   const handleResize = () => {
@@ -213,7 +230,7 @@ const LuxuryProperties = () => {
   }
 
   return (
-    <section className="bg-[#FBF6F6] relative pb-[70px]">
+    <section ref={sectionRef} className="bg-[#FBF6F6] relative pb-[70px]">
       <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
         {/* Header */}
         <div className="flex flex-col lg:flex-nowrap flex-wrap lg:flex-row justify-between w-full items-start lg:items-center mb-[35px]">
@@ -281,8 +298,7 @@ const LuxuryProperties = () => {
                       <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
                         {slide.location}
                       </span>
-                    </p>{" "}
-                    {/* mobile navigation btn */}
+                    </p>
                     <div className="z-[99] mb-[20px]">
                       <button
                         aria-label="Previous"
