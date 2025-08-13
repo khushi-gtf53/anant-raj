@@ -220,7 +220,7 @@ const Journey = () => {
           {slides.map((slide) => (
             <span
               key={slide.year}
-              className={`cursor-pointer min-w-[50%] md:min-w-[25%] ${
+              className={`cursor-pointer lg:text-start text-center min-w-[50%] md:min-w-[25%] ${
                 activeYear === slide.year ? "text-primaryblue" : "text-gray-400"
               }`}
               onClick={() => handleYearClick(slide.year)}

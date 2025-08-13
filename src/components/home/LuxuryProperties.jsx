@@ -277,7 +277,7 @@ const LuxuryProperties = () => {
               <SwiperSlide key={idx}>
                 <div className="relative">
                   <p className="tracking-[1.2px] hidden lg:flex flex-col absolute z-[99] left-[30px] lg:left-[80px] text-white top-[30px] lg:bottom-[40px]">
-                    <span className="text-[22px] lg:text-[32px] font-[600]">
+                    <span className="text-[22px] lg:text-[32px] text-center font-[600]">
                       {slide.name}
                     </span>
                     <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">
@@ -291,8 +291,8 @@ const LuxuryProperties = () => {
                     className="w-full h-[350px] object-cover xl:h-[500px] lg:h-[400px]"
                   />
                   <div className="flex flex-col lg:items-start items-center lg:hidden justify-between mt-4 gap-4">
-                    <p className="tracking-[1.2px] lg:hidden flex flex-col  z-[99]  text-primary top-[30px] ">
-                      <span className="text-[22px] lg:text-[32px] font-[600]">
+                    <p className="tracking-[1.2px]  lg:hidden flex flex-col  z-[99]  text-primary top-[30px] ">
+                      <span className="text-[22px] lg:text-[32px] text-center font-[600]">
                         {slide.name}
                       </span>
                       <span className="text-[13px] lg:text-[15px] tracking-[1.5px]">

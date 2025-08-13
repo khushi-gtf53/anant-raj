@@ -120,10 +120,10 @@ const OurTeam = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="border-y-[1px] leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[40px] text-[14px] font-lato tracking-[1px]">
+                    <p className="border-y-[1px] lg:text-start text-center leading-[25px] mb-[25px] border-solid border-black py-[25px] lg:py-[40px] text-[14px] font-lato tracking-[1px]">
                       {slide.text}
                     </p>
-                    <ul className="flex flex-wrap justify-between items-center lg:mb-[35px]  my-[25px] tracking-[1px]">
+                    <ul className="flex lg:text-start text-center flex-wrap justify-between items-center lg:mb-[35px]  my-[25px] tracking-[1px]">
                       <li
                         className={`cursor-pointer lg:text-left lg:text-[13px] lg:mb-0 mb-[10px] lg:basis-auto basis-[50%] ${
                           activeRole === "Our Founder"
