@@ -5,13 +5,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const Journey = () => {
-  const [activeYear, setActiveYear] = useState("1992");
+  const [activeYear, setActiveYear] = useState("1969"); // Changed to first year
   const swiperRef = useRef(null);
   const yearRefs = useRef({});
   const yearContainerRef = useRef(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const hasMounted = useRef(false); // Fix to prevent scroll on load
+  const hasMounted = useRef(false);
+  const isUserInteraction = useRef(false); // Track user interactions
 
   const slides = [
     {
@@ -135,8 +136,12 @@ const Journey = () => {
       swiperRef.current.navigation.update();
     }
 
-    // Mark component as mounted
-    hasMounted.current = true;
+    // Add a delay before marking as mounted to prevent initial scroll
+    const timer = setTimeout(() => {
+      hasMounted.current = true;
+    }, 500); // 500ms delay
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleSlideChange = (swiper) => {
@@ -144,8 +149,8 @@ const Journey = () => {
     const newYear = slides[currentIndex].year;
     setActiveYear(newYear);
 
-    // Avoid auto-scroll on initial render
-    if (hasMounted.current) {
+    // Only scroll if it's a user interaction and component is fully mounted
+    if (hasMounted.current && isUserInteraction.current) {
       const yearElement = yearRefs.current[newYear];
       if (yearElement && yearContainerRef.current) {
         yearElement.scrollIntoView({
@@ -155,31 +160,41 @@ const Journey = () => {
         });
       }
     }
+
+    // Reset user interaction flag
+    isUserInteraction.current = false;
   };
 
   const handleYearClick = (year) => {
+    isUserInteraction.current = true; // Mark as user interaction
     const slideIndex = slides.findIndex((slide) => slide.year === year);
     if (slideIndex !== -1 && swiperRef.current) {
       swiperRef.current.slideToLoop(slideIndex);
       setActiveYear(year);
-      const yearElement = yearRefs.current[year];
-      if (yearElement && yearContainerRef.current) {
-        yearElement.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-          block: "nearest",
-        });
+
+      // Allow scrolling for year clicks
+      if (hasMounted.current) {
+        const yearElement = yearRefs.current[year];
+        if (yearElement && yearContainerRef.current) {
+          yearElement.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest",
+          });
+        }
       }
     }
   };
 
   const handleNextClick = () => {
+    isUserInteraction.current = true; // Mark as user interaction
     if (swiperRef.current) {
       swiperRef.current.slideNext();
     }
   };
 
   const handlePrevClick = () => {
+    isUserInteraction.current = true; // Mark as user interaction
     if (swiperRef.current) {
       swiperRef.current.slidePrev();
     }
@@ -223,6 +238,7 @@ const Journey = () => {
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
+            initialSlide={0} // Ensure it starts at first slide
             navigation={{
               prevEl: ".swiper-prev-timeline",
               nextEl: ".swiper-next-timeline",
