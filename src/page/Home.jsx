@@ -20,7 +20,7 @@ const Home = () => {
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: 1.5, // Smoothness duration (seconds)
+      smooth: 0.2, // Smoothness duration (seconds)
       effects: true, // Enable data-speed and data-lag effects if used in components
       normalizeScroll: true, // Helps with mobile scroll consistency
     });
