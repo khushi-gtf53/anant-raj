@@ -376,7 +376,7 @@ const Footer = () => {
 
         <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
           {/* Left - Phone Number */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 uppercase">
             <span className="font-medium text-sm tracking-wide">
               <a href="tel:+911143034400" className="hover:underline">
                 +91-11-43034400
@@ -439,7 +439,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex bg-white flex-col px-[20px] lg:px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
+      <div className="flex uppercase bg-white flex-col px-[20px] lg:px-[100px] text-[12px] space-y-3 lg:space-y-0 lg:flex-row justify-between items-center  py-[10px]">
         <p className="lg:hidden  text-[16px] tracking-[1px]">
           Copyright © 2025 Anant Raj Ltd
         </p>
