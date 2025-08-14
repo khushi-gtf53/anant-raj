@@ -88,7 +88,7 @@ const OurTeam = () => {
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
                 <div className="flex justify-between flex-wrap items-center">
-                  <div className="basis-full lg:basis-[40%]">
+                  <div className="basis-full lg:basis-[40%] lg:ml-[4px]">
                     <img
                       className="h-[300px] lg:h-[380px] w-full object-contain"
                       src={slide.image}
