@@ -90,7 +90,7 @@ const OurTeam = () => {
                 <div className="flex justify-between flex-wrap items-center">
                   <div className="basis-full lg:basis-[40%]">
                     <img
-                      className="h-[300px] lg:h-[380px] w-full object-contain lg:object-cover"
+                      className="h-[300px] lg:h-[380px] w-full object-contain"
                       src={slide.image}
                       alt="anant-raj"
                     />
