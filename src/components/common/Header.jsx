@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true); // Controls header visibility
   const [isAtTop, setIsAtTop] = useState(true); // Tracks if at extreme top
   const [lastScrollY, setLastScrollY] = useState(0); // Tracks last scroll position
   const [isAboutUs, setIsAboutUs] = useState(false); // Tracks if URL is aboutus
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -83,6 +85,7 @@ const Header = () => {
             isAtTop && showHeader && !isAboutUs ? "text-white" : "text-black"
           }`}
           aria-label="Menu"
+          onClick={() => setMenuOpen(true)}
         >
           <img
             src={
@@ -91,7 +94,7 @@ const Header = () => {
                 : "/assets/hamburger.png"
             }
             alt="Menu"
-            className="w-full h-full"
+            className="w-full h-full cursor-pointer"
             onError={(e) => {
               console.error("Failed to load hamburger image");
               e.target.src = "/assets/fallback-hamburger.png";
@@ -101,8 +104,15 @@ const Header = () => {
       </nav>
     </header>
   );
-
-  return portalTarget ? createPortal(headerContent, portalTarget) : null;
+  return portalTarget ? (
+    <>
+      {createPortal(headerContent, portalTarget)}
+      {createPortal(
+        <HeaderMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />,
+        portalTarget
+      )}
+    </>
+  ) : null;
 };
 
 export default Header;
