@@ -64,14 +64,14 @@ const HeaderMenu = ({ isOpen, onClose }) => {
             }`}>
             <div className="max-w-[90%] sm:max-w-[80%] mx-auto w-full h-full">
                 {/* Top Nav */}
-                <div className="top-nav border-b border-black py-5 flex justify-between items-center">
+                <div className="top-nav  py-5 flex justify-between items-center">
                     <img
                         src="/assets/footer-logo-1.png"
                         alt="logo"
                         className="h-[70px] lg:h-[75px]"
                     />
                     <div
-                        className="close tracking-widest  flex justify-between items-center gap-3 cursor-pointer"
+                        className="close tracking-widest text-[14px] flex justify-between items-center gap-3 cursor-pointer"
                         onClick={onClose}
                     >
                         Close Menu <SlClose size={20} />
@@ -80,7 +80,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
 
                 {/* Middle Nav */}
                 {!showFooterNav && (
-                    <div className="middelnav py-5 sm:border-b  border-black">
+                    <div className="middelnav py-5 border-t  sm:border-b  border-black">
                         <div className="grid sm:grid-cols-2">
                             <div className="navItems flex flex-col justify-evenly items-start font-sangbleu space-y-6 sm:space-y-0">
                                 {navItems.map((nav, i) => (
@@ -114,11 +114,11 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                     </div>
                 )}
 
-                <div className="divider sm:hidden my-4">
+                <div className="divider sm:hidden  border-b border-black py-4"  onClick={() => setShowFooterNav((prev) => !prev)}>
                     <div className="flex justify-between items-center">
                         <div
                             className="flex items-center cursor-pointer"
-                            onClick={() => setShowFooterNav((prev) => !prev)}
+                           
                         >
                             <div className="w-9 h-9 border flex justify-center items-center border-black rounded-full bg-transparent">
                                 {showFooterNav ? <SlArrowDown size={14} /> : <SlArrowUp size={14} />}
