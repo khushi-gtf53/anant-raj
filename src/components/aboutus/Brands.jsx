@@ -47,133 +47,81 @@ const Brands = () => {
       <div className="">
         <div className="max-w-7xl mx-auto">
           {/* Main Content Row */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
+          <div className="flex flex-wrap ">
             {/* Left Side - Main Pillar and Text */}
-            <div className="flex-1 lg:max-w-md">
-              {/* Dynamic Header */}
-              <div className="mb-8">
-                <h3 className="text-xs md:text-sm font-medium text-gray-600 tracking-wider mb-2">
+
+            {/* Dynamic Header */}
+            <div className="mb-8 flex items-center basis-[100%] justify-between flex-wrap">
+              <div className="basis-[10%] text-center">
+                <h3 className="text-sm font-medium text-primaryblue tracking-[1.5px] mb-2">
                   {sections[activeSection].title}
                 </h3>
-                <h2 className="text-xs md:text-sm font-medium text-gray-600 tracking-wider">
+                <h2 className="text-sm font-medium text-primaryblue tracking-[1.5px]">
                   {sections[activeSection].subtitle}
                 </h2>
               </div>
+              <div className="basis-[20%] bg-black h-[0.5px]"></div>
+              <p className="basis-[60%] font-lato text-[14px] font-[400] tracking-[1px]  leading-[27px]">
+                {sections[activeSection].description}
+              </p>
+            </div>
 
+            <div className="flex basis-[100%] flex-wrap">
               {/* Large Pillar */}
-              <div className="mb-8 lg:mb-12">
-                <img src="/assets/pillar.png" alt="pillar" />
+              <div className="basis-[20%] h-[360px]">
+                <img
+                  src="/assets/pillar.png"
+                  className="h-[100%]"
+                  alt="pillar"
+                />
               </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="hidden lg:flex items-center gap-4 self-center">
-              <button
-                onClick={prevSection}
-                className="p-2 hover:bg-gray-200 rounded-full transition-colors"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              {/* Navigation Arrows */}
+              <div className=" basis-[20%] flex items-center gap-4 self-center">
+                <button
+                  onClick={prevSection}
+                  className="p-2 hover:bg-gray-200 rounded-full transition-colors"
                 >
-                  <path
-                    d="M15 18L9 12L15 6"
-                    stroke="#6B7280"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <img
+                    src="./assets/right-arrow.png"
+                    alt="right"
+                    className="h-[17px] lg:h-[20px] rotate-[180deg] object-cover"
                   />
-                </svg>
-              </button>
-              <button
-                onClick={nextSection}
-                className="p-2 hover:bg-gray-200 rounded-full transition-colors"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                </button>
+                <button
+                  onClick={nextSection}
+                  className="p-2 hover:bg-gray-200 rounded-full transition-colors"
                 >
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="#6B7280"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <img
+                    src="./assets/right-arrow.png"
+                    alt="right"
+                    className="h-[17px] lg:h-[20px] object-cover"
                   />
-                </svg>
-              </button>
-            </div>
-
-            {/* Right Side - Description and Three Pillars */}
-            <div className="flex-1 lg:max-w-2xl">
-              {/* Description Text */}
-              <div className="mb-12 lg:mb-16">
-                <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                  {sections[activeSection].description}
-                </p>
+                </button>
               </div>
-
               {/* Three Pillars with Labels */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+              <div className="grid basis-[60%]  grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
                 {sections.slice(1).map((section, index) => (
-                  <div key={index} className="text-center">
-                    <div className="mb-4">
-                      <img src="/assets/pillar.png" alt="pillar" />
-                    </div>
-                    <h4 className="text-xs font-medium text-gray-600 tracking-wider mb-1">
+                  <div
+                    key={index}
+                    className="flex flex-col items-center justify-end"
+                  >
+                    <h4 className="text-[15px]  font-medium text-[#263A7F80] tracking-[1.5px] mb-1">
                       {section.title}
                     </h4>
-                    <h4 className="text-xs font-medium text-gray-600 tracking-wider">
+                    <h4 className="text-[15px]  font-medium text-[#263A7F80] tracking-[1.5px]">
                       {section.subtitle}
-                    </h4>
+                    </h4>{" "}
+                    <div className="pt-7 h-[150px]">
+                      <img
+                        src="/assets/pillar.png"
+                        className="h-[100%]"
+                        alt="pillar"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Mobile Navigation Arrows */}
-          <div className="flex lg:hidden justify-center mt-8 gap-4">
-            <button className="p-2 hover:bg-gray-200 rounded-full transition-colors">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 18L9 12L15 6"
-                  stroke="#6B7280"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-            <button className="p-2 hover:bg-gray-200 rounded-full transition-colors">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 18L15 12L9 6"
-                  stroke="#6B7280"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
