@@ -12,6 +12,7 @@ import Blogs from "../components/home/Blogs";
 import Header from "../components/common/Header";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import HeaderMenu from "../components/common/HeaderMenu";
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -38,6 +39,7 @@ const Home = () => {
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <Header />
+        {/* <HeaderMenu/> */}
         <Hero />
         <Aboutus />
         <LuxuryProperties />

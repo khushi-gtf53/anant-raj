@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true); // Controls header visibility
   const [isAtTop, setIsAtTop] = useState(true); // Tracks if at extreme top
   const [lastScrollY, setLastScrollY] = useState(0); // Tracks last scroll position
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -37,15 +40,13 @@ const Header = () => {
 
   const headerContent = (
     <header
-      className={`w-full transition-all duration-300 ease-in-out ${
-        showHeader
-          ? "fixed top-0 z-[100] translate-y-0"
-          : "fixed top-0 z-[100] -translate-y-full"
-      } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${
-        isAtTop && showHeader
+      className={`w-full transition-all duration-300 ease-in-out ${showHeader
+        ? "fixed top-0 z-30 translate-y-0"
+        : "fixed top-0 z-30 -translate-y-full"
+        } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${isAtTop && showHeader
           ? "bg-transparent text-white"
           : "bg-white text-black shadow-md"
-      }`}
+        }`}
     >
       <img
         src={
@@ -65,18 +66,17 @@ const Header = () => {
           <a
             key={item}
             href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-            className={`hover:text-gray-300 lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
-              isAtTop && showHeader ? "text-white" : "text-black"
-            }`}
+            className={`hover:text-gray-300 lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${isAtTop && showHeader ? "text-white" : "text-black"
+              }`}
           >
             {item}
           </a>
         ))}
         <button
-          className={`relative w-6 h-6 hover:text-gray-300 ${
-            isAtTop && showHeader ? "text-white" : "text-black"
-          }`}
+          className={`relative w-6 h-6 hover:text-gray-300 ${isAtTop && showHeader ? "text-white" : "text-black"
+            }`}
           aria-label="Menu"
+          onClick={() => setMenuOpen(true)}
         >
           <img
             src={
@@ -85,18 +85,28 @@ const Header = () => {
                 : "/assets/black-hamburger.png"
             }
             alt="Menu"
-            className="w-full h-full"
+            className="w-full h-full cursor-pointer"
             onError={(e) => {
               console.error("Failed to load hamburger image");
               e.target.src = "/assets/fallback-hamburger.png";
             }}
           />
         </button>
+
       </nav>
     </header>
-  );
 
-  return portalTarget ? createPortal(headerContent, portalTarget) : null;
+  );
+  return portalTarget ? (
+  <>
+    {createPortal(headerContent, portalTarget)}
+    {createPortal(
+      <HeaderMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />,
+      portalTarget
+    )}
+  </>
+) : null;
+
 };
 
 export default Header;
