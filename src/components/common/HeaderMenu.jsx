@@ -80,7 +80,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
 
                 {/* Middle Nav */}
                 {!showFooterNav && (
-                    <div className="middelnav py-5 border-t  sm:border-b  border-black">
+                    <div className="middelnav pt-10 border-t pb-5  sm:border-b  border-black">
                         <div className="grid sm:grid-cols-2">
                             <div className="navItems flex flex-col justify-evenly items-start font-sangbleu space-y-6 sm:space-y-0">
                                 {navItems.map((nav, i) => (
@@ -114,7 +114,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                     </div>
                 )}
 
-                <div className="divider sm:hidden  border-b border-black py-4"  onClick={() => setShowFooterNav((prev) => !prev)}>
+                <div className="divider sm:hidden  border-b border-black pb-10"  onClick={() => setShowFooterNav((prev) => !prev)}>
                     <div className="flex justify-between items-center">
                         <div
                             className="flex items-center cursor-pointer"
@@ -177,7 +177,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
 
 
                 <div className="contact_details sm:hidden">
-                    <div className="phone space-y-4 my-7 text-[14px]">
+                    <div className="phone space-y-4 my-10 text-[15px]">
                         <div>
                             <a href="tel:">+91-11-43034400</a>
                         </div>
@@ -192,7 +192,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                             <NavLink to="https://www.facebook.com/AnantRajLimited2020">
                                 <img
                                     src="./assets/facebook.png"
-                                    className="object-contain h-[20px]"
+                                    className="object-contain h-[24px]"
                                     alt="facebook"
                                 />
                             </NavLink>
@@ -201,7 +201,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                             <NavLink to="https://www.instagram.com/anantrajlimited/?hl=en">
                                 <img
                                     src="./assets/instagram.png"
-                                    className="object-contain h-[20px]"
+                                    className="object-contain h-[24px]"
                                     alt="ig"
                                 />
                             </NavLink>
@@ -210,7 +210,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                                 {/* Twitter/X */}
                                 <img
                                     src="./assets/x.png"
-                                    className="object-contain h-[20px]"
+                                    className="object-contain h-[24px]"
                                     alt="ig"
                                 />
                             </NavLink>
@@ -219,7 +219,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                             <NavLink to="https://www.linkedin.com/company/anantrajltd/?originalSubdomain=in">
                                 <img
                                     src="./assets/linkedin.png"
-                                    className="object-contain h-[20px]"
+                                    className="object-contain h-[24px]"
                                     alt="linkedin"
                                 />
                             </NavLink>
@@ -228,7 +228,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                                 {/* YouTube */}
                                 <img
                                     src="./assets/youtube.png"
-                                    className="object-contain h-[20px]"
+                                    className="object-contain h-[24px]"
                                     alt="linkedin"
                                 />
                             </NavLink>
