@@ -4,123 +4,123 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+const slides = [
+  {
+    year: "1969",
+    image: "./assets/timeline-1.png",
+    text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
+  },
+  {
+    year: "1985",
+    image: "./assets/timeline-1.png",
+    text: "Incorporated as Anant Raj Clay Products Ltd., began manufacturing glazed ceramic tiles.",
+  },
+  {
+    year: "1989",
+    image: "./assets/timeline-1.png",
+    text: "Launched ceramic tiles under the brand name ‘Romano’.",
+  },
+  {
+    year: "1993",
+    image: "./assets/timeline-1.png",
+    text: "Diversified into LPG cylinder manufacturing.",
+  },
+  {
+    year: "1995",
+    image: "./assets/timeline-1.png",
+    text: "Name changed to Anant Raj Industries Ltd.; major production expansion.",
+  },
+  {
+    year: "1997",
+    image: "./assets/timeline-1.png",
+    text: "Increased tile production capacity to 8,000 sq. mtrs/day.",
+  },
+  {
+    year: "2005",
+    image: "./assets/timeline-1.png",
+    text: "Entered real estate development; merged five group companies in hospitality, IT parks, and service apartments.",
+  },
+  {
+    year: "2006",
+    image: "./assets/timeline-1.png",
+    text: "Further group company mergers; delisted from Delhi Stock Exchange.",
+  },
+  {
+    year: "2007",
+    image: "./assets/timeline-1.png",
+    text: "Merged twelve more group companies; share split from ₹10 to ₹2.",
+  },
+  {
+    year: "2010",
+    image: "./assets/timeline-1.png",
+    text: "Acquired Jubilant Software Services and Aakarshak Realtors as wholly owned subsidiaries.",
+  },
+  {
+    year: "2011",
+    image: "./assets/timeline-1.png",
+    text: "Launched key residential projects (DEL-37, Madelia, Maceo) and completed Moments Mall, Kirti Nagar.",
+  },
+  {
+    year: "2012",
+    image: "./assets/timeline-1.png",
+    text: "Launch of Anant Raj Estate with sale of plots in pocket A & B. Development commenced in South-West portion of the township.",
+  },
+  {
+    year: "2013",
+    image: "./assets/timeline-1.png",
+    text: "Launch of Estate Villas. Possession of Estate Plots.",
+  },
+  {
+    year: "2014",
+    image: "./assets/timeline-1.png",
+    text: "Launch of Estate Floors.",
+  },
+  {
+    year: "2016",
+    image: "./assets/timeline-1.png",
+    text: "We Handed over our first Estate Villa.",
+  },
+  {
+    year: "2017",
+    image: "./assets/timeline-1.png",
+    text: "A mixed-use commercial development “Joy Square” was launched in partnership with AIPL.",
+  },
+  {
+    year: "2019",
+    image: "./assets/timeline-1.png",
+    text: "Birla Navya, a joint venture project between Anant Raj Limited and Birla Estates Pvt Ltd, a 800 floors project was launched.",
+  },
+  {
+    year: "2020",
+    image: "./assets/timeline-1.png",
+    text: "Development Commenced in North-East portion of the township.",
+  },
+  {
+    year: "2022",
+    image: "./assets/timeline-1.png",
+    text: "Launch and Sale of Ashok Estate. Launch of Estate Mansions.",
+  },
+  {
+    year: "2024",
+    image: "./assets/timeline-1.png",
+    text: "Launch of our first luxury high rise project, The Estate Residencies.",
+  },
+  {
+    year: "2025",
+    image: "./assets/timeline-1.png",
+    text: "Launch of our ready to move in 400sq yd floors The Estate Apartments.",
+  },
+];
+
 const Journey = () => {
-  const [activeYear, setActiveYear] = useState("1969"); // Changed to first year
+  const [activeYear, setActiveYear] = useState("1969");
   const swiperRef = useRef(null);
   const yearRefs = useRef({});
   const yearContainerRef = useRef(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const hasMounted = useRef(false);
-  const isUserInteraction = useRef(false); // Track user interactions
-
-  const slides = [
-    {
-      year: "1969",
-      image: "./assets/timeline-1.png",
-      text: "Anant Raj was founded in New Delhi, establishing a legacy of quality and ethical business practices.",
-    },
-    {
-      year: "1985",
-      image: "./assets/timeline-1.png",
-      text: "Incorporated as Anant Raj Clay Products Ltd., began manufacturing glazed ceramic tiles.",
-    },
-    {
-      year: "1989",
-      image: "./assets/timeline-1.png",
-      text: "Launched ceramic tiles under the brand name ‘Romano’.",
-    },
-    {
-      year: "1993",
-      image: "./assets/timeline-1.png",
-      text: "Diversified into LPG cylinder manufacturing.",
-    },
-    {
-      year: "1995",
-      image: "./assets/timeline-1.png",
-      text: "Name changed to Anant Raj Industries Ltd.; major production expansion.",
-    },
-    {
-      year: "1997",
-      image: "./assets/timeline-1.png",
-      text: "Increased tile production capacity to 8,000 sq. mtrs/day.",
-    },
-    {
-      year: "2005",
-      image: "./assets/timeline-1.png",
-      text: "Entered real estate development; merged five group companies in hospitality, IT parks, and service apartments.",
-    },
-    {
-      year: "2006",
-      image: "./assets/timeline-1.png",
-      text: "Further group company mergers; delisted from Delhi Stock Exchange.",
-    },
-    {
-      year: "2007",
-      image: "./assets/timeline-1.png",
-      text: "Merged twelve more group companies; share split from ₹10 to ₹2.",
-    },
-    {
-      year: "2010",
-      image: "./assets/timeline-1.png",
-      text: "Acquired Jubilant Software Services and Aakarshak Realtors as wholly owned subsidiaries.",
-    },
-    {
-      year: "2011",
-      image: "./assets/timeline-1.png",
-      text: "Launched key residential projects (DEL-37, Madelia, Maceo) and completed Moments Mall, Kirti Nagar.",
-    },
-    {
-      year: "2012",
-      image: "./assets/timeline-1.png",
-      text: "Launch of Anant Raj Estate with sale of plots in pocket A & B. Development commenced in South-West portion of the township.",
-    },
-    {
-      year: "2013",
-      image: "./assets/timeline-1.png",
-      text: "Launch of Estate Villas. Possession of Estate Plots.",
-    },
-    {
-      year: "2014",
-      image: "./assets/timeline-1.png",
-      text: "Launch of Estate Floors.",
-    },
-    {
-      year: "2016",
-      image: "./assets/timeline-1.png",
-      text: "We Handed over our first Estate Villa.",
-    },
-    {
-      year: "2017",
-      image: "./assets/timeline-1.png",
-      text: "A mixed-use commercial development “Joy Square” was launched in partnership with AIPL.",
-    },
-    {
-      year: "2019",
-      image: "./assets/timeline-1.png",
-      text: "Birla Navya, a joint venture project between Anant Raj Limited and Birla Estates Pvt Ltd, a 800 floors project was launched.",
-    },
-    {
-      year: "2020",
-      image: "./assets/timeline-1.png",
-      text: "Development Commenced in North-East portion of the township.",
-    },
-    {
-      year: "2022",
-      image: "./assets/timeline-1.png",
-      text: "Launch and Sale of Ashok Estate. Launch of Estate Mansions.",
-    },
-    {
-      year: "2024",
-      image: "./assets/timeline-1.png",
-      text: "Launch of our first luxury high rise project, The Estate Residencies.",
-    },
-    {
-      year: "2025",
-      image: "./assets/timeline-1.png",
-      text: "Launch of our ready to move in 400sq yd floors The Estate Apartments.",
-    },
-  ];
+  const isUserInteraction = useRef(false);
 
   useEffect(() => {
     if (
@@ -136,10 +136,9 @@ const Journey = () => {
       swiperRef.current.navigation.update();
     }
 
-    // Add a delay before marking as mounted to prevent initial scroll
     const timer = setTimeout(() => {
       hasMounted.current = true;
-    }, 500); // 500ms delay
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -149,7 +148,6 @@ const Journey = () => {
     const newYear = slides[currentIndex].year;
     setActiveYear(newYear);
 
-    // Only scroll if it's a user interaction and component is fully mounted
     if (hasMounted.current && isUserInteraction.current) {
       const yearElement = yearRefs.current[newYear];
       if (yearElement && yearContainerRef.current) {
@@ -161,18 +159,16 @@ const Journey = () => {
       }
     }
 
-    // Reset user interaction flag
     isUserInteraction.current = false;
   };
 
   const handleYearClick = (year) => {
-    isUserInteraction.current = true; // Mark as user interaction
+    isUserInteraction.current = true;
     const slideIndex = slides.findIndex((slide) => slide.year === year);
     if (slideIndex !== -1 && swiperRef.current) {
       swiperRef.current.slideToLoop(slideIndex);
       setActiveYear(year);
 
-      // Allow scrolling for year clicks
       if (hasMounted.current) {
         const yearElement = yearRefs.current[year];
         if (yearElement && yearContainerRef.current) {
@@ -187,14 +183,14 @@ const Journey = () => {
   };
 
   const handleNextClick = () => {
-    isUserInteraction.current = true; // Mark as user interaction
+    isUserInteraction.current = true;
     if (swiperRef.current) {
       swiperRef.current.slideNext();
     }
   };
 
   const handlePrevClick = () => {
-    isUserInteraction.current = true; // Mark as user interaction
+    isUserInteraction.current = true;
     if (swiperRef.current) {
       swiperRef.current.slidePrev();
     }
@@ -238,7 +234,7 @@ const Journey = () => {
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
-            initialSlide={0} // Ensure it starts at first slide
+            initialSlide={0}
             navigation={{
               prevEl: ".swiper-prev-timeline",
               nextEl: ".swiper-next-timeline",
@@ -246,6 +242,9 @@ const Journey = () => {
             onSlideChange={handleSlideChange}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
+            }}
+            onTouchStart={() => {
+              isUserInteraction.current = true; // ✅ Detect mobile swipe
             }}
           >
             {slides.map((slide) => (
