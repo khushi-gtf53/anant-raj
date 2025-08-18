@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SlArrowDown, SlArrowUp, SlClose } from "react-icons/sl";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const HeaderMenu = ({ isOpen, onClose }) => {
     const [activeNav, setActiveNav] = useState("residential");
@@ -15,7 +15,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
         {
             nav: "residential",
             navLink: "#",
-            img: "/assets/headermenu/1.jpg",
+            img: "/assets/headermenu/4.jpg",
         },
         {
             nav: "commercial",
@@ -30,7 +30,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
         {
             nav: "hospitality",
             navLink: "#",
-            img: "/assets/headermenu/4.jpg",
+            img: "/assets/headermenu/1.jpg",
         },
     ];
 
@@ -60,29 +60,29 @@ const HeaderMenu = ({ isOpen, onClose }) => {
     ];
 
     return (
-        <div className={`headermenu fixed top-0 left-0 w-full h-screen z-[99999] bg-white transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        <div className={`headermenu fixed top-0 left-0 w-full h-screen z-[99999] bg-[#FBF6F6] transition-opacity duration-500 ease-in-out ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
             }`}>
             <div className="max-w-[90%] sm:max-w-[80%] mx-auto w-full h-full">
                 {/* Top Nav */}
-                <div className="top-nav border-b border-black py-5 flex justify-between items-center">
+                <div className="top-nav  py-5 flex justify-between items-center">
                     <img
                         src="/assets/footer-logo-1.png"
                         alt="logo"
-                        className="w-[20%] sm:w-[10%]"
+                        className="h-[70px] lg:h-[75px]"
                     />
                     <div
-                        className="close tracking-widest flex justify-between items-center gap-3 cursor-pointer"
+                        className="close tracking-widest text-[14px] flex justify-between items-center gap-3 cursor-pointer"
                         onClick={onClose}
                     >
-                        Close Menu <SlClose size={30} />
+                        Close Menu <SlClose size={20} />
                     </div>
                 </div>
 
                 {/* Middle Nav */}
                 {!showFooterNav && (
-                    <div className="middelnav py-10 sm:border-b  border-black">
+                    <div className="middelnav py-5 border-t  sm:border-b  border-black">
                         <div className="grid sm:grid-cols-2">
-                            <div className="navItems flex flex-col justify-evenly items-start font-sangbleu space-y-6">
+                            <div className="navItems flex flex-col justify-evenly items-start font-sangbleu space-y-6 sm:space-y-0">
                                 {navItems.map((nav, i) => (
                                     <ul key={i} className="relative flex justify-between items-center w-full">
                                         <li
@@ -106,19 +106,19 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                             <div className="hidden navImages sm:flex justify-center items-center">
                                 <img
                                     src={navItems.find((item) => item.nav === activeNav)?.img}
-                                    alt=""
-                                    className=" h-auto object-cover transition-all duration-500"
+                                    alt="img"
+                                    className="w-[600px] h-[350px] object-cover transition-all duration-500"
                                 />
                             </div>
                         </div>
                     </div>
                 )}
 
-                <div className="divider sm:hidden my-4">
+                <div className="divider sm:hidden  border-b border-black py-4"  onClick={() => setShowFooterNav((prev) => !prev)}>
                     <div className="flex justify-between items-center">
                         <div
                             className="flex items-center cursor-pointer"
-                            onClick={() => setShowFooterNav((prev) => !prev)}
+                           
                         >
                             <div className="w-9 h-9 border flex justify-center items-center border-black rounded-full bg-transparent">
                                 {showFooterNav ? <SlArrowDown size={14} /> : <SlArrowUp size={14} />}
@@ -133,9 +133,8 @@ const HeaderMenu = ({ isOpen, onClose }) => {
 
 
                 {/* Footer Nav */}
-                {/* FOOTER NAV – MOBILE ONLY, TOGGLED */}
                 {showFooterNav && (
-                    <div className="footernav block sm:hidden py-10">
+                    <div className="footernav block sm:hidden py-5">
                         <div className="grid grid-cols-2 w-full justify-items-stretch">
                             {footerNavItems.map((column, i) => (
                                 <ul
@@ -156,8 +155,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                     </div>
                 )}
 
-                {/* FOOTER NAV – DESKTOP ONLY, ALWAYS SHOWN */}
-                <div className="footernav hidden sm:block sm:py-10">
+                <div className="footernav hidden sm:block sm:py-5">
                     <div className="grid sm:grid-cols-5 w-full justify-items-stretch">
                         {footerNavItems.map((column, i) => (
                             <ul
@@ -174,6 +172,67 @@ const HeaderMenu = ({ isOpen, onClose }) => {
                                 ))}
                             </ul>
                         ))}
+                    </div>
+                </div>
+
+
+                <div className="contact_details sm:hidden">
+                    <div className="phone space-y-4 my-7 text-[14px]">
+                        <div>
+                            <a href="tel:">+91-11-43034400</a>
+                        </div>
+                        <div>
+                            <a href="tel:">+91 8929800666</a>
+                        </div>
+                    </div>
+
+                    <div className="socialLinks ">
+                        <div className="flex space-x-6">
+                            {/* Facebook */}
+                            <NavLink to="https://www.facebook.com/AnantRajLimited2020">
+                                <img
+                                    src="./assets/facebook.png"
+                                    className="object-contain h-[20px]"
+                                    alt="facebook"
+                                />
+                            </NavLink>
+
+                            {/* Instagram */}
+                            <NavLink to="https://www.instagram.com/anantrajlimited/?hl=en">
+                                <img
+                                    src="./assets/instagram.png"
+                                    className="object-contain h-[20px]"
+                                    alt="ig"
+                                />
+                            </NavLink>
+
+                            <NavLink to="https://x.com/anantrajlimited">
+                                {/* Twitter/X */}
+                                <img
+                                    src="./assets/x.png"
+                                    className="object-contain h-[20px]"
+                                    alt="ig"
+                                />
+                            </NavLink>
+
+                            {/* LinkedIn */}
+                            <NavLink to="https://www.linkedin.com/company/anantrajltd/?originalSubdomain=in">
+                                <img
+                                    src="./assets/linkedin.png"
+                                    className="object-contain h-[20px]"
+                                    alt="linkedin"
+                                />
+                            </NavLink>
+
+                            <NavLink to="https://www.youtube.com/@ARLGurugram">
+                                {/* YouTube */}
+                                <img
+                                    src="./assets/youtube.png"
+                                    className="object-contain h-[20px]"
+                                    alt="linkedin"
+                                />
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
 
