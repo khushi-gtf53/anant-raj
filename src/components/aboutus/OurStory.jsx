@@ -1,0 +1,263 @@
+import React, { useState, useRef } from "react";
+import { GiJusticeStar } from "react-icons/gi";
+import HTMLFlipBook from "react-pageflip";
+
+const OurStory = () => {
+    const [activeTab, setActiveTab] = useState("tab1");
+    const firstBookRef = useRef(null);
+    const secondBookRef = useRef(null);
+
+    const nextPage = (bookRef) => {
+        if (bookRef.current) {
+            const pageFlip = bookRef.current.pageFlip();
+            pageFlip.flipNext();
+            pageFlip.update();
+        }
+    };
+
+    const prevPage = (bookRef) => {
+        if (bookRef.current) {
+            const pageFlip = bookRef.current.pageFlip();
+            pageFlip.flipPrev();
+            pageFlip.update();
+        }
+    };
+
+    const tab1Pages = [
+        {
+            heading: "Where Stories Sing and Beliefs Belong.",
+            title: "our story",
+            subtitle: "Established in 1969… ",
+            subtitle2: "Yet our story runs far deeper.",
+            content: `It began over a century ago, when the Sarin family first took root in North India’s soil as custodians of land, as builders of trust, long before “real estate” was ever an industry.`
+        },
+        {
+            image: "/assets/about/story/storybg.png",
+            content: `In that era of honour, our founding patriarch was recognised with the title Rai Sahib and the symbolic takhti. A mark not of what was to come, but of principles already lived: honour, responsibility, and unwavering trust.`
+        },
+        {
+            content: `The name we carry — Anant Raj — is itself a tribute to that legacy. Drawn from Lala Anant Ram Sarin and Smt. Raj Kumari Sarin, it is a name that binds family and future, heritage and horizon.`,
+            content2: `Through decades of transformation, the spirit endured — quietly, steadily, without noise or spectacle. Over 21 million sq. ft. built. 300 acres of land stewarded. Generations passing down not just assets, but values — like heirlooms.`
+        },
+        {
+            image: "/assets/about/story/storybg2.png",
+            content: `And today, with the fourth generation at the helm, we stand as more than developers. We are a gharana of real estate craftsmanship — an institution where tradition anchors ambition, and innovation carries heritage forward.`
+        },
+        // {
+        //     content: `<strong>Anant Raj.<br/> A brand built with time.<br/> A legacy carried with pride.</strong>`,
+        //     image: "/assets/footer-logo-1.png"
+        // }
+    ];
+
+
+    const tab2points = [
+        "We are not builders of structures.",
+        "We are custodians of permanence.",
+        "For generations, we’ve stood on land that holds memory, meaning, and promise.",
+        "We don’t chase trends; we set a standard that endures.",
+        "Our homes are not displays of opulence.",
+        "They are sanctuaries of purpose designed with depth, rooted in culture, and imagined for tomorrow.",
+        "In a world that’s moving faster than ever, we believe in spaces that hold you still.",
+        "Still with pride. Still with peace. Still with presence.",
+        "Our legacy isn’t just about what we’ve built.",
+        "It’s about what we’ve upheld: ethics, scale, integrity, vision.",
+        "To the new Indian rooted in identity, rising in ambition.",
+        "We are your quiet certainty in a loud world.",
+        "A place where heritage breathes, innovation lives, and every square foot whispers dignity."
+    ]
+
+    return (
+        <section className="story w-full h-screen bg-[#f5e9e9] px-[20px] py-[40px] lg:p-[100px]">
+            <div className="max-w-[90%] mx-auto">
+                <div className="tabs flex justify-evenly ">
+                    {/* Tab 1 */}
+                    <div
+                        className={`tab1 py-3 relative transition-all duration-200 cursor-pointer ${activeTab === "tab1" ? "opacity-100" : "opacity-50"
+                            }`}
+                        onClick={() => setActiveTab("tab1")}
+                    >
+                        <h3 className="uppercase text-primaryblue">our brand story</h3>
+                        <div
+                            className={`h-10 mt-4 mx-auto w-[1px] transition-all duration-200 bg-black ${activeTab === "tab1" ? "block" : "hidden"
+                                }`}
+                        ></div>
+                    </div>
+
+                    {/* Tab 2 */}
+                    <div
+                        className={`tab2 py-3 relative transition-all duration-200 cursor-pointer ${activeTab === "tab2" ? "opacity-100 " : "opacity-50"
+                            }`}
+                        onClick={() => setActiveTab("tab2")}
+                    >
+                        <h3 className="uppercase text-primaryblue">our manifesto</h3>
+                        <div
+                            className={`h-10 mt-4 mx-auto w-[1px] transition-all duration-200 bg-black ${activeTab === "tab2" ? "block" : "hidden"
+                                }`}
+                        ></div>
+                    </div>
+                </div>
+
+                {/* Conditionally Render Books Based on Active Tab */}
+                {activeTab === "tab1" && (
+                    <div className="w-full relative flex flex-col items-center">
+                        <div className="startHeading absolute uppercase text-2xl max-w-[40%] left-28 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+                            From the soil of North India, a timeless legacy took root.
+                        </div>
+                        <div className="endHeading absolute uppercase text-2xl max-w-[33%] right-32 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+                            More than structures, we’ve built permanence — a legacy that endur
+                        </div>
+                        <HTMLFlipBook
+                            key="firstBook"
+                            width={450}
+                            height={500}
+                            showCover={true}
+                            ref={firstBookRef}
+                            className="no-shadow"
+                            drawShadow={false}
+                            useMouseEvents={true}
+                        >
+                            {/* Cover Page */}
+                            <div className="demoPage bg-white shadow-xl">
+                                <img src="/assets/about/story/bookcover.jpg" alt="book cover" className="object-cover" />
+                            </div>
+
+                            {/* Dynamic Pages */}
+                            {tab1Pages.map((page, index) => (
+                                <div key={index} className="demoPage bg-white px-12 py-20 shadow-xl relative">
+                                    <img src="/assets/about/story/bookbg.jpg" alt="" className="absolute top-0 left-0 w-full h-full object-cover" />
+                                    <div className="flex relative flex-col justify-center items-center w-full h-full gap-4 text-[14px] text-center leading-relaxed">
+                                        {page.heading && (
+                                            <h3 className="uppercase text-red-800 tracking-widest text-center font-sangbleu mb-4">
+                                                {page.heading}
+                                            </h3>
+                                        )}
+                                        {page.title && (
+                                            <div className="heading py-5 uppercase font-stringfree text-3xl">{page.title}</div>
+                                        )}
+                                        {page.subtitle && (
+                                            <div className="storyline italic pt-2">{page.subtitle}</div>
+                                        )}
+                                        {page.subtitle2 && (
+                                            <div className="storyline italic pb-2">{page.subtitle2}</div>
+                                        )}
+                                        {page.image && <img src={page.image} alt="story" />}
+                                        {page.content && <div className="story" dangerouslySetInnerHTML={{ __html: page.content }} />}
+                                        {page.content2 && <div className="story" dangerouslySetInnerHTML={{ __html: page.content2 }} />}
+                                    </div>
+                                </div>
+                            ))}
+                            <div className="demoPage bg-white shadow-xl">
+                                <img src="/assets/about/story/backcover.jpg" alt="book cover" className="object-cover" />
+                            </div>
+                        </HTMLFlipBook>
+
+
+                        {/* Navigation Buttons for First Book */}
+                        <div className="flex gap-20 mt-4  relative">
+                            <button onClick={() => prevPage(firstBookRef)} className="w-8 h-8  cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center ">
+                                <img
+                                    src="./assets/right-arrow.png"
+                                    alt="Previous"
+                                    className="h-5 w-5 rotate-180"
+                                /> prev
+                            </button>
+
+                            <button onClick={() => nextPage(firstBookRef)} className="w-8 h-8 gap-3  cursor-pointer capitalize rounded-full flex items-center justify-center ">
+                                Next
+                                <img
+                                    src="./assets/right-arrow.png"
+                                    alt="Next"
+                                    className="h-5 w-5"
+                                />
+
+                            </button>
+
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === "tab2" && (
+                    <div className="w-full relative flex flex-col items-center">
+                        <div className="startHeading absolute uppercase text-2xl max-w-[40%] left-28 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+                            We do not build to impress; we build to endure.
+                        </div>
+                        <div className="endHeading absolute uppercase text-2xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+                            Our promise is permanence, our gift is legacy.
+                        </div>
+                        <HTMLFlipBook
+                            key="secondBook"
+                            width={450}
+                            height={500}
+                            showCover={true}
+                            ref={secondBookRef}
+                            className="no-shadow"
+                            drawShadow={false}
+                            useMouseEvents={true}
+                        >
+                            {/* Cover */}
+                            <div className="demoPage bg-white shadow-xl">
+                                <img src="/assets/about/story/manifastoboocover.jpg" alt="book cover" className="object-cover" />
+                            </div>
+
+                            {Array.from({ length: Math.ceil(tab2points.length / 7) }).map((_, pageIndex) => (
+                                <div key={pageIndex} className="demoPage bg-white px-12 py-20 shadow-xl relative">
+                                    <img src="/assets/about/story/bookbg.jpg"
+                                        alt=""
+                                        className="absolute top-0 left-0 w-full h-full object-cover"
+                                    />
+                                    <div className="flex relative flex-col justify-center w-full h-full gap-2">
+                                        {pageIndex === 0 && (
+                                            <div className="heading py-5 uppercase  text-red-800 tracking-widest text-center font-sangbleu text-2xl">
+                                                Brand Manifesto
+                                            </div>
+                                        )}
+
+                                        {tab2points.slice(pageIndex * 7, (pageIndex + 1) * 7).map((point, i) => (
+                                            <div key={i} className="storyline flex gap-2 items-start text-[14px] leading-relaxed py-1">
+                                                <GiJusticeStar className="text-[#9b2c2c] min-w-[16px] min-h-[16px] mt-[2px]" size={16} />
+                                                <span>{point}</span>
+                                            </div>
+                                        ))}
+
+                                        {pageIndex === Math.floor(tab2points.length / 7) && (
+                                            <div className="story text-center text-[14px] mt-2">
+                                                <strong>
+                                                    Anant Raj. <br />
+                                                    A Brand Built with Time
+                                                </strong>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                            <div className="demoPage bg-white shadow-xl">
+                                <img src="/assets/about/story/backcover.jpg" alt="book cover" className="object-cover" />
+                            </div>
+
+                        </HTMLFlipBook>
+
+                        <div className="flex gap-20 mt-4 relative">
+                            <button
+                                onClick={() => prevPage(secondBookRef)}
+                                className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center"
+                            >
+                                <img src="./assets/right-arrow.png" alt="Previous" className="h-5 w-5 rotate-180" /> prev
+                            </button>
+
+                            <button
+                                onClick={() => nextPage(secondBookRef)}
+                                className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center"
+                            >
+                                Next
+                                <img src="./assets/right-arrow.png" alt="Next" className="h-5 w-5" />
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+            </div>
+        </section>
+    );
+};
+
+export default OurStory;
