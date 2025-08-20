@@ -1,6 +1,11 @@
 export default function VisionAndMission() {
   return (
-    <div className=" min-h-screen bg-[url(./assets/mission.png)] py-[50px] px-[100px] flex-wrap flex w-full overflow-hidden">
+    <div
+      style={{
+        background: "url(./assets/mission.png)",
+      }}
+      className=" min-h-screen  py-[50px] px-[100px] flex-wrap flex w-full overflow-hidden"
+    >
       {/* Mission Section - Left Side */}
       <div className="basis-[100%] flex items-center justify-start">
         <div className="max-w-md lg:max-w-lg xl:max-w-xl">
