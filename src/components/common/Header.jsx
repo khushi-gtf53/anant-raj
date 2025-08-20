@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import HeaderMenu from "./HeaderMenu";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true); // Controls header visibility
@@ -58,25 +59,29 @@ const Header = () => {
           : "bg-white text-black shadow-md"
       }`}
     >
-      <img
-        src={
-          isAboutUs || !isAtTop || !showHeader
-            ? "/assets/footer-logo-1.png"
-            : "/assets/white-anant.png"
-        }
-        alt="Anant Raj Limited Logo"
-        className={`h-[70px] ${isAtTop ? "lg:h-[75px]" : ""}`}
-        onError={(e) => {
-          console.error("Failed to load logo image");
-          e.target.src = "/assets/fallback-logo.png";
-        }}
-      />
+      <NavLink to="/">
+        {" "}
+        <img
+          src={
+            isAboutUs || !isAtTop || !showHeader
+              ? "/assets/footer-logo-1.png"
+              : "/assets/white-anant.png"
+          }
+          alt="Anant Raj Limited Logo"
+          className={`h-[70px] ${isAtTop ? "lg:h-[75px]" : ""}`}
+          onError={(e) => {
+            console.error("Failed to load logo image");
+            e.target.src = "/assets/fallback-logo.png";
+          }}
+        />
+      </NavLink>
+
       <nav className="flex space-x-6 items-center">
         {["About Us", "Projects", "Investors", "CSR", "Contact Us"].map(
           (item) => (
-            <a
+            <NavLink
               key={item}
-              href={`${item.toLowerCase().replace(/\s+/g, "")}`}
+              to={`${item.toLowerCase().replace(/\s+/g, "")}`}
               className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
                 isAtTop && showHeader && !isAboutUs
                   ? "text-white"
@@ -84,7 +89,7 @@ const Header = () => {
               }`}
             >
               {item}
-            </a>
+            </NavLink>
           )
         )}
         <button

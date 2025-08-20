@@ -12,7 +12,7 @@ const slides = [
   },
   {
     year: "1985",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/1985.jpg",
     text: "Incorporated as Anant Raj Clay Products Ltd., began manufacturing glazed ceramic tiles.",
   },
   {
@@ -37,77 +37,77 @@ const slides = [
   },
   {
     year: "2005",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2005.jpg",
     text: "Entered real estate development; merged five group companies in hospitality, IT parks, and service apartments.",
   },
   {
     year: "2006",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2006.jpg",
     text: "Further group company mergers; delisted from Delhi Stock Exchange.",
   },
   {
     year: "2007",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2007.jpg",
     text: "Merged twelve more group companies; share split from ₹10 to ₹2.",
   },
   {
     year: "2010",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2010.jpg",
     text: "Acquired Jubilant Software Services and Aakarshak Realtors as wholly owned subsidiaries.",
   },
   {
     year: "2011",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2011.jpg",
     text: "Launched key residential projects (DEL-37, Madelia, Maceo) and completed Moments Mall, Kirti Nagar.",
   },
   {
     year: "2012",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2012.jpg",
     text: "Launch of Anant Raj Estate with sale of plots in pocket A & B. Development commenced in South-West portion of the township.",
   },
   {
     year: "2013",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2013.jpg",
     text: "Launch of Estate Villas. Possession of Estate Plots.",
   },
   {
     year: "2014",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2014.jpg",
     text: "Launch of Estate Floors.",
   },
   {
     year: "2016",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2016.jpg",
     text: "We Handed over our first Estate Villa.",
   },
   {
     year: "2017",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2017.jpg",
     text: "A mixed-use commercial development “Joy Square” was launched in partnership with AIPL.",
   },
   {
     year: "2019",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2019.jpg",
     text: "Birla Navya, a joint venture project between Anant Raj Limited and Birla Estates Pvt Ltd, a 800 floors project was launched.",
   },
   {
     year: "2020",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2020.jpg",
     text: "Development Commenced in North-East portion of the township.",
   },
   {
     year: "2022",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2022.jpg",
     text: "Launch and Sale of Ashok Estate. Launch of Estate Mansions.",
   },
   {
     year: "2024",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2024.jpg",
     text: "Launch of our first luxury high rise project, The Estate Residencies.",
   },
   {
     year: "2025",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/2025.jpg",
     text: "Launch of our ready to move in 400sq yd floors The Estate Apartments.",
   },
 ];
