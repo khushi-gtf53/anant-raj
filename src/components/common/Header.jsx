@@ -6,11 +6,14 @@ const Header = () => {
   const [showHeader, setShowHeader] = useState(true); // Controls header visibility
   const [isAtTop, setIsAtTop] = useState(true); // Tracks if at extreme top
   const [lastScrollY, setLastScrollY] = useState(0); // Tracks last scroll position
+  const [isAboutUs, setIsAboutUs] = useState(false); // Tracks if URL is aboutus
   const [isMenuOpen, setMenuOpen] = useState(false);
-
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+
+    // Check if the URL contains "aboutus"
+    setIsAboutUs(window.location.pathname.includes("aboutus"));
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -40,19 +43,23 @@ const Header = () => {
 
   const headerContent = (
     <header
-      className={`w-full transition-all duration-300 ease-in-out ${showHeader
-        ? "fixed top-0 z-30 translate-y-0"
-        : "fixed top-0 z-30 -translate-y-full"
-        } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${isAtTop && showHeader
+      className={`w-full transition-all duration-300 ease-in-out ${
+        showHeader
+          ? "fixed top-0 z-[100] translate-y-0"
+          : "fixed top-0 z-[100] -translate-y-full"
+      } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${
+        isAboutUs
+          ? "bg-[#FBF6F6] text-black "
+          : isAtTop && showHeader
           ? "bg-transparent text-white"
           : "bg-white text-black shadow-md"
-        }`}
+      }`}
     >
       <img
         src={
-          isAtTop && showHeader
-            ? "/assets/white-anant.png"
-            : "/assets/footer-logo-1.png"
+          isAboutUs || !isAtTop || !showHeader
+            ? "/assets/footer-logo-1.png"
+            : "/assets/white-anant.png"
         }
         alt="Anant Raj Limited Logo"
         className={`h-[70px] ${isAtTop ? "lg:h-[75px]" : ""}`}
@@ -65,24 +72,26 @@ const Header = () => {
         {["About Us", "Projects", "Investors", "CSR"].map((item) => (
           <a
             key={item}
-            href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-            className={`hover:text-gray-300 lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${isAtTop && showHeader ? "text-white" : "text-black"
-              }`}
+            href={`${item.toLowerCase().replace(/\s+/g, "")}`}
+            className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
+              isAtTop && showHeader && !isAboutUs ? "text-white" : "text-black"
+            }`}
           >
             {item}
           </a>
         ))}
         <button
-          className={`relative w-6 h-6 hover:text-gray-300 ${isAtTop && showHeader ? "text-white" : "text-black"
-            }`}
+          className={`relative w-6 h-6 hover:text-gray-300 ${
+            isAtTop && showHeader && !isAboutUs ? "text-white" : "text-black"
+          }`}
           aria-label="Menu"
           onClick={() => setMenuOpen(true)}
         >
           <img
             src={
-              isAtTop && showHeader
-                ? "/assets/hamburger.png"
-                : "/assets/black-hamburger.png"
+              isAboutUs || !isAtTop || !showHeader
+                ? "/assets/black-hamburger.png"
+                : "/assets/hamburger.png"
             }
             alt="Menu"
             className="w-full h-full cursor-pointer"
@@ -92,21 +101,18 @@ const Header = () => {
             }}
           />
         </button>
-
       </nav>
     </header>
-
   );
   return portalTarget ? (
-  <>
-    {createPortal(headerContent, portalTarget)}
-    {createPortal(
-      <HeaderMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />,
-      portalTarget
-    )}
-  </>
-) : null;
-
+    <>
+      {createPortal(headerContent, portalTarget)}
+      {createPortal(
+        <HeaderMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />,
+        portalTarget
+      )}
+    </>
+  ) : null;
 };
 
 export default Header;
