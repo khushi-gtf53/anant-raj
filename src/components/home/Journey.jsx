@@ -17,22 +17,22 @@ const slides = [
   },
   {
     year: "1989",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/1989.jpg",
     text: "Launched ceramic tiles under the brand name ‘Romano’.",
   },
   {
     year: "1993",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/1993.jpg",
     text: "Diversified into LPG cylinder manufacturing.",
   },
   {
     year: "1995",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/1995.jpg",
     text: "Name changed to Anant Raj Industries Ltd.; major production expansion.",
   },
   {
     year: "1997",
-    image: "./assets/timeline-1.png",
+    image: "./assets/timeline/1997.jpg",
     text: "Increased tile production capacity to 8,000 sq. mtrs/day.",
   },
   {

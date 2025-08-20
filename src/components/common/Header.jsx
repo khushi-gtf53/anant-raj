@@ -13,7 +13,10 @@ const Header = () => {
     if (typeof window === "undefined") return;
 
     // Check if the URL contains "aboutus"
-    setIsAboutUs(window.location.pathname.includes("aboutus"));
+    setIsAboutUs(
+      window.location.pathname.includes("aboutus") ||
+        window.location.pathname.includes("contactus")
+    );
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -69,17 +72,21 @@ const Header = () => {
         }}
       />
       <nav className="flex space-x-6 items-center">
-        {["About Us", "Projects", "Investors", "CSR"].map((item) => (
-          <a
-            key={item}
-            href={`${item.toLowerCase().replace(/\s+/g, "")}`}
-            className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
-              isAtTop && showHeader && !isAboutUs ? "text-white" : "text-black"
-            }`}
-          >
-            {item}
-          </a>
-        ))}
+        {["About Us", "Projects", "Investors", "CSR", "Contact Us"].map(
+          (item) => (
+            <a
+              key={item}
+              href={`${item.toLowerCase().replace(/\s+/g, "")}`}
+              className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
+                isAtTop && showHeader && !isAboutUs
+                  ? "text-white"
+                  : "text-black"
+              }`}
+            >
+              {item}
+            </a>
+          )
+        )}
         <button
           className={`relative w-6 h-6 hover:text-gray-300 ${
             isAtTop && showHeader && !isAboutUs ? "text-white" : "text-black"

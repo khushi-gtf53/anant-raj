@@ -1,17 +1,13 @@
 import "./App.css";
 import "./index.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
 import Aboutus from "./page/Aboutus";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import gsap from "gsap";
 import { useEffect } from "react";
+import Contactus from "./page/Contactus";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 gsap.registerPlugin(ScrollSmoother);
@@ -45,6 +41,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/aboutus" element={<Aboutus />} />
+              <Route path="/contactus" element={<Contactus />} />
             </Routes>
             <Footer />
           </div>

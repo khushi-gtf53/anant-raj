@@ -1,0 +1,138 @@
+import { useState } from "react";
+
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    number: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log("Form submitted:", formData);
+    // Handle form submission here
+  };
+
+  return (
+    <div className="font-lato  bg-white">
+      {/* Header Section */}
+      <div className="flex lg:p-[100px] px-[80px] flex-col md:flex-row justify-between mb-12 gap-8">
+        {/* Left Column - Residential & Retail */}
+        <div className="flex-1">
+          <h2 className="text-[14px] leading-[26px] font-lato  text-primaryblue mb-6 tracking-[1.5px]">
+            ANANT RAJ ESTATE TOWNSHIP
+            <br />
+            (RESIDENTIAL, RETAIL)
+          </h2>
+          <div className="space-y-4  text-[13px] tracking-[1.2px]">
+            <p>Email Id - estate@anantrajlimited.com</p>
+            <p>Phone Number - +91-89298 00666</p>
+          </div>
+        </div>
+
+        {/* Right Column - Commercial Leasing */}
+        <div className="flex-1">
+          <h2 className="text-[14px] leading-[26px] font-lato  text-primaryblue mb-6  tracking-[1.5px]">
+            COMMERCIAL LEASING OF IT PARKS, SEZ
+            <br />& HOSPITALITY
+          </h2>
+          <div className="space-y-4 text-[13px] tracking-[1.2px]">
+            <p>Email Id - leasing@anantrajlimited.com</p>
+            <p>Phone Number - +91-11-43559100 / 43692300</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Form Section */}
+      <div className="space-y-16 lg:p-[100px] px-[80px] bg-[#FBF6F6]">
+        {/* First Row - Name and Email */}
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex-1">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              className="w-full pb-2 border-0 border-b border-gray-400 bg-transparent text-gray-700 placeholder-gray-500 focus:outline-none focus:border-gray-600 text-base"
+            />
+          </div>
+          <div className="flex-1">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email Id"
+              className="w-full pb-2 border-0 border-b border-gray-400 bg-transparent text-gray-700 placeholder-gray-500 focus:outline-none focus:border-gray-600 text-base"
+            />
+          </div>
+        </div>
+
+        {/* Second Row - Phone Number (Full Width) */}
+        <div>
+          <input
+            type="tel"
+            name="number"
+            value={formData.number}
+            onChange={handleChange}
+            placeholder="Your Number"
+            className="w-full pb-2 border-0 border-b border-gray-400 bg-transparent text-gray-700 placeholder-gray-500 focus:outline-none focus:border-gray-600 text-base"
+          />
+        </div>
+
+        {/* Third Row - Message and Submit Button */}
+        <div className="flex flex-col md:flex-row gap-8 items-end">
+          <div className="flex-1">
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              rows="1"
+              className="w-full pb-2 border-0 border-b border-gray-400 bg-transparent text-gray-700 placeholder-gray-500 focus:outline-none focus:border-gray-600 text-base resize-none"
+            />
+          </div>
+          <div className="flex-shrink-0">
+            <button
+              onClick={handleSubmit}
+              className="  text-primaryblue  font-[500] text-sm tracking-[1.2px]"
+            >
+              SUBMIT NOW
+            </button>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/location.png" alt="location" />
+
+      <div className="flex lg:p-[100px] !pb-[0px] px-[80px] flex-col md:flex-row justify-between mb-12 gap-8">
+        {/* Left Column - Residential & Retail */}
+        <div className="flex-1">
+          <h2 className="text-[14px] uppercase leading-[26px] font-lato  text-primaryblue mb-6 tracking-[1.5px]">
+            Head Office
+          </h2>
+          <div className="space-y-4  text-[13px] tracking-[1.2px]">
+            <p>H-65, Connaught Place, New Delhi-110001, India</p>
+          </div>
+        </div>
+
+        {/* Right Column - Commercial Leasing */}
+        <div className="flex-1">
+          <h2 className="text-[14px] uppercase leading-[26px] font-lato  text-primaryblue mb-6  tracking-[1.5px]">
+            Registered Office
+          </h2>
+          <div className="space-y-4 text-[13px] tracking-[1.2px]">
+            <p>Plot No Cp-1, Sector 8, IMT Manesar, Haryana 122051</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
