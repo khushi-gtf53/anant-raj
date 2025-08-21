@@ -103,10 +103,10 @@ const OurStory = () => {
         {/* Conditionally Render Books Based on Active Tab */}
         {activeTab === "tab1" && (
           <div className="w-full relative flex flex-col items-center">
-            <div className="startHeading absolute uppercase text-xl max-w-[40%] left-28 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="startHeading absolute uppercase text-xl max-w-[35%] left-32 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               From the soil of North India, a timeless legacy took root.
             </div>
-            <div className="endHeading absolute uppercase text-xl max-w-[33%] right-32 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="endHeading absolute uppercase text-xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               More than structures, we’ve built permanence — a legacy that endur
             </div>
             <HTMLFlipBook
@@ -216,10 +216,10 @@ const OurStory = () => {
 
         {activeTab === "tab2" && (
           <div className="w-full relative flex flex-col items-center">
-            <div className="startHeading absolute uppercase text-xl max-w-[40%] left-28 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="startHeading absolute uppercase text-xl max-w-[30%] left-36 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               We do not build to impress; we build to endure.
             </div>
-            <div className="endHeading absolute uppercase text-xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="endHeading absolute uppercase text-xl max-w-[30%] right-46 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               Our promise is permanence, our gift is legacy.
             </div>
             <HTMLFlipBook
