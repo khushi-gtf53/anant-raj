@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { GiJusticeStar } from "react-icons/gi";
 import HTMLFlipBook from "react-pageflip";
 
@@ -6,6 +6,7 @@ const OurStory = () => {
   const [activeTab, setActiveTab] = useState("tab1");
   const firstBookRef = useRef(null);
   const secondBookRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 450, height: 500 });
 
   const nextPage = (bookRef) => {
     if (bookRef.current) {
@@ -65,37 +66,51 @@ const OurStory = () => {
     "A place where heritage breathes, innovation lives, and every square foot whispers dignity.",
   ];
 
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (window.innerWidth < 768) {
+        // Mobile dimensions
+        setDimensions({ width: 380, height: 550 });
+      } else {
+        // Desktop dimensions
+        setDimensions({ width: 450, height: 500 });
+      }
+    };
+
+    updateDimensions(); // Set on initial render
+    window.addEventListener('resize', updateDimensions); // Update on resize
+
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+
   return (
     <section className="story w-full h-full bg-[#f5e9e9] px-[20px] py-[40px] lg:p-[100px]">
       <div className="max-w-[90%] mx-auto">
         <div className="tabs flex justify-evenly ">
           {/* Tab 1 */}
           <div
-            className={`tab1 py-3 relative transition-all duration-200 cursor-pointer ${
-              activeTab === "tab1" ? "opacity-100" : "opacity-50"
-            }`}
+            className={`tab1 py-3 relative transition-all duration-200 cursor-pointer ${activeTab === "tab1" ? "opacity-100" : "opacity-50"
+              }`}
             onClick={() => setActiveTab("tab1")}
           >
             <h3 className="uppercase text-primaryblue">our brand story</h3>
             <div
-              className={`h-10 mt-4 mx-auto w-[1px] transition-all duration-200 bg-black ${
-                activeTab === "tab1" ? "block" : "hidden"
-              }`}
+              className={`h-10 mt-4 mx-auto w-[1px] transition-all duration-200 bg-black ${activeTab === "tab1" ? "block" : "hidden"
+                }`}
             ></div>
           </div>
 
           {/* Tab 2 */}
           <div
-            className={`tab2 py-3 relative transition-all duration-200 cursor-pointer ${
-              activeTab === "tab2" ? "opacity-100 " : "opacity-50"
-            }`}
+            className={`tab2 py-3 relative transition-all duration-200 cursor-pointer ${activeTab === "tab2" ? "opacity-100 " : "opacity-50"
+              }`}
             onClick={() => setActiveTab("tab2")}
           >
             <h3 className="uppercase text-primaryblue">our manifesto</h3>
             <div
-              className={`h-10 mt-4 mx-auto w-[1px] transition-all duration-200 bg-black ${
-                activeTab === "tab2" ? "block" : "hidden"
-              }`}
+              className={`h-10 mt-4 mx-auto w-[1px] transition-all duration-200 bg-black ${activeTab === "tab2" ? "block" : "hidden"
+                }`}
             ></div>
           </div>
         </div>
@@ -103,16 +118,16 @@ const OurStory = () => {
         {/* Conditionally Render Books Based on Active Tab */}
         {activeTab === "tab1" && (
           <div className="w-full relative flex flex-col items-center">
-            <div className="startHeading absolute uppercase text-xl max-w-[35%] left-32 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="startHeading hidden sm:block absolute uppercase md:text-sm lg:text-xl max-w-[35%] left-32 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               From the soil of North India, a timeless legacy took root.
             </div>
-            <div className="endHeading absolute uppercase text-xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="endHeading absolute hidden sm:block uppercase text-xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               More than structures, we’ve built permanence — a legacy that endur
             </div>
             <HTMLFlipBook
               key="firstBook"
-              width={450}
-              height={500}
+              width={dimensions.width}
+              height={dimensions.height}
               showCover={true}
               ref={firstBookRef}
               className="no-shadow"
@@ -124,7 +139,7 @@ const OurStory = () => {
                 <img
                   src="/assets/about/story/bookcover.jpg"
                   alt="book cover"
-                  className="object-cover"
+                  className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                 />
               </div>
 
@@ -180,7 +195,7 @@ const OurStory = () => {
                 <img
                   src="/assets/about/story/backcover.jpg"
                   alt="book cover"
-                  className="object-cover"
+                  className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                 />
               </div>
             </HTMLFlipBook>
@@ -216,16 +231,16 @@ const OurStory = () => {
 
         {activeTab === "tab2" && (
           <div className="w-full relative flex flex-col items-center">
-            <div className="startHeading absolute uppercase text-xl max-w-[30%] left-36 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="startHeading hidden sm:block absolute uppercase text-xl max-w-[30%] left-36 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               We do not build to impress; we build to endure.
             </div>
-            <div className="endHeading absolute uppercase text-xl max-w-[30%] right-46 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+            <div className="endHeading hidden sm:block absolute uppercase text-xl max-w-[30%] right-46 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
               Our promise is permanence, our gift is legacy.
             </div>
             <HTMLFlipBook
               key="secondBook"
-              width={450}
-              height={500}
+               width={dimensions.width}
+      height={dimensions.height}
               showCover={true}
               ref={secondBookRef}
               className="no-shadow"
@@ -237,7 +252,7 @@ const OurStory = () => {
                 <img
                   src="/assets/about/story/manifastoboocover.jpg"
                   alt="book cover"
-                  className="object-cover"
+                  className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                 />
               </div>
 
@@ -289,7 +304,7 @@ const OurStory = () => {
                 <img
                   src="/assets/about/story/backcover.jpg"
                   alt="book cover"
-                  className="object-cover"
+                  className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                 />
               </div>
             </HTMLFlipBook>

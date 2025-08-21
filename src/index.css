@@ -41,6 +41,22 @@ body {
   font-family: "StringFree";
 }
 
+@keyframes expandFadeIn {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  100% {
+    opacity: 1;
+    width: 512px;
+  }
+}
+
+.animate-expand {
+  animation: expandFadeIn 1.2s ease-in-out forwards;
+}
+
+
 .hero::before {
   content: "";
   position: absolute;
