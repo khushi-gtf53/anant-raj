@@ -1,7 +1,7 @@
 const HeroAboutus = () => {
   return (
     <section>
-      <div className="bg-[#FBF6F6] mt-[40px] px-[20px] lg:p-[100px]  py-[40px] ">
+      <div className="bg-[#FBF6F6]  px-[20px] lg:p-[100px]  py-[40px] ">
         {/* Top Navigation Tabs */}
         <nav className="flex  space-x-8 justify-end">
           <button className="text-primaryblue font-semibold">Our Group</button>
