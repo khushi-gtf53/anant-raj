@@ -115,7 +115,7 @@ const Brands = () => {
   };
 
   return (
-    <section className="px-[20px] py-[40px] sm:p-[100px]">
+    <section id="brandpillars" className="px-[20px] py-[40px] sm:p-[100px]">
       <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] font-sangbleu text-[12px] lg:text-[20px]">
         <span>Our Brand Pillars: The Foundation of</span>
         <span className="block"> Everything We Build</span>

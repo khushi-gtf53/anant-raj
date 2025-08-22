@@ -274,7 +274,7 @@ const AboutusTeam = () => {
   };
 
   return (
-    <section className="px-[20px] bg-[#FBF6F6] py-[40px] lg:p-[100px]">
+    <section id="team" className="px-[20px] bg-[#FBF6F6] py-[40px] lg:p-[100px]">
       <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] font-sangbleu  text-[12.5px] lg:text-[20px]">
         Driven by Passion. United by Purpose.
       </h2>{" "}

@@ -72,7 +72,7 @@ const AboutTestimonials = () => {
     const [activeIndex, setActiveIndex] = useState(2);
 
     return (
-        <section className="about_testimonials w-full h-screen px-[20px] py-[40px] lg:py-[100px]">
+        <section id="testimonials" className="about_testimonials w-full h-screen px-[20px] py-[40px] lg:py-[100px]">
             <div className="flex justify-center items-center">
                 <div className="startHeading uppercase sm:max-w-[40%] leading-10 text-red-800 tracking-widest text-center font-sangbleu">
                     real stories, real satisfaction testimonials that build trust in real estate

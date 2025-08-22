@@ -1,6 +1,6 @@
 export default function VisionAndMission() {
   return (
-    <div
+    <div id="missionvision"
       style={{
         background: "url(./assets/mission.png)",
       }}
