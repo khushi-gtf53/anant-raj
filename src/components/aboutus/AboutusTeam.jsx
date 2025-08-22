@@ -264,7 +264,7 @@ const prevPerson = () => {
 
   return (
     <section id="team" className="px-[20px] bg-[#FBF6F6] py-[40px] lg:p-[100px]">
-      <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] font-sangbleu  text-[12.5px] lg:text-[20px]">
+      <h2 className="max-w-7xl mx-auto text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] font-sangbleu  text-[12.5px] lg:text-[20px]">
         Driven by Passion. United by Purpose.
       </h2>{" "}
       <div className="">
@@ -300,7 +300,7 @@ const prevPerson = () => {
           <div className="flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-8 lg:gap-12">
             {/* Left Side - Main Person */}
             <div className="flex-1 ">
-              <div className="relative w-[300px] h-[300px]  sm:w-[512px] sm:h-[496px] bg-transparent overflow-hidden">
+              <div className="relative w-[300px] h-[300px]  sm:w-[380px] sm:h-[380px] bg-transparent overflow-hidden">
                 <img
                   ref={outgoingImageRef}
                   src={teamData[activeTab][prevPersonIndexRef.current]?.image}
@@ -418,7 +418,7 @@ const prevPerson = () => {
             {/* Right Side - Team Grid */}
             <div className="flex-1 lg:max-w-2xl ">
               <div className="flex gap-3 md:gap-4">
-                {[...Array(Math.min(4, currentTeam.length))].map((_, i) => {
+                {[...Array(Math.min(5, currentTeam.length))].map((_, i) => {
                   const index = (startIndex + 1 + i) % currentTeam.length;
                   const person = currentTeam[index];
 
@@ -428,7 +428,7 @@ const prevPerson = () => {
                       onClick={() => setStartIndex(index)}
                       className={`relative group transition-all duration-200 }`}
                     >
-                      <div className="sm:w-[90px] w-[60px] h-[60px] sm:h-[496px] overflow-hidden opacity-30 bg-gray-200">
+                      <div className="sm:w-[90px] w-[60px] h-[60px] sm:h-[380px] overflow-hidden opacity-30 bg-gray-200">
                         <img
                           src={person.image}
                           alt={person.name}
