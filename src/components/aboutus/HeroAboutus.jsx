@@ -8,6 +8,7 @@ const HeroAboutus = () => {
   const tabs = [
     { tabname: "our group", tablink: "group" },
     { tabname: "mission & vision", tablink: "missionvision" },
+    { tabname: "our story", tablink: "story" },
     { tabname: "brand pillars", tablink: "brandpillars" },
     { tabname: "team", tablink: "team" },
     { tabname: "testimonials", tablink: "testimonials" },
@@ -68,7 +69,7 @@ const HeroAboutus = () => {
             ))}
           </nav>
 
-        <nav className="flex sm:hidden  border-y py-2 sm:py-0 sm:border-0 border-black space-x-4 sm:space-x-8 sm:justify-end sm:order-1">
+        <nav className="flex sm:hidden  border-y py-2 sm:py-0 sm:border-0 border-black space-x-10 sm:space-x-8 sm:justify-end sm:order-1">
           {tabs.slice(visibleTabs[0], visibleTabs[2] + 1).map((tab, i) => (
             <Link
               key={i}
@@ -131,8 +132,8 @@ const HeroAboutus = () => {
             Our Group
           </h1>
           <p className="font-lato text-[14px] font-[400] tracking-[1px] leading-[27px]">
-            Founded in 1969, Anant Raj Limited established itself as a symbol of <br />
-            unparalleled quality and ethical business practices...
+            Founded in 1969, Anant Raj Limited carries a lineage that predates the  <br />
+            formal birth of India’s real estate industry...
           </p>
         </div>
 
@@ -154,28 +155,18 @@ const HeroAboutus = () => {
       <img src="/assets/hero-aboutus.png" alt="aboutus" />
 
       <div id="discover" className="px-[20px] lg:p-[100px] py-[40px]">
-        <h3 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">
+        <h3 className="text-primaryred font-sangbleu mb-[40px] uppercase text-left  tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">
           <span> Anant Raj Limited: Elevating Lifestyles</span>
           <span className="block"> Through Timeless Spaces</span>
         </h3>
 
         <p className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[27px]">
-          Founded in 1969, Anant Raj Limited established itself as a symbol of
-          unparalleled quality and ethical business practices, earning
-          recognition as one of the foremost construction and development firms
-          of the 1970s and 1980s. During this time, the Anant Raj Limited
-          successfully built nearly 30,000 homes across Delhi and the NCR
-          region.
+         Founded in 1969, Anant Raj Limited carries a lineage that predates the formal birth of India’s real estate industry. Its name itself is a tribute to the founders’ parents, embedding respect, resilience, and responsibility into the very core of the brand. From early stewardship of land to decades of construction, Anant Raj has grown into a symbol of permanence and credibility, with over 21 million sq. ft. delivered across 300+ acres of owned land.
         </p>
 
         <p className="font-lato text-[14px] font-[400] tracking-[1px] leading-[27px]">
-          Our portfolio boasts several prestigious projects, including major
-          housing complexes at Rohini, East of Kailash, Sheikh Sarai, Madangir,
-          Katwaria Sarai, and the Asiad Village Complex, among others. Renowned
-          for our expertise and reliability, Anant Raj Limited was a key
-          contractor for prominent government agencies, including the DDA, MES,
-          PWD, and CPWD, maintaining a long-standing partnership with the DDA
-          from 1969 to 1990. Its Businesses include:
+         Even as the world has changed, the essence of Anant Raj has remained untouched — a family institution that has passed down values and vision across four generations. More than a builder of structures, it has become a custodian of legacy, where heritage meets progress and every home reflects dignity, continuity, and timeless pride.
+
         </p>
       </div>
     </section>

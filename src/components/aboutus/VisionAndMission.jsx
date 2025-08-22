@@ -16,10 +16,7 @@ export default function VisionAndMission() {
             className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[24px] sm:leading-[32px]
           text-white"
           >
-            To deliver world-class residential, commercial, hospitality, and
-            infrastructure projects that exceed customer expectations,
-            leveraging deep market insight, strategic foresight, and an
-            unwavering commitment to excellence.
+            To create spaces that embody permanence, purpose, and pride  where heritage meets modernity, and every home carries forward a legacy. We are not just builders of structures, but custodians of values, designing sanctuaries that honor tradition, embrace innovation, and uphold trust as the truest luxury.
           </p>
         </div>
       </div>
@@ -34,9 +31,7 @@ export default function VisionAndMission() {
             className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[24px] sm:leading-[32px]
           text-white"
           >
-            To be a trusted leader in real estate and infrastructure,
-            consistently setting new benchmarks in quality, innovation, and
-            modern amenities, while shaping the growth of the Delhi-NCR region.
+            To stand as India’s timeless gharana of real estate craftsmanship  blending scale with soul, and heritage with progress. Our vision is to set a standard that endures beyond trends, offering future generations not just addresses, but heirlooms of dignity, identity, and enduring significance.
           </p>
         </div>
       </div>
