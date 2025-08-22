@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const AboutusTeam = () => {
   const [activeTab, setActiveTab] = useState("BOARD OF DIRECTORS");
   const [activePersonIndex, setActivePersonIndex] = useState(0);
-  const [startIndex, setStartIndex] = useState(0); 
+  const [startIndex, setStartIndex] = useState(0);
   const incomingImageRef = useRef(null);
   const outgoingImageRef = useRef(null);
 
@@ -28,7 +28,7 @@ const AboutusTeam = () => {
       {
         xPercent: -70,
         opacity: 0,
-        duration : 1
+        duration: 1
       },
       {
         xPercent: 0,
@@ -36,7 +36,7 @@ const AboutusTeam = () => {
         duration: 2,
         ease: "power2.out",
       },
-      "<" 
+      "<"
     );
 
     prevPersonIndexRef.current = activePersonIndex;
@@ -282,7 +282,7 @@ const AboutusTeam = () => {
         <div className="max-w-7xl mx-auto">
           {/* Tab Navigation */}
           <div className="mb-12 md:mb-16">
-            <div className="flex flex-col sm:flex-row gap-8 md:gap-12 lg:gap-16">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-12 lg:gap-16">
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
@@ -308,10 +308,10 @@ const AboutusTeam = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12">
+          <div className="flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-8 lg:gap-12">
             {/* Left Side - Main Person */}
             <div className="flex-1 ">
-              <div className="relative w-[512px] h-[496px] bg-transparent overflow-hidden">
+              <div className="relative w-[300px] h-[300px]  sm:w-[512px] sm:h-[496px] bg-transparent overflow-hidden">
                 <img
                   ref={outgoingImageRef}
                   src={teamData[activeTab][prevPersonIndexRef.current]?.image}
@@ -331,16 +331,74 @@ const AboutusTeam = () => {
 
             </div>
 
+
             {/* Navigation Arrows */}
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col w-full justify-center items-center">
               {/* Person Info */}
-              <div className="my-6 text-center">
+              <div className="sm:my-6 text-center">
                 <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                   {activePerson.name}
                 </h3>
                 <p className="text-sm md:text-base text-gray-600">
                   {activePerson.position}
                 </p>
+              </div>
+              {/* Mobile Navigation */}
+              <div className="flex lg:hidden justify-center w-full mt-2 gap-4">
+                <button
+                  onClick={prevPerson}
+                  className="p-2 hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={currentTeam.length <= 1}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 18L9 12L15 6"
+                      stroke="#6B7280"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+                <button
+                  onClick={nextPerson}
+                  className="p-2 hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={currentTeam.length <= 1}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 18L15 12L9 6"
+                      stroke="#6B7280"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dots Indicator */}
+                {/* <div className="flex items-center gap-2 ml-4">
+              {currentTeam.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActivePersonIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${index === activePersonIndex ? "bg-gray-600" : "bg-gray-300"
+                    }`}
+                />
+              ))}
+            </div> */}
               </div>
               <div className="hidden lg:flex  items-center gap-4 self-center">
                 <button
@@ -384,7 +442,7 @@ const AboutusTeam = () => {
                         : "hover:ring-2 hover:ring-gray-300 hover:ring-offset-2"
                         }`}
                     >
-                      <div className="w-[90px] h-[496px] overflow-hidden opacity-30 bg-gray-200">
+                      <div className="sm:w-[90px] w-[60px] h-[60px] sm:h-[496px] overflow-hidden opacity-30 bg-gray-200">
                         <img
                           src={person.image}
                           alt={person.name}
@@ -403,63 +461,7 @@ const AboutusTeam = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="flex lg:hidden justify-center mt-8 gap-4">
-            <button
-              onClick={prevPerson}
-              className="p-2 hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={currentTeam.length <= 1}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 18L9 12L15 6"
-                  stroke="#6B7280"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={nextPerson}
-              className="p-2 hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={currentTeam.length <= 1}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 18L15 12L9 6"
-                  stroke="#6B7280"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
 
-            {/* Dots Indicator */}
-            <div className="flex items-center gap-2 ml-4">
-              {currentTeam.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActivePersonIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${index === activePersonIndex ? "bg-gray-600" : "bg-gray-300"
-                    }`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -4,16 +4,16 @@ export default function VisionAndMission() {
       style={{
         background: "url(./assets/mission.png)",
       }}
-      className=" min-h-screen px-[20px] py-[40px] sm:px-[100px] flex-wrap flex w-full overflow-hidden"
+      className=" sm:min-h-screen px-[20px] py-[40px] sm:px-[100px] flex-wrap flex w-full overflow-hidden"
     >
       {/* Mission Section - Left Side */}
       <div className="basis-[100%] flex items-center justify-start">
         <div className="max-w-md lg:max-w-lg xl:max-w-xl">
-          <h2 className="text-6xl   font-[400] text-white mb-8 md:mb-10 lg:mb-12 tracking-[4px]">
+          <h2 className="text-3xl sm:text-6xl   font-[400] text-white mb-4 md:mb-10 lg:mb-12 tracking-[4px]">
             MISSION
           </h2>
           <p
-            className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[32px]
+            className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[24px] sm:leading-[32px]
           text-white"
           >
             To deliver world-class residential, commercial, hospitality, and
@@ -25,13 +25,13 @@ export default function VisionAndMission() {
       </div>
 
       {/* Vision Section - Right Side */}
-      <div className="basis-[100%] mt-[60px] flex items-center justify-end">
+      <div className="basis-[100%] mt-5 sm:mt-[60px] flex items-center justify-end">
         <div className="max-w-md lg:max-w-lg xl:max-w-xl">
-          <h2 className="text-6xl  uppercase font-[400] text-white mb-8 md:mb-10 lg:mb-12 tracking-[4px]">
+          <h2 className="text-3xl sm:text-6xl  uppercase font-[400] text-white mb-4 md:mb-10 lg:mb-12 tracking-[4px]">
             Vision
           </h2>
           <p
-            className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[32px]
+            className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[24px] sm:leading-[32px]
           text-white"
           >
             To be a trusted leader in real estate and infrastructure,
