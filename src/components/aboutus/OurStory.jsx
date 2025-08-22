@@ -404,7 +404,7 @@ useEffect(() => {
           </div>
           <div className="hidden sm:block tabs  col-span-12 sm:col-span-2">
             {/* Tab 1 */}
-            <div className="flex flex-col  justify-evenly w-full h-full">
+            <div className="flex flex-col  justify-between w-full h-full">
               <div>
                 <div
                   className={`tab1 py-3 relative transition-all text-end flex justify-between items-center  duration-200 cursor-pointer ${activeTab === "tab1" ? "opacity-100" : "opacity-50"
@@ -412,9 +412,9 @@ useEffect(() => {
                   onClick={() => setActiveTab("tab1")}
                 >
                   <div
-                    className={`h-[1px] absolute -left-[70px] mx-auto w-20 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"   }`}
+                    className={`h-[1px] absolute -left-[100px] mx-auto w-28 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"   }`}
                   ></div>
-                  <h3 className="uppercase text-primaryblue flex justify-end w-full">our brand story</h3>
+                  <h3 className="uppercase text-primaryblue tracking-wider flex justify-end w-full">our brand story</h3>
                 </div>
 
                 {/* Tab 2 */}
@@ -422,13 +422,13 @@ useEffect(() => {
                     }`}
                   onClick={() => setActiveTab("tab2")}
                 >
-                  <div className={`h-[1px] absolute -left-[70px] mx-auto w-20  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"  }`} ></div>
-                  <h3 className="uppercase text-primaryblue flex justify-end w-full ">our manifesto</h3>
+                  <div className={`h-[1px] absolute -left-[100px] mx-auto w-28  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"  }`} ></div>
+                  <h3 className="uppercase text-primaryblue tracking-wider flex mr-5 justify-end w-full ">our manifesto</h3>
                 </div>
               </div>
 
               {/* Navigation Buttons for First Book */}
-              <div className="hidden sm:flex gap-20 mt-4 justify-end relative">
+              <div className="hidden sm:flex gap-5 justify-center mr-7 mb-[200px] relative">
                 <button onClick={() => prevPage(activeTab === "tab1" ? firstBookRef : secondBookRef)} className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center " >
                   <img  src="./assets/right-arrow.png" alt="Previous"  className="h-5 w-5 rotate-180" />{" "}
                   
