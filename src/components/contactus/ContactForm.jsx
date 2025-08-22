@@ -23,7 +23,7 @@ export default function ContactForm() {
   return (
     <div className="font-lato  bg-white">
       {/* Header Section */}
-      <div className="flex lg:p-[100px] px-[80px] flex-col md:flex-row justify-between mb-12 gap-8">
+      <div className="flex lg:p-[100px] lg:mt-0 mt-[40px] px-[20px] flex-col md:flex-row justify-between mb-12 gap-8">
         {/* Left Column - Residential & Retail */}
         <div className="flex-1">
           <h2 className="text-[14px] leading-[26px] font-lato  text-primaryblue mb-6 tracking-[1.5px]">
@@ -51,9 +51,9 @@ export default function ContactForm() {
       </div>
 
       {/* Form Section */}
-      <div className="space-y-16 lg:p-[100px] px-[80px] bg-[#FBF6F6]">
+      <div className="space-y-8 py-[40px] lg:space-y-16 lg:p-[100px] px-[20px] bg-[#FBF6F6]">
         {/* First Row - Name and Email */}
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="space-y-8 lg:space-y-0 flex flex-col md:flex-row lg:gap-8">
           <div className="flex-1">
             <input
               type="text"
@@ -89,8 +89,8 @@ export default function ContactForm() {
         </div>
 
         {/* Third Row - Message and Submit Button */}
-        <div className="flex flex-col md:flex-row gap-8 items-end">
-          <div className="flex-1">
+        <div className="flex flex-col md:flex-row gap-8 lg:items-end">
+          <div className="lg:w-auto w-full flex-1">
             <textarea
               name="message"
               value={formData.message}
@@ -110,9 +110,13 @@ export default function ContactForm() {
           </div>
         </div>
       </div>
-      <img src="./assets/location.png" alt="location" />
+      <img
+        src="./assets/location.png"
+        className="lg:h-auto object-cover h-[250px]"
+        alt="location"
+      />
 
-      <div className="flex lg:p-[100px] !pb-[0px] px-[80px] flex-col md:flex-row justify-between mb-12 gap-8">
+      <div className="flex lg:p-[100px] !pb-[0px] lg:mt-0 mt-[40px] px-[20px] flex-col md:flex-row justify-between mb-12 gap-8">
         {/* Left Column - Residential & Retail */}
         <div className="flex-1">
           <h2 className="text-[14px] uppercase leading-[26px] font-lato  text-primaryblue mb-6 tracking-[1.5px]">
