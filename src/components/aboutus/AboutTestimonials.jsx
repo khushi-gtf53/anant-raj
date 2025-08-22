@@ -74,7 +74,7 @@ const AboutTestimonials = () => {
     return (
         <section id="testimonials" className="about_testimonials w-full h-screen px-[20px] py-[40px] lg:py-[100px]">
             <div className="flex justify-center items-center">
-                <div className="startHeading uppercase sm:max-w-[40%] leading-10 text-red-800 tracking-widest text-center font-sangbleu">
+                <div className="startHeading text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">
                     real stories, real satisfaction testimonials that build trust in real estate
                 </div>
             </div>
@@ -88,7 +88,7 @@ const AboutTestimonials = () => {
 
             <div className="slider max-w-[95%] mx-auto  border-t border-black/80 relative">
                 <div className="activeflag">
-                    <IoTriangleSharp color="#9b2c2c" className="rotate-180 text-3xl absolute mt-[-3px] top-0 left-[42%]" />
+                    <IoTriangleSharp color="#9b2c2c" className="rotate-180 text-3xl absolute mt-[-3px] top-0 left-[20%] sm:left-[42%]" />
                 </div>
 
                 <Swiper

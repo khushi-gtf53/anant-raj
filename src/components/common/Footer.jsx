@@ -60,7 +60,7 @@ const Footer = () => {
         </a>
       </div> */}
 
-      <div ref={exploreLinkRef} className="px-[20px] lg:px-[100px] py-[70px]">
+      <div ref={exploreLinkRef} className="px-[20px] lg:px-[100px] pb-[70px]">
         <div className="flex flex-wrap justify-between items-center">
           <div className="basis-[40%] lg:basis-[80%] border-b-[1px] border-solid border-black"></div>
           <button

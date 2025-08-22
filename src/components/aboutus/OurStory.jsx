@@ -83,7 +83,7 @@ const OurStory = () => {
 
 
   return (
-    <section className="story relative w-full h-full bg-[#f5e9e9] px-[20px] py-[40px] lg:p-[100px]">
+    <section id="story" className="story relative w-full h-full bg-[#f5e9e9] px-[20px] py-[40px] lg:p-[100px]">
       <div className="max-w-[95%] mx-auto">
         <div className="heading">
           <h3 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">

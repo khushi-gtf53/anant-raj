@@ -287,7 +287,7 @@ const AboutusTeam = () => {
                 <button
                   key={tab}
                   onClick={() => handleTabChange(tab)}
-                  className={`text-left cursor-pointer transition-colors duration-200 ${activeTab === tab
+                  className={`text-center sm:text-left cursor-pointer transition-colors duration-200 ${activeTab === tab
                     ? "text-primaryblue font-bold"
                     : "text-gray-500 hover:text-gray-700 font-medium "
                     }`}

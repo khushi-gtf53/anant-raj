@@ -14,21 +14,21 @@ const Brands = () => {
       title: "LINEAGE-LED",
       subtitle: "CREDIBILITY",
       description:
-        "Anant Raj stands on decades of trust, stewardship, and deep-rooted land ownership — offering not just projects, but peace of mind built over generations.",
+        "Anant Raj stands on decades of trust, stewardship, and deep-rooted land ownership, offering not just projects, but peace of mind built over generations.",
       image: "/assets/pillar.png",
     },
     {
       title: "CULTURALLY",
       subtitle: "INTELLIGENT CRAFT",
       description:
-        "Every community is imagined with the Indian ethos at heart — blending architectural sensitivity with modern sensibilities for today's evolved buyer.",
+        "Every community is imagined with the Indian ethos at heart, blending architectural sensitivity with modern sensibilities for today’s evolved buyer.",
       image: "/assets/pillar.png",
     },
     {
       title: "FUTURE-FIRST",
       subtitle: "THINKING",
       description:
-        "From smart townships to ESG-conscious designs, Anant Raj creates spaces that anticipate tomorrow — not just adapt to it.",
+        "From smart townships to ESG-conscious designs, Anant Raj creates spaces that anticipate tomorrow, not just adapt to it.",
       image: "/assets/pillar.png",
     },
     {
@@ -116,9 +116,9 @@ const Brands = () => {
 
   return (
     <section id="brandpillars" className="px-[20px] py-[40px] sm:p-[100px]">
-      <h2 className="text-primaryred mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] font-sangbleu text-[12px] lg:text-[20px]">
-        <span>Our Brand Pillars: The Foundation of</span>
-        <span className="block"> Everything We Build</span>
+      <h2 className="text-primaryred mb-[40px] uppercase text-left tracking-[2px] leading-[30px] lg:leading-[40px] font-sangbleu text-[12.5px] lg:text-[20px]">
+        <span>Our Brand Pillars: The Foundation </span>
+        <span className="block">of Everything We Build</span>
       </h2>
       <div className="">
         <div className="max-w-7xl mx-auto">
@@ -193,10 +193,10 @@ const Brands = () => {
                         key={index}
                         className="flex flex-col items-center justify-end px-2"
                       >
-                        <h4 className="text-[15px] font-medium text-[#263A7F80] tracking-[1.5px] mb-1">
+                        <h4 className="text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px] mb-1">
                           {section.title}
                         </h4>
-                        <h4 className="text-[15px] font-medium text-[#263A7F80] tracking-[1.5px]">
+                        <h4 className="text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px]">
                           {section.subtitle}
                         </h4>
                         <div className="pt-7 h-[150px]">
