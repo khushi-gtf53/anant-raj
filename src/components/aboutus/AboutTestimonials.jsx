@@ -15,55 +15,46 @@ const testimonialsData = [
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
     {
         name: "saurabh sheti",
         image: "/assets/about/testimonials/1.png",
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
-        rating: 5,
     },
    
 ];
@@ -88,7 +79,7 @@ const AboutTestimonials = () => {
 
             <div className="slider max-w-[95%] mx-auto  border-t border-black/80 relative">
                 <div className="activeflag">
-                    <IoTriangleSharp color="#9b2c2c" className="rotate-180 text-3xl absolute mt-[-3px] top-0 left-[20%] sm:left-[42%]" />
+                    <IoTriangleSharp color="#9b2c2c" className="rotate-180 text-3xl absolute mt-[-3px] top-0 left-[22%] sm:left-[43%]" />
                 </div>
 
                 <Swiper
@@ -130,12 +121,7 @@ const AboutTestimonials = () => {
                                     />
                                     {activeIndex === index && (
                                         <div className="about_person w-full">
-                                            <div className="name uppercase w-full font-bold pb-3 tracking-wider">{item.name}</div>
-                                            <div className="flex gap-2 ">
-                                                {[...Array(item.rating)].map((_, i) => (
-                                                    <HiMiniStar key={i} color="#f5821f" />
-                                                ))}
-                                            </div>
+                                            <div className="name uppercase w-full font-bold pb-3 tracking-wider">{item.name}</div>                                          
                                         </div>
                                     )}
                                 </div>

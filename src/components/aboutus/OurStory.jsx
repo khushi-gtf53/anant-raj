@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Suspense } from "react";
 import { GiJusticeStar } from "react-icons/gi";
 import HTMLFlipBook from "react-pageflip";
 
@@ -7,6 +7,8 @@ const OurStory = () => {
   const firstBookRef = useRef(null);
   const secondBookRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 450, height: 500 });
+  const [bookKey, setBookKey] = useState(0);
+
 
   const nextPage = (bookRef) => {
     if (bookRef.current) {
@@ -14,7 +16,7 @@ const OurStory = () => {
       pageFlip.flipNext();
       pageFlip.update();
       console.log("ext");
-      
+
     }
   };
 
@@ -81,9 +83,32 @@ const OurStory = () => {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
+useEffect(() => {
+  const flipToFirstPage = () => {
+    if (activeTab === "tab1" && firstBookRef.current?.pageFlip) {
+      const book = firstBookRef.current.pageFlip();
+      if (book && typeof book.flip === "function") {
+        book.flip(1);
+      }
+    }
+
+    if (activeTab === "tab2" && secondBookRef.current?.pageFlip) {
+      const book = secondBookRef.current.pageFlip();
+      if (book && typeof book.flip === "function") {
+        book.flip(1);
+      }
+    }
+  };
+
+  // Delay execution to ensure flipbook is mounted
+  const timeout = setTimeout(flipToFirstPage, 100);
+  setBookKey(prev => prev + 1);
+
+  return () => clearTimeout(timeout);
+}, [activeTab]);
 
   return (
-    <section id="story" className="story relative w-full h-full bg-[#f5e9e9] px-[20px] py-[40px] lg:p-[100px]">
+    <section id="story" className="story relative w-full h-full bg-[#FBF6F6] px-[20px] py-[40px] lg:p-[100px]">
       <div className="max-w-[95%] mx-auto">
         <div className="heading">
           <h3 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">
@@ -100,7 +125,7 @@ const OurStory = () => {
                   }`}
                 onClick={() => setActiveTab("tab1")}
               >
-                <h3 className="uppercase text-primaryblue text-end text-[14px]"> brand story</h3>
+                <h3 className="uppercase text-primaryblue transition-all duration-150 text-end text-[14px]"> brand story</h3>
                 <div
                   className={`h-10  mx-auto mt-3 w-[1px] transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"
                     }`}
@@ -113,7 +138,7 @@ const OurStory = () => {
                   }`}
                 onClick={() => setActiveTab("tab2")}
               >
-                <h3 className="uppercase text-primaryblue text-[14px]">manifesto</h3>
+                <h3 className="uppercase text-primaryblue transition-all duration-150 text-[14px]">manifesto</h3>
                 <div
                   className={`h-10 mx-auto mt-3  w-[1px]  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"
                     }`}
@@ -154,89 +179,91 @@ const OurStory = () => {
           <div className="book col-span-12 sm:col-span-10">
             {/* Conditionally Render Books Based on Active Tab */}
             {activeTab === "tab1" && (
-              <div className="w-full relative flex flex-col items-center">
-                <div className="startHeading hidden sm:block absolute uppercase md:text-sm lg:text-xl max-w-[35%] left-32 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+              <div className="w-full relative transition-all duration-150 flex flex-col items-start">
+                <div className="startHeading hidden sm:block absolute uppercase md:text-sm lg:text-xl max-w-[35%] left-16 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
                   From the soil of North India, a timeless legacy took root.
                 </div>
                 <div className="endHeading absolute hidden sm:block uppercase text-xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
                   More than structures, we’ve built permanence — a legacy that endur
                 </div>
-                <HTMLFlipBook
-                  key="firstBook"
-                  width={dimensions.width}
-                  height={dimensions.height}
-                  showCover={true}
-                  ref={firstBookRef}
-                  className="no-shadow"
-                  drawShadow={false}
-                  useMouseEvents={true}
-                >
-                  {/* Cover Page */}
-                  <div className="demoPage bg-white shadow-xl">
-                    <img
-                      src="/assets/about/story/bookcover.jpg"
-                      alt="book cover"
-                      className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
-                    />
-                  </div>
-
-                  {/* Dynamic Pages */}
-                  {tab1Pages.map((page, index) => (
-                    <div
-                      key={index}
-                      className="demoPage bg-white px-12 py-20 shadow-xl relative"
-                    >
+                <Suspense fallback={"Loading..."}>
+                  <HTMLFlipBook
+                    key={bookKey} 
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    startPage={1}
+                    showCover={true}
+                    ref={firstBookRef}
+                    className="no-shadow"
+                    drawShadow={false}
+                    useMouseEvents={true}
+                  >
+                    {/* Cover Page */}
+                    <div className="demoPage bg-white shadow-xl">
                       <img
-                        src="/assets/about/story/bookbg.jpg"
-                        alt=""
-                        className="absolute top-0 left-0 w-full h-full object-cover"
+                        src="/assets/about/story/bookcover.jpg"
+                        alt="book cover"
+                        className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                       />
-                      <div className="flex relative flex-col justify-center items-center w-full h-full gap-4 text-[14px] text-center leading-relaxed">
-                        {page.heading && (
-                          <h3 className="uppercase text-red-800 tracking-widest text-center font-sangbleu mb-4">
-                            {page.heading}
-                          </h3>
-                        )}
-                        {page.title && (
-                          <div className="heading py-5 uppercase font-stringfree text-3xl">
-                            {page.title}
-                          </div>
-                        )}
-                        {page.subtitle && (
-                          <div className="storyline italic pt-2">
-                            {page.subtitle}
-                          </div>
-                        )}
-                        {page.subtitle2 && (
-                          <div className="storyline italic pb-2">
-                            {page.subtitle2}
-                          </div>
-                        )}
-                        {page.image && <img src={page.image} alt="story" />}
-                        {page.content && (
-                          <div
-                            className="story"
-                            dangerouslySetInnerHTML={{ __html: page.content }}
-                          />
-                        )}
-                        {page.content2 && (
-                          <div
-                            className="story"
-                            dangerouslySetInnerHTML={{ __html: page.content2 }}
-                          />
-                        )}
-                      </div>
                     </div>
-                  ))}
-                  <div className="demoPage bg-white shadow-xl">
-                    <img
-                      src="/assets/about/story/backcover.jpg"
-                      alt="book cover"
-                      className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
-                    />
-                  </div>
-                </HTMLFlipBook>
 
+                    {/* Dynamic Pages */}
+                    {tab1Pages.map((page, index) => (
+                      <div
+                        key={index}
+                        className="demoPage bg-white px-12 py-20 shadow-xl relative"
+                      >
+                        <img
+                          src="/assets/about/story/bookbg.jpg"
+                          alt=""
+                          className="absolute top-0 left-0 w-full h-full object-cover"
+                        />
+                        <div className="flex relative flex-col justify-center items-center w-full h-full gap-4 text-[14px] text-center leading-relaxed">
+                          {page.heading && (
+                            <h3 className="uppercase text-red-800 tracking-widest text-center font-sangbleu mb-4">
+                              {page.heading}
+                            </h3>
+                          )}
+                          {page.title && (
+                            <div className="heading py-5 uppercase font-stringfree text-3xl">
+                              {page.title}
+                            </div>
+                          )}
+                          {page.subtitle && (
+                            <div className="storyline italic pt-2">
+                              {page.subtitle}
+                            </div>
+                          )}
+                          {page.subtitle2 && (
+                            <div className="storyline italic pb-2">
+                              {page.subtitle2}
+                            </div>
+                          )}
+                          {page.image && <img src={page.image} alt="story" />}
+                          {page.content && (
+                            <div
+                              className="story"
+                              dangerouslySetInnerHTML={{ __html: page.content }}
+                            />
+                          )}
+                          {page.content2 && (
+                            <div
+                              className="story"
+                              dangerouslySetInnerHTML={{ __html: page.content2 }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                    <div className="demoPage bg-white shadow-xl">
+                      <img
+                        src="/assets/about/story/backcover.jpg"
+                        alt="book cover"
+                        className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
+                      />
+                    </div>
+                  </HTMLFlipBook>
+                </Suspense>
                 <div className="flex sm:hidden gap-20 mt-8 z-30 relative ">
                   <button
                     onClick={() => prevPage(firstBookRef)}
@@ -247,14 +274,14 @@ const OurStory = () => {
                       alt="Previous"
                       className="h-5 w-5 rotate-180"
                     />{" "}
-                    prev
+                    
                   </button>
 
                   <button
                     onClick={() => nextPage(firstBookRef)}
                     className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center"
                   >
-                    Next
+                    
                     <img
                       src="./assets/right-arrow.png"
                       alt="Next"
@@ -266,85 +293,87 @@ const OurStory = () => {
             )}
 
             {activeTab === "tab2" && (
-              <div className="w-full relative flex flex-col items-center">
-                <div className="startHeading hidden sm:block absolute uppercase text-xl max-w-[30%] left-36 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
+              <div className="w-full relative transition-all duration-150 flex flex-col items-start">
+                <div className="startHeading hidden sm:block absolute uppercase text-xl max-w-[30%] left-16 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
                   We do not build to impress; we build to endure.
                 </div>
                 <div className="endHeading hidden sm:block absolute uppercase text-xl max-w-[30%] right-46 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
                   Our promise is permanence, our gift is legacy.
                 </div>
-                <HTMLFlipBook
-                  key="secondBook"
-                  width={dimensions.width}
-                  height={dimensions.height}
-                  showCover={true}
-                  ref={secondBookRef}
-                  className="no-shadow"
-                  drawShadow={false}
-                  useMouseEvents={true}
-                >
-                  {/* Cover */}
-                  <div className="demoPage bg-white shadow-xl">
-                    <img
-                      src="/assets/about/story/manifastoboocover.jpg"
-                      alt="book cover"
-                      className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
-                    />
-                  </div>
+                <Suspense fallback={"Loading..."}>
+                  <HTMLFlipBook
+                    key={bookKey} 
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    startPage={1}
+                    showCover={true}
+                    ref={secondBookRef}
+                    className="no-shadow"
+                    drawShadow={false}
+                    useMouseEvents={true}
+                  >
+                    {/* Cover */}
+                    <div className="demoPage bg-white shadow-xl">
+                      <img
+                        src="/assets/about/story/manifastoboocover.jpg"
+                        alt="book cover"
+                        className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
+                      />
+                    </div>
 
-                  {Array.from({ length: Math.ceil(tab2points.length / 7) }).map(
-                    (_, pageIndex) => (
-                      <div
-                        key={pageIndex}
-                        className="demoPage bg-white px-12 py-20 shadow-xl relative"
-                      >
-                        <img
-                          src="/assets/about/story/bookbg.jpg"
-                          alt=""
-                          className="absolute top-0 left-0 w-full h-full object-cover"
-                        />
-                        <div className="flex relative flex-col justify-center w-full h-full gap-2">
-                          {pageIndex === 0 && (
-                            <div className="heading py-5 uppercase  text-red-800 tracking-widest text-center font-sangbleu text-2xl">
-                              Brand Manifesto
-                            </div>
-                          )}
-
-                          {tab2points
-                            .slice(pageIndex * 7, (pageIndex + 1) * 7)
-                            .map((point, i) => (
-                              <div
-                                key={i}
-                                className="storyline flex gap-2 items-start text-[14px] leading-relaxed py-1"
-                              >
-                                <GiJusticeStar
-                                  className="text-[#9b2c2c] min-w-[16px] min-h-[16px] mt-[2px]"
-                                  size={16}
-                                />
-                                <span>{point}</span>
+                    {Array.from({ length: Math.ceil(tab2points.length / 7) }).map(
+                      (_, pageIndex) => (
+                        <div
+                          key={pageIndex}
+                          className="demoPage bg-white px-12 py-20 shadow-xl relative"
+                        >
+                          <img
+                            src="/assets/about/story/bookbg.jpg"
+                            alt=""
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                          />
+                          <div className="flex relative flex-col justify-center w-full h-full gap-2">
+                            {pageIndex === 0 && (
+                              <div className="heading py-5 uppercase  text-red-800 tracking-widest text-center font-sangbleu text-2xl">
+                                Brand Manifesto
                               </div>
-                            ))}
+                            )}
 
-                          {pageIndex === Math.floor(tab2points.length / 7) && (
-                            <div className="story text-center text-[14px] mt-2">
-                              <strong>
-                                Anant Raj. <br />A Brand Built with Time
-                              </strong>
-                            </div>
-                          )}
+                            {tab2points
+                              .slice(pageIndex * 7, (pageIndex + 1) * 7)
+                              .map((point, i) => (
+                                <div
+                                  key={i}
+                                  className="storyline flex gap-2 items-start text-[14px] leading-relaxed py-1"
+                                >
+                                  {/* <GiJusticeStar
+                                    className="text-[#9b2c2c] min-w-[16px] min-h-[16px] mt-[2px]"
+                                    size={16}
+                                  /> */}
+                                  <span>{point}</span>
+                                </div>
+                              ))}
+
+                            {pageIndex === Math.floor(tab2points.length / 7) && (
+                              <div className="story text-center text-[14px] mt-2">
+                                <strong>
+                                  Anant Raj. <br />A Brand Built with Time
+                                </strong>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    )
-                  )}
-                  <div className="demoPage bg-white shadow-xl">
-                    <img
-                      src="/assets/about/story/backcover.jpg"
-                      alt="book cover"
-                      className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
-                    />
-                  </div>
-                </HTMLFlipBook>
-
+                      )
+                    )}
+                    <div className="demoPage bg-white shadow-xl">
+                      <img
+                        src="/assets/about/story/backcover.jpg"
+                        alt="book cover"
+                        className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
+                      />
+                    </div>
+                  </HTMLFlipBook>
+                </Suspense>
                 <div className="flex sm:hidden gap-20 mt-8 z-30 relative">
                   <button
                     onClick={() => prevPage(secondBookRef)}
@@ -355,14 +384,14 @@ const OurStory = () => {
                       alt="Previous"
                       className="h-5 w-5 rotate-180"
                     />{" "}
-                    prev
+                    
                   </button>
 
                   <button
                     onClick={() => nextPage(secondBookRef)}
                     className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center"
                   >
-                    Next
+                    
                     <img
                       src="./assets/right-arrow.png"
                       alt="Next"
@@ -375,7 +404,7 @@ const OurStory = () => {
           </div>
           <div className="hidden sm:block tabs  col-span-12 sm:col-span-2">
             {/* Tab 1 */}
-            <div className="flex flex-col items-end justify-evenly w-full h-full">
+            <div className="flex flex-col  justify-evenly w-full h-full">
               <div>
                 <div
                   className={`tab1 py-3 relative transition-all text-end flex justify-between items-center  duration-200 cursor-pointer ${activeTab === "tab1" ? "opacity-100" : "opacity-50"
@@ -383,63 +412,36 @@ const OurStory = () => {
                   onClick={() => setActiveTab("tab1")}
                 >
                   <div
-                    className={`h-[1px]  mx-auto w-14 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"
-                      }`}
+                    className={`h-[1px] absolute -left-[70px] mx-auto w-20 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"   }`}
                   ></div>
-                  <h3 className="uppercase text-primaryblue text-end">our brand story</h3>
+                  <h3 className="uppercase text-primaryblue flex justify-end w-full">our brand story</h3>
                 </div>
 
                 {/* Tab 2 */}
-                <div
-                  className={`tab2 py-3 relative flex items-center justify-between text-end transition-all duration-200 cursor-pointer ${activeTab === "tab2" ? "opacity-100 " : "opacity-50"
+                <div className={`tab2 py-3 relative flex items-center justify-between text-end transition-all duration-200 cursor-pointer ${activeTab === "tab2" ? "opacity-100 " : "opacity-50"
                     }`}
                   onClick={() => setActiveTab("tab2")}
                 >
-                  <div
-                    className={`h-[1px] mx-auto w-14  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"
-                      }`}
-                  ></div>
-                  <h3 className="uppercase text-primaryblue ">our manifesto</h3>
+                  <div className={`h-[1px] absolute -left-[70px] mx-auto w-20  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"  }`} ></div>
+                  <h3 className="uppercase text-primaryblue flex justify-end w-full ">our manifesto</h3>
                 </div>
               </div>
 
               {/* Navigation Buttons for First Book */}
-              <div className="hidden sm:flex gap-20 mt-4  relative">
-                <button
-                  onClick={() => prevPage(activeTab === "tab1" ? firstBookRef : secondBookRef)}
-                  className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center "
-                >
-                  <img
-                    src="./assets/right-arrow.png"
-                    alt="Previous"
-                    className="h-5 w-5 rotate-180"
-                  />{" "}
-                  prev
+              <div className="hidden sm:flex gap-20 mt-4 justify-end relative">
+                <button onClick={() => prevPage(activeTab === "tab1" ? firstBookRef : secondBookRef)} className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center " >
+                  <img  src="./assets/right-arrow.png" alt="Previous"  className="h-5 w-5 rotate-180" />{" "}
+                  
                 </button>
-
-                <button
-                  onClick={() => nextPage(activeTab === "tab1" ? firstBookRef : secondBookRef)}
-                  className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center "
-                >
-                  Next
-                  <img
-                    src="./assets/right-arrow.png"
-                    alt="Next"
-                    className="h-5 w-5"
-                  />
+                <button onClick={() => nextPage(activeTab === "tab1" ? firstBookRef : secondBookRef)} className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center " >                
+                  <img src="./assets/right-arrow.png" alt="Next" className="h-5 w-5" />
                 </button>
-
               </div>
             </div>
-
           </div>
         </div>
       </div>
-      <img
-        src="/assets/pattern-bg.png"
-        alt="pattern-bg"
-        className="h-[70px] absolute left-0 bottom-0 w-full object-cover"
-      />
+      <img src="/assets/pattern-bg.png" alt="pattern-bg" className="h-[70px] absolute left-0 bottom-0 w-full object-cover" />
     </section>
   );
 };
