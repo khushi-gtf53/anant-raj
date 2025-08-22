@@ -10,37 +10,35 @@ const AboutusTeam = () => {
 
   const prevPersonIndexRef = useRef(activePersonIndex);
 
+useEffect(() => {
+  if (prevPersonIndexRef.current === startIndex) return;
 
-  useEffect(() => {
-    if (prevPersonIndexRef.current === activePersonIndex) return;
+  const tl = gsap.timeline();
 
-    const tl = gsap.timeline();
+  tl.to(outgoingImageRef.current, {
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+  });
 
-    tl.to(outgoingImageRef.current, {
+  tl.fromTo(
+    incomingImageRef.current,
+    {
+      xPercent: -70,
       opacity: 0,
-      duration: 1,
+      duration: 1
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      duration: 2,
       ease: "power2.out",
-    });
+    },
+    "<"
+  );
 
-    // Slide in new image
-    tl.fromTo(
-      incomingImageRef.current,
-      {
-        xPercent: -70,
-        opacity: 0,
-        duration: 1
-      },
-      {
-        xPercent: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      },
-      "<"
-    );
-
-    prevPersonIndexRef.current = activePersonIndex;
-  }, [activePersonIndex]);
+  prevPersonIndexRef.current = startIndex;
+}, [startIndex]);
 
   const tabs = [
     "BOARD OF DIRECTORS",
@@ -244,27 +242,18 @@ const AboutusTeam = () => {
   };
 
   const currentTeam = teamData[activeTab] || [];
-  const activePerson = currentTeam[activePersonIndex] || {};
+  const activePerson = currentTeam[startIndex] || {};
 
-  const nextPerson = () => {
-    const nextIndex = (activePersonIndex + 1) % currentTeam.length;
-    setActivePersonIndex(nextIndex);
+const nextPerson = () => {
+  const nextIndex = (startIndex + 1) % currentTeam.length;
+  setStartIndex(nextIndex);
+};
 
-    // Move the grid view window if needed
-    if ((nextIndex - startIndex + currentTeam.length) % currentTeam.length >= 5) {
-      setStartIndex((startIndex + 1) % currentTeam.length);
-    }
-  };
+const prevPerson = () => {
+  const prevIndex = (startIndex - 1 + currentTeam.length) % currentTeam.length;
+  setStartIndex(prevIndex);
+};
 
-  const prevPerson = () => {
-    const prevIndex = (activePersonIndex - 1 + currentTeam.length) % currentTeam.length;
-    setActivePersonIndex(prevIndex);
-
-    // Move grid window backward if needed
-    if ((prevIndex - startIndex + currentTeam.length) % currentTeam.length < 0) {
-      setStartIndex((startIndex - 1 + currentTeam.length) % currentTeam.length);
-    }
-  };
 
 
   const handleTabChange = (tab) => {
@@ -285,7 +274,7 @@ const AboutusTeam = () => {
             <div className="flex flex-col sm:flex-row gap-4 md:gap-12 lg:gap-16">
               {tabs.map((tab, index) => (
                 <button
-                  key={tab}
+                  key={index}
                   onClick={() => handleTabChange(tab)}
                   className={`text-center sm:text-left cursor-pointer transition-colors duration-200 ${activeTab === tab
                     ? "text-primaryblue font-bold"
@@ -336,7 +325,7 @@ const AboutusTeam = () => {
             <div className="flex flex-col w-full justify-center items-center">
               {/* Person Info */}
               <div className="sm:my-6 text-center">
-                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-primaryblue mb-2">
                   {activePerson.name}
                 </h3>
                 <p className="text-sm md:text-base text-gray-600">
@@ -429,18 +418,15 @@ const AboutusTeam = () => {
             {/* Right Side - Team Grid */}
             <div className="flex-1 lg:max-w-2xl ">
               <div className="flex gap-3 md:gap-4">
-                {[...Array(Math.min(5, currentTeam.length))].map((_, i) => {
-                  const index = (startIndex + i) % currentTeam.length;
+                {[...Array(Math.min(4, currentTeam.length))].map((_, i) => {
+                  const index = (startIndex + 1 + i) % currentTeam.length;
                   const person = currentTeam[index];
 
                   return (
                     <button
                       key={index}
-                      onClick={() => setActivePersonIndex(index)}
-                      className={`relative group transition-all duration-200 ${index === activePersonIndex
-                        ? "ring-2 ring-[#263a7f]/40 ring-offset-2"
-                        : "hover:ring-2 hover:ring-gray-300 hover:ring-offset-2"
-                        }`}
+                      onClick={() => setStartIndex(index)}
+                      className={`relative group transition-all duration-200 }`}
                     >
                       <div className="sm:w-[90px] w-[60px] h-[60px] sm:h-[496px] overflow-hidden opacity-30 bg-gray-200">
                         <img
@@ -450,9 +436,7 @@ const AboutusTeam = () => {
                         />
                       </div>
 
-                      {index !== activePersonIndex && (
-                        <div className="absolute inset-0 bg-gray-400/30 rounded-lg group-hover:bg-gray-400/20 transition-colors duration-200" />
-                      )}
+                    
                     </button>
                   );
                 })}
