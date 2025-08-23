@@ -369,7 +369,7 @@ const Footer = () => {
 
         {/* Divider Line */}
         <div className="my-5">
-          <hr className="border-gray-300" />
+          <hr className="border-black border-solid border-t-[1px]" />
         </div>
 
         {/* Bottom Section */}

@@ -1,23 +1,28 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import HeaderMenu from "./HeaderMenu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true); // Controls header visibility
   const [isAtTop, setIsAtTop] = useState(true); // Tracks if at extreme top
   const [lastScrollY, setLastScrollY] = useState(0); // Tracks last scroll position
-  const [isAboutUs, setIsAboutUs] = useState(false); // Tracks if URL is aboutus
   const [isMenuOpen, setMenuOpen] = useState(false);
-
+  const location = useLocation(); // Get current location from React Router
+  const [isAboutUs, setIsAboutUs] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Check if the URL contains "aboutus"
-    setIsAboutUs(
-      window.location.pathname.includes("aboutus") ||
-        window.location.pathname.includes("contactus")
-    );
+    // Check if the URL contains "aboutus" or other pages based on location.pathname
+    const isAboutUsPage =
+      location.pathname.includes("aboutus") ||
+      location.pathname.includes("contactus") ||
+      location.pathname.includes("projects") ||
+      location.pathname.includes("investors") ||
+      location.pathname.includes("csr");
+
+    // Update isAboutUs state whenever the location changes
+    setIsAboutUs(isAboutUsPage);
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -37,7 +42,7 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, location.pathname]); // Add location.pathname as dependency
 
   // Find portal target with error handling
   const portalTarget =
@@ -52,8 +57,8 @@ const Header = () => {
           ? "fixed top-0 z-[100] translate-y-0"
           : "fixed top-0 z-[100] -translate-y-full"
       } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${
-        isAboutUs
-          ? "bg-[#FBF6F6] text-black "
+        isAboutUs || (!isAtTop && showHeader)
+          ? "bg-[#FBF6F6] text-black"
           : isAtTop && showHeader
           ? "bg-transparent text-white"
           : "bg-white text-black shadow-md"
@@ -83,7 +88,9 @@ const Header = () => {
               key={item}
               to={`${item.toLowerCase().replace(/\s+/g, "")}`}
               className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
-                isAtTop && showHeader && !isAboutUs
+                isAboutUs || (!isAtTop && showHeader)
+                  ? "text-black"
+                  : isAtTop && showHeader && !isAboutUs
                   ? "text-white"
                   : "text-black"
               }`}
@@ -94,7 +101,11 @@ const Header = () => {
         )}
         <button
           className={`relative w-6 h-6 hover:text-gray-300 ${
-            isAtTop && showHeader && !isAboutUs ? "text-white" : "text-black"
+            isAboutUs || (!isAtTop && showHeader)
+              ? "text-black"
+              : isAtTop && showHeader && !isAboutUs
+              ? "text-white"
+              : "text-black"
           }`}
           aria-label="Menu"
           onClick={() => setMenuOpen(true)}
