@@ -332,7 +332,7 @@ useEffect(() => {
                             alt=""
                             className="absolute top-0 left-0 w-full h-full object-cover"
                           />
-                          <div className="flex relative flex-col justify-center w-full h-full gap-2">
+                          <div className="flex relative flex-col justify-center items-center w-full h-full gap-2">
                             {pageIndex === 0 && (
                               <div className="heading py-5 uppercase  text-red-800 tracking-widest text-center font-sangbleu text-2xl">
                                 Brand Manifesto
@@ -344,7 +344,7 @@ useEffect(() => {
                               .map((point, i) => (
                                 <div
                                   key={i}
-                                  className="storyline flex gap-2 items-start text-[14px] leading-relaxed py-1"
+                                  className="storyline flex gap-2 items-center text-center text-[14px] leading-relaxed py-1"
                                 >
                                   {/* <GiJusticeStar
                                     className="text-[#9b2c2c] min-w-[16px] min-h-[16px] mt-[2px]"
