@@ -79,7 +79,7 @@ const AboutTestimonials = () => {
 
             <div className="slider max-w-[95%] mx-auto  border-t border-black/80 relative">
                 <div className="activeflag">
-                    <IoTriangleSharp color="#9b2c2c" className="rotate-180 text-3xl absolute mt-[-3px] top-0 left-[22%] sm:left-[43%]" />
+                    <IoTriangleSharp color="#9b2c2c" className="rotate-180 text-3xl absolute mt-[-3px] top-0 left-[22%] sm:left-[50%]" />
                 </div>
 
                 <Swiper

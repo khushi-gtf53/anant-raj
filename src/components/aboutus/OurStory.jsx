@@ -412,7 +412,7 @@ useEffect(() => {
                   onClick={() => setActiveTab("tab1")}
                 >
                   <div
-                    className={`h-[1px] absolute -left-[100px] mx-auto w-28 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"   }`}
+                    className={`h-[1px] absolute -left-[70px] mx-auto w-20 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"   }`}
                   ></div>
                   <h3 className="uppercase text-primaryblue tracking-wider flex justify-end w-full">our brand story</h3>
                 </div>
@@ -422,7 +422,7 @@ useEffect(() => {
                     }`}
                   onClick={() => setActiveTab("tab2")}
                 >
-                  <div className={`h-[1px] absolute -left-[100px] mx-auto w-28  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"  }`} ></div>
+                  <div className={`h-[1px] absolute -left-[70px] mx-auto w-20  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"  }`} ></div>
                   <h3 className="uppercase text-primaryblue tracking-wider flex mr-5 justify-end w-full ">our manifesto</h3>
                 </div>
               </div>

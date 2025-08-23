@@ -1,13 +1,12 @@
-import gsap from "gsap/all";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 const Brands = () => {
   const [activeSection, setActiveSection] = useState(0);
   const pillarRef = useRef(null);
   const sliderRef = useRef(null);
+  const headerRef = useRef(null);
   const [slidesToShow, setSlidesToShow] = useState(3);
-
-  const headerRef = useRef(null); // Add this for dynamic header animation
 
   const sections = [
     {
@@ -41,17 +40,6 @@ const Brands = () => {
   ];
 
   useEffect(() => {
-    if (pillarRef.current) {
-      gsap.set(pillarRef.current, { height: "150px" });
-      gsap.to(pillarRef.current, {
-        height: "400px",
-        duration: 1.5,
-        ease: "power2.out",
-      });
-    }
-  }, [activeSection]);
-
-  useEffect(() => {
     const updateSlidesToShow = () => {
       const width = window.innerWidth;
       if (width < 640) {
@@ -63,53 +51,66 @@ const Brands = () => {
       }
     };
 
-    updateSlidesToShow(); // Set on mount
-
+    updateSlidesToShow();
     window.addEventListener("resize", updateSlidesToShow);
     return () => window.removeEventListener("resize", updateSlidesToShow);
   }, []);
 
-
   const changeSection = (direction) => {
-    if (!sliderRef.current || !headerRef.current) return;
+    const currentSection = activeSection;
+    let nextSection = direction === "next" ? currentSection + 1 : currentSection - 1;
 
-    // Animate slider fade out & slide
-    gsap.to(sliderRef.current, {
-      opacity: 0,
-      x: direction === "next" ? -50 : 50,
-      duration: 0.7,
-      ease: "power1.in",
+    if (nextSection < 0) nextSection = sections.length - 1;
+    if (nextSection >= sections.length) nextSection = 0;
+
+    const slides = Array.from(sliderRef.current.children[0].children); // Access the inner flex container's children
+    const slideWidth = slides[0]?.offsetWidth || 250; // Dynamic slide width
+
+    // Animate slides
+    gsap.to(slides, {
+      duration: 0.8,
+      x: direction === "next" ? `-=${slideWidth}` : `+=${slideWidth}`,
+      ease: "expo.out", // Smoother easing for fluid motion
+      onComplete: () => {
+        setActiveSection(nextSection);
+        gsap.set(slides, { x: 0 }); // Reset position after animation
+
+        // Reorder slides for seamless looping
+        if (direction === "next") {
+          sliderRef.current.children[0].appendChild(slides[0]); // Move first slide to end
+        } else {
+          sliderRef.current.children[0].prepend(slides[slides.length - 1]); // Move last slide to start
+        }
+      },
     });
 
-    // Animate header fade out & slide
+    // Animate header
     gsap.to(headerRef.current, {
+      duration: 0.4,
       opacity: 0,
-      y: 20,
-      duration: 0.7,
-      ease: "power1.in",
+     ease: "power2.inOut",
       onComplete: () => {
-        // Update activeSection after fade out
-        setActiveSection((prev) => {
-          if (direction === "next") {
-            return (prev + 1) % sections.length;
-          } else {
-            return (prev - 1 + sections.length) % sections.length;
-          }
+        gsap.to(headerRef.current, {
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.inOut",
         });
+      },
+    });
 
-        // Animate slider fade in & slide back
-        gsap.fromTo(
-          sliderRef.current,
-          { opacity: 0, x: direction === "next" ? 50 : -50 },
-          { opacity: 1, x: 0, duration: 0.7, ease: "power1.out" }
-        );
-
-        // Animate header fade in & slide up
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power1.out" }
-        );
+    // Animate pillar
+    gsap.to(pillarRef.current, {
+      duration: 0.6,
+      scale: 0.95,
+      opacity: 0.8,
+      ease: "power2.inOut",
+      onComplete: () => {
+        gsap.to(pillarRef.current, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.inOut",
+        });
       },
     });
   };
@@ -120,41 +121,34 @@ const Brands = () => {
         <span>Our Brand Pillars: The Foundation </span>
         <span className="block">of Everything We Build</span>
       </h2>
-      <div className="">
+      <div className="border-b border-black/30 ">
         <div className="max-w-7xl mx-auto">
-          {/* Main Content Row */}
-          <div className="flex flex-wrap ">
-            {/* Dynamic Header with ref */}
-            <div
-              ref={headerRef}
-              className="mb-8 sm:flex items-center basis-[100%] justify-between flex-wrap min-h-[200px]"
-            >
+          <div className="flex flex-wrap">
+            <div ref={headerRef} className="mb-8 sm:flex items-center basis-[100%] justify-between flex-wrap min-h-[100px]">
               <div className="basis-[10%] sm:text-center">
-                <h3 className="text-sm font-medium text-primaryblue tracking-[1.5px] ">
+                <h3 className="text-sm font-medium text-primaryblue tracking-[1.5px]">
                   {sections[activeSection].title}
                 </h3>
                 <h2 className="text-sm font-medium text-primaryblue mb-4 sm:mb-0 tracking-[1.5px]">
                   {sections[activeSection].subtitle}
                 </h2>
               </div>
-              <div className="basis-[20%] bg-black hidden sm:block h-[0.5px]"></div>
-              <p className="basis-[60%] font-lato text-[14px] font-[400] tracking-[1px]  leading-[27px]">
+              <div className="basis-[20%] w-[200px] h-[1px] bg-black"></div>
+              <p className="basis-[60%] font-lato text-[14px] font-[400] tracking-[1px] leading-[27px]">
                 {sections[activeSection].description}
               </p>
             </div>
 
-            <div className="grid grid-cols-12 h-[400px] w-full">
-              {/* Large Pillar */}
+            <div className="grid grid-cols-12 h-[400px] w-full ">
               <div className="col-span-4 sm:col-span-2 flex items-end">
                 <img
                   ref={pillarRef}
                   src={sections[activeSection].image}
-                  className="object-contain"
+                  className="object-contain h-[400px]"
                   alt="pillar"
                 />
               </div>
 
-              {/* Navigation Arrows */}
               <div className="col-span-3 flex items-center gap-4">
                 <button
                   onClick={() => changeSection("prev")}
@@ -162,7 +156,7 @@ const Brands = () => {
                 >
                   <img
                     src="./assets/right-arrow.png"
-                    alt="right"
+                    alt="left"
                     className="h-[17px] lg:h-[20px] rotate-[180deg] object-cover"
                   />
                 </button>
@@ -178,20 +172,20 @@ const Brands = () => {
                 </button>
               </div>
 
-              {/* Three Pillars with Labels */}
               <div
-                className="col-span-5 sm:col-span-7 flex items-center sm:items-end sm:pb-5"
+                className="col-span-5 sm:col-span-7 flex items-center sm:items-end  overflow-hidden"
                 ref={sliderRef}
-                style={{ opacity: 1, transition: "none" }}
               >
                 <div className="flex justify-between items-end w-full">
-                  {Array.from({ length: slidesToShow }).map((_, offset) => {
-                    const index = (activeSection + offset + 1) % sections.length;
+                  {Array.from({ length: slidesToShow + 1 }).map((_, offset) => {
+                    // Show extra slides for seamless looping
+                    const index = (activeSection + 1 + offset) % sections.length;
                     const section = sections[index];
                     return (
                       <div
-                        key={index}
-                        className="flex flex-col items-center justify-end px-2"
+                        key={`${index}-${offset}`}
+                        className="flex w-[250px] flex-col items-center justify-end px-2"
+                        style={{ flex: "0 0 auto" }}
                       >
                         <h4 className="text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px] mb-1">
                           {section.title}
@@ -209,7 +203,6 @@ const Brands = () => {
                       </div>
                     );
                   })}
-
                 </div>
               </div>
             </div>
