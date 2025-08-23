@@ -156,9 +156,9 @@ const HeroContactus = () => {
       </div>
 
       <img
-        src="/assets/contact-us.png"
+        src="/assets/contact-us.webp"
         className="lg:h-auto object-cover h-[250px]"
-        alt="contact-us.png"
+        alt="contact-us"
       />
     </section>
   );

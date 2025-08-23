@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { useEffect } from "react";
 import Contactus from "./page/Contactus";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import ScrollToTop from "./utils/ScrollToTop";
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -33,11 +34,11 @@ function App() {
 
   return (
     <Router>
+          <ScrollToTop/>
       <div className="App">
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <Header />
-
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/aboutus" element={<Aboutus />} />

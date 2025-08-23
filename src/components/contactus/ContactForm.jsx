@@ -32,8 +32,8 @@ export default function ContactForm() {
             (RESIDENTIAL, RETAIL)
           </h2>
           <div className="space-y-4  text-[13px] tracking-[1.2px]">
-            <p>Email Id - estate@anantrajlimited.com</p>
-            <p>Phone Number - +91-89298 00666</p>
+            <p>Email Id - <a href="mailto:estate@anantrajlimited.com"> estate@anantrajlimited.com</a></p>
+            <p>Phone Number - <a href="tel:91-89298 00666"> +91-89298 00666</a></p>
           </div>
         </div>
 
@@ -44,8 +44,8 @@ export default function ContactForm() {
             <br />& HOSPITALITY
           </h2>
           <div className="space-y-4 text-[13px] tracking-[1.2px]">
-            <p>Email Id - leasing@anantrajlimited.com</p>
-            <p>Phone Number - +91-11-43559100 / 43692300</p>
+          <p>Email Id -  <a href="mailto:leasing@anantrajlimited.com"> leasing@anantrajlimited.com</a></p>
+            <p>Phone Number - <a href="tel:91-11-43559100">+91-11-43559100 / 43692300</a></p>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function ContactForm() {
         </div>
       </div>
       <img
-        src="./assets/location.png"
+        src="./assets/location.webp"
         className="lg:h-auto object-cover h-[250px]"
         alt="location"
       />

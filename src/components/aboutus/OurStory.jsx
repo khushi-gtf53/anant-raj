@@ -37,7 +37,7 @@ const OurStory = () => {
       content: `It began over a century ago, when the Sarin family first took root in North India’s soil as custodians of land, as builders of trust, long before “real estate” was ever an industry.`,
     },
     {
-      image: "/assets/about/story/storybg.png",
+      image: "/assets/about/story/storybg.webp",
       content: `In that era of honour, our founding patriarch was recognised with the title Rai Sahib and the symbolic takhti. A mark not of what was to come, but of principles already lived: honour, responsibility, and unwavering trust.`,
     },
     {
@@ -45,7 +45,7 @@ const OurStory = () => {
       content2: `Through decades of transformation, the spirit endured — quietly, steadily, without noise or spectacle. Over 21 million sq. ft. built. 300 acres of land stewarded. Generations passing down not just assets, but values — like heirlooms.`,
     },
     {
-      image: "/assets/about/story/storybg2.png",
+      image: "/assets/about/story/storybg2.webp",
       content: `And today, with the fourth generation at the helm, we stand as more than developers. We are a gharana of real estate craftsmanship — an institution where tradition anchors ambition, and innovation carries heritage forward.`,
     },
   ];
@@ -179,7 +179,7 @@ useEffect(() => {
           <div className="book col-span-12 sm:col-span-10">
             {/* Conditionally Render Books Based on Active Tab */}
             {activeTab === "tab1" && (
-              <div className="w-full relative transition-all duration-150 flex flex-col items-start">
+              <div className="w-full relative transition-all duration-150 flex flex-col items-center sm:items-start">
                 <div className="startHeading hidden sm:block absolute uppercase md:text-sm lg:text-xl max-w-[35%] left-16 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
                   From the soil of North India, a timeless legacy took root.
                 </div>
@@ -201,7 +201,7 @@ useEffect(() => {
                     {/* Cover Page */}
                     <div className="demoPage bg-white shadow-xl">
                       <img
-                        src="/assets/about/story/bookcover.jpg"
+                        src="/assets/about/story/bookcover.webp"
                         alt="book cover"
                         className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                       />
@@ -214,7 +214,7 @@ useEffect(() => {
                         className="demoPage bg-white px-12 py-20 shadow-xl relative"
                       >
                         <img
-                          src="/assets/about/story/bookbg.jpg"
+                          src="/assets/about/story/bookbg.webp"
                           alt=""
                           className="absolute top-0 left-0 w-full h-full object-cover"
                         />
@@ -257,7 +257,7 @@ useEffect(() => {
                     ))}
                     <div className="demoPage bg-white shadow-xl">
                       <img
-                        src="/assets/about/story/backcover.jpg"
+                        src="/assets/about/story/backcover.webp"
                         alt="book cover"
                         className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                       />
@@ -293,7 +293,7 @@ useEffect(() => {
             )}
 
             {activeTab === "tab2" && (
-              <div className="w-full relative transition-all duration-150 flex flex-col items-start">
+              <div className="w-full relative transition-all duration-150 flex flex-col items-center sm:items-start">
                 <div className="startHeading hidden sm:block absolute uppercase text-xl max-w-[30%] left-16 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
                   We do not build to impress; we build to endure.
                 </div>
@@ -315,7 +315,7 @@ useEffect(() => {
                     {/* Cover */}
                     <div className="demoPage bg-white shadow-xl">
                       <img
-                        src="/assets/about/story/manifastoboocover.jpg"
+                        src="/assets/about/story/manifastoboocover.webp"
                         alt="book cover"
                         className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                       />
@@ -328,7 +328,7 @@ useEffect(() => {
                           className="demoPage bg-white px-12 py-20 shadow-xl relative"
                         >
                           <img
-                            src="/assets/about/story/bookbg.jpg"
+                            src="/assets/about/story/bookbg.webp"
                             alt=""
                             className="absolute top-0 left-0 w-full h-full object-cover"
                           />
@@ -367,7 +367,7 @@ useEffect(() => {
                     )}
                     <div className="demoPage bg-white shadow-xl">
                       <img
-                        src="/assets/about/story/backcover.jpg"
+                        src="/assets/about/story/backcover.webp"
                         alt="book cover"
                         className="object-cover w-[380px] h-[550px] sm:w-[450px] sm:h-[500px]"
                       />

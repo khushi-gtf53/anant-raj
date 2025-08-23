@@ -14,28 +14,28 @@ const Brands = () => {
       subtitle: "CREDIBILITY",
       description:
         "Anant Raj stands on decades of trust, stewardship, and deep-rooted land ownership, offering not just projects, but peace of mind built over generations.",
-      image: "/assets/pillar.png",
+      image: "/assets/pillar.webp",
     },
     {
       title: "CULTURALLY",
       subtitle: "INTELLIGENT CRAFT",
       description:
         "Every community is imagined with the Indian ethos at heart, blending architectural sensitivity with modern sensibilities for today’s evolved buyer.",
-      image: "/assets/pillar.png",
+      image: "/assets/pillar.webp",
     },
     {
       title: "FUTURE-FIRST",
       subtitle: "THINKING",
       description:
         "From smart townships to ESG-conscious designs, Anant Raj creates spaces that anticipate tomorrow, not just adapt to it.",
-      image: "/assets/pillar.png",
+      image: "/assets/pillar.webp",
     },
     {
       title: "SCALE WITH",
       subtitle: "INTEGRITY",
       description:
         "Townships designed with long-term human value in mind — low density, high livability, integrated wellness, and an innate respect for the land itself.",
-      image: "/assets/pillar.png",
+      image: "/assets/pillar.webp",
     },
   ];
 
@@ -133,7 +133,7 @@ const Brands = () => {
                   {sections[activeSection].subtitle}
                 </h2>
               </div>
-              <div className="basis-[20%] w-[200px] h-[1px] bg-black"></div>
+              <div className="basis-[20%] w-full sm:w-[200px] my-2 h-[1px] bg-black"></div>
               <p className="basis-[60%] font-lato text-[14px] font-[400] tracking-[1px] leading-[27px]">
                 {sections[activeSection].description}
               </p>

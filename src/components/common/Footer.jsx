@@ -92,7 +92,7 @@ const Footer = () => {
                     <span className="mr-2">&gt;</span>
                     Blogs
                   </NavLink>
-                  <NavLink>
+                  <NavLink to="contactus">
                     <span className="mr-2">&gt;</span>
                     Contact us
                   </NavLink>
@@ -180,7 +180,7 @@ const Footer = () => {
             </div>
             <div>
               <div className="flex  flex-col space-y-2">
-                <NavLink>
+                <NavLink to="aboutus">
                   <span className="mr-2">&gt;</span>
                   About Us
                 </NavLink>
