@@ -1,25 +1,124 @@
-import { SlArrowUp } from "react-icons/sl"
+import { useState, useRef, useEffect } from "react";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { Lightbox } from "yet-another-react-lightbox"; 
+import "yet-another-react-lightbox/styles.css";
 
-const HighlightsSpecifications = () => {
-  return (
-    <section className="highlights_specifications relative  w-full h-screen px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
-      <div className="heading">
-        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
-          THE HIGH POINTS Of ESTATE RESIDENCES
-        </h2>
-      </div>
+const HighlightsSpecifications = ({ sectionTitle, highlights = [], specifications = [] }) => {
+  const [activeTab, setActiveTab] = useState("highlights"); 
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxSlides, setLightboxSlides] = useState([]);
+  const [openIndex, setOpenIndex] = useState(0);
 
-      <div className="highlights">
-        <div className="top_nav relative flex  flex-wrap items-center text-primaryred font-sangbleu uppercase">
-          <div className="heading basis-[20%]"><h3>highlights</h3></div>
-          <div className="basis-[25%] w-full text-center h-[1px] bg-black"></div>
-          <div className="basis-[10%] flex justify-center"><SlArrowUp size={30} /></div>
-          <div className="basis-[25%] text-center w-full h-[1px] bg-black"></div>
-          <div className="close basis-[20%] text-end"><h3>close</h3></div>
+  const scrollRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(30);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setScrollProgress((scrollLeft / (scrollWidth - clientWidth)) * 100);
+    };
+    const curr = scrollRef.current;
+    curr?.addEventListener("scroll", handleScroll);
+    return () => curr?.removeEventListener("scroll", handleScroll);
+  }, [activeTab]);
+
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+  const handleMouseDown = e => {
+    isDragging.current = true;
+    startX.current = e.clientX;
+    scrollStart.current = scrollRef.current.scrollLeft;
+  };
+  const handleMouseMove = e => {
+    if (!isDragging.current) return;
+    scrollRef.current.scrollLeft = scrollStart.current - (e.clientX - startX.current);
+  };
+  const handleMouseUp = () => (isDragging.current = false);
+
+  const renderItems = (items) => (
+    <div
+      className="flex gap-5 overflow-x-hidden scroll-smooth"
+      ref={scrollRef}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+    >
+      {items.map((item, idx) => (
+        <div
+          key={idx}
+          className="highlight min-w-[300px] border-r border-black/30 p-10 flex flex-col justify-between cursor-pointer"
+          onClick={() => {
+            setLightboxSlides(items.map(i => ({ src: i.imgSrc })));
+            setOpenIndex(idx);
+            setLightboxOpen(true);
+          }}
+        >
+          <div className="title font-sangbleu capitalize text-[13px] lg:text-[20px]">
+            {item.title}
+          </div>
+          <div className="view uppercase tracking-wider mt-10 text-[14px]">
+            view image
+          </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      ))}
+    </div>
+  );
 
-export default HighlightsSpecifications
+  const renderTab = (key, label, items) => {
+    const isOpen = activeTab === key;
+    return (
+      <div className="mb-10">
+        <div className="top_nav py-5 flex items-center text-primaryred font-sangbleu uppercase">
+          <div className="basis-1/5"><h3>{label}</h3></div>
+          <div className="basis-1/4 h-[1px] bg-[#b3162f]" />
+          <div className="basis-1/10 flex justify-center">
+            {isOpen ? <SlArrowUp size={30} /> : <SlArrowDown size={30} />}
+          </div>
+          <div className="basis-1/4 h-[1px] bg-[#b3162f]" />
+          <div
+            className="basis-1/5 text-end cursor-pointer"
+            onClick={() => setActiveTab(isOpen ? (key === "highlights" ? "specs" : "highlights") : key)}
+          >
+            <h3>{isOpen ? "close" : "explore more"}</h3>
+          </div>
+        </div>
+        {isOpen && (
+          <div className="highlights_section w-full h-[40vh] p-10 bg-[#FBF6F6] relative">
+            {renderItems(items)}
+            <div className="absolute bottom-0 left-0 w-full h-[5px] bg-[#b3162f]/30 rounded-2xl overflow-hidden">
+              <div
+                className="h-full bg-[#b3162f] rounded-2xl"
+                style={{ width: `${scrollProgress}%` }}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <section className="highlights_specifications w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
+        <div className="heading mb-10">
+          <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
+            {sectionTitle}
+          </h2>
+        </div>
+        {renderTab("highlights", "highlights", highlights)}
+        {renderTab("specs", "specifications", specifications)}
+      </section>
+
+      {/* Lightbox Popup */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={lightboxSlides}
+        index={openIndex}
+      />
+    </>
+  );
+};
+export default HighlightsSpecifications;

@@ -10,35 +10,35 @@ const AboutusTeam = () => {
 
   const prevPersonIndexRef = useRef(activePersonIndex);
 
-useEffect(() => {
-  if (prevPersonIndexRef.current === startIndex) return;
+  useEffect(() => {
+    if (prevPersonIndexRef.current === startIndex) return;
 
-  const tl = gsap.timeline();
+    const tl = gsap.timeline();
 
-  tl.to(outgoingImageRef.current, {
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-  });
-
-  tl.fromTo(
-    incomingImageRef.current,
-    {
-      xPercent: -70,
+    tl.to(outgoingImageRef.current, {
       opacity: 0,
-      duration: 1
-    },
-    {
-      xPercent: 0,
-      opacity: 1,
-      duration: 2,
+      duration: 1,
       ease: "power2.out",
-    },
-    "<"
-  );
+    });
 
-  prevPersonIndexRef.current = startIndex;
-}, [startIndex]);
+    tl.fromTo(
+      incomingImageRef.current,
+      {
+        xPercent: -70,
+        opacity: 0,
+        duration: 1
+      },
+      {
+        xPercent: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out",
+      },
+      "<"
+    );
+
+    prevPersonIndexRef.current = startIndex;
+  }, [startIndex]);
 
   const tabs = [
     "BOARD OF DIRECTORS",
@@ -84,6 +84,12 @@ useEffect(() => {
         image:
           "/assets/about/team/bod/6.webp",
       },
+      {
+        name: "Rajendra Prasad Sharma",
+        position: "Director",
+        image:
+          "/assets/about/team/leadership/2.webp",
+      },
     ],
     "OUR LEADERSHIP TEAM": [
       {
@@ -92,12 +98,7 @@ useEffect(() => {
         image:
           "/assets/about/team/leadership/1.webp",
       },
-      {
-        name: "Rajendra Prasad Sharma",
-        position: "Director",
-        image:
-          "/assets/about/team/leadership/2.webp",
-      },
+
       {
         name: "Suraj Parkash Sethi",
         position: "President-Accounts",
@@ -244,15 +245,15 @@ useEffect(() => {
   const currentTeam = teamData[activeTab] || [];
   const activePerson = currentTeam[startIndex] || {};
 
-const nextPerson = () => {
-  const nextIndex = (startIndex + 1) % currentTeam.length;
-  setStartIndex(nextIndex);
-};
+  const nextPerson = () => {
+    const nextIndex = (startIndex + 1) % currentTeam.length;
+    setStartIndex(nextIndex);
+  };
 
-const prevPerson = () => {
-  const prevIndex = (startIndex - 1 + currentTeam.length) % currentTeam.length;
-  setStartIndex(prevIndex);
-};
+  const prevPerson = () => {
+    const prevIndex = (startIndex - 1 + currentTeam.length) % currentTeam.length;
+    setStartIndex(prevIndex);
+  };
 
 
 
@@ -436,7 +437,7 @@ const prevPerson = () => {
                         />
                       </div>
 
-                    
+
                     </button>
                   );
                 })}

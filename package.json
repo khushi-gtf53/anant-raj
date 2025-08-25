@@ -22,7 +22,8 @@
     "react-scroll": "^1.9.3",
     "react-type-animation": "^3.2.0",
     "swiper": "^11.2.10",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.11",
+    "yet-another-react-lightbox": "^1.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
