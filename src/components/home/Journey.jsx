@@ -58,7 +58,7 @@ const slides = [
   {
     year: "2011",
     image: "./assets/timeline/2011.jpg",
-    text: "Launched key residential projects (DEL-37, Madelia, Maceo) and completed Moments Mall, Kirti Nagar.",
+    text: "Launched key residential projects and completed Moments Mall, Kirti Nagar.",
   },
   {
     year: "2012",

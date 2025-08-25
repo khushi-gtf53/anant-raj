@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import Contactus from "./page/Contactus";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ScrollToTop from "./utils/ScrollToTop";
+import EstateResidences from "./page/microsites/EstateResidences";
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -43,6 +44,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/aboutus" element={<Aboutus />} />
               <Route path="/contactus" element={<Contactus />} />
+              <Route path="/estate-residences" element={<EstateResidences />} />
             </Routes>
             <Footer />
           </div>

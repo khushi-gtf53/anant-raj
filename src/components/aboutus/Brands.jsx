@@ -184,13 +184,13 @@ const Brands = () => {
                     return (
                       <div
                         key={`${index}-${offset}`}
-                        className="flex w-[250px] flex-col items-center justify-end px-2"
+                        className="flex w-[250px] flex-col items-start sm:items-center justify-end px-2"
                         style={{ flex: "0 0 auto" }}
                       >
-                        <h4 className="text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px] mb-1">
+                        <h4 className="text-[10px] sm:text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px] mb-1">
                           {section.title}
                         </h4>
-                        <h4 className="text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px]">
+                        <h4 className="text-[10px] sm:text-[15px] text-center font-medium text-[#263A7F80] tracking-[1.5px]">
                           {section.subtitle}
                         </h4>
                         <div className="pt-7 h-[150px]">
