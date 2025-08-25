@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -96,7 +96,7 @@ const Achievements = () => {
         data-gsap-delay="0.5"
         className="font-sangbleu lg:text-left text-center text-primaryred mb-10 uppercase tracking-widest text-[13px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium"
       >
-        Award-Winning Milestones in Real Estate
+        Award-Winning Milestones
       </h2>
 
       <div className="flex justify-between flex-wrap items-center">

@@ -58,7 +58,8 @@ const Brands = () => {
 
   const changeSection = (direction) => {
     const currentSection = activeSection;
-    let nextSection = direction === "next" ? currentSection + 1 : currentSection - 1;
+    let nextSection =
+      direction === "next" ? currentSection + 1 : currentSection - 1;
 
     if (nextSection < 0) nextSection = sections.length - 1;
     if (nextSection >= sections.length) nextSection = 0;
@@ -88,7 +89,7 @@ const Brands = () => {
     gsap.to(headerRef.current, {
       duration: 0.4,
       opacity: 0,
-     ease: "power2.inOut",
+      ease: "power2.inOut",
       onComplete: () => {
         gsap.to(headerRef.current, {
           opacity: 1,
@@ -124,7 +125,10 @@ const Brands = () => {
       <div className="border-b border-black/30 ">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap">
-            <div ref={headerRef} className="mb-8 sm:flex items-center basis-[100%] justify-between flex-wrap min-h-[100px]">
+            <div
+              ref={headerRef}
+              className="mb-8 sm:flex items-center basis-[100%] justify-between flex-wrap min-h-[100px]"
+            >
               <div className="basis-[10%] sm:text-center">
                 <h3 className="text-sm font-medium text-primaryblue tracking-[1.5px]">
                   {sections[activeSection].title}
@@ -149,10 +153,10 @@ const Brands = () => {
                 />
               </div>
 
-              <div className="col-span-3 flex items-center gap-4">
+              <div className="col-span-3 flex items-center gap-2 lg:gap-4">
                 <button
                   onClick={() => changeSection("prev")}
-                  className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+                  className="lg:p-2 hover:bg-gray-200 rounded-full transition-colors"
                 >
                   <img
                     src="./assets/right-arrow.png"
@@ -162,7 +166,7 @@ const Brands = () => {
                 </button>
                 <button
                   onClick={() => changeSection("next")}
-                  className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+                  className="lg:p-2 hover:bg-gray-200 rounded-full transition-colors"
                 >
                   <img
                     src="./assets/right-arrow.png"
@@ -176,10 +180,11 @@ const Brands = () => {
                 className="col-span-5 sm:col-span-7 flex items-center sm:items-end  overflow-hidden"
                 ref={sliderRef}
               >
-                <div className="flex justify-between items-end w-full">
+                <div className="flex justify-between lg:items-end w-full">
                   {Array.from({ length: slidesToShow + 1 }).map((_, offset) => {
                     // Show extra slides for seamless looping
-                    const index = (activeSection + 1 + offset) % sections.length;
+                    const index =
+                      (activeSection + 1 + offset) % sections.length;
                     const section = sections[index];
                     return (
                       <div

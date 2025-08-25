@@ -9,14 +9,12 @@ const OurStory = () => {
   const [dimensions, setDimensions] = useState({ width: 450, height: 500 });
   const [bookKey, setBookKey] = useState(0);
 
-
   const nextPage = (bookRef) => {
     if (bookRef.current) {
       const pageFlip = bookRef.current.pageFlip();
       pageFlip.flipNext();
       pageFlip.update();
       console.log("ext");
-
     }
   };
 
@@ -78,42 +76,45 @@ const OurStory = () => {
     };
 
     updateDimensions(); // Set on initial render
-    window.addEventListener('resize', updateDimensions); // Update on resize
+    window.addEventListener("resize", updateDimensions); // Update on resize
 
-    return () => window.removeEventListener('resize', updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-useEffect(() => {
-  const flipToFirstPage = () => {
-    if (activeTab === "tab1" && firstBookRef.current?.pageFlip) {
-      const book = firstBookRef.current.pageFlip();
-      if (book && typeof book.flip === "function") {
-        book.flip(1);
+  useEffect(() => {
+    const flipToFirstPage = () => {
+      if (activeTab === "tab1" && firstBookRef.current?.pageFlip) {
+        const book = firstBookRef.current.pageFlip();
+        if (book && typeof book.flip === "function") {
+          book.flip(1);
+        }
       }
-    }
 
-    if (activeTab === "tab2" && secondBookRef.current?.pageFlip) {
-      const book = secondBookRef.current.pageFlip();
-      if (book && typeof book.flip === "function") {
-        book.flip(1);
+      if (activeTab === "tab2" && secondBookRef.current?.pageFlip) {
+        const book = secondBookRef.current.pageFlip();
+        if (book && typeof book.flip === "function") {
+          book.flip(1);
+        }
       }
-    }
-  };
+    };
 
-  // Delay execution to ensure flipbook is mounted
-  const timeout = setTimeout(flipToFirstPage, 100);
-  setBookKey(prev => prev + 1);
+    // Delay execution to ensure flipbook is mounted
+    const timeout = setTimeout(flipToFirstPage, 100);
+    setBookKey((prev) => prev + 1);
 
-  return () => clearTimeout(timeout);
-}, [activeTab]);
+    return () => clearTimeout(timeout);
+  }, [activeTab]);
 
   return (
-    <section id="story" className="story relative w-full h-full bg-[#FBF6F6] px-[20px] py-[40px] lg:p-[100px]">
+    <section
+      id="story"
+      className="story relative w-full h-full bg-[#FBF6F6] px-[20px] py-[40px] lg:p-[100px]"
+    >
       <div className="max-w-[95%] mx-auto">
         <div className="heading">
           <h3 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">
-            <span>our brand pillars : the foundation</span>
-            <span className="block"> of everything we build</span>
+            <span>Our Legacy, Our Vision : </span>
+            <span className="block"> Crafting Timeless Spaces</span>
           </h3>
         </div>
         <div className="grid grid-cols-12">
@@ -121,34 +122,47 @@ useEffect(() => {
             {/* Tab 1 */}
             <div className="flex justify-evenly">
               <div
-                className={`tab1 py-3  transition-all text-end  duration-200 cursor-pointer ${activeTab === "tab1" ? "opacity-100" : "opacity-50"
-                  }`}
+                className={`tab1 py-3  transition-all text-end  duration-200 cursor-pointer ${
+                  activeTab === "tab1" ? "opacity-100" : "opacity-50"
+                }`}
                 onClick={() => setActiveTab("tab1")}
               >
-                <h3 className="uppercase text-primaryblue transition-all duration-150 text-end text-[14px]"> brand story</h3>
+                <h3 className="uppercase text-primaryblue transition-all duration-150 text-end text-[14px]">
+                  {" "}
+                  brand story
+                </h3>
                 <div
-                  className={`h-10  mx-auto mt-3 w-[1px] transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"
-                    }`}
+                  className={`h-10  mx-auto mt-3 w-[1px] transition-all duration-200 bg-black ${
+                    activeTab === "tab1" ? "visible" : "invisible"
+                  }`}
                 ></div>
               </div>
 
               {/* Tab 2 */}
               <div
-                className={`tab2 py-3   transition-all duration-200 cursor-pointer ${activeTab === "tab2" ? "opacity-100 " : "opacity-50"
-                  }`}
+                className={`tab2 py-3   transition-all duration-200 cursor-pointer ${
+                  activeTab === "tab2" ? "opacity-100 " : "opacity-50"
+                }`}
                 onClick={() => setActiveTab("tab2")}
               >
-                <h3 className="uppercase text-primaryblue transition-all duration-150 text-[14px]">manifesto</h3>
+                <h3 className="uppercase text-primaryblue transition-all duration-150 text-[14px]">
+                  manifesto
+                </h3>
                 <div
-                  className={`h-10 mx-auto mt-3  w-[1px]  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"
-                    }`}
+                  className={`h-10 mx-auto mt-3  w-[1px]  transition-all duration-200 bg-black ${
+                    activeTab === "tab2" ? "visible" : "invisible"
+                  }`}
                 ></div>
               </div>
 
               {/* Navigation Buttons for First Book */}
               <div className="hidden sm:flex gap-20 mt-4  relative">
                 <button
-                  onClick={() => prevPage(activeTab === "tab1" ? firstBookRef : secondBookRef)}
+                  onClick={() =>
+                    prevPage(
+                      activeTab === "tab1" ? firstBookRef : secondBookRef
+                    )
+                  }
                   className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center "
                 >
                   <img
@@ -160,7 +174,11 @@ useEffect(() => {
                 </button>
 
                 <button
-                  onClick={() => nextPage(activeTab === "tab1" ? firstBookRef : secondBookRef)}
+                  onClick={() =>
+                    nextPage(
+                      activeTab === "tab1" ? firstBookRef : secondBookRef
+                    )
+                  }
                   className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center "
                 >
                   Next
@@ -170,10 +188,8 @@ useEffect(() => {
                     className="h-5 w-5"
                   />
                 </button>
-
               </div>
             </div>
-
           </div>
 
           <div className="book col-span-12 sm:col-span-10">
@@ -184,11 +200,12 @@ useEffect(() => {
                   From the soil of North India, a timeless legacy took root.
                 </div>
                 <div className="endHeading absolute hidden sm:block uppercase text-xl max-w-[30%] right-42 top-[25%] leading-10 mb-5 text-red-800 tracking-widest text-center font-sangbleu">
-                  More than structures, we’ve built permanence — a legacy that endur
+                  Anant Raj. A brand built with time. A legacy carried with
+                  pride.
                 </div>
                 <Suspense fallback={"Loading..."}>
                   <HTMLFlipBook
-                    key={bookKey} 
+                    key={bookKey}
                     width={dimensions.width}
                     height={dimensions.height}
                     startPage={1}
@@ -249,7 +266,9 @@ useEffect(() => {
                           {page.content2 && (
                             <div
                               className="story"
-                              dangerouslySetInnerHTML={{ __html: page.content2 }}
+                              dangerouslySetInnerHTML={{
+                                __html: page.content2,
+                              }}
                             />
                           )}
                         </div>
@@ -274,14 +293,12 @@ useEffect(() => {
                       alt="Previous"
                       className="h-5 w-5 rotate-180"
                     />{" "}
-                    
                   </button>
 
                   <button
                     onClick={() => nextPage(firstBookRef)}
                     className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center"
                   >
-                    
                     <img
                       src="./assets/right-arrow.png"
                       alt="Next"
@@ -302,7 +319,7 @@ useEffect(() => {
                 </div>
                 <Suspense fallback={"Loading..."}>
                   <HTMLFlipBook
-                    key={bookKey} 
+                    key={bookKey}
                     width={dimensions.width}
                     height={dimensions.height}
                     startPage={1}
@@ -321,50 +338,50 @@ useEffect(() => {
                       />
                     </div>
 
-                    {Array.from({ length: Math.ceil(tab2points.length / 7) }).map(
-                      (_, pageIndex) => (
-                        <div
-                          key={pageIndex}
-                          className="demoPage bg-white px-12 py-20 shadow-xl relative"
-                        >
-                          <img
-                            src="/assets/about/story/bookbg.webp"
-                            alt=""
-                            className="absolute top-0 left-0 w-full h-full object-cover"
-                          />
-                          <div className="flex relative flex-col justify-center items-center w-full h-full gap-2">
-                            {pageIndex === 0 && (
-                              <div className="heading py-5 uppercase  text-red-800 tracking-widest text-center font-sangbleu text-2xl">
-                                Brand Manifesto
-                              </div>
-                            )}
+                    {Array.from({
+                      length: Math.ceil(tab2points.length / 7),
+                    }).map((_, pageIndex) => (
+                      <div
+                        key={pageIndex}
+                        className="demoPage bg-white px-12 py-20 shadow-xl relative"
+                      >
+                        <img
+                          src="/assets/about/story/bookbg.webp"
+                          alt=""
+                          className="absolute top-0 left-0 w-full h-full object-cover"
+                        />
+                        <div className="flex relative flex-col justify-center items-center w-full h-full gap-2">
+                          {pageIndex === 0 && (
+                            <div className="heading py-5 uppercase  text-red-800 tracking-widest text-center font-sangbleu text-2xl">
+                              Brand Manifesto
+                            </div>
+                          )}
 
-                            {tab2points
-                              .slice(pageIndex * 7, (pageIndex + 1) * 7)
-                              .map((point, i) => (
-                                <div
-                                  key={i}
-                                  className="storyline flex gap-2 items-center text-center text-[14px] leading-relaxed py-1"
-                                >
-                                  {/* <GiJusticeStar
+                          {tab2points
+                            .slice(pageIndex * 7, (pageIndex + 1) * 7)
+                            .map((point, i) => (
+                              <div
+                                key={i}
+                                className="storyline flex gap-2 items-center text-center text-[14px] leading-relaxed py-1"
+                              >
+                                {/* <GiJusticeStar
                                     className="text-[#9b2c2c] min-w-[16px] min-h-[16px] mt-[2px]"
                                     size={16}
                                   /> */}
-                                  <span>{point}</span>
-                                </div>
-                              ))}
-
-                            {pageIndex === Math.floor(tab2points.length / 7) && (
-                              <div className="story text-center text-[14px] mt-2">
-                                <strong>
-                                  Anant Raj. <br />A Brand Built with Time
-                                </strong>
+                                <span>{point}</span>
                               </div>
-                            )}
-                          </div>
+                            ))}
+
+                          {pageIndex === Math.floor(tab2points.length / 7) && (
+                            <div className="story text-center text-[14px] mt-2">
+                              <strong>
+                                Anant Raj. <br />A Brand Built with Time
+                              </strong>
+                            </div>
+                          )}
                         </div>
-                      )
-                    )}
+                      </div>
+                    ))}
                     <div className="demoPage bg-white shadow-xl">
                       <img
                         src="/assets/about/story/backcover.webp"
@@ -384,14 +401,12 @@ useEffect(() => {
                       alt="Previous"
                       className="h-5 w-5 rotate-180"
                     />{" "}
-                    
                   </button>
 
                   <button
                     onClick={() => nextPage(secondBookRef)}
                     className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center"
                   >
-                    
                     <img
                       src="./assets/right-arrow.png"
                       alt="Next"
@@ -407,41 +422,79 @@ useEffect(() => {
             <div className="flex flex-col  justify-between w-full h-full">
               <div>
                 <div
-                  className={`tab1 py-3 relative transition-all text-end flex justify-between items-center  duration-200 cursor-pointer ${activeTab === "tab1" ? "opacity-100" : "opacity-50"
-                    }`}
+                  className={`tab1 py-3 relative transition-all text-end flex justify-between items-center  duration-200 cursor-pointer ${
+                    activeTab === "tab1" ? "opacity-100" : "opacity-50"
+                  }`}
                   onClick={() => setActiveTab("tab1")}
                 >
                   <div
-                    className={`h-[1px] absolute -left-[70px] mx-auto w-20 transition-all duration-200 bg-black ${activeTab === "tab1" ? "visible" : "invisible"   }`}
+                    className={`h-[1px] absolute -left-[70px] mx-auto w-20 transition-all duration-200 bg-black ${
+                      activeTab === "tab1" ? "visible" : "invisible"
+                    }`}
                   ></div>
-                  <h3 className="uppercase text-primaryblue tracking-wider flex justify-end w-full">our brand story</h3>
+                  <h3 className="uppercase text-primaryblue tracking-wider flex justify-end w-full">
+                    our brand story
+                  </h3>
                 </div>
 
                 {/* Tab 2 */}
-                <div className={`tab2 py-3 relative flex items-center justify-between text-end transition-all duration-200 cursor-pointer ${activeTab === "tab2" ? "opacity-100 " : "opacity-50"
-                    }`}
+                <div
+                  className={`tab2 py-3 relative flex items-center justify-between text-end transition-all duration-200 cursor-pointer ${
+                    activeTab === "tab2" ? "opacity-100 " : "opacity-50"
+                  }`}
                   onClick={() => setActiveTab("tab2")}
                 >
-                  <div className={`h-[1px] absolute -left-[70px] mx-auto w-20  transition-all duration-200 bg-black ${activeTab === "tab2" ? "visible" : "invisible"  }`} ></div>
-                  <h3 className="uppercase text-primaryblue tracking-wider flex mr-5 justify-end w-full ">our manifesto</h3>
+                  <div
+                    className={`h-[1px] absolute -left-[70px] mx-auto w-20  transition-all duration-200 bg-black ${
+                      activeTab === "tab2" ? "visible" : "invisible"
+                    }`}
+                  ></div>
+                  <h3 className="uppercase text-primaryblue tracking-wider flex mr-5 justify-end w-full ">
+                    our manifesto
+                  </h3>
                 </div>
               </div>
 
               {/* Navigation Buttons for First Book */}
               <div className="hidden sm:flex gap-5 justify-center mr-7 mb-[200px] relative">
-                <button onClick={() => prevPage(activeTab === "tab1" ? firstBookRef : secondBookRef)} className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center " >
-                  <img  src="./assets/right-arrow.png" alt="Previous"  className="h-5 w-5 rotate-180" />{" "}
-                  
+                <button
+                  onClick={() =>
+                    prevPage(
+                      activeTab === "tab1" ? firstBookRef : secondBookRef
+                    )
+                  }
+                  className="w-8 h-8 cursor-pointer capitalize gap-3 rounded-full flex items-center justify-center "
+                >
+                  <img
+                    src="./assets/right-arrow.png"
+                    alt="Previous"
+                    className="h-5 w-5 rotate-180"
+                  />{" "}
                 </button>
-                <button onClick={() => nextPage(activeTab === "tab1" ? firstBookRef : secondBookRef)} className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center " >                
-                  <img src="./assets/right-arrow.png" alt="Next" className="h-5 w-5" />
+                <button
+                  onClick={() =>
+                    nextPage(
+                      activeTab === "tab1" ? firstBookRef : secondBookRef
+                    )
+                  }
+                  className="w-8 h-8 gap-3 cursor-pointer capitalize rounded-full flex items-center justify-center "
+                >
+                  <img
+                    src="./assets/right-arrow.png"
+                    alt="Next"
+                    className="h-5 w-5"
+                  />
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <img src="/assets/pattern-bg.png" alt="pattern-bg" className="h-[70px] absolute left-0 bottom-0 w-full object-cover" />
+      <img
+        src="/assets/pattern-bg.png"
+        alt="pattern-bg"
+        className="h-[70px] absolute left-0 bottom-0 w-full object-cover"
+      />
     </section>
   );
 };
