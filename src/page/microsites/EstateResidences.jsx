@@ -8,20 +8,73 @@ import LocationAdvantages from "./LocationAdvantages";
 import ProjectOverview from "./ProjectOverview"
 
 const EstateResidences = () => {
+
     const bannerslides = [
-        [
-            "/assets/microsites/estate-residences/banner/1.png",
-            "/assets/microsites/estate-residences/banner/2.png",
-            "/assets/microsites/estate-residences/banner/3.png"
-        ],
-        [
-            "/assets/microsites/estate-residences/banner/1.png",
-            "/assets/microsites/estate-residences/banner/2.png"
-        ],
-        [
-            "/assets/microsites/estate-residences/banner/1.png",
-            "/assets/microsites/estate-residences/banner/3.png"
-        ]
+        "/assets/microsites/estate-residences/banner/1.png",
+        "/assets/microsites/estate-residences/banner/2.png",
+        "/assets/microsites/estate-residences/banner/3.png",
+        "/assets/microsites/estate-residences/banner/1.png",
+        "/assets/microsites/estate-residences/banner/2.png",
+        "/assets/microsites/estate-residences/banner/3.png",
+    ];
+
+
+    const amenitiesData = [
+        {
+            icon: "1.png",
+            title: "Leisure All Weather Swimming Pool",
+            description:
+                "The Estate Residences by Anant Raj Limited is a unique condominium complex, offering apartments designed with Indian values in mind and boasting unobstructed views of the protected Aravalli Range.",
+            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+        },
+        {
+            icon: "2.png",
+            title: "Modern Gymnasium",
+            description: "Enjoy a state-of-the-art gym with cutting-edge equipment.",
+            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+        },
+        {
+            icon: "3.png",
+            title: "Clubhouse with Lounge",
+            description: "Relax and unwind in our exclusive resident clubhouse.",
+             image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+        },
+        {
+            icon: "4.png",
+            title: "Landscaped Gardens",
+            description: "Beautifully curated outdoor spaces for peace and leisure.",
+             image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+        },
+        {
+            icon: "5.png",
+            title: "Children’s Play Area",
+            description: "Safe and fun space for kids to enjoy.",
+          image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+        },
+        {
+            icon: "4.png",
+            title: "Landscaped Gardens",
+            description: "Beautifully curated outdoor spaces for peace and leisure.",
+            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+        },
+        {
+            icon: "5.png",
+            title: "Children’s Play Area",
+            description: "Safe and fun space for kids to enjoy.",
+            image: "/assets/microsites/estate-residences/amenities/play-area.png",
+        },
+        {
+            icon: "4.png",
+            title: "Landscaped Gardens",
+            description: "Beautifully curated outdoor spaces for peace and leisure.",
+            image: "/assets/microsites/estate-residences/amenities/garden.png",
+        },
+        {
+            icon: "5.png",
+            title: "Children’s Play Area",
+            description: "Safe and fun space for kids to enjoy.",
+            image: "/assets/microsites/estate-residences/amenities/play-area.png",
+        },
     ];
     return (
         <>
@@ -45,7 +98,11 @@ const EstateResidences = () => {
                 ]}
                 brochureLink="/assets/brochures/estate-residences.pdf"
             />
-            <Amenities />
+            <Amenities
+                heading="Experience Elite Amenities Like Never Before"
+                data={amenitiesData}
+                baseIconPath="assets/microsites/estate-residences/amenities"
+            />
             <HighlightsSpecifications
                 sectionTitle="The High Points of estate residences"
                 highlights={[
@@ -101,14 +158,20 @@ const EstateResidences = () => {
                         { image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "DPS Gurgaon" },
                     ],
                     metro: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    hello: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    bus: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    car: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    airporto: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
                 }}
             />
+
             <Gallery
                 title="Once In A Lifetime Experience"
-                galleryPairs={[
-                    ["/assets/microsites/estate-residences/gallery/1.png", "/assets/microsites/estate-residences/gallery/2.png"],
-                    ["/assets/microsites/estate-residences/gallery/1.png", "/assets/microsites/estate-residences/gallery/2.png"],
-                    ["/assets/microsites/estate-residences/gallery/1.png", "/assets/microsites/estate-residences/gallery/2.png"],
+                images={[
+                    "/assets/microsites/estate-residences/gallery/1.png",
+                    "/assets/microsites/estate-residences/gallery/2.png",
+                    "/assets/microsites/estate-residences/location_advantage/1.png",
+                    "/assets/microsites/estate-residences/gallery/2.png",
                 ]}
             />
 

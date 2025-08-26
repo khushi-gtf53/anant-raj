@@ -60,9 +60,9 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
       </div>
 
       {/* Content Layout */}
-      <div className="grid grid-cols-12 mt-10 gap-10">
+      <div className="grid grid-cols-12 mt-10 gap-10 pb-[20px] lg:pb-[80px]">
         {/* Left Side - Main Floorplan Image + Title */}
-        <div className="col-span-8 flex items-center gap-10">
+        <div className="col-span-8 flex items-ceter gap-10">
           <div className="floorplan w-1/2">
             <img src={slides[slideIndex].src} alt={slides[slideIndex].title} className="w-full h-auto object-contain" />
           </div>

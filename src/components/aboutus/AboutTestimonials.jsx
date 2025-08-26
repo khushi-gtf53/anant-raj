@@ -90,6 +90,7 @@ const AboutTestimonials = () => {
                     loop={true}
                     loopedSlides={testimonialsData.length}
                     watchSlidesProgress={true}
+                    effect="fade"
                     watchSlidesVisibility={true}
                     navigation={{
                         prevEl: '.prev',

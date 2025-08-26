@@ -1,77 +1,64 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+import SetupGsapAnimations from "../../utils/animation";
+import gsap from "gsap"; // Import GSAP
 
-const amenitiesData = [
-  {
-    icon: "1.png",
-    title: "Leisure All Weather Swimming Pool",
-    description:
-      "The Estate Residences by Anant Raj Limited is a unique condominium complex, offering apartments designed with Indian values in mind and boasting unobstructed views of the protected Aravalli Range.",
-    image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
-  },
-  {
-    icon: "2.png",
-    title: "Modern Gymnasium",
-    description: "Enjoy a state-of-the-art gym with cutting-edge equipment.",
-    image: "/assets/microsites/estate-residences/amenities/gym.png",
-  },
-  {
-    icon: "3.png",
-    title: "Clubhouse with Lounge",
-    description: "Relax and unwind in our exclusive resident clubhouse.",
-    image: "/assets/microsites/estate-residences/amenities/clubhouse.png",
-  },
-  {
-    icon: "4.png",
-    title: "Landscaped Gardens",
-    description: "Beautifully curated outdoor spaces for peace and leisure.",
-    image: "/assets/microsites/estate-residences/amenities/garden.png",
-  },
-  {
-    icon: "5.png",
-    title: "Children’s Play Area",
-    description: "Safe and fun space for kids to enjoy.",
-    image: "/assets/microsites/estate-residences/amenities/play-area.png",
-  },
-];
-
-const Amenities = () => {
+const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const iconRefs = useRef([]);
+  const activeAmenity = data[activeIndex];
 
-  const activeAmenity = amenitiesData[activeIndex];
+  // GSAP animation effect on slide change
+  useEffect(() => {
+    // Reinitialize GSAP animation when activeIndex changes
+    gsap.fromTo(
+      `.amenityImg img `,
+      { opacity: 0, y: 50 }, // Initial state (offscreen)
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.3 } // Final state with animation
+    );
+    gsap.fromTo(
+      `.amenity_about`,
+      { opacity: 0, y: 50 }, // Initial state (offscreen)
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.3 } // Final state with animation
+    );
+
+    iconRefs.current[activeIndex]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [activeIndex]);
+
+  if (!data?.length) return null;
 
   return (
     <section className="amenities relative w-full h-screen px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
-      {/* Heading */}
       <div className="heading">
         <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
-          Stunning Luxury Prime Residences, Designed For Life
+          {heading}
         </h2>
       </div>
 
-      {/* Icons Row */}
       <div className="grid grid-cols-12 py-10">
         <div className="col-span-6 border-r pr-10">
-          <div className="flex gap-6 flex-wrap">
-            {amenitiesData.map((item, index) => {
+          <div className="flex gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide max-w-full">
+            {data.map((item, index) => {
               const isActive = index === activeIndex;
-              const basePath = "/assets/microsites/estate-residences/amenities";
               const iconPath = isActive
-                ? `${basePath}/white/${item.icon}`
-                : `${basePath}/black/${item.icon}`;
+                ? `${baseIconPath}/white/${item.icon}`
+                : `${baseIconPath}/black/${item.icon}`;
 
               return (
                 <div
                   key={index}
+                  ref={(el) => (iconRefs.current[index] = el)}
                   onClick={() => setActiveIndex(index)}
-                  className={`amenity border rounded-full p-5 transition-all duration-300 cursor-pointer ${
-                    isActive ? "bg-[#b3162f] border-transparent" : "bg-transparent hover:bg-[#b3162f]"
-                  }`}
+                  className={`group amenity flex-shrink-0 w-[80px] h-[80px] border rounded-full p-5 transition-all duration-300 cursor-pointer ${isActive ? "bg-[#b3162f] border-transparent" : "bg-transparent hover:bg-[#b3162f]"}`}
                 >
                   <img
                     src={iconPath}
                     alt={`amenity-icon-${index}`}
-                    className="w-[50px] h-[50px]"
+                    className="group-hover:invert w-full h-full object-contain"
                   />
                 </div>
               );
@@ -86,7 +73,7 @@ const Amenities = () => {
               <div
                 className="cursor-pointer"
                 onClick={() =>
-                  setActiveIndex((prev) => (prev - 1 + amenitiesData.length) % amenitiesData.length)
+                  setActiveIndex((prev) => (prev - 1 + data.length) % data.length)
                 }
               >
                 <IoIosArrowRoundBack size={40} />
@@ -94,16 +81,17 @@ const Amenities = () => {
               <div
                 className="cursor-pointer"
                 onClick={() =>
-                  setActiveIndex((prev) => (prev + 1) % amenitiesData.length)
+                  setActiveIndex((prev) => (prev + 1) % data.length)
                 }
               >
                 <IoIosArrowRoundForward size={40} />
               </div>
             </div>
             <div className="amenities-counter font-sangbleu">
-              <div className="counter text-4xl mb-3">
-                {String(activeIndex + 1).padStart(2, "0")}-
-                <span className="text-xl">{amenitiesData.length}</span>
+              <div className="counter text-4xl mb-3 flex gap-3 items-end">
+                {String(activeIndex + 1).padStart(2, "0")}
+                <span>-</span>
+                <span className="text-2xl">{data.length}</span>
               </div>
               <div className="title uppercase tracking-wide text-xl">
                 exclusive amenities
@@ -114,10 +102,16 @@ const Amenities = () => {
       </div>
 
       {/* Image + Description */}
-      <div className="grid grid-cols-12 py-10">
+      <div
+        data-gsap="fade-up"
+        data-gsap-duration="0.6"
+        data-gsap-delay="0.3"
+        className="grid grid-cols-12 py-10">
         <div className="col-span-5">
-          <div className="amenityImg">
-            <img src={activeAmenity.image} alt="amenity" />
+          <div className="amenityImg overflow-hidden">
+            <SetupGsapAnimations>
+              <img src={activeAmenity.image} alt="amenity" />
+            </SetupGsapAnimations>
           </div>
         </div>
         <div className="col-span-7">

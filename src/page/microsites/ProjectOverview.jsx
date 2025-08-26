@@ -1,14 +1,16 @@
 const ProjectOverview = ({ logoSrc, projectName, location, apartmentTypes, status, reraId, reraLogoSrc, patternBgSrc = './assets/pattern-bg.png'}) => {
     return (
-        <section className="project_overview relative bg-[#FBF6F6] w-full h-[50vh]">
-            <div className="grid grid-cols-12 border-y border-black w-full h-[30vh]">
+        <section
+       
+        className="project_overview relative bg-[#FBF6F6] w-full h-[50vh]">
+            <div className="grid grid-cols-12 border-y border-black w-full h-[25vh]">
                 <div className="col-span-3 border-r border-black ">
                     <div className="project-logo flex justify-center items-center h-full">
-                        <img src={logoSrc} alt="project logo" />
+                        <img src={logoSrc} alt="project logo" className="w-[80%]" />
                     </div>
                 </div>
                 <div className="col-span-9 px-10 py-5">
-                    <div className="w-[90%] h-full flex flex-col justify-between">
+                    <div className="w-[95%] h-full flex flex-col justify-between">
                         <div className="project_info">
                             <div className="project_name">
                                 <h1 className="uppercase tracking-wide mb-2 text-2xl font-sangbleu">
@@ -21,7 +23,9 @@ const ProjectOverview = ({ logoSrc, projectName, location, apartmentTypes, statu
                         </div>
                         <div className="project-details uppercase tracking-wider flex items-center justify-between">
                             <div className="apartment">{apartmentTypes}</div>
+                            <div className="w-[1px] h-full bg-black/50"/>
                             <div className="status">{status}</div>
+                            <div className="w-[1px] h-full bg-black/50"/>
                             <div className="rera flex gap-2 items-center">
                                 {reraId}
                                 <span>

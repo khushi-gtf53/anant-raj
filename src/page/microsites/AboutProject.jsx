@@ -6,7 +6,11 @@ const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
     return (
-        <section className="about_project w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
+        <section
+         data-gsap="fade-up"
+      data-gsap-duration="1"
+      data-gsap-delay="0.5"
+        className="about_project w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white ">
             <div className="grid grid-cols-12 border-b border-black pb-14">
                 <div className="col-span-12 lg:col-span-5">
                     <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
@@ -20,14 +24,14 @@ const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
                 </div>
             </div>
 
-            <div className="grid grid-cols-12 py-20 items-start" ref={ref}>
+            <div className="grid grid-cols-12 pt-20 items-start" ref={ref}>
                 <div className="col-span-12 lg:col-span-9">
                     <div className="counter max-w-[90%] lg:max-w-[70%] flex flex-wrap gap-10 font-sangbleu uppercase">
                         {counters.map(({ label, value, suffix = "" }, index) => (
                             <div key={index} className="min-w-[100px]">
                                 <h3 className="text-4xl mb-2">
                                     {inView ? (
-                                        <CountUp end={value} duration={2} suffix={suffix} />
+                                        <CountUp end={value} duration={1} suffix={suffix} />
                                     ) : (
                                         "0"
                                     )}

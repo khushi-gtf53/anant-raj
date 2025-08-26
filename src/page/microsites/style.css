@@ -1,0 +1,23 @@
+/* Custom Scrollbar */
+.scrollable-content {
+  overflow-x: scroll;  
+  -webkit-overflow-scrolling: touch; 
+}
+
+.scrollable-content::-webkit-scrollbar {
+  height: 8px; /* Set height of scrollbar */
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: #b316305a !important; 
+  border-radius: 5px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: #b3162f !important;  
+  border-radius: 5px; 
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: #9e0f25 !important; 
+}

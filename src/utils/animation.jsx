@@ -46,6 +46,12 @@ const SetupGsapAnimations = ({ children }) => {
             to: { opacity: 1, scale: 1, duration, ease, delay },
           };
           break;
+        case "zoom-out":
+          animationProps = {
+            from: { scale: 1.3 },
+            to: {  scale: 1, duration, ease, delay },
+          };
+          break;
         case "slide-right":
           animationProps = {
             from: { opacity: 0, x: -50 },
