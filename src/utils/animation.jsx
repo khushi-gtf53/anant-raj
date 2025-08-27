@@ -30,8 +30,8 @@ const SetupGsapAnimations = ({ children }) => {
           break;
         case "fade-up":
           animationProps = {
-            from: { opacity: 0, y: 50 },
-            to: { opacity: 1, y: 0, duration, ease, delay },
+            from: {  y: 50 },
+            to: {  y: 0, duration, ease, delay },
           };
           break;
         case "fade-down":

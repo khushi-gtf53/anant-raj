@@ -10,7 +10,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const navItems = [
-    { nav: "residential", navLink: "#", img: "/assets/headermenu/4.webp" },
+    { nav: "residential", navLink: "residential", img: "/assets/headermenu/4.webp" },
     { nav: "commercial", navLink: "#", img: "/assets/headermenu/2.webp" },
     { nav: "data centers", navLink: "#", img: "/assets/headermenu/3.webp" },
     { nav: "hospitality", navLink: "#", img: "/assets/headermenu/1.webp" },

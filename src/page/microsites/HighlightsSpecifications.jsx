@@ -11,59 +11,13 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
   const [lightboxSlides, setLightboxSlides] = useState([]);
   const [openIndex, setOpenIndex] = useState(0);
 
-  const scrollRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0); // Scroll progress as a percentage
 
-  const totalContentLength = useRef(0); // Total content length
-  const visibleContentLength = useRef(0); // Visible content length
 
-  // Function to calculate the scroll progress
-  const calculateScrollProgress = () => {
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
-    setScrollProgress(progress);
-  };
-
-  useEffect(() => {
-    const { scrollWidth, clientWidth } = scrollRef.current;
-    totalContentLength.current = scrollWidth - clientWidth; // Total scrollable length
-    visibleContentLength.current = clientWidth; // Visible content length
-    calculateScrollProgress(); // Initial progress calculation
-
-    const handleScroll = () => {
-      calculateScrollProgress();
-    };
-
-    const curr = scrollRef.current;
-    curr?.addEventListener("scroll", handleScroll);
-    return () => curr?.removeEventListener("scroll", handleScroll); // Cleanup the event listener
-  }, [activeTab]);
-
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollStart = useRef(0);
-
-  const handleMouseDown = (e) => {
-    isDragging.current = true;
-    startX.current = e.clientX;
-    scrollStart.current = scrollRef.current.scrollLeft;
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging.current) return;
-    scrollRef.current.scrollLeft = scrollStart.current - (e.clientX - startX.current); // Move the content horizontally
-  };
-
-  const handleMouseUp = () => (isDragging.current = false);
 
   const renderItems = (items) => (
     <div
       className="flex gap-5 overflow-x-auto scroll-smooth scrollable-content" // Apply scrollable-content class here
-      ref={scrollRef}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+    
     >
       {items.map((item, idx) => (
         <div
@@ -121,7 +75,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
           className="top_nav cursor-pointer py-5 flex items-center text-primaryred font-sangbleu uppercase"
           onClick={() => {
             if (!isOpen) {
-              setActiveTab(key); // Only change tab if it's not already open
+              setActiveTab(key); 
             } else {
               setActiveTab(key === "highlights" ? "specs" : "highlights");
             }
@@ -146,13 +100,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
           style={{ overflow: "hidden", height: 0, opacity: 0 }}
           className="highlights_section w-full p-10 bg-[#FBF6F6] relative"
         >
-          {renderItems(items)}
-          {/* <div className="absolute bottom-0 left-0 w-full h-[5px] bg-[#b3162f]/30 rounded-2xl overflow-hidden">
-            <div
-              className="h-full bg-[#b3162f] rounded-2xl"
-              style={{ width: `${scrollProgress}%` }} // Set scroll progress width
-            />
-          </div> */}
+          {renderItems(items)}         
         </div>
       </div>
     );

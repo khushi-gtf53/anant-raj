@@ -37,19 +37,19 @@ const EstateResidences = () => {
             icon: "3.png",
             title: "Clubhouse with Lounge",
             description: "Relax and unwind in our exclusive resident clubhouse.",
-             image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
         },
         {
             icon: "4.png",
             title: "Landscaped Gardens",
             description: "Beautifully curated outdoor spaces for peace and leisure.",
-             image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
         },
         {
             icon: "5.png",
             title: "Children’s Play Area",
             description: "Safe and fun space for kids to enjoy.",
-          image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
         },
         {
             icon: "4.png",
@@ -127,7 +127,7 @@ const EstateResidences = () => {
                 floorPlans={{
                     "4bhk": [
                         { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "4 BHK + Servant Room", brochure: "/assets/microsites/estate-residences/floorplan/1.png" },
-                        { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "4 BHK Type B", },
+                        { src: "/assets/microsites/estate-residences/location_advantage/locationmap.png", title: "4 BHK Type B", },
                     ],
                     "3bhk": [
                         { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "4 BHK + Servant Room", brochure: "/assets/microsites/estate-residences/floorplan/1.png" },
@@ -162,6 +162,11 @@ const EstateResidences = () => {
                     bus: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
                     car: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
                     airporto: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    dbfleks: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    heoighi: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    ahefoiewjg: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    enfklefnle: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    kjfhwej: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
                 }}
             />
 

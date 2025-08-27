@@ -19,6 +19,7 @@ const Header = () => {
       location.pathname.includes("contactus") ||
       location.pathname.includes("projects") ||
       location.pathname.includes("investors") ||
+      location.pathname.includes("residential") ||
       location.pathname.includes("estate-residences") ||
       location.pathname.includes("csr");
 

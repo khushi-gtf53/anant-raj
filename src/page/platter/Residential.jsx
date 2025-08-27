@@ -1,0 +1,69 @@
+import PlatterAbout from "../../components/platter/PlatterAbout"
+import PlatterProjects from "../../components/platter/PlatterProjects"
+
+const Residential = () => {
+
+    const projectTabs = [
+  {
+    key: "new",
+    label: "All New Launch Projects",
+    projects: [
+      {
+        name: "The Estate Residences",
+        location: "Sector 63A, Gurgaon",
+        typology: "4 BHK Luxury Apartments",
+        status: "New Launch",
+        link: "#",
+        slides: [
+          "/assets/platter/residential/newlaunch/1.png",         
+          "/assets/platter/residential/newlaunch/2.png",         
+        ],
+      },
+    ],
+  },
+  {
+    key: "construction",
+    label: "Under Construction",
+     projects: [
+      {
+        name: "The Estate Residences",
+        location: "Sector 63A, Gurgaon",
+        typology: "4 BHK Luxury Apartments",
+        status: "New Launch",
+        link: "#",
+        slides: [
+          "/assets/platter/residential/newlaunch/1.png",         
+          "/assets/platter/residential/newlaunch/2.png",         
+        ],
+      },
+    ],
+  },
+  {
+    key: "completed",
+    label: "Completed",
+     projects: [
+      {
+        name: "The Estate Residences",
+        location: "Sector 63A, Gurgaon",
+        typology: "4 BHK Luxury Apartments",
+        status: "New Launch",
+        link: "#",
+        slides: [
+          "/assets/platter/residential/newlaunch/1.png",         
+          "/assets/platter/residential/newlaunch/2.png",         
+        ],
+      },
+    ],
+  },
+];
+  return (
+    <>
+    <PlatterAbout/>
+    {/* <PlatterProjects/> */}
+
+     <PlatterProjects tabs={projectTabs} />;
+    </>
+  )
+}
+
+export default Residential
