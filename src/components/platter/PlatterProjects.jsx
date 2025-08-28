@@ -7,6 +7,7 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
+import CommonHeroSec from "../CommonHeroSec";
 import "swiper/css/navigation";
 
 /**
@@ -24,7 +25,7 @@ const PlatterProjects = ({ tabs = [] }) => {
 
     const renderProject = (project) => (
         <div className="">
-            <div >
+            <div  className="flex flex-col">
                 <Swiper
                     modules={[Navigation]}
                     loop={true}
@@ -34,11 +35,21 @@ const PlatterProjects = ({ tabs = [] }) => {
                     spaceBetween={100}
                     centeredSlides={false}
                     allowTouchMove={true}
-                    className="platter_slider overflow-hidden w-full"
+                    className="platter_slider overflow-hidden lg:order-[0] order-[1] w-full"
                     navigation={{
                         nextEl: ".banner-button-next",
                         prevEl: ".banner-button-prev",
                     }}
+                     breakpoints= {{
+                            320: {
+                            slidesPerView: 1,
+                            spaceBetween: 0
+                            },
+                             768: {
+                            slidesPerView:'auto',
+                            // spaceBetween: 20
+                            },
+                     }}
                 >
                     {project.slides.map((imgSrc, index) => (
                         <SwiperSlide
@@ -46,14 +57,14 @@ const PlatterProjects = ({ tabs = [] }) => {
                             className="project_img swiper_slide_container"
                            
                         >
-                            <div className="flex gap-[30px]">
+                            <div className="lg:flex gap-[30px]">
                             <img
                                 src={imgSrc}
                                 alt={`Slide ${index + 1}`}
-                                className=" flex-1  object-cover w-[100%] cursor-pointer"
+                                className=" flex-1 lg:mb-[0] mb-[20px]  object-cover w-[100%] cursor-pointer"
                             />
-                <div className="project_info flex flex-col justify-between items-end">
-                    <div className="flex flex-col items-end gap-2">
+                <div className="project_info flex  lg:gap-0 gap-[20px] flex-col justify-between lg:items-end">
+                    <div className="flex flex-col lg:items-end gap-2">
                         <div className="project_name uppercase font-sangbleu tracking-wider">
                             {project.name}
                         </div>
@@ -61,7 +72,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                             {project.location}
                         </div>
                     </div>
-                    <div className="flex flex-col items-end gap-2">
+                    <div className="flex flex-col lg:items-end gap-2">
                         <div className="project_typology tracking-wider uppercase">
                             {project.typology}
                         </div>
@@ -79,7 +90,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                  </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className="flex justify-end mt-[10px]">
+                <div className="flex justify-end lg:mt-[10px] lg:mb-0 mb-[10px]">
                <IoIosArrowRoundBack className="cursor-pointer banner-button-next text-[#8e8d8d]"  size={30} />
                <IoIosArrowRoundForward className="cursor-pointer banner-button-prev text-[#8e8d8d]"  size={30} />
                </div>
@@ -96,7 +107,7 @@ const PlatterProjects = ({ tabs = [] }) => {
         const isOpen = activeTab === tab.key;
         const contentRef = useRef(null);
 
-        useEffect(() => {
+    useEffect(() => {
             if (contentRef.current) {
                 if (isOpen) {
                     gsap.fromTo(
@@ -122,24 +133,24 @@ const PlatterProjects = ({ tabs = [] }) => {
         }, [isOpen]);
 
         return (
-            <div className="mb-10" id={tab.key} key={tab.key}>
+            <div className="lg:mb-10 mb-[30px]" id={tab.key} key={tab.key}>
                 {/* Tab Header */}
                 <div
-                    className="top_nav cursor-pointer py-5 flex items-center font-sangbleu uppercase"
+                    className="top_nav cursor-pointer py-[00px] lg:py-5 flex lg:gap-[0] gap-[15px]  font-sangbleu uppercase"
                     onClick={() => setActiveTab(isOpen ? "" : tab.key)}
                 >
-                    <div className="w-[25%]">
-                        <h3 className="text-lg tracking-wider">{tab.label}</h3>
+                    <div className="lg:w-[25%]">
+                        <h3 className="lg:text-lg text-[14px] tracking-wider">{tab.label}</h3>
                     </div>
-                    <div className="w-[65%] h-[1px] bg-black" />
-                    <div className="w-[10%] flex justify-center">
-                        {isOpen ? <SlArrowUp size={30} /> : <SlArrowDown size={30} />}
+                    <div className="w-[65%] h-[1px] bg-black mt-[10px]" />
+                    <div className="w-[10%] flex justify-center lg:mb-0 mb-[20px]">
+                        {isOpen ? <SlArrowUp  className="lg:text-[30px] text-[20px]"  /> : <SlArrowDown className="lg:text-[30px] text-[20px]" />}
                     </div>
                 </div>
                 <div
                     ref={contentRef}
                     style={{ overflow: "hidden", height: 0, opacity: 0 }}
-                    className="highlights_section w-full pt-10 relative"
+                    className="highlights_section w-full  lg:pt-10 relative"
                 >
                     {tab.projects.map((project, i) => (
                         <div key={i}>

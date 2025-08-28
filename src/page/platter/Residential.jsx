@@ -70,7 +70,6 @@ const Residential = () => {
   return (
     <>
       <PlatterAbout />
-      {/* <PlatterProjects/> */}
       <PlatterProjects tabs={projectTabs} />;
     </>
   );
