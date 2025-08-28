@@ -44,9 +44,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
           <div className="flex gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide max-w-full">
             {data.map((item, index) => {
               const isActive = index === activeIndex;
-              const iconPath = isActive
-                ? `${baseIconPath}/white/${item.icon}`
-                : `${baseIconPath}/black/${item.icon}`;
+              const iconPath = `${baseIconPath}/icon/${item.icon}`;             
 
               return (
                 <div
@@ -58,7 +56,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
                   <img
                     src={iconPath}
                     alt={`amenity-icon-${index}`}
-                    className="group-hover:invert w-full h-full object-contain"
+                    className={` ${isActive ? "invert" : ""} group-hover:invert w-full h-full object-contain`}
                   />
                 </div>
               );
@@ -116,7 +114,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
         </div>
         <div className="col-span-7">
           <div className="amenity_about px-10 lg:px-20 flex flex-col w-full h-full justify-center">
-            <div className="title font-sangbleu mb-5 text-[13px] lg:text-[20px] leading-[35px]">
+            <div className="title font-sangbleu capitalize mb-5 text-[13px] lg:text-[20px] leading-[35px]">
               {activeAmenity.title}
             </div>
             <div className="description leading-[30px]">

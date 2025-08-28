@@ -90,7 +90,6 @@ const PlatterProjects = ({ tabs = [] }) => {
                 </div>
             </div>
 
-            {/* Right: Thumbnail Slider */}
             <div className="col-span-2">
                 <Swiper
                     modules={[Navigation]}
@@ -153,6 +152,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                         { height: 0, autoAlpha: 0 },
                         {
                             height: "auto",
+                            padding : 10,
                             autoAlpha: 1,
                             duration: 0.6,
                             ease: "power2.out",
@@ -162,6 +162,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                 } else {
                     gsap.to(contentRef.current, {
                         height: 0,
+                        padding : 0,
                         autoAlpha: 0,
                         duration: 0.4,
                         ease: "power2.in",
@@ -172,7 +173,6 @@ const PlatterProjects = ({ tabs = [] }) => {
 
         return (
             <div className="mb-10" key={tab.key}>
-                {/* Tab Header */}
                 <div
                     className="top_nav cursor-pointer py-5 flex items-center font-sangbleu uppercase"
                     onClick={() => setActiveTab(isOpen ? "" : tab.key)}
@@ -186,10 +186,9 @@ const PlatterProjects = ({ tabs = [] }) => {
                     </div>
                 </div>
 
-                {/* Tab Content */}
                 <div
                     ref={contentRef}
-                    style={{ overflow: "hidden", height: 0, opacity: 0 }}
+                    style={{ overflow: "hidden", height: 0, opacity: 0 , padding : 0 }}
                     className="highlights_section w-full p-10 relative"
                 >
                     {tab.projects.map((project, i) => (

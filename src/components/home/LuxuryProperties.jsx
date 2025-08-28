@@ -7,10 +7,18 @@ import gsap from "gsap";
 
 const slides = [
   {
-    id: 1,
-    mbImage: "./assets/luxury/residential/1.jpg",
-    src: "./assets/luxury/residential/1.jpg",
+    id: 0,
+    mbImage: "/assets/luxury/1.jpg",
+    src: "/assets/luxury/1.jpg",
     name: "Anant Raj Estate",
+    location: "Sector 63A, Gurugram",
+    category: "TOWNSHIP",
+  },
+  {
+    id: 1,
+    mbImage: "./assets/luxury/residential/1.webp",
+    src: "./assets/luxury/residential/1.webp",
+    name: "The Estate Residencies",
     location: "Sector 63A, Gurugram",
     category: "RESIDENTIAL",
   },
@@ -130,12 +138,12 @@ const slides = [
 
 const LuxuryProperties = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
-  const [activeCategory, setActiveCategory] = useState("RESIDENTIAL");
+  const [activeCategory, setActiveCategory] = useState("TOWNSHIP");
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const imageRefs = useRef([]);
-  const sectionRef = useRef(null); // 👈 Add ref for IntersectionObserver
-
+  const sectionRef = useRef(null); 
+  
   // Preload images
   useEffect(() => {
     let loaded = 0;
@@ -221,13 +229,13 @@ const LuxuryProperties = () => {
     }
   }, [swiperInstance]);
 
-  if (!imagesLoaded) {
-    return (
-      <div className="h-[500px] flex items-center justify-center bg-[#FBF6F6]">
-        <p className="text-primaryblue font-bold text-lg">Loading images...</p>
-      </div>
-    );
-  }
+  // if (!imagesLoaded) {
+  //   return (
+  //     <div className="h-[500px] flex items-center justify-center bg-[#FBF6F6]">
+  //       <p className="text-primaryblue font-bold text-lg">Loading images...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <section ref={sectionRef} className="bg-[#FBF6F6] relative pb-[70px]">
@@ -238,7 +246,7 @@ const LuxuryProperties = () => {
             OUR PROPERTIES
           </h2>
           <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
-            {["RESIDENTIAL", "COMMERCIAL", "HOSPITALITY", "DATA CENTERS"].map(
+            {["TOWNSHIP", "RESIDENTIAL", "COMMERCIAL", "HOSPITALITY", "DATA CENTERS"].map(
               (category) => (
                 <p
                   key={category}

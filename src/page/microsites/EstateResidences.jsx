@@ -10,14 +10,14 @@ import ProjectOverview from "./ProjectOverview"
 const EstateResidences = () => {
 
     const bannerslides = [
-        "/assets/microsites/estate-residences/banner/1.png",
-        "/assets/microsites/estate-residences/banner/2.png",
-        "/assets/microsites/estate-residences/banner/3.png",
-        "/assets/microsites/estate-residences/banner/1.png",
-        "/assets/microsites/estate-residences/banner/2.png",
-        "/assets/microsites/estate-residences/banner/3.png",
+        "/assets/microsites/estate-residences/banner/1.webp",
+        "/assets/microsites/estate-residences/banner/2.webp",
+        "/assets/microsites/estate-residences/banner/3.webp",
+        "/assets/microsites/estate-residences/banner/4.webp",
+        "/assets/microsites/estate-residences/banner/5.webp",
+        "/assets/microsites/estate-residences/banner/6.webp",
+        "/assets/microsites/estate-residences/banner/7.webp",
     ];
-
 
     const amenitiesData = [
         {
@@ -25,55 +25,110 @@ const EstateResidences = () => {
             title: "Leisure All Weather Swimming Pool",
             description:
                 "The Estate Residences by Anant Raj Limited is a unique condominium complex, offering apartments designed with Indian values in mind and boasting unobstructed views of the protected Aravalli Range.",
-            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/1.webp",
         },
         {
             icon: "2.png",
-            title: "Modern Gymnasium",
+            title: "Kids play-ground",
             description: "Enjoy a state-of-the-art gym with cutting-edge equipment.",
-            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/2.webp",
         },
         {
             icon: "3.png",
-            title: "Clubhouse with Lounge",
+            title: "Pool side Alfresco Juice Bar",
             description: "Relax and unwind in our exclusive resident clubhouse.",
-            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/3.webp",
         },
         {
             icon: "4.png",
-            title: "Landscaped Gardens",
+            title: "Relaxing Areas",
             description: "Beautifully curated outdoor spaces for peace and leisure.",
-            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/4.webp",
         },
         {
             icon: "5.png",
-            title: "Children’s Play Area",
+            title: "Spa, Beauty Parlour and Salon",
             description: "Safe and fun space for kids to enjoy.",
-            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/5.webp",
         },
         {
-            icon: "4.png",
-            title: "Landscaped Gardens",
+            icon: "6.png",
+            title: "Upper Level Gym",
             description: "Beautifully curated outdoor spaces for peace and leisure.",
-            image: "/assets/microsites/estate-residences/amenities/swimming-pool.png",
+            image: "/assets/microsites/estate-residences/amenities/6.webp",
         },
         {
-            icon: "5.png",
-            title: "Children’s Play Area",
+            icon: "7.png",
+            title: "Aerobic and dance studio",
             description: "Safe and fun space for kids to enjoy.",
-            image: "/assets/microsites/estate-residences/amenities/play-area.png",
+            image: "/assets/microsites/estate-residences/amenities/7.webp",
         },
         {
-            icon: "4.png",
-            title: "Landscaped Gardens",
+            icon: "8.png",
+            title: "Indoor sqaush court",
             description: "Beautifully curated outdoor spaces for peace and leisure.",
-            image: "/assets/microsites/estate-residences/amenities/garden.png",
+            image: "/assets/microsites/estate-residences/amenities/8.webp",
         },
         {
-            icon: "5.png",
-            title: "Children’s Play Area",
+            icon: "9.png",
+            title: "all indoor outdoor sports",
             description: "Safe and fun space for kids to enjoy.",
-            image: "/assets/microsites/estate-residences/amenities/play-area.png",
+            image: "/assets/microsites/estate-residences/amenities/9.webp",
+        },
+        {
+            icon: "10.png",
+            title: "multipurpose party hall & party lawns",
+            description:
+                "The Estate Residences by Anant Raj Limited is a unique condominium complex, offering apartments designed with Indian values in mind and boasting unobstructed views of the protected Aravalli Range.",
+            image: "/assets/microsites/estate-residences/amenities/10.webp",
+        },
+        {
+            icon: "11.png",
+            title: "outdoor cinema",
+            description: "Enjoy a state-of-the-art gym with cutting-edge equipment.",
+            image: "/assets/microsites/estate-residences/amenities/11.webp",
+        },
+        {
+            icon: "12.png",
+            title: "waterside leisure and alfresco area",
+            description: "Relax and unwind in our exclusive resident clubhouse.",
+            image: "/assets/microsites/estate-residences/amenities/12.webp",
+        },
+        {
+            icon: "13.png",
+            title: "pool tables and sports bar",
+            description: "Beautifully curated outdoor spaces for peace and leisure.",
+            image: "/assets/microsites/estate-residences/amenities/13.webp",
+        },
+        {
+            icon: "14.png",
+            title: "cigar lounge",
+            description: "Safe and fun space for kids to enjoy.",
+            image: "/assets/microsites/estate-residences/amenities/14.webp",
+        },
+        {
+            icon: "15.png",
+            title: "bridge / cards room /seniors lounge",
+            description: "Beautifully curated outdoor spaces for peace and leisure.",
+            image: "/assets/microsites/estate-residences/amenities/15.webp",
+        },
+        {
+            icon: "16.png",
+            title: "multiple F&B options",
+            description: "Safe and fun space for kids to enjoy.",
+            image: "/assets/microsites/estate-residences/amenities/16.webp",
+        },
+        {
+            icon: "17.png",
+            title: "children activity centre",
+            description: "Beautifully curated outdoor spaces for peace and leisure.",
+            image: "/assets/microsites/estate-residences/amenities/17.webp",
+        },
+        {
+            icon: "18.png",
+            title: "mini - theatre",
+            description: "Safe and fun space for kids to enjoy.",
+            image: "/assets/microsites/estate-residences/amenities/18.webp",
         },
     ];
     return (
@@ -173,10 +228,20 @@ const EstateResidences = () => {
             <Gallery
                 title="Once In A Lifetime Experience"
                 images={[
-                    "/assets/microsites/estate-residences/gallery/1.png",
-                    "/assets/microsites/estate-residences/gallery/2.png",
-                    "/assets/microsites/estate-residences/location_advantage/1.png",
-                    "/assets/microsites/estate-residences/gallery/2.png",
+                    { src: "/assets/microsites/estate-residences/gallery/1.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/2.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/3.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/4.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/5.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/6.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/7.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/8.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/9.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/10.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/11.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/12.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/13.webp" },
+                    { src: "/assets/microsites/estate-residences/gallery/14.webp" },
                 ]}
             />
 

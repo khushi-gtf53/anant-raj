@@ -11,14 +11,9 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
   const [lightboxSlides, setLightboxSlides] = useState([]);
   const [openIndex, setOpenIndex] = useState(0);
 
-
-
-
   const renderItems = (items) => (
     <div
-      className="flex gap-5 overflow-x-auto scroll-smooth scrollable-content" // Apply scrollable-content class here
-    
-    >
+      className="flex gap-5 overflow-x-auto scroll-smooth scrollable-content">
       {items.map((item, idx) => (
         <div
           key={idx}
@@ -52,6 +47,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
             { height: 0, autoAlpha: 0 },
             {
               height: "auto",
+              padding : 10,
               autoAlpha: 1,
               duration: 0.6,
               ease: "power2.out",
@@ -61,6 +57,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
         } else {
           gsap.to(contentRef.current, {
             height: 0,
+            padding : 0,
             autoAlpha: 0,
             duration: 0.4,
             ease: "power2.in",
@@ -97,7 +94,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
         {/* collapsible container */}
         <div
           ref={contentRef}
-          style={{ overflow: "hidden", height: 0, opacity: 0 }}
+          style={{ overflow: "hidden", height: 0, opacity: 0, padding : 0 }}
           className="highlights_section w-full p-10 bg-[#FBF6F6] relative"
         >
           {renderItems(items)}         

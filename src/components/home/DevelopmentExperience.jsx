@@ -73,8 +73,8 @@ const DevelopmentExperience = () => {
     <section className="bg-white" ref={sectionRef}>
       <img
         ref={imageRef}
-        src="./assets/residential.png"
-        className="h-[275px] hidden lg:block object-cover lg:h-[350px] w-full "
+        src="./assets/residential.webp"
+        className="h-[275px] hidden lg:block object-cover lg:h-[450px] w-full "
         alt="residential"
       />
       <div className="bg-[#FBF6F6] relative">

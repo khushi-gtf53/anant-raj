@@ -152,7 +152,7 @@ const HeroAboutus = () => {
         </Link>
       </div>
 
-      <img src="/assets/hero-aboutus.webp" alt="aboutus" />
+      <img src="/assets/about/hero/1.webp" alt="aboutus" />
 
       <div id="discover" className="px-[20px] lg:p-[100px] py-[40px]">
         <h3 className="text-primaryred font-sangbleu mb-[40px] uppercase text-left  tracking-[2px] leading-[30px] lg:leading-[40px] text-[12.5px] lg:text-[20px]">
