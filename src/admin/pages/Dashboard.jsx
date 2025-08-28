@@ -11,6 +11,7 @@ import { useCrud } from "../hooks/useCrud";
 
 const CMSPages=[
   {name:"Home Banner",slug:"/admin/cms/home-banner"},
+  {name:"Timeline",slug:"/admin/cms/timeline"},
   {name:"Our Team",slug:"/admin/cms/our-team"},
   {name:"Testimonial",slug:"/admin/cms/testimonial"},
   {name:"Brand Pillars",slug:"/admin/cms/pillar"},

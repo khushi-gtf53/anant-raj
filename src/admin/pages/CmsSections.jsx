@@ -19,6 +19,17 @@ const sectionConfigs = {
     endpoint: "home-banner",
     label: "Banner",
   },
+  timeline: {
+    fields: [
+      { type: "text", name: "year", label: "Year" },
+      { type: "image", name: "image", label: "Image" },
+      { type: "text", name: "alt", label: "Alt Tag" },
+      { type: "text", name: "short_description", label: "Short Description" },
+    ],
+    table: { head: ["Year","Short Description","Image", "Alt Tag"], header: ["year","short_description","image", "alt"] },
+    endpoint: "journey",
+    label: "Timeline",
+  },
   clients: {
     fields: [
       { type: "image", name: "image", label: "Image" },
@@ -99,8 +110,8 @@ const sectionConfigs = {
       { type: "text", name: "short_description", label: "Description" },
     ],
     table: {
-      head: ["Name", "Image", "Alt Tag", "Designation", "Description"],
-      header: ["name","image","alt","designation","short_description",],
+      head: ["Name", "Image", "Alt Tag", "Designation"],
+      header: ["name","image","alt","designation"],
     },
     endpoint: "team",
     label: "Our Team",
