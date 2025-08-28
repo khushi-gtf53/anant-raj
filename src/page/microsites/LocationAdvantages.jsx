@@ -82,13 +82,14 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
                 </div>
               </div>
 
-              <div className="plan_detail uppercase font-sangbleu text-xl leading-[30px] max-w-[300px]">
+              <div className="plan_detail uppercase font-sangbleu tracking-wider text-xl leading-[35px] max-w-[300px]">
                 {slides[currentIndex]?.description}
               </div>
             </div>
           </div>
 
           <div className="col-span-12 lg:col-span-4">
+            <div className="flex items-center w-full h-full">
             {locationMap && (
               <img
                 src={locationMap}
@@ -96,6 +97,7 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
                 className="w-full h-auto object-contain"
               />
             )}
+            </div>
           </div>
         </div>
 

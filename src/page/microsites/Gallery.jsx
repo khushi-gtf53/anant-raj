@@ -36,7 +36,7 @@ const Gallery = ({ title = "Once In A Lifetime Experience", images = [] }) => {
             centeredSlides={true}
             slidesPerView={1.5}
             spaceBetween={30}
-            speed={600}
+            speed={1000}
             navigation={{
               nextEl: ".gallery-button-next",
               prevEl: ".gallery-button-prev",

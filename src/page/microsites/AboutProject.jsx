@@ -43,7 +43,7 @@ const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
                 </div>
                 <div className="col-span-12 lg:col-span-3 mt-10 lg:mt-0">
                     <div className="download py-5 border-y text-center uppercase text-primaryblue font-bold">
-                        <a href={brochureLink} target="_blank" rel="noopener noreferrer">
+                        <a href={brochureLink} download>
                             download brochure
                         </a>
                     </div>

@@ -84,7 +84,7 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
                       className="w-[450px] h-[350px] object-contain cursor-pointer"
                     />
                   </div>
-                  <div className="plan_detail uppercase font-sangbleu text-xl leading-[30px] max-w-[300px]">
+                  <div className="plan_detail uppercase font-sangbleu text-xl leading-[40px] max-w-[300px]">
                     {slide.title}
                   </div>
                 </div>

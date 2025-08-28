@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import SetupGsapAnimations from "../../utils/animation";
 import gsap from "gsap"; // Import GSAP
@@ -32,7 +32,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
   if (!data?.length) return null;
 
   return (
-    <section className="amenities relative w-full h-screen px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
+    <section className="amenities relative w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
       <div className="heading">
         <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
           {heading}
@@ -100,6 +100,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
       </div>
 
       {/* Image + Description */}
+      <Suspense fallback="Loading...">
       <div
         data-gsap="fade-up"
         data-gsap-duration="0.6"
@@ -123,6 +124,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
           </div>
         </div>
       </div>
+      </Suspense>
 
       {/* Background Pattern */}
       <img

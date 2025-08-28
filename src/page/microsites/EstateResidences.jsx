@@ -151,7 +151,7 @@ const EstateResidences = () => {
                     { label: "floors each", value: 30, suffix: "+" },
                     { label: "exclusive units", value: 248 },
                 ]}
-                brochureLink="/assets/brochures/estate-residences.pdf"
+                brochureLink="/assets/microsites/estate-residences/estate-residences.pdf"
             />
             <Amenities
                 heading="Experience Elite Amenities Like Never Before"
@@ -161,11 +161,11 @@ const EstateResidences = () => {
             <HighlightsSpecifications
                 sectionTitle="The High Points of estate residences"
                 highlights={[
-                    { title: "Triple height grand entrance lobby", imgSrc: "/assets/microsites/estate-residences/overview/project-logo.png" },
-                    { title: "Private lift lobby for each unit" },
-                    { title: "Green building certified" },
-                    { title: "Solar-powered utilities" },
-                    { title: "Smart home automation" },
+                    { title: "Triple height grand entrance lobby", imgSrc: "/assets/microsites/estate-residences/highlights_specifications/highlights/1.webp" },
+                    { title: "The sunken garden boasts of lush greenery & beauty", imgSrc: "/assets/microsites/estate-residences/highlights_specifications/highlights/2.webp" },
+                    { title: "unwind at the clue of good times" },
+                    { title: "sky lounge restaurant", imgSrc: "/assets/microsites/estate-residences/highlights_specifications/highlights/4.webp" },
+                    { title: "the lift takes you to your apartment directly private lifts" },
                 ]}
                 specifications={[
                     { title: "Imported marble flooring in living areas" },
@@ -181,47 +181,37 @@ const EstateResidences = () => {
                 heading="Experience Elevated Comfort In Every Detail"
                 floorPlans={{
                     "4bhk": [
-                        { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "4 BHK + Servant Room", brochure: "/assets/microsites/estate-residences/floorplan/1.png" },
-                        { src: "/assets/microsites/estate-residences/location_advantage/locationmap.png", title: "4 BHK Type B", },
-                    ],
-                    "3bhk": [
-                        { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "4 BHK + Servant Room", brochure: "/assets/microsites/estate-residences/floorplan/1.png" },
-                        { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "4 BHK Type B" },
-                    ],
-                    "2bhk": [
-                        { src: "/assets/microsites/estate-residences/floorplan/1.png", title: "2 BHK Compact", brochure: "/assets/microsites/estate-residences/floorplan/1.png" },
+                        { src: "/assets/microsites/estate-residences/floorplan/1.webp", title: "4 BHK + Servant Room (TOWER 04)", brochure: "/assets/microsites/estate-residences/estate-residences.pdf" },
+                        { src: "/assets/microsites/estate-residences/floorplan/2.webp", title: "4 BHK + Servant Room (TOWER 03)", },
+                        { src: "/assets/microsites/estate-residences/floorplan/3.webp", title: "4 BHK + Servant Room (TOWER 01)", },
+                        { src: "/assets/microsites/estate-residences/floorplan/4.webp", title: "4 BHK + Servant Room (TOWER 02)", },
                     ],
                 }}
                 masterPlan={{
-                    src: "/img/masterplan.jpg",
+                    src: "/assets/microsites/estate-residences/floorplan/masterplan.webp",
                     title: "Master Plan"
                 }}
             />
 
             <LocationAdvantages
                 title="Strategic Location Advantages"
-                locationMap="/assets/microsites/estate-residences/location_advantage/locationmap.png"
+                locationMap="/assets/microsites/estate-residences/location_advantage/locationmap.webp"
                 onDownload={() => {
                     const link = document.createElement("a");
-                    link.href = "/assets/microsites/estate-residences/location_advantage/locationmap.png";
-                    link.download = "location-map.png";
+                    link.href =
+                        "/assets/microsites/estate-residences/location_advantage/locationmap.webp";
+                    link.download = "location-map.webp";
+                    document.body.appendChild(link);
                     link.click();
+                    document.body.removeChild(link);
                 }}
                 tabsData={{
-                    school: [
-                        { image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Modern School" },
-                        { image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "DPS Gurgaon" },
-                    ],
-                    metro: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    hello: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    bus: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    car: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    airporto: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    dbfleks: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    heoighi: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    ahefoiewjg: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    enfklefnle: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
-                    kjfhwej: [{ image: "/assets/microsites/estate-residences/location_advantage/1.png", description: "Rapid Metro 1.5km" }],
+                    hotel: [{ image: "/assets/microsites/estate-residences/location_advantage/1.webp", description: "2.4 KMS(5 MINS) HOTEL GRAND HYATT" }],
+                    hospital: [{ image: "/assets/microsites/estate-residences/location_advantage/2.webp", description: "3.5 KMS(7 MINS) MARENGO ASIA HOSPITAL" }],
+                    school: [{ image: "/assets/microsites/estate-residences/location_advantage/3.webp", description: "3.5 KMS(7 MINS) SHALOM PRESIDENCY SCHOOL" }],
+                    metro: [{ image: "/assets/microsites/estate-residences/location_advantage/4.webp", description: "3.6 KMS(8 MINS) RAPID METRO SEC 55-56" }],
+                    mall: [{ image: "/assets/microsites/estate-residences/location_advantage/5.webp", description: "6.4 KMS(10 MINS) SOUTH POINT MALL" }],
+                    airport: [{ image: "/assets/microsites/estate-residences/location_advantage/6.webp", description: "23 KMS[30 MINS) TRANSPORT IGI AIRPORT" }],
                 }}
             />
 

@@ -2,10 +2,11 @@
 .scrollable-content {
   overflow-x: scroll;  
   -webkit-overflow-scrolling: touch; 
+  cursor: grabbing;
 }
 
 .scrollable-content::-webkit-scrollbar {
-  height: 8px; /* Set height of scrollbar */
+  height: 5px; /* Set height of scrollbar */
 }
 
 .scrollable-content::-webkit-scrollbar-track {

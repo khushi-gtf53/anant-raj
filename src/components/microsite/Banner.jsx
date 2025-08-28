@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -19,6 +19,7 @@ const Banner = ({ slides = [] }) => {
 
   return (
     <section className="microsite_banner relative mt-20">
+     
       <Swiper
         modules={[Navigation, Autoplay]}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
@@ -45,6 +46,7 @@ const Banner = ({ slides = [] }) => {
             key={index}
             className="!w-auto flex justify-center items-center"
           >
+             <Suspense fallback="Loading...">
             <img
               src={imgSrc}
               alt={`Slide ${index + 1}`}
@@ -54,6 +56,7 @@ const Banner = ({ slides = [] }) => {
                 setOpen(true);
               }}
             />
+            </Suspense>
           </SwiperSlide>
         ))}
       </Swiper>

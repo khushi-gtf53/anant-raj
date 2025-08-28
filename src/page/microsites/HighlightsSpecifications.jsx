@@ -11,29 +11,68 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
   const [lightboxSlides, setLightboxSlides] = useState([]);
   const [openIndex, setOpenIndex] = useState(0);
 
-  const renderItems = (items) => (
+const renderItems = (items) => {
+  const containerRef = useRef(null);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const handleMouseDown = (e) => {
+    isDown.current = true;
+    startX.current = e.pageX - containerRef.current.offsetLeft;
+    scrollLeft.current = containerRef.current.scrollLeft;
+    containerRef.current.classList.add("dragging");
+  };
+
+  const handleMouseLeaveOrUp = () => {
+    isDown.current = false;
+    containerRef.current.classList.remove("dragging");
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown.current) return;
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1; // multiplier = scroll speed
+    containerRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  return (
     <div
-      className="flex gap-5 overflow-x-auto scroll-smooth scrollable-content">
+      ref={containerRef}
+      onMouseDown={handleMouseDown}
+      onMouseLeave={handleMouseLeaveOrUp}
+      onMouseUp={handleMouseLeaveOrUp}
+      onMouseMove={handleMouseMove}
+      className="flex gap-5 overflow-x-auto scroll-smooth scrollable-content cursor-grab active:cursor-grabbing"
+    >
       {items.map((item, idx) => (
         <div
           key={idx}
-          className="highlight mb-5 min-w-[350px] border-r border-black/30 p-10 flex flex-col justify-between cursor-pointer"
-          onClick={() => {
-            setLightboxSlides(items.map((i) => ({ src: i.imgSrc })));
-            setOpenIndex(idx);
-            setLightboxOpen(true);
-          }}
+          className="highlight mb-5 min-w-[350px] border-r border-black/30 p-10 flex flex-col justify-between"
         >
           <div className="title font-sangbleu capitalize text-[13px] lg:text-[20px]">
             {item.title}
           </div>
-          <div className="view uppercase tracking-wider mt-10 text-[14px]">
-            view image
-          </div>
+
+          {item.imgSrc && (
+            <div
+              className="view uppercase tracking-wider mt-10 text-[14px] cursor-pointer"
+              onClick={() => {
+                setLightboxSlides(items.map((i) => ({ src: i.imgSrc })));
+                setOpenIndex(idx);
+                setLightboxOpen(true);
+              }}
+            >
+              view image
+            </div>
+          )}
         </div>
       ))}
     </div>
   );
+};
+
 
   const renderTab = (key, label, items) => {
     const isOpen = activeTab === key;
@@ -47,7 +86,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
             { height: 0, autoAlpha: 0 },
             {
               height: "auto",
-              padding : 10,
+              padding: 10,
               autoAlpha: 1,
               duration: 0.6,
               ease: "power2.out",
@@ -57,7 +96,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
         } else {
           gsap.to(contentRef.current, {
             height: 0,
-            padding : 0,
+            padding: 0,
             autoAlpha: 0,
             duration: 0.4,
             ease: "power2.in",
@@ -72,7 +111,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
           className="top_nav cursor-pointer py-5 flex items-center text-primaryred font-sangbleu uppercase"
           onClick={() => {
             if (!isOpen) {
-              setActiveTab(key); 
+              setActiveTab(key);
             } else {
               setActiveTab(key === "highlights" ? "specs" : "highlights");
             }
@@ -94,10 +133,10 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
         {/* collapsible container */}
         <div
           ref={contentRef}
-          style={{ overflow: "hidden", height: 0, opacity: 0, padding : 0 }}
+          style={{ overflow: "hidden", height: 0, opacity: 0, padding: 0 }}
           className="highlights_section w-full p-10 bg-[#FBF6F6] relative"
         >
-          {renderItems(items)}         
+          {renderItems(items)}
         </div>
       </div>
     );
@@ -112,7 +151,7 @@ const HighlightsSpecifications = ({ sectionTitle, highlights = [], specification
           </h2>
         </div>
         {renderTab("highlights", "highlights", highlights)}
-        {renderTab("specs", "specifications", specifications)}
+        {/* {renderTab("specs", "specifications", specifications)} */}
       </section>
 
       {/* Lightbox Popup */}
