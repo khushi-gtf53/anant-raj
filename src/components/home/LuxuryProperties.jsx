@@ -18,7 +18,7 @@ const slides = [
     id: 1,
     mbImage: "./assets/luxury/residential/1.webp",
     src: "./assets/luxury/residential/1.webp",
-    name: "The Estate Residencies",
+    name: "The Estate Floors",
     location: "Sector 63A, Gurugram",
     category: "RESIDENTIAL",
   },
