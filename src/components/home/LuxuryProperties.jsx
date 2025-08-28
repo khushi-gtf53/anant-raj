@@ -26,7 +26,7 @@ const slides = [
     id: 2,
     mbImage: "./assets/luxury/residential/2.jpg",
     src: "./assets/luxury/residential/2.jpg",
-    name: "Estate Villa",
+    name: "Estate Apartments",
     location: "Sector 63A, Gurugram",
     category: "RESIDENTIAL",
   },
@@ -35,7 +35,7 @@ const slides = [
     mbImage: "./assets/luxury/residential/3.jpg",
     src: "./assets/luxury/residential/3.jpg",
     category: "RESIDENTIAL",
-    name: "Anant Raj Estate",
+    name: "Ashok Estate",
     location: "Sector 63A, Gurugram",
   },
   {
@@ -241,16 +241,19 @@ const LuxuryProperties = () => {
     <section ref={sectionRef} className="bg-[#FBF6F6] relative pb-[70px]">
       <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
         {/* Header */}
-        <div className="flex flex-col lg:flex-nowrap flex-wrap lg:flex-row justify-between w-full items-start lg:items-center mb-[35px]">
+        <div className="grid grid-cols-12 mb-[35px] w-full">
+          <div className="col-span-4 ">
           <h2 className="text-primaryred w-full text-center lg:text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
             OUR PROPERTIES
           </h2>
-          <div className="flex text-gray-800 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
+          </div>
+          <div className="col-span-8 ">
+          <div className="flex text-gray-800 gap-2 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
             {["TOWNSHIP", "RESIDENTIAL", "COMMERCIAL", "HOSPITALITY", "DATA CENTERS"].map(
               (category) => (
                 <p
                   key={category}
-                  className={`hover:text-gray-600 relative basis-[50%] lg:text-end text-center mb-[17px] lg:mr-[0rem] cursor-pointer ${
+                  className={`hover:text-gray-600 relative basis-[50%] lg:text-center text-center mb-[17px] lg:mr-[0rem] cursor-pointer ${
                     activeCategory === category
                       ? "text-primaryblue font-bold"
                       : ""
@@ -264,6 +267,7 @@ const LuxuryProperties = () => {
                 </p>
               )
             )}
+          </div>
           </div>
         </div>
 
