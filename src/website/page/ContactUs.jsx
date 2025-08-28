@@ -1,7 +1,7 @@
 import ContactForm from "../components/contactus/ContactForm";
 import HeroContactus from "../components/contactus/HeroContactus";
 
-const Contactus = () => {
+const ContactUs = () => {
   return (
     <>
       <HeroContactus />
@@ -10,4 +10,4 @@ const Contactus = () => {
   );
 };
 
-export default Contactus;
+export default ContactUs;

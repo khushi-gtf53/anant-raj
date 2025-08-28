@@ -20,6 +20,8 @@
     "react-pageflip": "^2.0.3",
     "react-router-dom": "^7.7.1",
     "react-scroll": "^1.9.3",
+    "react-toastify": "^11.0.5",
+    "react-tooltip": "^5.29.1",
     "react-type-animation": "^3.2.0",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11",

@@ -87,7 +87,7 @@ const Header = () => {
           (item) => (
             <NavLink
               key={item}
-              to={`${item.toLowerCase().replace(/\s+/g, "")}`}
+              to={`/${item.toLowerCase().replace(/\s+/g, "")}`}
               className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
                 isAboutUs || (!isAtTop && showHeader)
                   ? "text-black"

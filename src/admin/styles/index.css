@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {font-family: "JosefinSans-Thin";font-display: swap;src: url("/fonts/JosefinSans-Thin.ttf");}
+@font-face {font-family: "JosefinSans-Regular";font-display: swap;src: url("/fonts/JosefinSans-Regular.ttf");}
+@font-face {font-family: "Roboto-Medium";font-display: swap;src: url("/fonts/Roboto-Medium.ttf");}
+@font-face {font-family: "Roboto-Light";font-display: swap;src: url("/fonts/Roboto-Light.ttf");}
+@font-face {font-family: "Roboto-Regular";font-display: swap;src: url("/fonts/Roboto-Regular.ttf");}
+@font-face {font-family: "JosefinSans-Light";font-display: swap;src: url("/fonts/JosefinSans-Light.ttf");}
+
+:root {
+  --primary: #53c5cf;     /* Customize as needed */
+  --[var(--secondary)]: #d74e34;   /* Customize as needed */
+  --[var(--yellow)]: #f7ab5d;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {scroll-behavior: smooth;}
+h1,h2,h3,h4,h5,h6 {margin: 0;}
+p{color: #333;margin: 0;font-size: 14px;font-family: "Inter-Regular";}
+a {text-decoration: none !important;}
+ul {padding: 0;margin: 0;}
+body{margin: 0;padding: 0;box-sizing: border-box;overflow-x: hidden!important;
+background-image:  linear-gradient(#181a26 1px, transparent 1px), linear-gradient(to right, #181a26 1px, #292b37 1px);
+font-family: "Roboto-Light";
+background-size: 3px 3px;}
+
+button{
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+@layer base {
+  *::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  *::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--[var(--secondary)]);
+    border-radius: 10px;
+  }
+}
+
+p{
+  color: #f7f7f7;
+  font-family: "Roboto-Regular";
+  letter-spacing: 0.7;
+  line-height: 26px;
+}

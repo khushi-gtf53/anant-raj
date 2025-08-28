@@ -17,19 +17,19 @@ const testimonialsData = [
         review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
     },
     {
-        name: "saurabh sheti",
+        name: "saurabh 2",
         image: "/assets/about/testimonials/1.png",
-        review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
+        review: "Anant Raj 2 Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
     },
     {
-        name: "saurabh sheti",
+        name: "saurabh 3",
         image: "/assets/about/testimonials/1.png",
-        review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
+        review: "Anant Raj 3 Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
     },
     {
-        name: "saurabh sheti",
+        name: "saurabh sheti 4",
         image: "/assets/about/testimonials/1.png",
-        review: "Anant Raj Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
+        review: "Anant Raj 4 Limited Palmspring is a state-of-the-art project with top-notch amenities, fast-paced construction, and exceptional quality. Supportive staff and well-organized site visits make it a truly commendable experience.",
     },
     {
         name: "saurabh sheti",

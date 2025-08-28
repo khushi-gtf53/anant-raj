@@ -5,7 +5,7 @@ import AboutusTeam from "../components/aboutus/AboutusTeam";
 import OurStory from "../components/aboutus/OurStory";
 import AboutTestimonials from "../components/aboutus/AboutTestimonials";
 
-const Aboutus = () => {
+const AboutUs = () => {
   return (
     <>
       <HeroAboutus />
@@ -18,4 +18,4 @@ const Aboutus = () => {
   );
 };
 
-export default Aboutus;
+export default AboutUs;

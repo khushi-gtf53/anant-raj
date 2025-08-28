@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
+:root {
+    /* admin root */
+    --admin-primary: #53c5cf;     
+    --admin-secondary: #d74e34;   
+    --admin-yellow: #f7ab5d;
+}
+
 body {
   font-family: "Lato", sans-serif;
   overflow-x: hidden;
   margin: 0;
   position: relative;
 }
+body.admin-body{margin: 0;padding: 0;box-sizing: border-box;overflow-x: hidden!important;
+background-image:  linear-gradient(#181a26 1px, transparent 1px), linear-gradient(to right, #181a26 1px, #292b37 1px);
+background-size: 3px 3px;}
 
 .swiper-container {
   overflow-x: hidden;
