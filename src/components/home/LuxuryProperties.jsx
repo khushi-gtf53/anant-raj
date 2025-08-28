@@ -167,7 +167,6 @@ const LuxuryProperties = () => {
     }
   };
 
-  // 🔥 Trigger animation only when section comes into view
   useEffect(() => {
     let hasAnimated = false;
 

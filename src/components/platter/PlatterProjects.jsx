@@ -23,16 +23,18 @@ const PlatterProjects = ({ tabs = [] }) => {
     const next = useRef(null);
 
     const renderProject = (project) => (
-        <div className="grid grid-cols-12 gap-4">
-            {/* Left: Big Slider */}
-            <div className="col-span-7">
+        <div className="">
+            <div >
                 <Swiper
                     modules={[Navigation]}
                     loop={true}
+                    slidesPerView={ 'auto'}
+
                     speed={600}
+                    spaceBetween={100}
                     centeredSlides={false}
                     allowTouchMove={true}
-                    className="platter_slider overflow-hidden w-full h-[65vh]"
+                    className="platter_slider overflow-hidden w-full"
                     navigation={{
                         nextEl: ".banner-button-next",
                         prevEl: ".banner-button-prev",
@@ -41,31 +43,16 @@ const PlatterProjects = ({ tabs = [] }) => {
                     {project.slides.map((imgSrc, index) => (
                         <SwiperSlide
                             key={index}
-                            className="project_img !w-[720px] !h-[450px]"
-                            onClick={() => {
-                                setLightboxSlides(
-                                    project.slides.map((src) => ({ src }))
-                                );
-                                setOpenIndex(index);
-                                setLightboxOpen(true);
-                            }}
+                            className="project_img swiper_slide_container"
+                           
                         >
+                            <div className="flex gap-[30px]">
                             <img
                                 src={imgSrc}
                                 alt={`Slide ${index + 1}`}
-                                className="w-[720px] h-[450px] object-cover cursor-pointer"
+                                className=" flex-1  object-cover w-[100%] cursor-pointer"
                             />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-                <div className="viewall uppercase tracking-wider cursor-pointer -mt-10">
-                    View All List And Search
-                </div>
-            </div>
-
-            {/* Middle: Project Info */}
-            <div className="col-span-3">
-                <div className="project_info w-full h-[450px] flex flex-col justify-between items-end">
+                <div className="project_info flex flex-col justify-between items-end">
                     <div className="flex flex-col items-end gap-2">
                         <div className="project_name uppercase font-sangbleu tracking-wider">
                             {project.name}
@@ -88,56 +75,20 @@ const PlatterProjects = ({ tabs = [] }) => {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Right: Thumbnail Slider */}
-            <div className="col-span-2">
-                <Swiper
-                    modules={[Navigation]}
-                    loop={true}
-                    speed={600}
-                    centeredSlides={false}
-                    allowTouchMove={true}
-                    initialSlide={1}
-                    className="project_img"
-                    navigation={{
-                        nextEl: ".banner-button-next",
-                        prevEl: ".banner-button-prev",
-                    }}
-                >
-                    {project.slides.map((imgSrc, index) => (
-                        <SwiperSlide
-                            key={index}
-                            className="project_img !flex !justify-end w-full"
-                            onClick={() => {
-                                setLightboxSlides(
-                                    project.slides.map((src) => ({ src }))
-                                );
-                                setOpenIndex(index);
-                                setLightboxOpen(true);
-                            }}
-                        >
-                            <img
-                                src={imgSrc}
-                                alt={`Thumb ${index + 1}`}
-                                className="w-[140px] h-[450px] object-cover cursor-pointer"
-                            />
-                        </SwiperSlide>
+                </div>
+                 </SwiperSlide>
                     ))}
                 </Swiper>
-
-                {/* Navigation Arrows */}
-                <div className="navigation mt-2 relative z-30">
-                    <div className="opacity-70 flex gap-2 justify-end items-center">
-                        <div ref={prev} className="banner-button-prev cursor-pointer">
-                            <IoIosArrowRoundBack size={40} />
-                        </div>
-                        <div ref={next} className="banner-button-next cursor-pointer">
-                            <IoIosArrowRoundForward size={40} />
-                        </div>
-                    </div>
-                </div>
+                <div className="flex justify-end mt-[10px]">
+               <IoIosArrowRoundBack className="cursor-pointer banner-button-next text-[#8e8d8d]"  size={30} />
+               <IoIosArrowRoundForward className="cursor-pointer banner-button-prev text-[#8e8d8d]"  size={30} />
+               </div>
             </div>
+ {/* <div className="viewall uppercase tracking-wider cursor-pointer -mt-10">
+                    View All List And Search
+                </div> */}
+            {/* Right: Thumbnail Slider */}
+           
         </div>
     );
 
@@ -171,7 +122,7 @@ const PlatterProjects = ({ tabs = [] }) => {
         }, [isOpen]);
 
         return (
-            <div className="mb-10" key={tab.key}>
+            <div className="mb-10" id={tab.key} key={tab.key}>
                 {/* Tab Header */}
                 <div
                     className="top_nav cursor-pointer py-5 flex items-center font-sangbleu uppercase"
@@ -185,15 +136,13 @@ const PlatterProjects = ({ tabs = [] }) => {
                         {isOpen ? <SlArrowUp size={30} /> : <SlArrowDown size={30} />}
                     </div>
                 </div>
-
-                {/* Tab Content */}
                 <div
                     ref={contentRef}
                     style={{ overflow: "hidden", height: 0, opacity: 0 }}
-                    className="highlights_section w-full p-10 relative"
+                    className="highlights_section w-full pt-10 relative"
                 >
                     {tab.projects.map((project, i) => (
-                        <div key={i} className="mb-16">
+                        <div key={i}>
                             {renderProject(project)}
                         </div>
                     ))}
@@ -207,7 +156,6 @@ const PlatterProjects = ({ tabs = [] }) => {
             <section id="projects" className="platter_projects relative w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
                 {tabs.map((tab) => renderTab(tab))}
             </section>
-
             <Lightbox
                 open={lightboxOpen}
                 close={() => setLightboxOpen(false)}

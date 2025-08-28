@@ -92,3 +92,7 @@ body {
 .bg-primaryblue {
   background-color: #263a7f;
 }
+
+.platter_slider .swiper-slide{
+  width: fit-content!important;
+}
