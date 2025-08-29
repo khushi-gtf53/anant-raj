@@ -66,15 +66,17 @@ const CommonHeroSec = ({ ObjData }) => {
               smooth={true}
               duration={500}
               spy={true}
-              className="whitespace-nowrap"
+              className="whitespace-nowrap flex-1"
               onSetActive={() => setActiveTab(tab.tablink)}
             >
               <button
                 className={`${
+                i==tabs.length-1?"text-right":""}
+                  ${
                   activeTab === tab.tablink
                     ? "text-primaryblue font-semibold opacity-100"
                     : "opacity-[0.4]"
-                } capitalize cursor-pointer lg:text-[16px] text-[14px]`}
+                } capitalize cursor-pointer lg:text-[16px] text-[14px] `}
               >
                 {tab.tabname}
               </button>

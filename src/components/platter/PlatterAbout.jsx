@@ -2,8 +2,8 @@
 import CommonHeroSec from "../CommonHeroSec";
   const Obj={
     title:"Residential",
-    heading:"Our Group",
-    subtitle:<p>Anant Raj Limited offers a diverse portfolio of luxury residential properties <span className="lg:block hidden"></span> designed to cater to the evolving needs of modern homeowners.</p>,
+    heading:"Residential",
+    subtitle:<p>Anant Raj Limited offers a diverse portfolio of luxury residential properties designed to cater to the evolving needs of modern homeowners.</p>,
     imgUrl:"/assets/platter/residential/about.png",
     linkTo:"discover",   
     tabs:[

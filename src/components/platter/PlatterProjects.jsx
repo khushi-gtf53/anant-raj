@@ -57,7 +57,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                             className="project_img swiper_slide_container"
                            
                         >
-                            <div className="lg:flex gap-[30px]">
+                            <div className="lg:flex gap-[30px] lg:pb-0 pb-[20px]">
                             <img
                                 src={imgSrc}
                                 alt={`Slide ${index + 1}`}
