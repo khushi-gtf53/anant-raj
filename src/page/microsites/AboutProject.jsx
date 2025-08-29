@@ -23,7 +23,6 @@ const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
                     </div>
                 </div>
             </div>
-
             <div className="grid grid-cols-12 pt-20 items-start" ref={ref}>
                 <div className="col-span-12 lg:col-span-9">
                     <div className="counter max-w-[90%] lg:max-w-[70%] flex flex-wrap gap-10 font-sangbleu uppercase">
