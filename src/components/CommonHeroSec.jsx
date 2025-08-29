@@ -110,9 +110,9 @@ const CommonHeroSec = ({ ObjData }) => {
           <div className="h-[0.1px] hidden sm:block bg-black basis-[90%]"></div>
         </div>
 
-        <div className="flex mt-[30px] lg:mt-[55px] flex-col md:flex-row sm:items-center justify-between">
+        <div className="flex mt-[30px] lg:mt-[55px] flex-col md:flex-row sm:items-end justify-between">
           <h1 className="text-3xl sm:text-6xl mb-3 sm:mb-0 font-light text-primaryblue font-sangbleu">{heading}</h1>
-          <p className="font-lato text-[14px] font-[400] tracking-[1px] leading-[27px]">{subtitle}</p>
+          <p className="font-lato text-[14px] text-justify font-[400] tracking-[1px] leading-[27px] max-w-[45%]">{subtitle}</p>
         </div>
 
         <Link to={linkTo} smooth={true} duration={500}>

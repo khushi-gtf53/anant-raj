@@ -12,6 +12,8 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ScrollToTop from "./utils/ScrollToTop";
 import EstateResidences from "./page/microsites/EstateResidences";
 import Residential from "./page/platter/Residential";
+import Projects from "./page/Projects";
+import Blogs from "./components/home/Blogs";
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -47,6 +49,8 @@ function App() {
               <Route path="/contactus" element={<Contactus />} />
               <Route path="/estate-residences" element={<EstateResidences />} />
               <Route path="/residential" element={<Residential/>} />
+              <Route path="/projects" element={<Projects/>} />
+              <Route path="/blogs" element={<Blogs/>} />
             </Routes>
             <Footer />
           </div>
