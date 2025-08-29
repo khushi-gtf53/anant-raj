@@ -270,7 +270,6 @@ const AboutusTeam = () => {
       </h2>{" "}
       <div className="">
         <div className="max-w-7xl mx-auto">
-          {/* Tab Navigation */}
           <div className="mb-12 md:mb-16">
             <div className="flex flex-col sm:flex-row gap-4 md:gap-12 lg:gap-16">
               {tabs.map((tab, index) => (
@@ -285,21 +284,15 @@ const AboutusTeam = () => {
                   <span className="text-xs md:text-sm tracking-wider">
                     {tab}
                   </span>
-                  {/* Active Tab Underline */}
-                  {/* {activeTab === tab && (
-                    <div className="mt-2 h-0.5 bg-gray-400 w-full" />
-                  )} */}
+
                 </button>
               ))}
             </div>
 
-            {/* Full Width Underline */}
             <div className="mt-8 h-px bg-black w-full" />
           </div>
 
-          {/* Main Content */}
           <div className="flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-8 lg:gap-12">
-            {/* Left Side - Main Person */}
             <div className="flex-1 ">
               <div className="relative w-[300px] h-[300px]  sm:w-[380px] sm:h-[380px] bg-transparent overflow-hidden">
                 <img
@@ -320,11 +313,7 @@ const AboutusTeam = () => {
               </div>
 
             </div>
-
-
-            {/* Navigation Arrows */}
-            <div className="flex flex-col w-full justify-center items-center">
-              {/* Person Info */}
+                        <div className="flex flex-col w-full justify-center items-center">
               <div className="sm:my-6 text-center">
                 <h3 className="text-lg md:text-xl font-semibold text-primaryblue mb-2">
                   {activePerson.name}
@@ -333,7 +322,6 @@ const AboutusTeam = () => {
                   {activePerson.position}
                 </p>
               </div>
-              {/* Mobile Navigation */}
               <div className="flex lg:hidden justify-center w-full mt-2 gap-4">
                 <button
                   onClick={prevPerson}
