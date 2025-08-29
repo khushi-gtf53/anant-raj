@@ -21,10 +21,12 @@ const Header = () => {
       location.pathname.includes("investors") ||
       location.pathname.includes("residential") ||
       location.pathname.includes("estate-residences") ||
-      location.pathname.includes("csr");
+      location.pathname.includes("csr") ||
+      location.pathname.includes("blogs");
 
     // Update isAboutUs state whenever the location changes
     setIsAboutUs(isAboutUsPage);
+
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -54,17 +56,15 @@ const Header = () => {
 
   const headerContent = (
     <header
-      className={`w-full transition-all duration-300 ease-in-out ${
-        showHeader
+      className={`w-full transition-all duration-300 ease-in-out ${showHeader
           ? "fixed top-0 z-[100] translate-y-0"
           : "fixed top-0 z-[100] -translate-y-full"
-      } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${
-        isAboutUs || (!isAtTop && showHeader)
+        } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${isAboutUs || (!isAtTop && showHeader)
           ? "bg-[#FBF6F6] text-black"
           : isAtTop && showHeader
-          ? "bg-transparent text-white"
-          : "bg-white text-black shadow-md"
-      }`}
+            ? "bg-transparent text-white"
+            : "bg-white text-black shadow-md"
+        }`}
     >
       <NavLink to="/">
         {" "}
@@ -89,26 +89,24 @@ const Header = () => {
             <NavLink
               key={item}
               to={`${item.toLowerCase().replace(/\s+/g, "")}`}
-              className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${
-                isAboutUs || (!isAtTop && showHeader)
+              className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${isAboutUs || (!isAtTop && showHeader)
                   ? "text-black"
                   : isAtTop && showHeader && !isAboutUs
-                  ? "text-white"
-                  : "text-black"
-              }`}
+                    ? "text-white"
+                    : "text-black"
+                }`}
             >
               {item}
             </NavLink>
           )
         )}
         <button
-          className={`relative w-6 h-6 hover:text-gray-300 ${
-            isAboutUs || (!isAtTop && showHeader)
+          className={`relative w-6 h-6 hover:text-gray-300 ${isAboutUs || (!isAtTop && showHeader)
               ? "text-black"
               : isAtTop && showHeader && !isAboutUs
-              ? "text-white"
-              : "text-black"
-          }`}
+                ? "text-white"
+                : "text-black"
+            }`}
           aria-label="Menu"
           onClick={() => setMenuOpen(true)}
         >

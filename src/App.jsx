@@ -12,6 +12,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ScrollToTop from "./utils/ScrollToTop";
 import EstateResidences from "./page/microsites/EstateResidences";
 import Residential from "./page/platter/Residential";
+import Blogs from "./page/Blog/blog";
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <Router>
-          <ScrollToTop/>
+      <ScrollToTop />
       <div className="App">
         <div id="smooth-wrapper">
           <div id="smooth-content">
@@ -46,7 +47,8 @@ function App() {
               <Route path="/aboutus" element={<Aboutus />} />
               <Route path="/contactus" element={<Contactus />} />
               <Route path="/estate-residences" element={<EstateResidences />} />
-              <Route path="/residential" element={<Residential/>} />
+              <Route path="/residential" element={<Residential />} />
+              <Route path="/blogs" element={<Blogs />} />
             </Routes>
             <Footer />
           </div>
