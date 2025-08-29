@@ -9,7 +9,7 @@ const ProjectOverview = ({ logoSrc, projectName, location, apartmentTypes, statu
                         <img src={logoSrc} alt="project logo" className="w-[80%]" />
                     </div>
                 </div>
-                <div className="col-span-12 sm:col-span-9 px-10 pb-20 sm:pb-0 sm:py-5">
+                <div className="col-span-12 sm:col-span-9 px-10 sm:py-5">
                     <div className="sm:w-[95%] py-3 sm:py-0 h-full flex flex-col justify-between">
                         <div className="project_info">
                             <div className="project_name">
@@ -39,7 +39,7 @@ const ProjectOverview = ({ logoSrc, projectName, location, apartmentTypes, statu
             <img
                 src={patternBgSrc}
                 alt="pattern-bg"
-                className="h-[70px] bg-[#FBF6F6] absolute bottom-0 w-full object-cover"
+                className="h-[70px] bg-[#FBF6F6] relative bottom-0 w-full object-cover"
             />
         </section>
     );

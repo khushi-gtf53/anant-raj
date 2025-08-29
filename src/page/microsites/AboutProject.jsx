@@ -13,7 +13,7 @@ const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
         className="about_project w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white ">
             <div className="grid grid-cols-12 border-b border-black pb-14">
                 <div className="col-span-12 lg:col-span-5">
-                    <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
+                    <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
                         {heading}
                     </h2>
                 </div>

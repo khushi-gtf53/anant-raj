@@ -30,16 +30,17 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
   if (!data?.length) return null;
 
   return (
-    <section className="amenities relative w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
+    <section className="amenities relative w-full bg-[#FBF6F6]">
+      <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
       <div className="heading">
-        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
+        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
           {heading}
         </h2>
       </div>
 
-      <div className="grid grid-cols-12 py-10">
+      <div className="grid grid-cols-12 py-5 sm:py-10">
         <div className="col-span-7 sm:col-span-6 border-r pr-10">
-          <div className="flex gap-4 sm:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide max-w-full">
+          <div className="flex items-center w-full h-full gap-2 sm:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide max-w-full">
             {data.map((item, index) => {
               const isActive = index === activeIndex;
               const iconPath = `${baseIconPath}/icon/${item.icon}`;
@@ -49,7 +50,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
                   key={index}
                   ref={(el) => (iconRefs.current[index] = el)}
                   onClick={() => setActiveIndex(index)}
-                  className={`group amenity flex-shrink-0 w-[75px] h-[75px] sm:w-[80px] sm:h-[80px] border rounded-full p-4 sm:p-5 transition-all duration-300 cursor-pointer ${isActive ? "bg-[#b3162f] border-transparent" : "bg-transparent hover:bg-[#b3162f]"}`}
+                  className={`group amenity flex-shrink-0 w-[65px] h-[65px] sm:w-[80px] sm:h-[80px] border rounded-full p-4 sm:p-5 transition-all duration-300 cursor-pointer ${isActive ? "bg-[#b3162f] border-transparent" : "bg-transparent hover:bg-[#b3162f]"}`}
                 >
                   <img
                     src={iconPath}
@@ -103,7 +104,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
           data-gsap="fade-up"
           data-gsap-duration="0.6"
           data-gsap-delay="0.3"
-          className="grid grid-cols-12 py-10">
+          className="grid grid-cols-12 py-3 sm:py-10">
           <div className="col-span-12 sm:col-span-5">
             <div className="amenityImg overflow-hidden">
               <SetupGsapAnimations>
@@ -112,7 +113,7 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
             </div>
           </div>
           <div className="col-span-12 sm:col-span-7">
-            <div className="amenity_about pt-10 sm:pt-0  lg:px-20 flex flex-col w-full h-full justify-center">
+            <div className="amenity_about pt-5 sm:pt-0  lg:px-20 flex flex-col w-full h-full justify-center">
               <div className="title font-sangbleu capitalize mb-5 text-[20px] leading-[35px]">
                 {activeAmenity.title}
               </div>
@@ -123,12 +124,12 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
           </div>
         </div>
       </Suspense>
-
+</div>
       {/* Background Pattern */}
       <img
         src="/assets/pattern-bg.png"
         alt="pattern-bg"
-        className="h-[70px] bg-[#FBF6F6] absolute left-0 bottom-0 w-full object-cover"
+        className="h-[70px] bg-[#FBF6F6] relative left-0 bottom-0 w-full object-cover"
       />
     </section>
   );

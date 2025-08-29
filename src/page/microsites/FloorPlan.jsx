@@ -20,9 +20,10 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
   const slides = floorPlans[activeTab];
 
   return (
-    <section className="floor_plan w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6] relative">
+    <section className="floor_plan w-full bg-[#FBF6F6] relative">
+      <div className="px-5 lg:px-[100px] py-[40px] lg:py-[100px]">
       <div className="heading mb-10">
-        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
+        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
           {heading}
         </h2>
       </div>
@@ -113,7 +114,7 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
               nextEl: ".floorplan-button-next",
               prevEl: ".floorplan-button-prev",
             }}
-            className="w-[80%] sm:w-[60%] h-[300px]"
+            className="w-[80%] h-[200px] sm:w-[60%] sm:h-[300px]"
           >
             {slides.map((slide, index) => (
               <SwiperSlide
@@ -141,8 +142,8 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
         slides={lightboxSlides.length ? lightboxSlides : [{ src: masterPlan.src }]}
         index={openIndex}
       />
-
-      <img src="./assets/pattern-bg.png" alt="pattern-bg" className="h-[70px] bg-[#FBF6F6] absolute left-0 bottom-0 w-full object-cover" />
+</div>
+      <img src="./assets/pattern-bg.png" alt="pattern-bg" className="h-[70px] bg-[#FBF6F6] relative left-0 bottom-0 w-full object-cover" />
     </section>
   );
 };

@@ -146,7 +146,7 @@ const renderItems = (items) => {
     <>
       <section className="highlights_specifications w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
         <div className="heading mb-10">
-          <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
+          <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
             {sectionTitle}
           </h2>
         </div>

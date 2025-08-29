@@ -25,7 +25,7 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
     <>
       <section className="w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-white relative">
         <div className="sm:flex space-y-5 sm:space-y-0 justify-between items-center mb-10">
-          <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] text-[13px] lg:text-[20px] leading-[40px]">
+          <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] text-[13px] lg:text-[20px] leading-[30px] lg:leading-[40px]">
             {title}
           </h2>
           {onDownload && (
@@ -81,7 +81,7 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
                   </div>
                 </div>
 
-                <div className="plan_detail uppercase font-sangbleu tracking-wider text-xl leading-[35px] max-w-[300px]">
+                <div className="plan_detail uppercase font-sangbleu tracking-wider sm:text-xl leading-[35px] max-w-[300px]">
                   {slides[currentIndex]?.description}
                 </div>
               </div>

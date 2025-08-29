@@ -94,7 +94,7 @@ const Achievements = () => {
         data-gsap="fade-up"
         data-gsap-duration="1"
         data-gsap-delay="0.5"
-        className="font-sangbleu lg:text-left text-center text-primaryred mb-10 uppercase tracking-widest text-[13px] lg:text-[20px] leading-[28px] lg:leading-[40px] font-medium"
+        className="font-sangbleu lg:text-left text-center text-primaryred mb-10 uppercase tracking-widest text-[13px] lg:text-[20px] leading-[30px] lg:leading-[40px] lg:leading-[40px] font-medium"
       >
         Award-Winning Milestones
       </h2>

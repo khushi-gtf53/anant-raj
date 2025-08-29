@@ -66,7 +66,7 @@ const OurTeam = () => {
       data-gsap-delay="0.5"
       className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white"
     >
-      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[35px] lg:leading-[40px] text-[13px] lg:text-[18px]">
+      <h2 className="text-primaryred font-sangbleu mb-[40px] uppercase lg:text-left text-center tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[18px]">
         Meet our founder, whose visionary leadership drives creativity, growth,
         and excellence
       </h2>

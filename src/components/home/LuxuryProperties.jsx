@@ -229,26 +229,26 @@ const LuxuryProperties = () => {
     }
   }, [swiperInstance]);
 
-  // if (!imagesLoaded) {
-  //   return (
-  //     <div className="h-[500px] flex items-center justify-center bg-[#FBF6F6]">
-  //       <p className="text-primaryblue font-bold text-lg">Loading images...</p>
-  //     </div>
-  //   );
-  // }
+  if (!imagesLoaded) {
+    return (
+      <div className="h-[500px] flex items-center justify-center bg-[#FBF6F6]">
+        <p className="text-primaryblue font-bold text-lg">Loading images...</p>
+      </div>
+    );
+  }
 
   return (
     <section ref={sectionRef} className="bg-[#FBF6F6] relative pb-[70px]">
       <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
         {/* Header */}
-        <div className="grid grid-cols-12 mb-[35px] w-full">
-          <div className="col-span-4 ">
-          <h2 className="text-primaryred w-full text-center lg:text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
+        <div className="grid grid-cols-12 sm:mb-[35px] w-full">
+          <div className="col-span-12 sm:col-span-4 ">
+          <h2 className="text-primaryred w-full text-center lg:text-left basis-[100%] lg:mb-0 mb-[25px] font-sangbleu uppercase tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
             OUR PROPERTIES
           </h2>
           </div>
-          <div className="col-span-8 ">
-          <div className="flex text-gray-800 gap-2 basis-[100%] lg:flex-nowrap flex-wrap font-lato tracking-[1px] text-[14px]">
+          <div className="col-span-12 sm:col-span-8 ">
+          <div className={`flex text-gray-800 gap-2 basis-[100%] ${isMobile ? "overflow-y-hidden overflow-x-auto scroll-smooth scrollable-content" : ""}   flex-nowrap font-lato tracking-[1px] text-[14px]`}>
             {["TOWNSHIP", "RESIDENTIAL", "COMMERCIAL", "HOSPITALITY", "DATA CENTERS"].map(
               (category) => (
                 <p
