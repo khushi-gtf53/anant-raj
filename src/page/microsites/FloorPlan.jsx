@@ -27,8 +27,8 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
         </h2>
       </div>
 
-      <div className="top_nav flex pb-5 border-b justify-between items-center">
-        <div className="tabs uppercase flex gap-6 font-sangbleu tracking-wider text-xl">
+      <div className="top_nav sm:flex pb-5 border-b justify-between items-center">
+        <div className="tabs uppercase pb-5 sm:pb-0 flex gap-6 font-sangbleu tracking-wider text-xl">
           {tabs.map((tab) => (
             <div
               key={tab}
@@ -41,7 +41,7 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
           ))}
         </div>
 
-        <div className="right_nav flex gap-8 font-sangbleu tracking-wider text-xl capitalize items-center">
+        <div className="right_nav flex gap-3 sm:gap-8 font-sangbleu tracking-wider sm:text-xl capitalize items-center">
           <h3 className="cursor-pointer" onClick={() => setLightboxOpen(true)}>
             View Master Plan
           </h3>
@@ -55,8 +55,8 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
       </div>
 
       {/* Main Content */}
-      <div className="grid grid-cols-12 mt-10 gap-10 pb-[20px] lg:pb-[20px]">
-        <div className="col-span-8">
+      <div className="grid grid-cols-12 mt-10 sm:gap-10 pb-[20px] lg:pb-[20px]">
+        <div className="col-span-12 sm:col-span-8">
           <Swiper
             modules={[Navigation, Thumbs]}
             loop={true}
@@ -76,15 +76,15 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
                   setLightboxOpen(true);
                 }}
               >
-                <div className="flex gap-10 items-center">
-                  <div className="floorplan w-1/2">
+                <div className="sm:flex gap-10 items-center">
+                  <div className="floorplan sm:w-1/2">
                     <img
                       src={slide.src}
                       alt={slide.title}
-                      className="w-[450px] h-[350px] object-contain cursor-pointer"
+                      className="sm:w-[450px] sm:h-[350px] object-contain cursor-pointer"
                     />
                   </div>
-                  <div className="plan_detail uppercase font-sangbleu text-xl leading-[40px] max-w-[300px]">
+                  <div className="plan_detail uppercase mt-5 sm:mt-0 font-sangbleu sm:text-xl leading-[40px] max-w-[300px]">
                     {slide.title}
                   </div>
                 </div>
@@ -93,7 +93,7 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
           </Swiper>
         </div>
 
-        <div className="col-span-4 flex flex-col items-center">
+        <div className="col-span-12 sm:col-span-4 flex flex-col items-center">
           <div className="opacity-70 flex gap-4 items-center mb-6">
             <div ref={prev} className="floorplan-button-prev cursor-pointer">
               <IoIosArrowRoundBack size={40} />
@@ -113,7 +113,7 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
               nextEl: ".floorplan-button-next",
               prevEl: ".floorplan-button-prev",
             }}
-            className="w-[60%] h-[300px]"
+            className="w-[80%] sm:w-[60%] h-[300px]"
           >
             {slides.map((slide, index) => (
               <SwiperSlide

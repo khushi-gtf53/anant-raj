@@ -51,7 +51,7 @@ const renderItems = (items) => {
           key={idx}
           className="highlight mb-5 min-w-[350px] border-r border-black/30 p-10 flex flex-col justify-between"
         >
-          <div className="title font-sangbleu capitalize text-[13px] lg:text-[20px]">
+          <div className="title font-sangbleu capitalize text-[20px]">
             {item.title}
           </div>
 
@@ -117,15 +117,15 @@ const renderItems = (items) => {
             }
           }}
         >
-          <div className="basis-1/5">
+          <div className="w-[45%] sm:w-[20%]">
             <h3>{label}</h3>
           </div>
-          <div className="basis-1/4 h-[1px] bg-[#b3162f]" />
-          <div className="basis-1/10 flex justify-center">
+          <div className="w-[25%] hidden sm:block h-[1px] bg-[#b3162f]" />
+          <div className="w-[10%] flex justify-center">
             {isOpen ? <SlArrowUp size={30} /> : <SlArrowDown size={30} />}
           </div>
-          <div className="basis-1/4 h-[1px] bg-[#b3162f]" />
-          <div className="basis-1/5 text-end cursor-pointer">
+          <div className="w-[25%] hidden sm:block h-[1px] bg-[#b3162f]" />
+          <div className="w-[45%] sm:w-[20%] text-end cursor-pointer">
             <h3>{isOpen ? "close" : "explore more"}</h3>
           </div>
         </div>

@@ -13,7 +13,7 @@ const Gallery = ({ title = "Once In A Lifetime Experience", images = [] }) => {
     const [openIndex, setOpenIndex] = useState(0);
   return (
     <>
-      <section className="gallery_section mb-20 relative w-full h-screen px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
+      <section className="gallery_section mb-20 relative w-full sm:h-screen px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
         <div className="heading flex items-center justify-between mb-10">
           <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[40px] text-[13px] lg:text-[20px]">
             {title}
@@ -29,7 +29,7 @@ const Gallery = ({ title = "Once In A Lifetime Experience", images = [] }) => {
           </div>
         </div>
 
-        <div className="gallery relative h-[60vh] w-full">
+        <div className="gallery relative h-[30vh] sm:h-[60vh] w-full">
           <Swiper
             modules={[Navigation]}
             loop={true}

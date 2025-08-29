@@ -24,7 +24,7 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
   return (
     <>
       <section className="w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-white relative">
-        <div className="flex justify-between items-center mb-10">
+        <div className="sm:flex space-y-5 sm:space-y-0 justify-between items-center mb-10">
           <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] text-[13px] lg:text-[20px] leading-[40px]">
             {title}
           </h2>
@@ -39,15 +39,15 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
         </div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-12 lg:col-span-8 flex gap-10 items-start">
-            <div className="w-1/2">
+        <div className="grid grid-cols-12 ">
+          <div className="col-span-12 sm:col-span-7">
+            <div className="sm:flex sm:gap-10 justify-between">
               <Swiper
                 modules={[Navigation]}
                 loop={true}
-                
+
                 speed={600}
-                className="w-full h-auto"
+                className="w-full h-auto sm:w-[450px] sm:h-[350px]"
                 navigation={{
                   nextEl: ".location-button-next",
                   prevEl: ".location-button-prev",
@@ -56,47 +56,48 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
               >
                 {slides.map((slide, index) => (
                   <SwiperSlide key={index}
-                   onClick={() => {
-                  setLightboxSlides(slides.map((s) => ({ src: s.image })));
-                  setOpenIndex(index);
-                  setLightboxOpen(true);
-                }}
+                    onClick={() => {
+                      setLightboxSlides(slides.map((s) => ({ src: s.image })));
+                      setOpenIndex(index);
+                      setLightboxOpen(true);
+                    }}
                   >
                     <img
                       src={slide.image}
                       alt={slide.description}
-                      className="w-[450px] h-[350px] object-contain cursor-pointer"
+                      className="sm:w-[450px] sm:h-[350px] object-contain cursor-pointer"
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
+            <div className="mb-5 sm:mb-0">
+              <div className="flex flex-col justify-center h-full gap-6 ">
+                <div className="opacity-70 flex gap-4 items-center">
+                  <div ref={prev} className="location-button-prev cursor-pointer">
+                    <IoIosArrowRoundBack size={40} />
+                  </div>
+                  <div ref={next} className="location-button-next cursor-pointer">
+                    <IoIosArrowRoundForward size={40} />
+                  </div>
+                </div>
+
+                <div className="plan_detail uppercase font-sangbleu tracking-wider text-xl leading-[35px] max-w-[300px]">
+                  {slides[currentIndex]?.description}
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col justify-center h-full gap-6 w-[40%]">
-              <div className="opacity-70 flex gap-4 items-center">
-                <div ref={prev} className="location-button-prev cursor-pointer">
-                  <IoIosArrowRoundBack size={40} />
-                </div>
-                <div ref={next} className="location-button-next cursor-pointer">
-                  <IoIosArrowRoundForward size={40} />
-                </div>
-              </div>
-
-              <div className="plan_detail uppercase font-sangbleu tracking-wider text-xl leading-[35px] max-w-[300px]">
-                {slides[currentIndex]?.description}
-              </div>
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-4">
-            <div className="flex items-center w-full h-full">
-            {locationMap && (
-              <img
-                src={locationMap}
-                alt="location map"
-                className="w-full h-auto object-contain"
-              />
-            )}
+          <div className="col-span-12 lg:col-span-5">
+            <div className="flex justify-end items-center w-full h-full">
+              {locationMap && (
+                <img
+                  src={locationMap}
+                  alt="location map"
+                  className="sm:w-[450px] sm:h-[350px] object-contain"
+                />
+              )}
             </div>
           </div>
         </div>

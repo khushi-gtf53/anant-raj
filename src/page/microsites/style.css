@@ -1,12 +1,12 @@
 /* Custom Scrollbar */
 .scrollable-content {
   overflow-x: scroll;  
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch !important; 
   cursor: grabbing;
 }
 
 .scrollable-content::-webkit-scrollbar {
-  height: 5px; /* Set height of scrollbar */
+  height: 5px; 
 }
 
 .scrollable-content::-webkit-scrollbar-track {

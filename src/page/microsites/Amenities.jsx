@@ -8,18 +8,16 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
   const iconRefs = useRef([]);
   const activeAmenity = data[activeIndex];
 
-  // GSAP animation effect on slide change
   useEffect(() => {
-    // Reinitialize GSAP animation when activeIndex changes
     gsap.fromTo(
       `.amenityImg img `,
-      { opacity: 0, y: 50 }, // Initial state (offscreen)
-      { opacity: 1, y: 0, duration: 0.6, delay: 0.3 } // Final state with animation
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.3 }
     );
     gsap.fromTo(
       `.amenity_about`,
-      { opacity: 0, y: 50 }, // Initial state (offscreen)
-      { opacity: 1, y: 0, duration: 0.6, delay: 0.3 } // Final state with animation
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.3 }
     );
 
     iconRefs.current[activeIndex]?.scrollIntoView({
@@ -40,18 +38,18 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
       </div>
 
       <div className="grid grid-cols-12 py-10">
-        <div className="col-span-6 border-r pr-10">
-          <div className="flex gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide max-w-full">
+        <div className="col-span-7 sm:col-span-6 border-r pr-10">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide max-w-full">
             {data.map((item, index) => {
               const isActive = index === activeIndex;
-              const iconPath = `${baseIconPath}/icon/${item.icon}`;             
+              const iconPath = `${baseIconPath}/icon/${item.icon}`;
 
               return (
                 <div
                   key={index}
                   ref={(el) => (iconRefs.current[index] = el)}
                   onClick={() => setActiveIndex(index)}
-                  className={`group amenity flex-shrink-0 w-[80px] h-[80px] border rounded-full p-5 transition-all duration-300 cursor-pointer ${isActive ? "bg-[#b3162f] border-transparent" : "bg-transparent hover:bg-[#b3162f]"}`}
+                  className={`group amenity flex-shrink-0 w-[75px] h-[75px] sm:w-[80px] sm:h-[80px] border rounded-full p-4 sm:p-5 transition-all duration-300 cursor-pointer ${isActive ? "bg-[#b3162f] border-transparent" : "bg-transparent hover:bg-[#b3162f]"}`}
                 >
                   <img
                     src={iconPath}
@@ -65,9 +63,9 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
         </div>
 
         {/* Arrows + Counter */}
-        <div className="col-span-6">
-          <div className="flex gap-10 items-center ps-20">
-            <div className="opacity-70 flex gap-2 justify-end items-center h-full">
+        <div className="col-span-5 sm:col-span-6">
+          <div className="sm:flex gap-3 sm:gap-10 items-center ps-5 sm:ps-20">
+            <div className="opacity-70 flex gap-2 sm:justify-end items-center h-full">
               <div
                 className="cursor-pointer"
                 onClick={() =>
@@ -86,12 +84,12 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
               </div>
             </div>
             <div className="amenities-counter font-sangbleu">
-              <div className="counter text-4xl mb-3 flex gap-3 items-end">
+              <div className="counter text-2xl sm:text-4xl mb-3 flex gap-3 items-end">
                 {String(activeIndex + 1).padStart(2, "0")}
                 <span>-</span>
-                <span className="text-2xl">{data.length}</span>
+                <span className="sm:text-2xl">{data.length}</span>
               </div>
-              <div className="title uppercase tracking-wide text-xl">
+              <div className="title uppercase tracking-wide sm:text-xl">
                 exclusive amenities
               </div>
             </div>
@@ -101,29 +99,29 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
 
       {/* Image + Description */}
       <Suspense fallback="Loading...">
-      <div
-        data-gsap="fade-up"
-        data-gsap-duration="0.6"
-        data-gsap-delay="0.3"
-        className="grid grid-cols-12 py-10">
-        <div className="col-span-5">
-          <div className="amenityImg overflow-hidden">
-            <SetupGsapAnimations>
-              <img src={activeAmenity.image} alt="amenity" />
-            </SetupGsapAnimations>
-          </div>
-        </div>
-        <div className="col-span-7">
-          <div className="amenity_about px-10 lg:px-20 flex flex-col w-full h-full justify-center">
-            <div className="title font-sangbleu capitalize mb-5 text-[13px] lg:text-[20px] leading-[35px]">
-              {activeAmenity.title}
-            </div>
-            <div className="description leading-[30px]">
-              {activeAmenity.description}
+        <div
+          data-gsap="fade-up"
+          data-gsap-duration="0.6"
+          data-gsap-delay="0.3"
+          className="grid grid-cols-12 py-10">
+          <div className="col-span-12 sm:col-span-5">
+            <div className="amenityImg overflow-hidden">
+              <SetupGsapAnimations>
+                <img src={activeAmenity.image} alt="amenity" />
+              </SetupGsapAnimations>
             </div>
           </div>
+          <div className="col-span-12 sm:col-span-7">
+            <div className="amenity_about pt-10 sm:pt-0  lg:px-20 flex flex-col w-full h-full justify-center">
+              <div className="title font-sangbleu capitalize mb-5 text-[20px] leading-[35px]">
+                {activeAmenity.title}
+              </div>
+              <div className="description leading-[30px]">
+                {activeAmenity.description}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
       </Suspense>
 
       {/* Background Pattern */}
