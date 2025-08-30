@@ -9,15 +9,16 @@ import CardHeading from "../components/card/CardHeading";
 import TableContainer from "../components/table/TableContainer";
 
 const sectionConfigs = {
-  "home-banner": {
+  platter: {
     fields: [
+      { type: "text", name: "name", label: "Name" },
       { type: "image", name: "image", label: "Image" },
-      { type: "image", name: "mb_image", label: "Mobile Image" },
       { type: "text", name: "alt", label: "Alt Tag" },
+      { type: "text", name: "short_description", label: "Short Description" },
     ],
-    table: { head: ["Image", "Alt Tag"], header: ["image", "alt"] },
-    endpoint: "home-banner",
-    label: "Banner",
+    table: { head: ["Name","Short Description","Image", "Alt Tag"], header: ["name","short_description","image", "alt"] },
+    endpoint: "platter",
+    label: "Platter",
   },
   timeline: {
     fields: [
@@ -30,14 +31,43 @@ const sectionConfigs = {
     endpoint: "journey",
     label: "Timeline",
   },
-  clients: {
+  award: {
     fields: [
+      { type: "text", name: "title", label: "Title" },
       { type: "image", name: "image", label: "Image" },
       { type: "text", name: "alt", label: "Alt Tag" },
+      { type: "text", name: "short_description", label: "Short Description" },
     ],
-    table: { head: ["Image", "Alt Tag"], header: ["image", "alt"] },
-    endpoint: "client",
-    label: "Client",
+    table: { head: ["Title","Short Description","Image", "Alt Tag"], header: ["title","short_description","image", "alt"] },
+    endpoint: "award",
+    label: "Awards",
+  },
+  news: {
+    fields: [
+      { type: "image", name: "logo", label: "Logo" },
+      { type: "text", name: "alt", label: "Alt Tag" },
+      { type: "text", name: "short_description", label: "Short Description" },
+    ],
+    table: { head: ["Short Description","Logo", "Alt Tag"], header: ["short_description","logo", "alt"] },
+    endpoint: "news",
+    label: "News",
+  },
+  blog: {
+    fields: [
+      { type: "image", name: "feature_image", label: "Desktop Image" },
+      { type: "image", name: "mb_image", label: "Mobile Image" },
+      { type: "text", name: "alt", label: "Alt Tag" },
+      { type: "text", name: "heading", label: "Heading" },
+      { type: "text", name: "short_description", label: "Short Description" },
+      { type: "text", name: "meta_title", label: "Meta Title" },
+      { type: "text", name: "meta_keyword", label: "Meta Keywords" },
+      { type: "text", name: "meta_description", label: "Meta Description" },
+      { type: "richtext", name: "description", label: "Description" ,col: "md:col-span-12"},
+    ],
+    table: { head: ["Heading","Short Description","Image",], header: ["heading","short_description","feature_image",] },
+    endpoint: "blog",
+    label: "Blogs",
+    col:12
   },
   testimonial: {
     fields: [
@@ -61,38 +91,6 @@ const sectionConfigs = {
     table: { head: ["Title", "Description"], header: ["title", "short_description"] },
     endpoint: "pillar",
     label: "Pillars",
-  },
-  highlights: {
-    fields: [
-      { type: "text", name: "title", label: "Title" },
-      { type: "text", name: "short_description", label: "Description" },
-    ],
-    table: { head: ["Title", "Description"], header: ["title", "short_desc"] },
-    endpoint: "home-highlight",
-    label: "Highlight",
-  },
-  gallery: {
-    fields: [
-      { type: "image", name: "image", label: "Image" },
-      { type: "text", name: "alt", label: "Alt Tag" },
-    ],
-    table: { head: ["Image", "Alt Tag"], header: ["image", "alt"] },
-    endpoint: "home-galleries",
-    label: "Gallery",
-  },
-  "about-us": {
-    fields: [
-      { type: "text", name: "title", label: "Heading" },
-      { type: "text", name: "short_description", label: "Description" },
-      { type: "image", name: "icon", label: "Icon" },
-      { type: "text", name: "alt", label: "Alt Tag" },
-    ],
-    table: {
-      head: ["Heading", "Description"],
-      header: ["title", "short_description"],
-    },
-    endpoint: "why-choose",
-    label: "About Us",
   },
   "our-team": {
     fields: [
@@ -197,7 +195,7 @@ useEffect(() => {
       <div className="grid grid-cols-12 gap-[20px]">
         <div className="col-span-12">
           <DynamicForm
-              title={editData ? `Edit ${config.label}` : `Add ${config.label}`}
+            title={editData ? `Edit ${config.label}` : `Add ${config.label}`}
             data={dynamicFields}
             onSubmit={handleAddOrUpdate}
             defaultValues={editData}

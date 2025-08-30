@@ -10,24 +10,21 @@ import { useCrud } from "../hooks/useCrud";
 
 
 const CMSPages=[
-  {name:"Home Banner",slug:"/admin/cms/home-banner"},
-  {name:"Timeline",slug:"/admin/cms/timeline"},
-  {name:"Our Team",slug:"/admin/cms/our-team"},
-  {name:"Testimonial",slug:"/admin/cms/testimonial"},
-  {name:"Brand Pillars",slug:"/admin/cms/pillar"},
-  {name:"Home Highlights",slug:"/admin/cms/highlights"},
-  {name:"Image Gallery",slug:"/admin/cms/gallery"},
-  {name:"Clients",slug:"/admin/cms/clients"},
-  {name:"Why Choose Us",slug:"/admin/cms/about-us",},
-  {name:"Meta",slug:"/admin/cms/meta",},
-]
+  {name:"Platter",slug:"platter"},
+  {name:"Timeline",slug:"timeline"},
+  {name:"Awards",slug:"award"},
+  {name:"News",slug:"news"},
+  {name:"Blogs",slug:"blog"},
+  {name:"Our Team",slug:"our-team"},
+  {name:"Testimonial",slug:"testimonial"},
+  {name:"Brand Pillars",slug:"pillar"},
+  {name:"Meta",slug:"meta",},
+];
 const Dashboard = () => {
   const [totalProject, setTotalProjects] = useState(0);
   
       const api = useApi(BASE_ADMIN);
       const { tableData : pages, } = useCrud(api, "distinct-all-pages");
-
-
 
   return (
     <section className=" grid grid-cols-12 gap-6 body-detail">

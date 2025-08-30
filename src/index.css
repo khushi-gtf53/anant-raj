@@ -102,3 +102,16 @@ background-size: 3px 3px;}
 .bg-primaryblue {
   background-color: #263a7f;
 }
+
+
+/* for blog editor style start */
+/* CKEditor dark mode overrides */
+.ck.ck-editor__editable_inline {
+  background: transparent !important; 
+  color: #fff !important; 
+  min-height: 250px;                 
+}
+
+
+
+/* for blog editor style end */
