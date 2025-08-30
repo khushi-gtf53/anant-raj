@@ -1,0 +1,25 @@
+/* .swiper-button-next, .swiper-button-prev */
+.myBlogSlider .swiper-button-next,
+.myBlogSlider .swiper-button-prev {
+    position: relative;
+    bottom: 80px;
+    margin-bottom: 0 !important;
+    right: 0;
+    left: inherit !important;
+    margin: 0 auto;
+    margin-right: 0;
+    width: 50px;
+    z-index: 2;
+    background: url('/assets/next.png') no-repeat;
+}
+
+.myBlogSlider .swiper-button-prev {
+    bottom: 36px;
+    right: 50px;
+    background: url('/assets/prev.png') no-repeat;
+}
+
+.myBlogSlider .swiper-button-prev:after,
+.myBlogSlider .swiper-button-next:after {
+    display: none;
+}

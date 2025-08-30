@@ -1,7 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 
-const truncateTitle = (title, maxWords = 5) => {
+const truncateTitle = (title, maxWords = 10) => {
     const words = title.split(' ');
     if (words.length > maxWords) {
         return words.slice(0, maxWords).join(' ') + '...';
@@ -9,10 +8,9 @@ const truncateTitle = (title, maxWords = 5) => {
     return title;
 };
 
-
-
 export default function BlogCard({ blogsData }) {
-    const truncatedTitle = truncateTitle(blogsData?.title, 9);
+    if (!blogsData) return null;
+    const truncatedTitle = truncateTitle(blogsData?.title, 12);
 
     return (
         <div className='blog__card w-full group'>

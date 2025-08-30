@@ -10,36 +10,25 @@ const Header = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation(); // Get current location from React Router
   const [isAboutUs, setIsAboutUs] = useState(false);
+
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Check if the URL contains "aboutus" or other pages based on location.pathname
-    const isAboutUsPage =
-      location.pathname.includes("aboutus") ||
-      location.pathname.includes("contactus") ||
-      location.pathname.includes("projects") ||
-      location.pathname.includes("investors") ||
-      location.pathname.includes("residential") ||
-      location.pathname.includes("blogs") ||
-      location.pathname.includes("estate-residences") ||
-      location.pathname.includes("csr") ||
-      location.pathname.includes("blogs");
+    // Set true if NOT on home page ("/")
+    const isNonHomePage = location.pathname !== "/";
 
-    // Update isAboutUs state whenever the location changes
-    setIsAboutUs(isAboutUsPage);
-
+    setIsAboutUs(isNonHomePage);
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Set if at extreme top (within 10px to prevent jitter)
       setIsAtTop(currentScrollY <= 10);
 
-      // Show header when scrolling up, hide when scrolling down
       if (currentScrollY > lastScrollY && currentScrollY > 10) {
-        setShowHeader(false); // Hide on scroll down
+        setShowHeader(false);
       } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
-        setShowHeader(true); // Show on scroll up or at top
+        setShowHeader(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -47,7 +36,10 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, location.pathname]); // Add location.pathname as dependency
+  }, [lastScrollY, location.pathname]);
+
+
+
 
   // Find portal target with error handling
   const portalTarget =
@@ -58,8 +50,8 @@ const Header = () => {
   const headerContent = (
     <header
       className={`w-full transition-all duration-300 ease-in-out ${showHeader
-          ? "fixed top-0 z-[100] translate-y-0"
-          : "fixed top-0 z-[100] -translate-y-full"
+        ? "fixed top-0 z-[100] translate-y-0"
+        : "fixed top-0 z-[100] -translate-y-full"
         } flex justify-between items-center px-[20px] lg:px-[100px] py-3 ${isAboutUs || (!isAtTop && showHeader)
           ? "bg-[#FBF6F6] text-black"
           : isAtTop && showHeader
@@ -91,10 +83,10 @@ const Header = () => {
               key={item}
               to={`${item.toLowerCase().replace(/\s+/g, "")}`}
               className={` lg:block hidden tracking-[1.2px] font-[400] text-[15px] ${isAboutUs || (!isAtTop && showHeader)
-                  ? "text-black"
-                  : isAtTop && showHeader && !isAboutUs
-                    ? "text-white"
-                    : "text-black"
+                ? "text-black"
+                : isAtTop && showHeader && !isAboutUs
+                  ? "text-white"
+                  : "text-black"
                 }`}
             >
               {item}
@@ -103,10 +95,10 @@ const Header = () => {
         )}
         <button
           className={`relative w-6 h-6 hover:text-gray-300 ${isAboutUs || (!isAtTop && showHeader)
-              ? "text-black"
-              : isAtTop && showHeader && !isAboutUs
-                ? "text-white"
-                : "text-black"
+            ? "text-black"
+            : isAtTop && showHeader && !isAboutUs
+              ? "text-white"
+              : "text-black"
             }`}
           aria-label="Menu"
           onClick={() => setMenuOpen(true)}
