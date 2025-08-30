@@ -24,12 +24,14 @@ const PlatterProjects = ({ tabs = [] }) => {
     const next = useRef(null);
 
     const renderProject = (project) => (
+        console.log(project, "lkdhl"),
+        
         <div className="">
-            <div  className="flex flex-col">
+            <div className="flex flex-col">
                 <Swiper
                     modules={[Navigation]}
                     loop={true}
-                    slidesPerView={ 'auto'}
+                    slidesPerView={'auto'}
 
                     speed={600}
                     spaceBetween={100}
@@ -37,69 +39,68 @@ const PlatterProjects = ({ tabs = [] }) => {
                     allowTouchMove={true}
                     className="platter_slider overflow-hidden lg:order-[0] order-[1] w-full"
                     navigation={{
-                        nextEl: ".banner-button-next",
-                        prevEl: ".banner-button-prev",
+                        nextEl: ".banner-button-prev",
+                        prevEl: ".banner-button-next",
                     }}
-                     breakpoints= {{
-                            320: {
+                    breakpoints={{
+                        320: {
                             slidesPerView: 1,
                             spaceBetween: 0
-                            },
-                             768: {
-                            slidesPerView:'auto',
-                            // spaceBetween: 20
-                            },
-                     }}
+                        },
+                        768: {
+                            slidesPerView: 'auto',
+                        },
+                    }}
                 >
                     {project.slides.map((imgSrc, index) => (
                         <SwiperSlide
                             key={index}
                             className="project_img swiper_slide_container"
-                           
+
                         >
                             <div className="lg:flex gap-[30px] lg:pb-0 pb-[20px]">
-                            <img
-                                src={imgSrc}
-                                alt={`Slide ${index + 1}`}
-                                className=" flex-1 lg:mb-[0] mb-[20px]  object-cover w-[100%] cursor-pointer"
-                            />
-                <div className="project_info flex  lg:gap-0 gap-[20px] flex-col justify-between lg:items-end">
-                    <div className="flex flex-col lg:items-end gap-2">
-                        <div className="project_name uppercase font-sangbleu tracking-wider">
-                            {project.name}
-                        </div>
-                        <div className="project_location uppercase">
-                            {project.location}
-                        </div>
-                    </div>
-                    <div className="flex flex-col lg:items-end gap-2">
-                        <div className="project_typology tracking-wider uppercase">
-                            {project.typology}
-                        </div>
-                        <div className="project_status tracking-wider uppercase">
-                            {project.status}
-                        </div>
-                        <div className="download py-2 mt-5 border-y text-center uppercase text-primaryblue font-bold">
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                Explore Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                 </SwiperSlide>
+                                <img
+                                    src={imgSrc}
+                                    alt={`Slide ${index + 1}`}
+                                    className=" flex-1 lg:mb-[0] mb-[20px]  object-cover w-[100%] cursor-pointer"
+                                />
+                                <div className="project_info flex  lg:gap-0 gap-[20px] flex-col justify-evenly lg:items-end">
+                                    <div className="flex flex-col lg:items-end gap-2">
+                                        <div className="project_name uppercase font-sangbleu tracking-wider">
+                                            {project.name}
+                                        </div>
+                                        <div className="project_location uppercase">
+                                            {project.location}
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col lg:items-end gap-2">
+                                        <div className="project_typology tracking-wider uppercase">
+                                            {project.typology}
+                                        </div>
+                                        <div className="project_status tracking-wider uppercase">
+                                            {project.status}
+                                        </div>
+                                        <div className="download py-2 mt-5 border-y text-center uppercase text-primaryblue font-bold">
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                                Explore Project
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className="flex justify-end lg:mt-[10px] lg:mb-0 mb-[10px]">
-               <IoIosArrowRoundBack className="cursor-pointer banner-button-next text-[#8e8d8d]"  size={30} />
-               <IoIosArrowRoundForward className="cursor-pointer banner-button-prev text-[#8e8d8d]"  size={30} />
-               </div>
+                <div className={`flex justify-end lg:mt-[10px] ${project.slides.length > 1 ? "block" : "hidden"} lg:mb-0 mb-[10px]`}>
+                    <IoIosArrowRoundBack className="cursor-pointer banner-button-next text-[#8e8d8d]" size={30} />
+                    <IoIosArrowRoundForward className="cursor-pointer banner-button-prev text-[#8e8d8d]" size={30} />
+                </div>
             </div>
- {/* <div className="viewall uppercase tracking-wider cursor-pointer -mt-10">
+            {/* <div className="viewall uppercase tracking-wider cursor-pointer -mt-10">
                     View All List And Search
                 </div> */}
             {/* Right: Thumbnail Slider */}
-           
+
         </div>
     );
 
@@ -107,7 +108,7 @@ const PlatterProjects = ({ tabs = [] }) => {
         const isOpen = activeTab === tab.key;
         const contentRef = useRef(null);
 
-    useEffect(() => {
+        useEffect(() => {
             if (contentRef.current) {
                 if (isOpen) {
                     gsap.fromTo(
@@ -115,7 +116,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                         { height: 0, autoAlpha: 0 },
                         {
                             height: "auto",
-                            padding : 10,
+                            padding: 10,
                             autoAlpha: 1,
                             duration: 0.6,
                             ease: "power2.out",
@@ -125,7 +126,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                 } else {
                     gsap.to(contentRef.current, {
                         height: 0,
-                        padding : 0,
+                        padding: 0,
                         autoAlpha: 0,
                         duration: 0.4,
                         ease: "power2.in",
@@ -146,7 +147,7 @@ const PlatterProjects = ({ tabs = [] }) => {
                     </div>
                     <div className="w-[65%] h-[1px] bg-black mt-[10px]" />
                     <div className="w-[10%] flex justify-center lg:mb-0 mb-[20px]">
-                        {isOpen ? <SlArrowUp  className="lg:text-[30px] text-[20px]"  /> : <SlArrowDown className="lg:text-[30px] text-[20px]" />}
+                        {isOpen ? <SlArrowUp className="lg:text-[30px] text-[20px]" /> : <SlArrowDown className="lg:text-[30px] text-[20px]" />}
                     </div>
                 </div>
                 <div
