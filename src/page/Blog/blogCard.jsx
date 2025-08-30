@@ -24,7 +24,7 @@ export default function BlogCard({ blogsData }) {
                     <img
                         src={blogsData?.img}
                         alt={blogsData?.alt || "blog img"}
-                        className='max-w-full w-full lg:max-h-[470px] object-cover'
+                        className='max-w-full w-full lg:max-h-[360px] object-cover'
                     />
                 </figure>
                 <div className='content__div'>
@@ -38,7 +38,7 @@ export default function BlogCard({ blogsData }) {
                         </h3>
                     </div>
                 </div>
-                <button className='text-primaryblue block py-[9px] px-12 border-y uppercase font-[600]'>Explore more</button>
+                <button className='text-[#263A7F] block py-[9px] px-12 border-y uppercase font-[600]'>Explore more</button>
             </Link>
         </div>
     )
