@@ -5,6 +5,8 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
+import "../../page/microsites/style.css"
+import CommonHeading from "../common/CommonHeading";
 
 const projectsData = {
     residential: [
@@ -44,6 +46,7 @@ const projectsData = {
 
 const ProjectsPage = () => {
     const swiperRef = useRef(null);
+      const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
     const [currentSlide, setCurrentSlide] = useState(0);
     const categoryList = ["residential", "commercial", "hospitality", "data centers"];
     const [activeCategory, setActiveCategory] = useState("residential");
@@ -84,11 +87,9 @@ const ProjectsPage = () => {
     };
 
     return (
-        <section className="w-full bg-[#FBF6F6] py-10 lg:py-20 px-5 lg:px-[100px]">
+        <section className="w-full bg-[#FBF6F6] wrapper">
             <div className="heading flex items-center justify-between mb-10">
-                <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
-                    Creating landmark spaces that inspire living, working, and beyond.
-                </h2>
+                <CommonHeading>Creating landmark spaces that inspire living, working, and beyond.</CommonHeading>
                 {/* <div className="opacity-70 flex gap-2 items-center">
                     <div className="gallery-button-prev cursor-pointer">
                         <IoIosArrowRoundBack size={40} />
@@ -128,15 +129,15 @@ const ProjectsPage = () => {
                 {flatSlides.map((project, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="grid grid-cols-12">
-                            <div className="col-span-7">
+                            <div className="col-span-12 sm:col-span-7">
                                 <Link to={project.link}>
-                                <div className="flex gap-10 items-center">
+                                <div className="sm:flex gap-10 items-center">
                                     <img
                                         src={project.mainImage}
                                         className="w-[500px] h-[400px] object-cover"
                                         alt=""
                                     />
-                                    <div className="max-w-[30%]">
+                                    <div className=" py-5 sm:py-0 sm:max-w-[30%]">
                                         <div className="font-sangbleu uppercase tracking-wider leading-[30px] lg:leading-[35px]">
                                             {project.title}
                                         </div>
@@ -147,8 +148,8 @@ const ProjectsPage = () => {
                                 </div>
                                 </Link>
                             </div>
-                            <div className="col-span-5">
-                                <div className="flex gap-5 justify-end">
+                            <div className="col-span-12 sm:col-span-5">
+                                <div className="flex gap-5 justify-between sm:justify-end">
                                     {project.otherImages.map((img, imgIndex) => (
                                         <img
                                             key={imgIndex}
@@ -166,7 +167,7 @@ const ProjectsPage = () => {
             </Swiper>
 
             {/* Tabs */}
-            <div className="project_tabs mt-10">
+            <div className={`project_tabs mt-10 ${isMobile ? "overflow-y-hidden overflow-x-auto scroll-smooth scrollable-content" : ""} `}>
                 <div className="grid grid-cols-12">
                     <div className="col-span-8">
                         <div className="flex items-center">

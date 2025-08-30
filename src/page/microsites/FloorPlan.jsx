@@ -6,6 +6,7 @@ import { Navigation, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "yet-another-react-lightbox/styles.css";
+import CommonHeading from "../../components/common/CommonHeading";
 
 const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
   const tabs = Object.keys(floorPlans);
@@ -21,11 +22,9 @@ const FloorPlan = ({ heading, floorPlans, masterPlan }) => {
 
   return (
     <section className="floor_plan w-full bg-[#FBF6F6] relative">
-      <div className="px-5 lg:px-[100px] py-[40px] lg:py-[100px]">
-      <div className="heading mb-10">
-        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
-          {heading}
-        </h2>
+      <div className="wrapper">
+      <div className="heading mb-10">        
+        <CommonHeading>{heading}</CommonHeading>
       </div>
 
       <div className="top_nav sm:flex pb-5 border-b justify-between items-center">

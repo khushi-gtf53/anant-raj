@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "./style.css"
 import { Lightbox } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import CommonHeading from "../../components/common/CommonHeading";
 
 const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
   const tabKeys = Object.keys(tabsData || {});
@@ -23,11 +24,9 @@ const LocationAdvantages = ({ tabsData, title, locationMap, onDownload }) => {
 
   return (
     <>
-      <section className="w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-white relative">
-        <div className="sm:flex space-y-5 sm:space-y-0 justify-between items-center mb-10">
-          <h2 className="text-primaryred font-sangbleu uppercase tracking-[2px] text-[13px] lg:text-[20px] leading-[30px] lg:leading-[40px]">
-            {title}
-          </h2>
+      <section className="w-full wrapper bg-white relative">
+        <div className="sm:flex space-y-5 sm:space-y-0 justify-between items-center mb-10">         
+          <CommonHeading>{title}</CommonHeading>
           {onDownload && (
             <div
               onClick={onDownload}
