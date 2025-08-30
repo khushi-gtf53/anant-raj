@@ -24,7 +24,6 @@ const PlatterProjects = ({ tabs = [] }) => {
     const next = useRef(null);
 
     const renderProject = (project) => (
-        console.log(project, "lkdhl"),
         
         <div className="">
             <div className="flex flex-col">
@@ -167,7 +166,7 @@ const PlatterProjects = ({ tabs = [] }) => {
 
     return (
         <>
-            <section id="projects" className="platter_projects relative w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
+            <section id="projects" className="platter_projects relative w-full wrapper bg-[#FBF6F6]">
                 {tabs.map((tab) => renderTab(tab))}
             </section>
             <Lightbox

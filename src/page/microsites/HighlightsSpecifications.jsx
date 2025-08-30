@@ -4,6 +4,7 @@ import { Lightbox } from "yet-another-react-lightbox";
 import gsap from "gsap";
 import "yet-another-react-lightbox/styles.css";
 import "./style.css"
+import CommonHeading from "../../components/common/CommonHeading";
 
 const HighlightsSpecifications = ({ sectionTitle, highlights = [], specifications = [] }) => {
   const [activeTab, setActiveTab] = useState("highlights");
@@ -144,11 +145,9 @@ const renderItems = (items) => {
 
   return (
     <>
-      <section className="highlights_specifications w-full px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-white">
-        <div className="heading mb-10">
-          <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
-            {sectionTitle}
-          </h2>
+      <section className="highlights_specifications w-full wrapper bg-white">
+        <div className="heading mb-10">         
+          <CommonHeading>{sectionTitle}</CommonHeading>
         </div>
         {renderTab("highlights", "highlights", highlights)}
         {/* {renderTab("specs", "specifications", specifications)} */}

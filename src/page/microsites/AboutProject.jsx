@@ -1,4 +1,5 @@
 import CountUp from "react-countup";
+import CommonHeading from "../../components/common/CommonHeading"
 import { useInView } from "react-intersection-observer";
 
 const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
@@ -10,12 +11,10 @@ const AboutProject = ({ heading, description, counters = [], brochureLink = "#",
          data-gsap="fade-up"
       data-gsap-duration="1"
       data-gsap-delay="0.5"
-        className="about_project w-full px-[20px] lg:px-[100px] py-[40px] lg:py-[100px] bg-white ">
+        className="about_project w-full wrapper bg-white ">
             <div className="grid grid-cols-12 border-b border-black pb-14">
                 <div className="col-span-12 lg:col-span-5">
-                    <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
-                        {heading}
-                    </h2>
+                     <CommonHeading>{heading}</CommonHeading>
                 </div>
                 <div className="col-span-12 lg:col-span-7 mt-6 lg:mt-0">
                     <div className="about tracking-[2px] leading-[30px] text-justify text-[13px] lg:text-[16px]">

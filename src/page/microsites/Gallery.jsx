@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import { Lightbox } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useState } from "react";
+import CommonHeading from "../../components/common/CommonHeading";
 
 const Gallery = ({ title = "Once In A Lifetime Experience", images = [] }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -13,11 +14,9 @@ const Gallery = ({ title = "Once In A Lifetime Experience", images = [] }) => {
     const [openIndex, setOpenIndex] = useState(0);
   return (
     <>
-      <section className="gallery_section mb-20 relative w-full sm:h-screen px-5 lg:px-[100px] py-[40px] lg:py-[100px] bg-[#FBF6F6]">
-        <div className="heading flex items-center justify-between mb-10">
-          <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
-            {title}
-          </h2>
+      <section className="gallery_section mb-20 relative w-full sm:h-screen wrapper bg-[#FBF6F6]">
+        <div className="heading flex items-center justify-between mb-10">         
+          <CommonHeading> {title}</CommonHeading>
 
           <div className="opacity-70 flex gap-2 items-center">
             <div className="gallery-button-prev cursor-pointer">

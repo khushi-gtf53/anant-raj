@@ -1,7 +1,8 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import SetupGsapAnimations from "../../utils/animation";
-import gsap from "gsap"; // Import GSAP
+import gsap from "gsap"; 
+import CommonHeading from "../../components/common/CommonHeading"
 
 const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,11 +32,9 @@ const Amenities = ({ data = [], heading = "", baseIconPath = "" }) => {
 
   return (
     <section className="amenities relative w-full bg-[#FBF6F6]">
-      <div className="px-[20px] lg:px-[100px] py-[40px] lg:py-[100px]">
-      <div className="heading">
-        <h2 className="text-primaryred font-sangbleu uppercase max-w-[90%] lg:max-w-[70%] tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">
-          {heading}
-        </h2>
+      <div className="wrapper">
+      <div className="heading">       
+        <CommonHeading>{heading}</CommonHeading>
       </div>
 
       <div className="grid grid-cols-12 py-5 sm:py-10">

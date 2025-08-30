@@ -36,11 +36,11 @@ const ProjectOverview = ({ logoSrc, projectName, location, apartmentTypes, statu
                     </div>
                 </div>
             </div>
-            <img
-                src={patternBgSrc}
-                alt="pattern-bg"
-                className="h-[70px] bg-[#FBF6F6] relative bottom-0 w-full object-cover"
-            />
+           <img
+        src="/assets/pattern-bg.png"
+        alt="pattern-bg"
+        className="h-[70px] bg-[#FBF6F6] absolute left-0 bottom-0 w-full object-cover"
+      />
         </section>
     );
 };

@@ -17,6 +17,7 @@ body {
   width: 30px;
   height: 30px;
 }
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
   font-size: 20px;
@@ -30,13 +31,16 @@ body {
   font-family: "SangBleuSans";
   src: url("/assets/fonts/sangbleu-sans-regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "StringFree";
   src: url("/assets/fonts/stringfree.otf") format("truetype");
 }
+
 .font-sangbleu {
   font-family: "SangBleuSans", sans-serif;
 }
+
 .font-stringfree {
   font-family: "StringFree";
 }
@@ -46,6 +50,7 @@ body {
     opacity: 0;
     width: 0px;
   }
+
   100% {
     opacity: 1;
     width: 512px;
@@ -56,6 +61,10 @@ body {
   animation: expandFadeIn 1.2s ease-in-out forwards;
 }
 
+.wrapper {
+  padding-inline: 20px;
+  padding-block: 40px;
+}
 
 .hero::before {
   content: "";
@@ -65,17 +74,16 @@ body {
   right: 0;
   bottom: 0;
   z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.72) 1.05%,
-    rgba(148, 147, 147, 0) 35.82%
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.72) 1.05%,
+      rgba(148, 147, 147, 0) 35.82%);
 }
 
 /* In your global CSS or Tailwind config */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -93,6 +101,15 @@ body {
   background-color: #263a7f;
 }
 
-.platter_slider .swiper-slide{
-  width: fit-content!important;
+.platter_slider .swiper-slide {
+  width: fit-content !important;
+}
+
+@media (width >=64rem
+  /* 1024px */
+) {
+  .wrapper {
+    padding-inline: 100px;
+    padding-block: 100px;
+  }
 }
