@@ -6,6 +6,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import BlogCard from '../blogCard';
 
 import "swiper/css/navigation";
+import { IoIosArrowDown } from 'react-icons/io';
 
 const blogsData = [
     {
@@ -23,9 +24,9 @@ const blogsData = [
         date: '2025-07-29'
     },
     {
-        img: '/assets/blogs/blog-2.webp',
+        img: '/assets/blogs/blog-1.webp',
         alt: 'blog 1',
-        title: 'Township Living Redefined: The Rise of Integrated Communities',
+        title: 'Anant Raj Manesar: Pioneering Innovation at the Heart of IT Innovation at the Heart of IT ',
         slug: 'blog-1',
         date: '2025-07-29'
     },
@@ -57,18 +58,20 @@ export default function BlogContent() {
                 <p className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[27px]">Over the past decade, Manesar has evolved from an industrial township into a dynamic extension of Gurugram’s corporate and logistics ecosystem. Its connectivity to NH-48, proximity to Delhi NCR, and availability of large land parcels have made it a magnet for forward-thinking companies across sectors.</p>
                 <p className="font-lato text-[14px] font-[400] tracking-[1px] mb-[30px] leading-[27px]">Over the past decade, Manesar has evolved from an industrial township into a dynamic extension of Gurugram’s corporate and logistics ecosystem. Its connectivity to NH-48, proximity to Delhi NCR, and availability of large land parcels have made it a magnet for forward-thinking companies across sectors.</p>
 
-                <button className='readmore'>
-                    <span className='icon'></span>
+                <button className='flex flex-col items-center readmore mx-auto'>
+                    <IoIosArrowDown className='lg:text-2xl text-[20px] text-gray-600' />
+                    <span className='text-[#263A7F] lg:text-[18px] text-[16px] uppercase font-bold'>Read More</span>
                 </button>
 
             </div>
             {/* suggested / latest blogs */}
 
-            <div className='latest__blogs'>
-                <h2 className=" font-sangbleu uppercase mb-8 tracking-[2px] leading-[30px] lg:leading-[40px] text-[13px] lg:text-[20px]">Latest Blogs</h2>
+            <div className='latest__blogs' id='other-blogs'>
+                <h2 className=" font-sangbleu uppercase mb-8 tracking-[2px] leading-[30px] lg:leading-[40px] text-[16px] lg:text-[20px]">Other Blogs</h2>
                 <Swiper
                     spaceBetween={50}
                     autoplay={true}
+                    loop={true}
                     navigation={true}
                     modules={[Navigation, Autoplay]}
                     className="myBlogSlider"

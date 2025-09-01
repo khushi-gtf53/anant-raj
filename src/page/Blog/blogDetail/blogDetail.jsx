@@ -9,8 +9,8 @@ const Obj = {
     imgUrl: "/assets/blogs/blog-detail.webp",
     linkTo: "discover-blogs",
     tabs: [
-        { tabname: "latest blog", tablink: "latest" }
-        , { tabname: "old blog", tablink: "old" }
+        { tabname: "blog detail", tablink: "discover-blogs" }
+        , { tabname: "old blog", tablink: "other-blogs" }
     ]
 }
 
